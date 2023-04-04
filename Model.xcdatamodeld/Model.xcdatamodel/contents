@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="20G1120" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Account" representedClassName="Account" syncable="YES" codeGenerationType="class">
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="AccountsManager" representedClassName="AccountsManager" syncable="YES" codeGenerationType="class">
+        <attribute name="accounts" optional="YES"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account"/>
+    </entity>
+    <elements>
+        <element name="AccountsManager" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="Account" positionX="-54" positionY="9" width="128" height="74"/>
+    </elements>
+</model>
