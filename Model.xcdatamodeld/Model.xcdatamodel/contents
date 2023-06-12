@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22E252" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AccountData" representedClassName="AccountData" syncable="YES" codeGenerationType="class">
-        <attribute name="password" optional="YES" attributeType="String"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
-        <attribute name="username" optional="YES" attributeType="String"/>
-    </entity>
-    <entity name="AccountsManager" representedClassName="AccountsManager" syncable="YES" codeGenerationType="class">
-        <attribute name="accounts" optional="YES" attributeType="Binary"/>
-        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AccountData"/>
+    <entity name="EncryptedCredentials" representedClassName="EncryptedCredentials" syncable="YES" codeGenerationType="class">
+        <attribute name="credentials" optional="YES" attributeType="Binary"/>
     </entity>
 </model>

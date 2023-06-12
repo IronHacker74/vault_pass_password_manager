@@ -5,23 +5,29 @@
 //  Created by Andrew Masters on 4/3/23.
 //
 
+import Foundation
 
-class AccountCredential {
-    var title: String
-    private var username: String // can also be email
-    private var password: String // assumed encryption
-
-    var dencryptedUsername: String {
-        return username
+class AccountCredential: Equatable {
+    
+    let title: String
+    private let username: Data
+    private let password: Data
+    
+    var decryptedUsername: String {
+        return Encryptor.standard.decryptStringData(self.username)
     }
-    var dencryptedPassword: String {
-        return password // dencrypt the password everytime we want to return it.
+    var decryptedPassword: String {
+        return Encryptor.standard.decryptStringData(self.password)
     }
 
     init(title: String, username: String, password: String){
         self.title = title
-        self.username = username
-        self.password = password
+        self.username = Encryptor.standard.encryptStringData(username)
+        self.password = Encryptor.standard.encryptStringData(password)
+    }
+    
+    static func == (lhs: AccountCredential, rhs: AccountCredential) -> Bool {
+        return lhs.title == rhs.title && lhs.decryptedUsername == rhs.decryptedUsername && lhs.decryptedPassword == rhs.decryptedPassword
     }
 }
 

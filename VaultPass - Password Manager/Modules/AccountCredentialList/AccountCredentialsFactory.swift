@@ -17,6 +17,6 @@ class AccountCredentialsFactory {
     }
     
     func makeCoordinator() -> AccountCredentialsDelegate {
-        return AccountCredentialsCoordinator()
+        return AccountCredentialsCoordinator(accountManager: AccountCredentialsManager())
     }
 }

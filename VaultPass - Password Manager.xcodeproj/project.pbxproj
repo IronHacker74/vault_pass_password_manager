@@ -16,6 +16,9 @@
 		8328759B2A3194F6006694FE /* AccountCredentialsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */; };
 		8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8328759E2A319EAC006694FE /* AccountCredentialCell.xib */; };
 		832875A22A31A4E8006694FE /* AccountCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */; };
+		83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FCE2A330834008B3C09 /* Encryptor.swift */; };
+		83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
+		83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */; };
 		9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51629DA107900FFD65B /* AppDelegate.swift */; };
 		9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51829DA107900FFD65B /* SceneDelegate.swift */; };
 		9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */; };
@@ -24,7 +27,6 @@
 		9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9520B52129DA107D00FFD65B /* LaunchScreen.storyboard */; };
 		9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B52D29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift */; };
 		9520B53829DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B53729DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift */; };
-		9520B53A29DA107D00FFD65B /* VaultPass___Password_ManagerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B53929DA107D00FFD65B /* VaultPass___Password_ManagerUITestsLaunchTests.swift */; };
 		9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9520B54629DA3A2300FFD65B /* Model.xcdatamodeld */; };
 		9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B54929DBC04900FFD65B /* AccountCredential.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,9 @@
 		8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialsMediatingController.xib; sourceTree = "<group>"; };
 		8328759E2A319EAC006694FE /* AccountCredentialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialCell.xib; sourceTree = "<group>"; };
 		832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManager.swift; sourceTree = "<group>"; };
+		83AD0FCE2A330834008B3C09 /* Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryptor.swift; sourceTree = "<group>"; };
+		83AD0FD22A3309A9008B3C09 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
+		83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManagerTests.swift; sourceTree = "<group>"; };
 		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B51629DA107900FFD65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9520B51829DA107900FFD65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		9520B52D29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaultPass___Password_ManagerTests.swift"; sourceTree = "<group>"; };
 		9520B53329DA107D00FFD65B /* VaultPass - Password ManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VaultPass - Password ManagerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B53729DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaultPass___Password_ManagerUITests.swift"; sourceTree = "<group>"; };
-		9520B53929DA107D00FFD65B /* VaultPass___Password_ManagerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaultPass___Password_ManagerUITestsLaunchTests.swift"; sourceTree = "<group>"; };
 		9520B54729DA3A2300FFD65B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9520B54929DBC04900FFD65B /* AccountCredential.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredential.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,9 +116,19 @@
 			isa = PBXGroup;
 			children = (
 				832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */,
+				83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */,
 				9520B54929DBC04900FFD65B /* AccountCredential.swift */,
 			);
 			path = AccountManager;
+			sourceTree = "<group>";
+		};
+		83AD0FCD2A330819008B3C09 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				83AD0FCE2A330834008B3C09 /* Encryptor.swift */,
+				83AD0FD22A3309A9008B3C09 /* Converter.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		9520B50A29DA107900FFD65B = {
@@ -141,6 +155,7 @@
 		9520B51529DA107900FFD65B /* VaultPass - Password Manager */ = {
 			isa = PBXGroup;
 			children = (
+				83AD0FCD2A330819008B3C09 /* Utilities */,
 				832875A02A31A4B5006694FE /* AccountManager */,
 				9520B54C29DBC5F600FFD65B /* Main */,
 				9520B54B29DBC5E800FFD65B /* Modules */,
@@ -164,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				9520B53729DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift */,
-				9520B53929DA107D00FFD65B /* VaultPass___Password_ManagerUITestsLaunchTests.swift */,
 			);
 			path = "VaultPass - Password ManagerUITests";
 			sourceTree = "<group>";
@@ -336,6 +350,8 @@
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
 				832875862A30276B006694FE /* LoginCoordinator.swift in Sources */,
+				83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */,
+				83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */,
 				8328758F2A302900006694FE /* LoginFactory.swift in Sources */,
 				832875972A315595006694FE /* AccountCredentialCell.swift in Sources */,
 				9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */,
@@ -352,6 +368,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
 				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,7 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9520B53829DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift in Sources */,
-				9520B53A29DA107D00FFD65B /* VaultPass___Password_ManagerUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
