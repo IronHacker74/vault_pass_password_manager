@@ -41,8 +41,10 @@ class LoginCoordinator: LoginDelegate {
     
     private func pushAccountCredentialsController() {
         let factory = AccountCredentialsFactory()
-        let controller = factory.makeMediatingController()
-        self.navigation?.pushViewController(controller, animated: true)
+        var controller = factory.makeMediatingController()
+        controller = UINavigationController(rootViewController: controller)
+        UIApplication.shared.windows.first?.rootViewController = controller
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
 }

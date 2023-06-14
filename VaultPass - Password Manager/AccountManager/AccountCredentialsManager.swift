@@ -9,11 +9,51 @@ import UIKit
 import CoreData
 
 class AccountCredentialsManager {
-    let converter: Converter = Converter()
-    
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let converter: Converter = Converter()
+    
+    private let lowerCaseKey = "lower_case_key"
+    private let upperCaseKey = "upper_case_key"
+    private let numbersKey = "numbers_key"
+    private let specialCharKey = "specialCharKey"
+    
+    private var useLowerCaseLetters: Bool {
+        return UserDefaults.standard.bool(forKey: self.lowerCaseKey)
+    }
+    private var useUpperCaseLetters: Bool {
+        return UserDefaults.standard.bool(forKey: self.upperCaseKey)
+    }
+    private var useNumbers: Bool {
+        return UserDefaults.standard.bool(forKey: self.numbersKey)
+    }
+    private var useSpecialChars: Bool {
+        return UserDefaults.standard.bool(forKey: self.specialCharKey)
+    }
     
     init() {
+    }
+    
+    private func lowerCase() -> String {
+        return self.useLowerCaseLetters ? "abcdefghijklmnopqrstuvwxyz" : ""
+    }
+    
+    private func upperCase() -> String {
+        return self.useUpperCaseLetters ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ" : ""
+    }
+
+    private func numbers() -> String {
+        return self.useNumbers ? "1234567890" : ""
+    }
+    
+    private func specialChars() -> String {
+        return self.useSpecialChars ? "!@#$*" : ""
+    }
+    
+    func generatePassword() -> String {
+        let length = 10
+        let passwordCharacters = lowerCase() + upperCase() + numbers() + specialChars()
+        let newPassword = String((0..<length).compactMap{ _ in passwordCharacters.randomElement() })
+        return newPassword
     }
     
     /**

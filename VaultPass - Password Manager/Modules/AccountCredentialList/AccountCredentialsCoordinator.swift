@@ -26,8 +26,13 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         displayable.updateAccountCredentials(credentials)
     }
     
-    func accountCredentialCellWasTapped() {
-        // TODO: user tapped cell, so reveal the username and passcode
-        print("user tapped cell")
+    func accountCredentialsAddButtonPressed(_ controller: UIViewController) {
+        let factory = CredentialConfigureFactory()
+        let configureController = factory.makeMediatingController(manager: self.accountManager)
+        controller.navigationController?.pushViewController(configureController, animated: true)
+    }
+    
+    func accountCredentialsSettingsButtonPressed(_ controller: UIViewController) {
+        // TODO: push settings screen
     }
 }

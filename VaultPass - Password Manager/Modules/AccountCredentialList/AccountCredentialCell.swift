@@ -12,13 +12,16 @@ class AccountCredentialCell: UITableViewCell {
     @IBOutlet private(set) var title: UILabel!
     @IBOutlet private(set) var username: UILabel!
     @IBOutlet private(set) var password: UILabel!
+    @IBOutlet private(set) var revealLabel: UILabel!
     
     func configureCell(title: String) {
         self.title.text = title
+        self.selectedBackgroundView?.backgroundColor = .systemBlue
     }
     
-    func reveal(username: String, password: String) {
-        self.username.text = username
-        self.password.text = password
+    func reveal(credential: AccountCredential) {
+        self.username.text = credential.decryptedUsername
+        self.password.text = credential.decryptedPassword
+        self.revealLabel.isHidden = true
     }
 }

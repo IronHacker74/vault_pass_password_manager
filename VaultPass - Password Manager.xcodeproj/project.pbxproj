@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */; };
+		831288EE2A383FF7009549F0 /* CredentialConfigureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */; };
+		831288F02A384014009549F0 /* CredentialConfigureMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */; };
+		831288F22A3843D7009549F0 /* CredentialConfigureMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831288F12A3843D7009549F0 /* CredentialConfigureMediatingController.xib */; };
 		832875822A302467006694FE /* LoginMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875812A302467006694FE /* LoginMediatingController.swift */; };
 		832875862A30276B006694FE /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875852A30276B006694FE /* LoginCoordinator.swift */; };
 		832875882A302839006694FE /* AccountCredentialsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875872A302839006694FE /* AccountCredentialsCoordinator.swift */; };
@@ -49,6 +53,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialConfigureFactory.swift; sourceTree = "<group>"; };
+		831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialConfigureCoordinator.swift; sourceTree = "<group>"; };
+		831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialConfigureMediatingController.swift; sourceTree = "<group>"; };
+		831288F12A3843D7009549F0 /* CredentialConfigureMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CredentialConfigureMediatingController.xib; sourceTree = "<group>"; };
 		832875812A302467006694FE /* LoginMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMediatingController.swift; sourceTree = "<group>"; };
 		832875852A30276B006694FE /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		832875872A302839006694FE /* AccountCredentialsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsCoordinator.swift; sourceTree = "<group>"; };
@@ -102,6 +110,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		831288EA2A383F32009549F0 /* CredentialConfigure */ = {
+			isa = PBXGroup;
+			children = (
+				831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */,
+				831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */,
+				831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */,
+				831288F12A3843D7009549F0 /* CredentialConfigureMediatingController.xib */,
+			);
+			path = CredentialConfigure;
+			sourceTree = "<group>";
+		};
 		832875802A30244C006694FE /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,9 +174,9 @@
 		9520B51529DA107900FFD65B /* VaultPass - Password Manager */ = {
 			isa = PBXGroup;
 			children = (
+				9520B54C29DBC5F600FFD65B /* Main */,
 				83AD0FCD2A330819008B3C09 /* Utilities */,
 				832875A02A31A4B5006694FE /* AccountManager */,
-				9520B54C29DBC5F600FFD65B /* Main */,
 				9520B54B29DBC5E800FFD65B /* Modules */,
 				9520B51C29DA107900FFD65B /* Main.storyboard */,
 				9520B51F29DA107D00FFD65B /* Assets.xcassets */,
@@ -188,6 +207,7 @@
 			children = (
 				832875802A30244C006694FE /* Login */,
 				9520B54D29DBC62100FFD65B /* AccountCredentialList */,
+				831288EA2A383F32009549F0 /* CredentialConfigure */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -318,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831288F22A3843D7009549F0 /* CredentialConfigureMediatingController.xib in Resources */,
 				8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */,
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,
 				9520B52029DA107D00FFD65B /* Assets.xcassets in Resources */,
@@ -347,6 +368,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831288EE2A383FF7009549F0 /* CredentialConfigureCoordinator.swift in Sources */,
+				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
 				832875862A30276B006694FE /* LoginCoordinator.swift in Sources */,
@@ -358,6 +381,7 @@
 				9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */,
 				832875882A302839006694FE /* AccountCredentialsCoordinator.swift in Sources */,
 				832875A22A31A4E8006694FE /* AccountCredentialsManager.swift in Sources */,
+				831288F02A384014009549F0 /* CredentialConfigureMediatingController.swift in Sources */,
 				832875822A302467006694FE /* LoginMediatingController.swift in Sources */,
 				8328758A2A30285C006694FE /* AccountCredentialsFactory.swift in Sources */,
 				9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */,

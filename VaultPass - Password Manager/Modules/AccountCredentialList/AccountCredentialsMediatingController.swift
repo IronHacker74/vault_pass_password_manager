@@ -10,7 +10,8 @@ import UIKit
 protocol AccountCredentialsDelegate {
     func accountCredentialsViewDidLoad(_ controller: UIViewController)
     func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable)
-    func accountCredentialCellWasTapped()
+    func accountCredentialsAddButtonPressed(_ controller: UIViewController)
+    func accountCredentialsSettingsButtonPressed(_ controller: UIViewController)
 }
 
 protocol AccountCredentialsDisplayable {
@@ -38,10 +39,16 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
         super.viewDidAppear(animated)
         self.delegate?.accountCredentialsViewDidAppear(self)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.configureNavigationBar()
+    }
 
     private func configureNavigationBar() {
-        self.navigationController?.navigationBar.topItem?.title = "My Credentials"
-        // TODO: Add button on left and right side of navigation bar for settings and adding a password, respectively.
+        self.navigationItem.title = "My Credentials"
+        self.navigationItem.setLeftBarButton(makeSettingsButton(), animated: false)
+        self.navigationItem.setRightBarButton(makeAddButton(), animated: false)
     }
     
     func updateAccountCredentials(_ credentials: [AccountCredential]) {
@@ -51,6 +58,26 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
     
     func displayError() {
         // TODO: create and display an error pop up.
+    }
+    
+    private func makeAddButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonPressed))
+        button.tintColor = .systemBlue
+        return button
+    }
+    
+    private func makeSettingsButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonPressed))
+        button.tintColor = .systemBlue
+        return button
+    }
+    
+    @objc func addButtonPressed() {
+        self.delegate?.accountCredentialsAddButtonPressed(self)
+    }
+    
+    @objc func settingsButtonPressed() {
+        self.delegate?.accountCredentialsSettingsButtonPressed(self)
     }
 }
 
@@ -63,10 +90,17 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AccountCredentialCell else {
             return UITableViewCell()
         }
-        cell.configureCell(title: "Amazon")
+        let title = self.credentials[indexPath.row].title
+        cell.configureCell(title: title)
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell else {
+            return
+        }
+        cell.reveal(credential: self.credentials[indexPath.row])
+        
+    }
 }
 
