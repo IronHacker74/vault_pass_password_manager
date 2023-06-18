@@ -44,5 +44,69 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // then
         XCTAssertEqual(credentials, testAccounts)
     }
+    
+    func testPasswordStrengthIsNone() {
+        // given
+        let manager = AccountCredentialsManager()
+        manager.setPasswordSettingsToDefault()
+        // when
+        manager.toggleStringType(of: .lowerCase)
+        manager.toggleStringType(of: .upperCase)
+        manager.toggleStringType(of: .numbers)
+        manager.toggleStringType(of: .specialChar)
+        // then
+        XCTAssertEqual(.none, manager.passwordStrength())
+        XCTAssertEqual(.black, manager.passwordStrengthColor())
+    }
+    
+    func testPasswordStrengthIsBad() {
+        // given
+        let manager = AccountCredentialsManager()
+        manager.setPasswordSettingsToDefault()
+        // when
+        manager.toggleStringType(of: .lowerCase)
+        manager.toggleStringType(of: .upperCase)
+        manager.toggleStringType(of: .specialChar)
+        manager.changePasswordLength(8)
+        // then
+        XCTAssertEqual(.bad, manager.passwordStrength())
+        XCTAssertEqual(.red, manager.passwordStrengthColor())
+    }
+    
+    func testPasswordStrengthIsOkay() {
+        // given
+        let manager = AccountCredentialsManager()
+        manager.setPasswordSettingsToDefault()
+        // when
+        manager.toggleStringType(of: .lowerCase)
+        manager.changePasswordLength(10)
+        // then
+        XCTAssertEqual(.okay, manager.passwordStrength())
+        XCTAssertEqual(.orange, manager.passwordStrengthColor())
+    }
+    
+    func testPasswordStrengthIsGood() {
+        // given
+        let manager = AccountCredentialsManager()
+        manager.setPasswordSettingsToDefault()
+        // when
+        manager.toggleStringType(of: .lowerCase)
+        manager.toggleStringType(of: .upperCase)
+        // then
+        XCTAssertEqual(.good, manager.passwordStrength())
+        XCTAssertEqual(.yellow, manager.passwordStrengthColor())
+    }
+    
+    func testPasswordStrengthIsBest() {
+        // given
+        let manager = AccountCredentialsManager()
+        manager.setPasswordSettingsToDefault()
+        // when
+        manager.toggleStringType(of: .specialChar)
+        manager.changePasswordLength(18)
+        // then
+        XCTAssertEqual(.best, manager.passwordStrength())
+        XCTAssertEqual(.green, manager.passwordStrengthColor())
+    }
 
 }

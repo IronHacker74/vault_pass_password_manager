@@ -8,6 +8,21 @@
 import UIKit
 import CoreData
 
+enum PasswordStringType {
+    case lowerCase
+    case upperCase
+    case numbers
+    case specialChar
+}
+
+enum PasswordStrength {
+    case none
+    case bad
+    case okay
+    case good
+    case best
+}
+
 class AccountCredentialsManager {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let converter: Converter = Converter()
@@ -15,22 +30,29 @@ class AccountCredentialsManager {
     private let lowerCaseKey = "lower_case_key"
     private let upperCaseKey = "upper_case_key"
     private let numbersKey = "numbers_key"
-    private let specialCharKey = "specialCharKey"
+    private let specialCharKey = "special_char_key"
+    private let passwordLengthKey = "password_length_key"
     
-    private var useLowerCaseLetters: Bool {
+    var useLowerCaseLetters: Bool {
         return UserDefaults.standard.bool(forKey: self.lowerCaseKey)
     }
-    private var useUpperCaseLetters: Bool {
+    var useUpperCaseLetters: Bool {
         return UserDefaults.standard.bool(forKey: self.upperCaseKey)
     }
-    private var useNumbers: Bool {
+    var useNumbers: Bool {
         return UserDefaults.standard.bool(forKey: self.numbersKey)
     }
-    private var useSpecialChars: Bool {
+    var useSpecialChars: Bool {
         return UserDefaults.standard.bool(forKey: self.specialCharKey)
+    }
+    var passwordLength: Int {
+        return UserDefaults.standard.integer(forKey: self.passwordLengthKey)
     }
     
     init() {
+        if LoginData.standard.getFirstTimeUserData() {
+            self.setPasswordSettingsToDefault()
+        }
     }
     
     private func lowerCase() -> String {
@@ -49,11 +71,110 @@ class AccountCredentialsManager {
         return self.useSpecialChars ? "!@#$*" : ""
     }
     
+    func setPasswordSettingsToDefault() {
+        UserDefaults.standard.set(true, forKey: self.specialCharKey)
+        UserDefaults.standard.set(true, forKey: self.numbersKey)
+        UserDefaults.standard.set(true, forKey: self.upperCaseKey)
+        UserDefaults.standard.set(true, forKey: self.lowerCaseKey)
+        UserDefaults.standard.set(12, forKey: self.passwordLengthKey)
+    }
+    
+    func toggleStringType(of type: PasswordStringType) {
+        switch type {
+        case .lowerCase:
+            changePasswordStringType(for: self.useLowerCaseLetters, withKey: self.lowerCaseKey)
+        case .upperCase:
+            changePasswordStringType(for: self.useUpperCaseLetters, withKey: self.upperCaseKey)
+        case .numbers:
+            changePasswordStringType(for: self.useNumbers, withKey: self.numbersKey)
+        case .specialChar:
+            changePasswordStringType(for: self.useSpecialChars, withKey: self.specialCharKey)
+        }
+    }
+    
+    func changePasswordLength(_ length: Int){
+        UserDefaults.standard.set(length, forKey: self.passwordLengthKey)
+    }
+    
+    private func changePasswordStringType(for currentValue: Bool, withKey key: String) {
+        let newValue = currentValue ? false : true
+        UserDefaults.standard.set(newValue, forKey: key)
+    }
+    
     func generatePassword() -> String {
-        let length = 10
+        let length = passwordLength
         let passwordCharacters = lowerCase() + upperCase() + numbers() + specialChars()
         let newPassword = String((0..<length).compactMap{ _ in passwordCharacters.randomElement() })
         return newPassword
+    }
+    
+    private func numberOfPasswordStringTypesEnabled() -> Int {
+        var stringTypesEnabled: Int = 0
+        if self.useLowerCaseLetters {
+            stringTypesEnabled = stringTypesEnabled + 1
+        }
+        if self.useUpperCaseLetters {
+            stringTypesEnabled = stringTypesEnabled + 1
+        }
+        if self.useNumbers {
+            stringTypesEnabled = stringTypesEnabled + 1
+        }
+        if self.useSpecialChars {
+            stringTypesEnabled = stringTypesEnabled + 1
+        }
+        return stringTypesEnabled
+    }
+    
+    func passwordStrength() -> PasswordStrength {
+        let stringTypesEnabled = self.numberOfPasswordStringTypesEnabled()
+        let passwordLength = self.passwordLength
+        var type: PasswordStrength = .none
+        if passwordLength <= 10 {
+            if stringTypesEnabled == 0 {
+                type = .none
+            } else if stringTypesEnabled < 3 {
+                type = .bad
+            } else if stringTypesEnabled >= 3 {
+                type = .okay
+            }
+        } else if passwordLength > 10, passwordLength < 15 {
+            if stringTypesEnabled == 0 {
+                type = .none
+            } else if stringTypesEnabled == 1 {
+                type = .bad
+            } else if stringTypesEnabled == 2 {
+                type = .okay
+            } else if stringTypesEnabled > 2 {
+                type = .good
+            }
+        } else {
+            if stringTypesEnabled == 0 {
+                type = .none
+            } else if stringTypesEnabled == 1 {
+                type = .bad
+            } else if stringTypesEnabled == 2 {
+                type = .okay
+            } else if stringTypesEnabled >= 3 {
+                type = .best
+            }
+        }
+        return type
+    }
+    
+    func passwordStrengthColor() -> UIColor {
+        let passwordStrength = self.passwordStrength()
+        switch passwordStrength {
+        case .none:
+            return .black
+        case .bad:
+            return .red
+        case .okay:
+            return .orange
+        case .good:
+            return .yellow
+        case .best:
+            return .green
+        }
     }
     
     /**
@@ -112,7 +233,7 @@ class AccountCredentialsManager {
         }
     }
     
-    private func deleteStore() {
+    func deleteStore() {
         guard let data = try? context.fetch(AccountCredential.fetchRequest()) else {
             return
         }

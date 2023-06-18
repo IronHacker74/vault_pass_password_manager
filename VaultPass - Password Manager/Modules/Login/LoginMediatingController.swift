@@ -8,6 +8,7 @@
 import UIKit
 
 protocol LoginDelegate {
+    func loginViewDidAppear()
     func loginWithAppleAuth()
 }
 class LoginMediatingController: UIViewController {
@@ -20,13 +21,12 @@ class LoginMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = LoginCoordinator(factory: LoginFactory(), navigation: self.navigationController)
-        self.loginDetailLabel.text = "Use Apple's iPhone authentication for a password-free way to login and manage your passwords."
+        self.loginDetailLabel.text = "Use your iPhone's authentication to login and manage your passwords."
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        // TODO: Check if user has any credentials yet before checking apple auth here
-        self.delegate?.loginWithAppleAuth()
+        self.delegate?.loginViewDidAppear()
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {

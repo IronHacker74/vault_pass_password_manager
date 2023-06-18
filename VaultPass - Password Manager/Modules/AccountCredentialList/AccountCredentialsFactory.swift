@@ -10,13 +10,14 @@ import UIKit
 class AccountCredentialsFactory {
     
     func makeMediatingController() -> UIViewController {
-        let coordinator = makeCoordinator()
         let controller = AccountCredentialsMediatingController()
+        let navigation = UINavigationController(rootViewController: controller)
+        let coordinator = makeCoordinator(navigation: navigation)
         controller.delegate = coordinator
-        return controller
+        return navigation
     }
     
-    func makeCoordinator() -> AccountCredentialsDelegate {
-        return AccountCredentialsCoordinator(accountManager: AccountCredentialsManager())
+    func makeCoordinator(navigation: UINavigationController) -> AccountCredentialsDelegate {
+        return AccountCredentialsCoordinator(accountManager: AccountCredentialsManager(), navigation: navigation)
     }
 }

@@ -10,8 +10,10 @@ import UIKit
 protocol AccountCredentialsDelegate {
     func accountCredentialsViewDidLoad(_ controller: UIViewController)
     func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable)
-    func accountCredentialsAddButtonPressed(_ controller: UIViewController)
-    func accountCredentialsSettingsButtonPressed(_ controller: UIViewController)
+    func accountCredentialsAddButtonPressed()
+    func accountCredentialsSettingsButtonPressed()
+    func accountCredentialsSaveCredentials(_ credentials: [AccountCredential])
+    func accountCredentialsEditCredential(credential: AccountCredential)
 }
 
 protocol AccountCredentialsDisplayable {
@@ -22,17 +24,21 @@ protocol AccountCredentialsDisplayable {
 class AccountCredentialsMediatingController: UIViewController, AccountCredentialsDisplayable {
     
     @IBOutlet private(set) var tableview: UITableView!
+    @IBOutlet private(set) var searchBar: UISearchBar!
     
     var delegate: AccountCredentialsDelegate?
+    
     private var credentials: [AccountCredential] = []
+    private var filtered: [AccountCredential] = []
+    
     private let cellIdentifier = "AccountCredentialCell"
+    private var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
+    private let clipboard = UIPasteboard.general
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableview.dataSource = self
-        self.tableview.delegate = self
-        self.tableview.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.delegate?.accountCredentialsViewDidLoad(self)
+        self.registerTableView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +49,18 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.configureNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.dismissClipboardView()
+    }
+    
+    private func registerTableView() {
+        self.tableview.dataSource = self
+        self.tableview.delegate = self
+        self.tableview.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.tableview.keyboardDismissMode = .onDrag
     }
 
     private func configureNavigationBar() {
@@ -73,16 +91,26 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
     }
     
     @objc func addButtonPressed() {
-        self.delegate?.accountCredentialsAddButtonPressed(self)
+        self.delegate?.accountCredentialsAddButtonPressed()
     }
     
     @objc func settingsButtonPressed() {
-        self.delegate?.accountCredentialsSettingsButtonPressed(self)
+        self.delegate?.accountCredentialsSettingsButtonPressed()
+    }
+    
+    private func searchIsActive() -> Bool {
+        if let searchText = self.searchBar.text, searchText.isEmpty == false {
+            return true
+        }
+        return false
     }
 }
 
 extension AccountCredentialsMediatingController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.searchIsActive() {
+            return filtered.count
+        }
         return credentials.count
     }
     
@@ -90,8 +118,11 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AccountCredentialCell else {
             return UITableViewCell()
         }
-        let title = self.credentials[indexPath.row].title
-        cell.configureCell(title: title)
+        var credential: AccountCredential = self.credentials[indexPath.row]
+        if self.searchIsActive() {
+            credential = self.filtered[indexPath.row]
+        }
+        cell.configureCell(delegate: self, credential: credential)
         return cell
     }
     
@@ -99,8 +130,75 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell else {
             return
         }
-        cell.reveal(credential: self.credentials[indexPath.row])
-        
+        cell.reveal()
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell else {
+            return
+        }
+        cell.hideCredentials()
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .destructive, title: "Delete", handler: {action, view, completionHandler in
+//            self.deleteCell(index: indexPath.row)
+//            self.tableview.deleteRows(at: [indexPath], with: .fade)
+            completionHandler(true)
+        })
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    private func deleteCell(index: Int) {
+        // TODO: if filtered is being used instead of credentials, how do we delete it in credentials?
+//        self.credentials.remove(at: index)
+//        self.delegate?.accountCredentialsSaveCredentials(self.credentials)
     }
 }
 
+extension AccountCredentialsMediatingController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty == false {
+            self.filtered = self.credentials.filter({
+                $0.title.lowercased().contains(searchText.lowercased())
+            })
+        } else {
+            self.filtered = []
+        }
+        self.tableview.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
+    }
+}
+
+extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
+    func cellUsernameButtonTapped(credential: AccountCredential) {
+        self.clipboard.string = credential.decryptedUsername
+        self.showCopyToClipboardView()
+    }
+    
+    func cellPasswordButtonTapped(credential: AccountCredential) {
+        self.clipboard.string = credential.decryptedPassword
+        self.showCopyToClipboardView()
+    }
+    
+    func cellEditButtonTapped(credential: AccountCredential) {
+        self.delegate?.accountCredentialsEditCredential(credential: credential)
+    }
+}
+
+extension AccountCredentialsMediatingController: CopyToClipboardView, CopyToClipboardDelegate {
+    func showCopyToClipboardView() {
+        if let _ = self.copyToClipboardConfirmationView {
+            self.dismissClipboardView()
+        }
+        self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self)
+    }
+    
+    func dismissClipboardView() {
+        guard let _ = self.copyToClipboardConfirmationView else { return }
+        self.copyToClipboardConfirmationView?.removeFromSuperview()
+    }
+}

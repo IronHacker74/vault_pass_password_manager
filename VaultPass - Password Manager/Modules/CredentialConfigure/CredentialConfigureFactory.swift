@@ -9,8 +9,8 @@ import UIKit
 
 class CredentialConfigureFactory {
     
-    func makeMediatingController(manager: AccountCredentialsManager) -> UIViewController {
-        let coordinator = CredentialConfigureCoordinator(factory: self, manager: manager)
+    func makeMediatingController(manager: AccountCredentialsManager, credential: AccountCredential?) -> UIViewController {
+        let coordinator = CredentialConfigureCoordinator(factory: self, manager: manager, credential: credential)
         let controller = CredentialConfigureMediatingController(delegate: coordinator)
         return controller
     }

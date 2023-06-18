@@ -12,10 +12,16 @@ class LoginCoordinator: LoginDelegate {
     
     var factory: LoginFactory
     var navigation: UINavigationController?
-    
+        
     init(factory: LoginFactory, navigation: UINavigationController?) {
         self.factory = factory
         self.navigation = navigation
+    }
+    
+    func loginViewDidAppear() {
+        if LoginData.standard.getFirstTimeUserData() == false {
+            self.loginWithAppleAuth()
+        }
     }
     
     func loginWithAppleAuth() {
@@ -31,6 +37,9 @@ class LoginCoordinator: LoginDelegate {
                 try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Log in to manager your passwords")
                 print("Succcessful authentication")
                 DispatchQueue.main.async {
+                    if LoginData.standard.getFirstTimeUserData() {
+                        LoginData.standard.setFirstTimeUserData(false)
+                    }
                     self.pushAccountCredentialsController()
                 }
             } catch let error {
@@ -42,7 +51,6 @@ class LoginCoordinator: LoginDelegate {
     private func pushAccountCredentialsController() {
         let factory = AccountCredentialsFactory()
         var controller = factory.makeMediatingController()
-        controller = UINavigationController(rootViewController: controller)
         UIApplication.shared.windows.first?.rootViewController = controller
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }

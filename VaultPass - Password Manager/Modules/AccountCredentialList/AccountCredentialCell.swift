@@ -7,21 +7,63 @@
 
 import UIKit
 
+protocol AccountCredentialCellDelegate {
+    func cellUsernameButtonTapped(credential: AccountCredential)
+    func cellPasswordButtonTapped(credential: AccountCredential)
+    func cellEditButtonTapped(credential: AccountCredential)
+}
+
 class AccountCredentialCell: UITableViewCell {
     
     @IBOutlet private(set) var title: UILabel!
-    @IBOutlet private(set) var username: UILabel!
-    @IBOutlet private(set) var password: UILabel!
+    @IBOutlet private(set) var username: UIButton!
+    @IBOutlet private(set) var password: UIButton!
     @IBOutlet private(set) var revealLabel: UILabel!
     
-    func configureCell(title: String) {
-        self.title.text = title
+    private var delegate: AccountCredentialCellDelegate?
+    private var credential: AccountCredential?
+    
+    func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?) {
+        self.delegate = delegate
+        self.credential = credential
+        self.title.text = credential?.title
         self.selectedBackgroundView?.backgroundColor = .systemBlue
     }
     
-    func reveal(credential: AccountCredential) {
-        self.username.text = credential.decryptedUsername
-        self.password.text = credential.decryptedPassword
+    func reveal() {
+        self.username.setTitle(self.credential?.decryptedUsername, for: .normal)
+        self.username.isUserInteractionEnabled = true
+        self.password.setTitle(self.credential?.decryptedPassword, for: .normal)
+        self.password.isUserInteractionEnabled = true
         self.revealLabel.isHidden = true
+    }
+    
+    func hideCredentials() {
+        self.username.setTitle("", for: .normal)
+        self.username.isUserInteractionEnabled = false
+        self.password.setTitle("", for: .normal)
+        self.password.isUserInteractionEnabled = false
+        self.revealLabel.isHidden = false
+    }
+    
+    @IBAction func usernameButtonTapped(_ sender: UIButton) {
+        guard let credential else {
+            return
+        }
+        self.delegate?.cellUsernameButtonTapped(credential: credential)
+    }
+    
+    @IBAction func passwordButtonTapped(_ sender: UIButton) {
+        guard let credential else {
+            return
+        }
+        self.delegate?.cellPasswordButtonTapped(credential: credential)
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        guard let credential else {
+            return
+        }
+        self.delegate?.cellEditButtonTapped(credential: credential)
     }
 }

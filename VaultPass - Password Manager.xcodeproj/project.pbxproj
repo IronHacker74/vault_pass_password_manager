@@ -20,9 +20,17 @@
 		8328759B2A3194F6006694FE /* AccountCredentialsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */; };
 		8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8328759E2A319EAC006694FE /* AccountCredentialCell.xib */; };
 		832875A22A31A4E8006694FE /* AccountCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */; };
+		8348D7AD2A3EBAFC00D16B0B /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */; };
+		839D998B2A3AC6C500C59AC6 /* SettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998A2A3AC6C500C59AC6 /* SettingsFactory.swift */; };
+		839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998C2A3AC6CB00C59AC6 /* SettingsCoordinator.swift */; };
+		839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */; };
+		839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839D99902A3AC6E200C59AC6 /* SettingsMediatingController.xib */; };
+		839D99932A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */; };
+		839D99982A3C3A1100C59AC6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99972A3C3A1100C59AC6 /* UIView+.swift */; };
 		83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FCE2A330834008B3C09 /* Encryptor.swift */; };
 		83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
 		83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */; };
+		83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */; };
 		9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51629DA107900FFD65B /* AppDelegate.swift */; };
 		9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51829DA107900FFD65B /* SceneDelegate.swift */; };
 		9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */; };
@@ -66,9 +74,17 @@
 		8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialsMediatingController.xib; sourceTree = "<group>"; };
 		8328759E2A319EAC006694FE /* AccountCredentialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialCell.xib; sourceTree = "<group>"; };
 		832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManager.swift; sourceTree = "<group>"; };
+		8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		839D998A2A3AC6C500C59AC6 /* SettingsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFactory.swift; sourceTree = "<group>"; };
+		839D998C2A3AC6CB00C59AC6 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMediatingController.swift; sourceTree = "<group>"; };
+		839D99902A3AC6E200C59AC6 /* SettingsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsMediatingController.xib; sourceTree = "<group>"; };
+		839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyToClipboardConfirmationView.swift; sourceTree = "<group>"; };
+		839D99972A3C3A1100C59AC6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		83AD0FCE2A330834008B3C09 /* Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryptor.swift; sourceTree = "<group>"; };
 		83AD0FD22A3309A9008B3C09 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManagerTests.swift; sourceTree = "<group>"; };
+		83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyToClipboardConfirmationView.xib; sourceTree = "<group>"; };
 		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B51629DA107900FFD65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9520B51829DA107900FFD65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -141,11 +157,31 @@
 			path = AccountManager;
 			sourceTree = "<group>";
 		};
+		839D99892A3AC6AB00C59AC6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				839D998A2A3AC6C500C59AC6 /* SettingsFactory.swift */,
+				839D998C2A3AC6CB00C59AC6 /* SettingsCoordinator.swift */,
+				839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */,
+				839D99902A3AC6E200C59AC6 /* SettingsMediatingController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		839D99962A3C3A0900C59AC6 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				839D99972A3C3A1100C59AC6 /* UIView+.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
 		83AD0FCD2A330819008B3C09 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				83AD0FCE2A330834008B3C09 /* Encryptor.swift */,
 				83AD0FD22A3309A9008B3C09 /* Converter.swift */,
+				8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -174,6 +210,7 @@
 		9520B51529DA107900FFD65B /* VaultPass - Password Manager */ = {
 			isa = PBXGroup;
 			children = (
+				839D99962A3C3A0900C59AC6 /* Extras */,
 				9520B54C29DBC5F600FFD65B /* Main */,
 				83AD0FCD2A330819008B3C09 /* Utilities */,
 				832875A02A31A4B5006694FE /* AccountManager */,
@@ -208,6 +245,9 @@
 				832875802A30244C006694FE /* Login */,
 				9520B54D29DBC62100FFD65B /* AccountCredentialList */,
 				831288EA2A383F32009549F0 /* CredentialConfigure */,
+				839D99892A3AC6AB00C59AC6 /* Settings */,
+				839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */,
+				83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -340,9 +380,11 @@
 			files = (
 				831288F22A3843D7009549F0 /* CredentialConfigureMediatingController.xib in Resources */,
 				8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */,
+				839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */,
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,
 				9520B52029DA107D00FFD65B /* Assets.xcassets in Resources */,
 				9520B51E29DA107900FFD65B /* Main.storyboard in Resources */,
+				83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */,
 				8328759B2A3194F6006694FE /* AccountCredentialsMediatingController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,19 +411,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				831288EE2A383FF7009549F0 /* CredentialConfigureCoordinator.swift in Sources */,
+				839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */,
 				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
 				832875862A30276B006694FE /* LoginCoordinator.swift in Sources */,
 				83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */,
 				83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */,
+				839D99982A3C3A1100C59AC6 /* UIView+.swift in Sources */,
+				839D998B2A3AC6C500C59AC6 /* SettingsFactory.swift in Sources */,
 				8328758F2A302900006694FE /* LoginFactory.swift in Sources */,
 				832875972A315595006694FE /* AccountCredentialCell.swift in Sources */,
 				9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */,
 				9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */,
+				8348D7AD2A3EBAFC00D16B0B /* LoginData.swift in Sources */,
+				839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */,
 				832875882A302839006694FE /* AccountCredentialsCoordinator.swift in Sources */,
 				832875A22A31A4E8006694FE /* AccountCredentialsManager.swift in Sources */,
 				831288F02A384014009549F0 /* CredentialConfigureMediatingController.swift in Sources */,
+				839D99932A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift in Sources */,
 				832875822A302467006694FE /* LoginMediatingController.swift in Sources */,
 				8328758A2A30285C006694FE /* AccountCredentialsFactory.swift in Sources */,
 				9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */,
@@ -566,12 +614,14 @@
 				DEVELOPMENT_TEAM = BW3C2GGWGE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VaultPass - Password Manager/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = VaultPass;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to easily manager your passwords";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -579,6 +629,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -595,12 +648,14 @@
 				DEVELOPMENT_TEAM = BW3C2GGWGE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VaultPass - Password Manager/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = VaultPass;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to easily manager your passwords";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,6 +663,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
