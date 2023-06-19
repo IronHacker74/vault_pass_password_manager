@@ -13,7 +13,7 @@ protocol AccountCredentialsDelegate {
     func accountCredentialsAddButtonPressed()
     func accountCredentialsSettingsButtonPressed()
     func accountCredentialsSaveCredentials(_ credentials: [AccountCredential])
-    func accountCredentialsEditCredential(credential: AccountCredential)
+    func accountCredentialsEditCredential(index: Int)
 }
 
 protocol AccountCredentialsDisplayable {
@@ -118,11 +118,13 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AccountCredentialCell else {
             return UITableViewCell()
         }
-        var credential: AccountCredential = self.credentials[indexPath.row]
         if self.searchIsActive() {
-            credential = self.filtered[indexPath.row]
+            let credential = self.filtered[indexPath.row]
+            cell.configureCell(delegate: self, credential: credential, index: nil)
+        } else {
+            let credential = self.credentials[indexPath.row]
+            cell.configureCell(delegate: self, credential: credential, index: indexPath.row)
         }
-        cell.configureCell(delegate: self, credential: credential)
         return cell
     }
     
@@ -138,21 +140,6 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
             return
         }
         cell.hideCredentials()
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = UIContextualAction(style: .destructive, title: "Delete", handler: {action, view, completionHandler in
-//            self.deleteCell(index: indexPath.row)
-//            self.tableview.deleteRows(at: [indexPath], with: .fade)
-            completionHandler(true)
-        })
-        return UISwipeActionsConfiguration(actions: [delete])
-    }
-    
-    private func deleteCell(index: Int) {
-        // TODO: if filtered is being used instead of credentials, how do we delete it in credentials?
-//        self.credentials.remove(at: index)
-//        self.delegate?.accountCredentialsSaveCredentials(self.credentials)
     }
 }
 
@@ -184,8 +171,8 @@ extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
         self.showCopyToClipboardView()
     }
     
-    func cellEditButtonTapped(credential: AccountCredential) {
-        self.delegate?.accountCredentialsEditCredential(credential: credential)
+    func cellEditButtonTapped(index: Int) {
+        self.delegate?.accountCredentialsEditCredential(index: index)
     }
 }
 

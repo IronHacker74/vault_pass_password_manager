@@ -8,8 +8,16 @@
 import UIKit
 
 protocol CredentialConfigureDelegate {
-    func saveCredentialToStore(_ controller: UIViewController, title: String, username: String, password: String)
+    func credentialConfigureViewDidLoad(displayable: CredentialConfigureDisplayable)
+    func credentialConfigureViewWillDisappear()
+    func saveCredential(title: String, username: String, password: String)
     func generatePassword() -> String
+    func passwordSettingsPressed()
+    func deletebuttonPressed()
+}
+
+protocol CredentialConfigureDisplayable {
+    func fillFields(with credential: AccountCredential)
 }
 
 class CredentialConfigureMediatingController: UIViewController {
@@ -17,6 +25,7 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var titleField: UITextField!
     @IBOutlet private(set) var usernameField: UITextField!
     @IBOutlet private(set) var passwordField: UITextField!
+    @IBOutlet private(set) var errorLabel: UILabel!
     
     let delegate: CredentialConfigureDelegate?
     
@@ -32,22 +41,72 @@ class CredentialConfigureMediatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate?.credentialConfigureViewDidLoad(displayable: self)
         self.navigationItem.title = "Credential Configuration"
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.delegate?.credentialConfigureViewWillDisappear()
+    }
+    
+    @IBAction func passwordSettingsBtnPressed(_ sender: UIButton) {
+        self.delegate?.passwordSettingsPressed()
+    }
+    
     @IBAction func generatePasswordBtnPressed(_ sender: UIButton) {
-        guard let newPassword = self.delegate?.generatePassword() else {
-            // TODO: show error
+        guard let newPassword = self.delegate?.generatePassword(), !newPassword.isEmpty else {
+            self.showError("Password failed to generate")
             return
         }
+        self.hideErrorIfNeeded()
         self.passwordField.text = newPassword
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        guard let title = self.titleField.text, let username = self.usernameField.text, let password = self.passwordField.text else {
-            // TODO: show error
+        guard let title = self.titleField.text, !title.isEmpty else {
+            self.showError("Title required")
             return
         }
-        self.delegate?.saveCredentialToStore(self, title: title, username: username, password: password)
+        guard let username = self.usernameField.text, !username.isEmpty,
+                let password = self.passwordField.text, !password.isEmpty else {
+            self.showError("Username or password is required")
+            return
+        }
+        self.delegate?.saveCredential(title: title, username: username, password: password)
+    }
+    
+    @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        self.delegate?.deletebuttonPressed()
+    }
+    
+    private func showError(_ error: String){
+        self.errorLabel.text = error
+        if self.errorLabel.isHidden {
+            self.errorLabel.isHidden = false
+        }
+    }
+    
+    private func hideErrorIfNeeded() {
+        if self.errorLabel.isHidden == false {
+            self.errorLabel.isHidden = true
+        }
+    }
+}
+
+extension CredentialConfigureMediatingController: CredentialConfigureDisplayable {
+    func fillFields(with credential: AccountCredential) {
+        self.titleField.text = credential.title
+        self.usernameField.text = credential.decryptedUsername
+        self.passwordField.text = credential.decryptedPassword
+    }
+}
+
+extension CredentialConfigureMediatingController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.hideErrorIfNeeded()
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
     }
 }

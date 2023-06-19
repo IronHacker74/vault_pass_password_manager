@@ -17,9 +17,9 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         self.navigation = navigation
     }
     
-    private func pushConfigureCredential() {
+    private func pushConfigureCredential(with index: Int?) {
         let factory = CredentialConfigureFactory()
-        let configureController = factory.makeMediatingController(manager: self.accountManager, credential: nil)
+        let configureController = factory.makeMediatingController(manager: self.accountManager, index: index, navigation: self.navigation)
         self.navigation.pushViewController(configureController, animated: true)
     }
     
@@ -35,7 +35,7 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     }
     
     func accountCredentialsAddButtonPressed() {
-        self.pushConfigureCredential()
+        self.pushConfigureCredential(with: nil)
     }
     
     func accountCredentialsSettingsButtonPressed() {
@@ -48,7 +48,7 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         let _ = self.accountManager.storeCredentials(credentials)
     }
     
-    func accountCredentialsEditCredential(credential: AccountCredential) {
-        self.pushConfigureCredential()
+    func accountCredentialsEditCredential(index: Int) {
+        self.pushConfigureCredential(with: index)
     }
 }

@@ -153,7 +153,7 @@ class AccountCredentialsManager {
             } else if stringTypesEnabled == 1 {
                 type = .bad
             } else if stringTypesEnabled == 2 {
-                type = .okay
+                type = .good
             } else if stringTypesEnabled >= 3 {
                 type = .best
             }
