@@ -29,6 +29,8 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
         if let index {
             let credential = self.credentials[index]
             displayable.fillFields(with: credential)
+        } else {
+            displayable.hideDeleteButton()
         }
     }
     
@@ -52,6 +54,9 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
                 self.credentials.remove(at: index)
                 self.storeCredentialsAndPop()
             }
+        })
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in
+            alertController.dismiss(animated: true)
         })
         self.navigation.present(alertController, animated: true)
     }

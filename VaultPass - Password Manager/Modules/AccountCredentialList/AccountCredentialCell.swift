@@ -13,7 +13,7 @@ protocol AccountCredentialCellDelegate {
     func cellEditButtonTapped(index: Int)
 }
 
-class AccountCredentialCell: UITableViewCell {
+class AccountCredentialCell: UITableViewCell, UIViewLoading {
     
     @IBOutlet private(set) var title: UILabel!
     @IBOutlet private(set) var username: UIButton!

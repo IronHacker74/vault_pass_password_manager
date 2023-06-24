@@ -9,16 +9,15 @@ import Foundation
 
 class LoginData {
     
-    static let standard = LoginData()
     private let data = UserDefaults.standard
     
     private let firstTimeUserKey = "first_time_user_key"
     
-    func getFirstTimeUserData() -> Bool {
+    func getNotFirstLogin() -> Bool {
         return self.data.bool(forKey: self.firstTimeUserKey)
     }
     
-    func setFirstTimeUserData(_ value: Bool) {
+    func setNotFirstLogin(_ value: Bool) {
         self.data.set(value, forKey: self.firstTimeUserKey)
     }
     

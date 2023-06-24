@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AccountCredentialsDelegate {
-    func accountCredentialsViewDidLoad(_ controller: UIViewController)
+    func accountCredentialsViewDidLoad(_ displayable: AccountCredentialsDisplayable)
     func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable)
     func accountCredentialsAddButtonPressed()
     func accountCredentialsSettingsButtonPressed()
@@ -37,8 +37,9 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.delegate?.accountCredentialsViewDidLoad(self)
         self.registerTableView()
+        self.configureNavigationBar()
+        self.delegate?.accountCredentialsViewDidLoad(self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,7 +49,6 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.configureNavigationBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

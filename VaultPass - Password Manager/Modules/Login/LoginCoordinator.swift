@@ -12,6 +12,7 @@ class LoginCoordinator: LoginDelegate {
     
     var factory: LoginFactory
     var navigation: UINavigationController?
+    let loginData = LoginData()
         
     init(factory: LoginFactory, navigation: UINavigationController?) {
         self.factory = factory
@@ -19,7 +20,7 @@ class LoginCoordinator: LoginDelegate {
     }
     
     func loginViewDidAppear() {
-        if LoginData.standard.getFirstTimeUserData() == false {
+        if self.loginData.getNotFirstLogin() {
             self.loginWithAppleAuth()
         }
     }
@@ -37,9 +38,6 @@ class LoginCoordinator: LoginDelegate {
                 try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Log in to manager your passwords")
                 print("Succcessful authentication")
                 DispatchQueue.main.async {
-                    if LoginData.standard.getFirstTimeUserData() {
-                        LoginData.standard.setFirstTimeUserData(false)
-                    }
                     self.pushAccountCredentialsController()
                 }
             } catch let error {
@@ -49,10 +47,21 @@ class LoginCoordinator: LoginDelegate {
     }
     
     private func pushAccountCredentialsController() {
+        let notFirstLogin = self.loginData.getNotFirstLogin()
         let factory = AccountCredentialsFactory()
-        var controller = factory.makeMediatingController()
+        let manager = AccountCredentialsManager(firstTimeLogin: notFirstLogin)
+        if notFirstLogin == false {
+            manager.setPasswordSettingsToDefault()
+            self.loginData.setNotFirstLogin(true)
+        }
+        let controller = factory.makeMediatingController(accountManager: manager)
         UIApplication.shared.windows.first?.rootViewController = controller
         UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
+    func termsAndConditionsButtonAction() {
+        let factory = TermsAndConditionsFactory()
+        let controller = factory.makeMediatingController()
+        self.navigation?.present(controller, animated: true)
+    }
 }

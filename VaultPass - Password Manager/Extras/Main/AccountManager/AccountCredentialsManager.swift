@@ -49,8 +49,8 @@ class AccountCredentialsManager {
         return UserDefaults.standard.integer(forKey: self.passwordLengthKey)
     }
     
-    init() {
-        if LoginData.standard.getFirstTimeUserData() {
+    init(firstTimeLogin: Bool = false) {
+        if firstTimeLogin {
             self.setPasswordSettingsToDefault()
         }
     }

@@ -48,7 +48,9 @@ class SettingsCoordinator: SettingsDelegate {
     }
     
     func termsAndConditionsTapped() {
-        // TODO: push terms and conditions controller
+        let factory = TermsAndConditionsFactory()
+        let controller = factory.makeMediatingController()
+        self.navigation.present(controller, animated: true)
     }
     
     func deleteAllData() {

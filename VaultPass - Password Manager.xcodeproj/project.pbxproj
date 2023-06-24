@@ -20,17 +20,24 @@
 		8328759B2A3194F6006694FE /* AccountCredentialsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */; };
 		8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8328759E2A319EAC006694FE /* AccountCredentialCell.xib */; };
 		832875A22A31A4E8006694FE /* AccountCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */; };
+		83381E572A4402F60070C427 /* LoginMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E552A4402BD0070C427 /* LoginMediatingControllerTests.swift */; };
+		83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */; };
+		83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */; };
+		83381E5E2A4415810070C427 /* TermsAndConditionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */; };
 		8348D7AD2A3EBAFC00D16B0B /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */; };
+		837312772A415DF000886D86 /* UILoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UILoadingView.swift */; };
 		839D998B2A3AC6C500C59AC6 /* SettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998A2A3AC6C500C59AC6 /* SettingsFactory.swift */; };
 		839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998C2A3AC6CB00C59AC6 /* SettingsCoordinator.swift */; };
 		839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */; };
 		839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 839D99902A3AC6E200C59AC6 /* SettingsMediatingController.xib */; };
 		839D99932A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */; };
 		839D99982A3C3A1100C59AC6 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99972A3C3A1100C59AC6 /* UIView+.swift */; };
+		83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A25DB02A468A9500564588 /* AccountCredentialCellTests.swift */; };
 		83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FCE2A330834008B3C09 /* Encryptor.swift */; };
 		83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
 		83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */; };
 		83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */; };
+		83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */; };
 		9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51629DA107900FFD65B /* AppDelegate.swift */; };
 		9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51829DA107900FFD65B /* SceneDelegate.swift */; };
 		9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */; };
@@ -74,17 +81,24 @@
 		8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialsMediatingController.xib; sourceTree = "<group>"; };
 		8328759E2A319EAC006694FE /* AccountCredentialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialCell.xib; sourceTree = "<group>"; };
 		832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManager.swift; sourceTree = "<group>"; };
+		83381E552A4402BD0070C427 /* LoginMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMediatingControllerTests.swift; sourceTree = "<group>"; };
+		83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsAndConditionsMediatingController.xib; sourceTree = "<group>"; };
+		83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsMediatingController.swift; sourceTree = "<group>"; };
+		83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsFactory.swift; sourceTree = "<group>"; };
 		8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
+		837312762A415DF000886D86 /* UILoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadingView.swift; sourceTree = "<group>"; };
 		839D998A2A3AC6C500C59AC6 /* SettingsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsFactory.swift; sourceTree = "<group>"; };
 		839D998C2A3AC6CB00C59AC6 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMediatingController.swift; sourceTree = "<group>"; };
 		839D99902A3AC6E200C59AC6 /* SettingsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsMediatingController.xib; sourceTree = "<group>"; };
 		839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyToClipboardConfirmationView.swift; sourceTree = "<group>"; };
 		839D99972A3C3A1100C59AC6 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		83A25DB02A468A9500564588 /* AccountCredentialCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredentialCellTests.swift; sourceTree = "<group>"; };
 		83AD0FCE2A330834008B3C09 /* Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryptor.swift; sourceTree = "<group>"; };
 		83AD0FD22A3309A9008B3C09 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManagerTests.swift; sourceTree = "<group>"; };
 		83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyToClipboardConfirmationView.xib; sourceTree = "<group>"; };
+		83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B51629DA107900FFD65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9520B51829DA107900FFD65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +157,7 @@
 				8328758E2A302900006694FE /* LoginFactory.swift */,
 				832875852A30276B006694FE /* LoginCoordinator.swift */,
 				832875812A302467006694FE /* LoginMediatingController.swift */,
+				83381E552A4402BD0070C427 /* LoginMediatingControllerTests.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -155,6 +170,28 @@
 				9520B54929DBC04900FFD65B /* AccountCredential.swift */,
 			);
 			path = AccountManager;
+			sourceTree = "<group>";
+		};
+		83381E542A44015C0070C427 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				839D99962A3C3A0900C59AC6 /* Extras */,
+				9520B54C29DBC5F600FFD65B /* Delegates */,
+				83AD0FCD2A330819008B3C09 /* Utilities */,
+				832875A02A31A4B5006694FE /* AccountManager */,
+			);
+			name = Main;
+			path = Extras/Main;
+			sourceTree = "<group>";
+		};
+		83381E582A4408560070C427 /* TermsAndConditions */ = {
+			isa = PBXGroup;
+			children = (
+				83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */,
+				83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */,
+				83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */,
+			);
+			path = TermsAndConditions;
 			sourceTree = "<group>";
 		};
 		839D99892A3AC6AB00C59AC6 /* Settings */ = {
@@ -172,8 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				839D99972A3C3A1100C59AC6 /* UIView+.swift */,
+				837312762A415DF000886D86 /* UILoadingView.swift */,
 			);
-			path = Extras;
+			name = Extras;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		83AD0FCD2A330819008B3C09 /* Utilities */ = {
@@ -210,10 +249,7 @@
 		9520B51529DA107900FFD65B /* VaultPass - Password Manager */ = {
 			isa = PBXGroup;
 			children = (
-				839D99962A3C3A0900C59AC6 /* Extras */,
-				9520B54C29DBC5F600FFD65B /* Main */,
-				83AD0FCD2A330819008B3C09 /* Utilities */,
-				832875A02A31A4B5006694FE /* AccountManager */,
+				83381E542A44015C0070C427 /* Main */,
 				9520B54B29DBC5E800FFD65B /* Modules */,
 				9520B51C29DA107900FFD65B /* Main.storyboard */,
 				9520B51F29DA107D00FFD65B /* Assets.xcassets */,
@@ -246,19 +282,18 @@
 				9520B54D29DBC62100FFD65B /* AccountCredentialList */,
 				831288EA2A383F32009549F0 /* CredentialConfigure */,
 				839D99892A3AC6AB00C59AC6 /* Settings */,
-				839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */,
-				83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */,
+				83381E582A4408560070C427 /* TermsAndConditions */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		9520B54C29DBC5F600FFD65B /* Main */ = {
+		9520B54C29DBC5F600FFD65B /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				9520B51629DA107900FFD65B /* AppDelegate.swift */,
 				9520B51829DA107900FFD65B /* SceneDelegate.swift */,
 			);
-			path = Main;
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		9520B54D29DBC62100FFD65B /* AccountCredentialList */ = {
@@ -267,9 +302,13 @@
 				832875892A30285C006694FE /* AccountCredentialsFactory.swift */,
 				832875872A302839006694FE /* AccountCredentialsCoordinator.swift */,
 				9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */,
+				83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */,
 				8328759A2A3194F6006694FE /* AccountCredentialsMediatingController.xib */,
 				832875962A315595006694FE /* AccountCredentialCell.swift */,
+				83A25DB02A468A9500564588 /* AccountCredentialCellTests.swift */,
 				8328759E2A319EAC006694FE /* AccountCredentialCell.xib */,
+				839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */,
+				83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */,
 			);
 			path = AccountCredentialList;
 			sourceTree = "<group>";
@@ -379,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831288F22A3843D7009549F0 /* CredentialConfigureMediatingController.xib in Resources */,
+				83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */,
 				8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */,
 				839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */,
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,
@@ -415,10 +455,12 @@
 				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
+				837312772A415DF000886D86 /* UILoadingView.swift in Sources */,
 				832875862A30276B006694FE /* LoginCoordinator.swift in Sources */,
 				83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */,
 				83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */,
 				839D99982A3C3A1100C59AC6 /* UIView+.swift in Sources */,
+				83381E5E2A4415810070C427 /* TermsAndConditionsFactory.swift in Sources */,
 				839D998B2A3AC6C500C59AC6 /* SettingsFactory.swift in Sources */,
 				8328758F2A302900006694FE /* LoginFactory.swift in Sources */,
 				832875972A315595006694FE /* AccountCredentialCell.swift in Sources */,
@@ -433,6 +475,7 @@
 				832875822A302467006694FE /* LoginMediatingController.swift in Sources */,
 				8328758A2A30285C006694FE /* AccountCredentialsFactory.swift in Sources */,
 				9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */,
+				83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +485,9 @@
 			files = (
 				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
 				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
+				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
+				83381E572A4402F60070C427 /* LoginMediatingControllerTests.swift in Sources */,
+				83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

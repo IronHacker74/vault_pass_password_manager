@@ -18,6 +18,7 @@ protocol CredentialConfigureDelegate {
 
 protocol CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential)
+    func hideDeleteButton()
 }
 
 class CredentialConfigureMediatingController: UIViewController {
@@ -26,6 +27,7 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var usernameField: UITextField!
     @IBOutlet private(set) var passwordField: UITextField!
     @IBOutlet private(set) var errorLabel: UILabel!
+    @IBOutlet private(set) var deleteBtn: UIButton!
     
     let delegate: CredentialConfigureDelegate?
     
@@ -99,6 +101,10 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         self.titleField.text = credential.title
         self.usernameField.text = credential.decryptedUsername
         self.passwordField.text = credential.decryptedPassword
+    }
+    
+    func hideDeleteButton() {
+        self.deleteBtn.isHidden = true
     }
 }
 

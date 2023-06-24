@@ -10,6 +10,7 @@ import UIKit
 protocol LoginDelegate {
     func loginViewDidAppear()
     func loginWithAppleAuth()
+    func termsAndConditionsButtonAction()
 }
 class LoginMediatingController: UIViewController {
     
@@ -31,5 +32,9 @@ class LoginMediatingController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         self.delegate?.loginWithAppleAuth()
+    }
+    
+    @IBAction func termsAndConditionsButtonPressed(_ sender: UIButton) {
+        self.delegate?.termsAndConditionsButtonAction()
     }
 }

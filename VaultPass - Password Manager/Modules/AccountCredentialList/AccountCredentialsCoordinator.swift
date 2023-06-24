@@ -23,15 +23,15 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         self.navigation.pushViewController(configureController, animated: true)
     }
     
-    func accountCredentialsViewDidLoad(_ controller: UIViewController) {
-    }
-    
-    func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable) {
+    func accountCredentialsViewDidLoad(_ displayable: AccountCredentialsDisplayable) {
         let credentials = accountManager.fetchCredentials()
         if credentials.isEmpty {
             displayable.displayError()
         }
         displayable.updateAccountCredentials(credentials.sorted(by: { $0.title < $1.title }))
+    }
+    
+    func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable) {
     }
     
     func accountCredentialsAddButtonPressed() {
