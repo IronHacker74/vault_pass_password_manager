@@ -19,7 +19,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
     func testIBOutletsNonNil() {
         // given
         let factory = AccountCredentialsFactory()
-        let nav = factory.makeMediatingController() as! UINavigationController
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         // when
         sut.loadViewIfNeeded()
@@ -33,7 +33,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
     func testSearchFiltersCredentials() {
         // given
         let factory = AccountCredentialsFactory()
-        let nav = factory.makeMediatingController() as! UINavigationController
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         let string = "s"
         let cred1 = AccountCredential(title: string, username: string, password: string)
@@ -50,7 +50,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
     func testThatCredentialsAreSortedWithIndex() {
         // given
         let factory = AccountCredentialsFactory()
-        let nav = factory.makeMediatingController() as! UINavigationController
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         // when
         sut.loadViewIfNeeded()
@@ -65,7 +65,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
     func testUsernameCopyToClipboard() {
         // given
         let factory = AccountCredentialsFactory()
-        let nav = factory.makeMediatingController() as! UINavigationController
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         let string = "s"
         let cred = AccountCredential(title: string, username: string, password: string)
@@ -78,7 +78,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
     func testpasswordCopyToClipboard() {
         // given
         let factory = AccountCredentialsFactory()
-        let nav = factory.makeMediatingController() as! UINavigationController
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         let string = "s"
         let cred = AccountCredential(title: string, username: string, password: string)

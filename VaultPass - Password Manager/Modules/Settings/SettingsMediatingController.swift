@@ -16,6 +16,7 @@ protocol SettingsDelegate {
     func specialCharSwitchChanged(displayable: SettingsDisplayable)
     func passwordLengthChanged(length: Int, displayable: SettingsDisplayable)
     func termsAndConditionsTapped()
+    func logoutButtonPressed()
     func deleteAllData()
 }
 
@@ -88,6 +89,10 @@ class SettingsMediatingController: UIViewController {
     
     @IBAction func termsAndConditionsPressed(_ sender: UIButton) {
         self.delegate?.termsAndConditionsTapped()
+    }
+    
+    @IBAction func logoutBtnPressed(_ sender: UIButton) {
+        self.delegate?.logoutButtonPressed()
     }
     
     @IBAction func deleteAllDataBtnPressed(_ sender: UIButton) {

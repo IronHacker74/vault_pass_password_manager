@@ -18,4 +18,26 @@ final class LoginMediatingControllerTests: XCTestCase {
     override func tearDownWithError() throws {
         
     }
+    
+    func testIBOutletsNotNil() {
+        // given
+        let controller = LoginMediatingController.loadFromNibMain()
+        // when
+        controller.loadViewIfNeeded()
+        // then
+        XCTAssertNotNil(controller.loginButton)
+        XCTAssertNotNil(controller.loginDetailLabel)
+    }
+    
+    func testLoginAuthenticationNotOnAppearForNewUser() {
+//        // given
+//        let loginData = LoginData()
+//        let controller = LoginMediatingController.loadFromNibMain()
+//        controller.delegate = LoginCoordinator(factory: LoginFactory(), navigation: UINavigationController())
+//        loginData.deleteData()
+//        // when
+//        controller.loadViewIfNeeded()
+//        // then
+        // TODO: try to test authentication is showing when expected
+    }
 }

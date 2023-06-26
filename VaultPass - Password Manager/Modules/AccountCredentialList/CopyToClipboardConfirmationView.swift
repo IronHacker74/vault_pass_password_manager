@@ -18,7 +18,7 @@ extension CopyToClipboardView {
         copyToClipboardView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(copyToClipboardView)
         NSLayoutConstraint.activate([
-            copyToClipboardView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50),
+            copyToClipboardView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25),
             copyToClipboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             copyToClipboardView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             copyToClipboardView.heightAnchor.constraint(equalToConstant: 50)

@@ -47,7 +47,7 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
         self.navigation.pushViewController(controller, animated: true)
     }
     
-    func deletebuttonPressed() {
+    func deleteButtonPressed() {
         let alertController = UIAlertController(title: "Are you sure?", message: "Deleting this credential will be permanent!", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
             if let index = self.index {

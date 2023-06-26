@@ -12,7 +12,7 @@ protocol LoginDelegate {
     func loginWithAppleAuth()
     func termsAndConditionsButtonAction()
 }
-class LoginMediatingController: UIViewController {
+class LoginMediatingController: UIViewController, UIViewLoading {
     
     @IBOutlet private(set) var loginButton: UIButton!
     @IBOutlet private(set) var loginDetailLabel: UILabel!

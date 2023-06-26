@@ -13,7 +13,7 @@ protocol CredentialConfigureDelegate {
     func saveCredential(title: String, username: String, password: String)
     func generatePassword() -> String
     func passwordSettingsPressed()
-    func deletebuttonPressed()
+    func deleteButtonPressed()
 }
 
 protocol CredentialConfigureDisplayable {
@@ -27,6 +27,9 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var usernameField: UITextField!
     @IBOutlet private(set) var passwordField: UITextField!
     @IBOutlet private(set) var errorLabel: UILabel!
+    @IBOutlet private(set) var passwordSettingsBtn: UIButton!
+    @IBOutlet private(set) var generatePasswordBtn: UIButton!
+    @IBOutlet private(set) var saveButton: UIButton!
     @IBOutlet private(set) var deleteBtn: UIButton!
     
     let delegate: CredentialConfigureDelegate?
@@ -70,8 +73,7 @@ class CredentialConfigureMediatingController: UIViewController {
             self.showError("Title required")
             return
         }
-        guard let username = self.usernameField.text, !username.isEmpty,
-                let password = self.passwordField.text, !password.isEmpty else {
+        guard let username = self.usernameField.text, let password = self.passwordField.text, (!username.isEmpty || !password.isEmpty) else {
             self.showError("Username or password is required")
             return
         }
@@ -79,7 +81,7 @@ class CredentialConfigureMediatingController: UIViewController {
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        self.delegate?.deletebuttonPressed()
+        self.delegate?.deleteButtonPressed()
     }
     
     private func showError(_ error: String){

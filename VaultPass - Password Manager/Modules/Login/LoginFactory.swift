@@ -12,6 +12,7 @@ class LoginFactory {
     func makeMediatingController(navigation: UINavigationController) -> UIViewController {
         let controller = LoginMediatingController()
         let delegate = makeCoordinator(navigation: navigation)
+        controller.delegate = delegate
         return controller
     }
     
