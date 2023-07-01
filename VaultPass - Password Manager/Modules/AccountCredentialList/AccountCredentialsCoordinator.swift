@@ -31,7 +31,7 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         if credentials.isEmpty {
             displayable.displayError()
         }
-        displayable.updateAccountCredentials(credentials.sorted(by: { $0.title < $1.title }))
+        displayable.updateAccountCredentials(credentials)
     }
     
     func accountCredentialsAddButtonPressed() {
@@ -48,7 +48,11 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         let _ = self.accountManager.storeCredentials(credentials)
     }
     
-    func accountCredentialsEditCredential(index: Int) {
+    func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int?) {
+        guard let index else {
+            displayable.displayError()
+            return
+        }
         self.pushConfigureCredential(with: index)
     }
 }

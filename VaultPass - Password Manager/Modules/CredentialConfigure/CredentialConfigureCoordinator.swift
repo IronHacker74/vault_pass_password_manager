@@ -48,17 +48,12 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
     }
     
     func deleteButtonPressed() {
-        let alertController = UIAlertController(title: "Are you sure?", message: "Deleting this credential will be permanent!", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Delete", style: .destructive) { _ in
+        CustomAlert.destructive(self.navigation, title: "Are you sure?", message: "Deleting this credential will be permanent!", style: .alert, deleteBtn: "Delete", deleteAction: {_ in 
             if let index = self.index {
                 self.credentials.remove(at: index)
                 self.storeCredentialsAndPop()
             }
         })
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { _ in
-            alertController.dismiss(animated: true)
-        })
-        self.navigation.present(alertController, animated: true)
     }
     
     func saveCredential(title: String, username: String, password: String) {
@@ -75,6 +70,6 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
         if self.credentialManager.storeCredentials(self.credentials) {
             self.navigation.popViewController(animated: true)
         }
-        // TODO: Show error
+        CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.", style: .alert)
     }
 }

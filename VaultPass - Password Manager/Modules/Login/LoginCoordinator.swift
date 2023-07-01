@@ -30,7 +30,6 @@ class LoginCoordinator: LoginDelegate {
         var error: NSError?
         guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
             print(error?.localizedDescription ?? "Can't evaluate policy")
-            // TODO: Fail message?
             return
         }
         Task {
@@ -49,7 +48,7 @@ class LoginCoordinator: LoginDelegate {
     private func pushAccountCredentialsController() {
         let notFirstLogin = self.loginData.getNotFirstLogin()
         let factory = AccountCredentialsFactory()
-        let manager = AccountCredentialsManager(firstTimeLogin: notFirstLogin)
+        let manager = AccountCredentialsManager()
         if notFirstLogin == false {
             manager.setPasswordSettingsToDefault()
             self.loginData.setNotFirstLogin(true)

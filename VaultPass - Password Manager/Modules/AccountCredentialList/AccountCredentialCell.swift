@@ -10,7 +10,7 @@ import UIKit
 protocol AccountCredentialCellDelegate {
     func cellUsernameButtonTapped(credential: AccountCredential)
     func cellPasswordButtonTapped(credential: AccountCredential)
-    func cellEditButtonTapped(index: Int)
+    func cellEditButtonTapped(index: Int?)
 }
 
 class AccountCredentialCell: UITableViewCell, UIViewLoading {
@@ -22,7 +22,7 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     
     private var delegate: AccountCredentialCellDelegate?
     private var credential: AccountCredential?
-    var index: Int!
+    var index: Int?
     
     func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?, index: Int?) {
         self.delegate = delegate
@@ -31,22 +31,22 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
         if let index {
             self.index = index
         }
-        self.selectedBackgroundView?.backgroundColor = .systemBlue
+        self.hideCredentials()
+    }
+    
+    func credentialIsShowing() -> Bool {
+        return self.revealLabel.isHidden
     }
     
     func reveal() {
-        self.username.setTitle(self.credential?.decryptedUsername, for: .normal)
-        self.username.isUserInteractionEnabled = true
-        self.password.setTitle(self.credential?.decryptedPassword, for: .normal)
-        self.password.isUserInteractionEnabled = true
+        self.username.showCredential(title: credential?.decryptedUsername)
+        self.password.showCredential(title: credential?.decryptedPassword)
         self.revealLabel.isHidden = true
     }
     
     func hideCredentials() {
-        self.username.setTitle("", for: .normal)
-        self.username.isUserInteractionEnabled = false
-        self.password.setTitle("", for: .normal)
-        self.password.isUserInteractionEnabled = false
+        self.username.hideCredential(placeHolder: "username")
+        self.password.hideCredential(placeHolder: "password")
         self.revealLabel.isHidden = false
     }
     

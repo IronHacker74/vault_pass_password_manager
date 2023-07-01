@@ -13,7 +13,7 @@ protocol AccountCredentialsDelegate {
     func accountCredentialsAddButtonPressed()
     func accountCredentialsSettingsButtonPressed()
     func accountCredentialsSaveCredentials(_ credentials: [AccountCredential])
-    func accountCredentialsEditCredential(index: Int)
+    func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int?)
 }
 
 protocol AccountCredentialsDisplayable {
@@ -21,7 +21,7 @@ protocol AccountCredentialsDisplayable {
     func displayError()
 }
 
-class AccountCredentialsMediatingController: UIViewController, AccountCredentialsDisplayable {
+class AccountCredentialsMediatingController: UIViewController {
     
     @IBOutlet private(set) var tableview: UITableView!
     @IBOutlet private(set) var searchBar: UISearchBar!
@@ -53,6 +53,7 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.hideCells()
         self.dismissClipboardView()
     }
     
@@ -67,15 +68,6 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
         self.navigationItem.title = "My Credentials"
         self.navigationItem.setLeftBarButton(makeSettingsButton(), animated: false)
         self.navigationItem.setRightBarButton(makeAddButton(), animated: false)
-    }
-    
-    func updateAccountCredentials(_ credentials: [AccountCredential]) {
-        self.credentials = credentials
-        self.tableview.reloadData()
-    }
-    
-    func displayError() {
-        // TODO: create and display an error pop up.
     }
     
     private func makeAddButton() -> UIBarButtonItem {
@@ -103,6 +95,18 @@ class AccountCredentialsMediatingController: UIViewController, AccountCredential
             return true
         }
         return false
+    }
+    
+    private func hideCells() {
+        for index in 0..<credentials.count {
+            let indexPath = IndexPath(row: index, section: 0)
+            guard let cell = self.tableview.cellForRow(at: indexPath) as? AccountCredentialCell else {
+                continue
+            }
+            if cell.credentialIsShowing() {
+                cell.hideCredentials()
+            }
+        }
     }
 }
 
@@ -134,13 +138,6 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         }
         cell.reveal()
     }
-    
-    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell else {
-            return
-        }
-        cell.hideCredentials()
-    }
 }
 
 extension AccountCredentialsMediatingController: UISearchBarDelegate {
@@ -160,6 +157,17 @@ extension AccountCredentialsMediatingController: UISearchBarDelegate {
     }
 }
 
+extension AccountCredentialsMediatingController: AccountCredentialsDisplayable {
+    func updateAccountCredentials(_ credentials: [AccountCredential]) {
+        self.credentials = credentials
+        self.tableview.reloadData()
+    }
+    
+    func displayError() {
+        CustomAlert.ok(self, title: "Oops!", message: "We can't perform that action at this time.", style: .alert)
+    }
+}
+
 extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
     func cellUsernameButtonTapped(credential: AccountCredential) {
         self.clipboard.string = credential.decryptedUsername
@@ -171,8 +179,8 @@ extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
         self.showCopyToClipboardView()
     }
     
-    func cellEditButtonTapped(index: Int) {
-        self.delegate?.accountCredentialsEditCredential(index: index)
+    func cellEditButtonTapped(index: Int?) {
+        self.delegate?.accountCredentialsEditCredential(self, index: index)
     }
 }
 

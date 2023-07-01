@@ -109,4 +109,20 @@ final class AccountCredentialsManagerTests: XCTestCase {
         XCTAssertEqual(.green, manager.passwordStrengthColor())
     }
 
+    
+    func testPerformanceOfStoringCredentials() {
+        // given
+        var credentials: [AccountCredential] = []
+        let manager = AccountCredentialsManager()
+        let numOfCreds = 10000
+        // when
+        for _ in 0..<numOfCreds {
+            credentials.append(AccountCredential(title: manager.generatePassword(), username: manager.generatePassword(), password: manager.generatePassword()))
+        }
+        // then
+        measure {
+            let _ = manager.storeCredentials(credentials)
+            let _ = manager.fetchCredentials()
+        }
+    }
 }

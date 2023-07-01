@@ -49,12 +49,6 @@ class AccountCredentialsManager {
         return UserDefaults.standard.integer(forKey: self.passwordLengthKey)
     }
     
-    init(firstTimeLogin: Bool = false) {
-        if firstTimeLogin {
-            self.setPasswordSettingsToDefault()
-        }
-    }
-    
     private func lowerCase() -> String {
         return self.useLowerCaseLetters ? "abcdefghijklmnopqrstuvwxyz" : ""
     }
@@ -211,8 +205,10 @@ class AccountCredentialsManager {
     
     func storeCredentials(_ credentials: [AccountCredential]) -> Bool {
         self.deleteStore()
+        let sortedCredentials = credentials.sorted(by: { $0.title < $1.title })
+        
         var accountArray: [String] = []
-        for credential in credentials {
+        for credential in sortedCredentials {
             accountArray.append(self.converter.credentialToString(credential))
         }
         guard let accountData = self.converter.stringArrayToData(accountArray),
@@ -233,7 +229,12 @@ class AccountCredentialsManager {
         }
     }
     
-    func deleteStore() {
+    func deleteAllData() {
+        self.deleteStore()
+        try? context.save()
+    }
+    
+    private func deleteStore() {
         guard let data = try? context.fetch(AccountCredential.fetchRequest()) else {
             return
         }

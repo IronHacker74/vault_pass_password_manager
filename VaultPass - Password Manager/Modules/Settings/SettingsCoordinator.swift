@@ -65,22 +65,19 @@ class SettingsCoordinator: SettingsDelegate {
     }
     
     func logoutButtonPressed() {
-        let alertController = UIAlertController(title: "Logout?", message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) {_ in
-            alertController.dismiss(animated: true)
-        })
-        alertController.addAction(UIAlertAction(title: "Yes", style: .default) {_ in
+        CustomAlert.destructive(self.navigation, title: "Logout?", message: "Are you sure you want to logout?", style: .actionSheet, deleteBtn: "Logout", deleteAction: { _ in
             let factory = LoginFactory()
             let controller = LoginMediatingController.loadFromNibMain()
             controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
             UIApplication.shared.windows.first?.rootViewController = controller
             UIApplication.shared.windows.first?.makeKeyAndVisible()
         })
-        self.navigation.present(alertController, animated: true)
     }
     
     func deleteAllData() {
-        self.credentialsManager.deleteStore()
-        self.navigation.popViewController(animated: true)
+        CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
+            self.credentialsManager.deleteAllData()
+            self.navigation.popViewController(animated: true)
+        })
     }
 }
