@@ -28,6 +28,7 @@
 		8348D7AD2A3EBAFC00D16B0B /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */; };
 		8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */; };
 		8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835828592A4BC492004CAD4B /* UIButton+.swift */; };
+		835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 835E097E2A51385E00A319F7 /* TermsAndConditions.txt */; };
 		837312772A415DF000886D86 /* UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UIViewLoading.swift */; };
 		839C8E4A2A48C3AA00EE1A94 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */; };
 		839C8E4D2A48C3AA00EE1A94 /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C8E4C2A48C3AA00EE1A94 /* CredentialProviderViewController.swift */; };
@@ -118,6 +119,7 @@
 		8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		835828592A4BC492004CAD4B /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		835E097E2A51385E00A319F7 /* TermsAndConditions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TermsAndConditions.txt; path = ../../../../TermsAndConditions.txt; sourceTree = "<group>"; };
 		837312762A415DF000886D86 /* UIViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLoading.swift; sourceTree = "<group>"; };
 		839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredentialProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
@@ -328,6 +330,7 @@
 				9520B51F29DA107D00FFD65B /* Assets.xcassets */,
 				9520B52129DA107D00FFD65B /* LaunchScreen.storyboard */,
 				9520B52429DA107D00FFD65B /* Info.plist */,
+				835E097E2A51385E00A319F7 /* TermsAndConditions.txt */,
 			);
 			path = "VaultPass - Password Manager";
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			files = (
 				831288F22A3843D7009549F0 /* CredentialConfigureMediatingController.xib in Resources */,
 				83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */,
+				835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */,
 				8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */,
 				839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */,
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,

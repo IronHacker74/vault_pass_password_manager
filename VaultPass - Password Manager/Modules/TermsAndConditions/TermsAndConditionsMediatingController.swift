@@ -23,7 +23,7 @@ class TermsAndConditionsMediatingController: UIViewController {
     }
     
     private func setTitleText() {
-        self.titleLabel.text = "Terms and conditions of app use"
+        self.titleLabel.text = "Terms and Conditions"
     }
     
     private func setTermsAndConditionsText() {
@@ -31,6 +31,11 @@ class TermsAndConditionsMediatingController: UIViewController {
     }
     
     private var termsAndConditions: String {
-        return ""
+        let path = Bundle.main.path(forResource: "TermsAndConditions", ofType: ".txt")
+        guard let path, let text = try? String(contentsOfFile: path, encoding: .utf8) else {
+            CustomAlert.ok(self, title: "Oops!", message: "Failed to load terms and conditions!", style: .alert)
+            return ""
+        }
+        return text
     }
 }

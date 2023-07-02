@@ -184,16 +184,18 @@ extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
     }
 }
 
-extension AccountCredentialsMediatingController: CopyToClipboardView, CopyToClipboardDelegate {
+extension AccountCredentialsMediatingController: CopyToClipboardViewDelegate, CopyToClipboardDelegate {
     func showCopyToClipboardView() {
         if let _ = self.copyToClipboardConfirmationView {
-            self.dismissClipboardView()
+            self.replaceCopyToClipboardView(self.view, clipboardView: self.copyToClipboardConfirmationView, delegate: self, completion: { newClipboardView in
+                self.copyToClipboardConfirmationView = newClipboardView
+            })
+        } else {
+            self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self)
         }
-        self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self)
     }
     
     func dismissClipboardView() {
-        guard let _ = self.copyToClipboardConfirmationView else { return }
-        self.copyToClipboardConfirmationView?.removeFromSuperview()
+        self.dismissCopyToClipboardView(self.view, self.copyToClipboardConfirmationView)
     }
 }
