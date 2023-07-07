@@ -28,9 +28,6 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     
     func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable) {
         let credentials = accountManager.fetchCredentials()
-        if credentials.isEmpty {
-            displayable.displayError()
-        }
         displayable.updateAccountCredentials(credentials)
     }
     
@@ -48,11 +45,7 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         let _ = self.accountManager.storeCredentials(credentials)
     }
     
-    func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int?) {
-        guard let index else {
-            displayable.displayError()
-            return
-        }
+    func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int) {
         self.pushConfigureCredential(with: index)
     }
 }

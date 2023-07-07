@@ -20,9 +20,9 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // given
         let manager = AccountCredentialsManager()
         let testAccounts = [
-            AccountCredential(title: "amazon", username: "username", password: "password"),
-            AccountCredential(title: "amazon1", username: "username1", password: "password1"),
-            AccountCredential(title: "amazon2", username: "username2", password: "username2")
+            AccountCredential(title: "amazon", identifier: "id1", username: "username", password: "password"),
+            AccountCredential(title: "amazon1", identifier: "id2", username: "username1", password: "password1"),
+            AccountCredential(title: "amazon2", identifier: "id3", username: "username2", password: "username2")
         ]
         // when
         let result = manager.storeCredentials(testAccounts)
@@ -34,9 +34,9 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // given
         let manager = AccountCredentialsManager()
         let testAccounts = [
-            AccountCredential(title: "amazon3", username: "username3", password: "password3"),
-            AccountCredential(title: "amazon1", username: "username1", password: "password1"),
-            AccountCredential(title: "amazon2", username: "username2", password: "username2")
+            AccountCredential(title: "amazon", identifier: "id1", username: "username", password: "password"),
+            AccountCredential(title: "amazon1", identifier: "id2", username: "username1", password: "password1"),
+            AccountCredential(title: "amazon2", identifier: "id3", username: "username2", password: "username2")
         ]
         // when
         let _ = manager.storeCredentials(testAccounts)
@@ -117,7 +117,7 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let numOfCreds = 10000
         // when
         for _ in 0..<numOfCreds {
-            credentials.append(AccountCredential(title: manager.generatePassword(), username: manager.generatePassword(), password: manager.generatePassword()))
+            credentials.append(AccountCredential(title: manager.generatePassword(), identifier: manager.generatePassword(), username: manager.generatePassword(), password: manager.generatePassword()))
         }
         // then
         measure {

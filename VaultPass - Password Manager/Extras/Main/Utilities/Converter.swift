@@ -22,6 +22,7 @@ struct Converter {
     func credentialToString(_ credential: AccountCredential) -> String {
         var accountStringArray: [String] = []
         accountStringArray.append(credential.title)
+        accountStringArray.append(credential.identifier)
         accountStringArray.append(credential.decryptedUsername)
         accountStringArray.append(credential.decryptedPassword)
         return accountStringArray.joined(separator: separator)
@@ -29,7 +30,7 @@ struct Converter {
     
     func stringToCredential(_ string: String) -> AccountCredential {
         let accountStringArray: [String] = string.components(separatedBy: separator)
-        let credential = AccountCredential(title: accountStringArray[0], username: accountStringArray[1], password: accountStringArray[2])
+        let credential = AccountCredential(title: accountStringArray[0], identifier: accountStringArray[1], username: accountStringArray[2], password: accountStringArray[3])
         return credential
     }
 }

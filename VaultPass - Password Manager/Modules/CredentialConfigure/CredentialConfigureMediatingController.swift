@@ -10,7 +10,7 @@ import UIKit
 protocol CredentialConfigureDelegate {
     func credentialConfigureViewDidLoad(displayable: CredentialConfigureDisplayable)
     func credentialConfigureViewWillDisappear()
-    func saveCredential(title: String, username: String, password: String)
+    func saveCredential(_ credential: AccountCredential)
     func generatePassword() -> String
     func passwordSettingsPressed()
     func deleteButtonPressed()
@@ -24,6 +24,7 @@ protocol CredentialConfigureDisplayable {
 class CredentialConfigureMediatingController: UIViewController {
     
     @IBOutlet private(set) var titleField: UITextField!
+    @IBOutlet private(set) var identifierField: UITextField!
     @IBOutlet private(set) var usernameField: UITextField!
     @IBOutlet private(set) var passwordField: UITextField!
     @IBOutlet private(set) var errorLabel: UILabel!
@@ -47,12 +48,20 @@ class CredentialConfigureMediatingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate?.credentialConfigureViewDidLoad(displayable: self)
+        self.setupTextFields()
         self.navigationItem.title = "Credential Configuration"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.delegate?.credentialConfigureViewWillDisappear()
+    }
+    
+    private func setupTextFields() {
+        self.titleField.delegate = self
+        self.identifierField.delegate = self
+        self.usernameField.delegate = self
+        self.passwordField.delegate = self
     }
     
     @IBAction func passwordSettingsBtnPressed(_ sender: UIButton) {
@@ -77,7 +86,13 @@ class CredentialConfigureMediatingController: UIViewController {
             self.showError("Username or password is required")
             return
         }
-        self.delegate?.saveCredential(title: title, username: username, password: password)
+        var identifier: String = "\(title).com"
+        if let identifierText = identifierField.text, !identifierText.isEmpty {
+            identifier = identifierText
+        }
+        
+        let credential = AccountCredential(title: title, identifier: identifier, username: username, password: password)
+        self.delegate?.saveCredential(credential)
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
@@ -101,6 +116,7 @@ class CredentialConfigureMediatingController: UIViewController {
 extension CredentialConfigureMediatingController: CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential) {
         self.titleField.text = credential.title
+        self.identifierField.text = credential.identifier
         self.usernameField.text = credential.decryptedUsername
         self.passwordField.text = credential.decryptedPassword
     }
@@ -116,5 +132,6 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
+        return false
     }
 }

@@ -20,9 +20,9 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, username: string, password: string)
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
-        cell.configureCell(delegate: nil, credential: cred, index: 0)
+        cell.configureCell(delegate: nil, credential: cred)
         // then
         XCTAssertNotNil(cell.title)
         XCTAssertNotNil(cell.username)
@@ -34,9 +34,9 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, username: string, password: string)
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
-        cell.configureCell(delegate: nil, credential: cred, index: 0)
+        cell.configureCell(delegate: nil, credential: cred)
         // then
         XCTAssertEqual(cell.title.text!, string)
     }
@@ -45,9 +45,9 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, username: string, password: string)
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
-        cell.configureCell(delegate: nil, credential: cred, index: 0)
+        cell.configureCell(delegate: nil, credential: cred)
         // then
         XCTAssertNil(cell.username.title(for: .normal))
         XCTAssertNil(cell.password.title(for: .normal))
@@ -57,9 +57,9 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, username: string, password: string)
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
-        cell.configureCell(delegate: nil, credential: cred, index: 0)
+        cell.configureCell(delegate: nil, credential: cred)
         cell.reveal()
         // then
         XCTAssertFalse(cell.username.isHidden)

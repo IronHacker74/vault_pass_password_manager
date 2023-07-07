@@ -36,8 +36,8 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         let string = "s"
-        let cred1 = AccountCredential(title: string, username: string, password: string)
-        let cred2 = AccountCredential(title: string, username: string, password: string)
+        let cred1 = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred2 = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
         sut.loadViewIfNeeded()
         sut.updateAccountCredentials([cred1, cred2])
@@ -46,21 +46,6 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         // then
         XCTAssertEqual(sut.tableview.numberOfRows(inSection: 0), 0)
     }
-
-    func testThatCredentialsAreSortedWithIndex() {
-        // given
-        let factory = AccountCredentialsFactory()
-        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
-        let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
-        // when
-        sut.loadViewIfNeeded()
-        // then
-        XCTAssertNotEqual(sut.tableview.numberOfRows(inSection: 0), 0)
-        for index in 0..<sut.tableview.numberOfRows(inSection: 0) {
-            let cell = sut.tableview.cellForRow(at: IndexPath(row: index, section: 0)) as! AccountCredentialCell
-            XCTAssertEqual(index, cell.index)
-        }
-    }
     
     func testUsernameCopyToClipboard() {
         // given
@@ -68,7 +53,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         let string = "s"
-        let cred = AccountCredential(title: string, username: string, password: string)
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
         sut.cellUsernameButtonTapped(credential: cred)
         // then
@@ -81,10 +66,28 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         let string = "s"
-        let cred = AccountCredential(title: string, username: string, password: string)
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
         // when
         sut.cellPasswordButtonTapped(credential: cred)
         // then
         XCTAssertEqual(UIPasteboard.general.string, string)
+    }
+    
+    func testEditCredentialPerformanceWithForLoopFinder() {
+        // given
+        let factory = AccountCredentialsFactory()
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
+        let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
+        let string = "s"
+        var credentials: [AccountCredential] = []
+        for index in 0..<10000 {
+            credentials.append(AccountCredential(title: string, identifier: string + String(index), username: string, password: string))
+        }
+        // when
+        sut.loadViewIfNeeded()
+        sut.updateAccountCredentials(credentials)
+        measure {
+            sut.cellEditButtonTapped(credential: credentials.last!, index: nil)
+        }
     }
 }

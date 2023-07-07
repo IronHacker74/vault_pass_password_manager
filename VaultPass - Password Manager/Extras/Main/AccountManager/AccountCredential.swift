@@ -10,6 +10,7 @@ import Foundation
 class AccountCredential: Equatable {
     
     let title: String
+    let identifier: String
     private let username: Data
     private let password: Data
     
@@ -20,14 +21,15 @@ class AccountCredential: Equatable {
         return Encryptor.standard.decryptStringData(self.password)
     }
 
-    init(title: String, username: String, password: String){
+    init(title: String, identifier: String, username: String, password: String){
         self.title = title
+        self.identifier = identifier
         self.username = Encryptor.standard.encryptStringData(username)
         self.password = Encryptor.standard.encryptStringData(password)
     }
     
     static func == (lhs: AccountCredential, rhs: AccountCredential) -> Bool {
-        return lhs.title == rhs.title && lhs.decryptedUsername == rhs.decryptedUsername && lhs.decryptedPassword == rhs.decryptedPassword
+        return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.decryptedUsername == rhs.decryptedUsername && lhs.decryptedPassword == rhs.decryptedPassword
     }
 }
 

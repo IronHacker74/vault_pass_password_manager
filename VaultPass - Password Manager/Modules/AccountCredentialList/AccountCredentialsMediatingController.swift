@@ -13,7 +13,7 @@ protocol AccountCredentialsDelegate {
     func accountCredentialsAddButtonPressed()
     func accountCredentialsSettingsButtonPressed()
     func accountCredentialsSaveCredentials(_ credentials: [AccountCredential])
-    func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int?)
+    func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int)
 }
 
 protocol AccountCredentialsDisplayable {
@@ -124,7 +124,7 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         }
         if self.searchIsActive() {
             let credential = self.filtered[indexPath.row]
-            cell.configureCell(delegate: self, credential: credential, index: nil)
+            cell.configureCell(delegate: self, credential: credential)
         } else {
             let credential = self.credentials[indexPath.row]
             cell.configureCell(delegate: self, credential: credential, index: indexPath.row)
@@ -179,7 +179,17 @@ extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
         self.showCopyToClipboardView()
     }
     
-    func cellEditButtonTapped(index: Int?) {
+    func cellEditButtonTapped(credential: AccountCredential, index: Int?) {
+        guard let index else {
+            for index in 0..<self.credentials.count {
+                if self.credentials[index] == credential {
+                    self.delegate?.accountCredentialsEditCredential(self, index: index)
+                    return
+                }
+            }
+            CustomAlert.ok(self, title: "Oops!", message: "Sorry we could not find that credential to edit.", style: .alert)
+            return
+        }
         self.delegate?.accountCredentialsEditCredential(self, index: index)
     }
 }

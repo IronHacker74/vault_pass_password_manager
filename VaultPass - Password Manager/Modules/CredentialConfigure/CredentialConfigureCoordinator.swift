@@ -56,8 +56,7 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
         })
     }
     
-    func saveCredential(title: String, username: String, password: String) {
-        let credential = AccountCredential(title: title, username: username, password: password)
+    func saveCredential(_ credential: AccountCredential) {
         if let index = self.index {
             self.credentials[index] = credential
         } else {
@@ -69,7 +68,8 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
     private func storeCredentialsAndPop(){
         if self.credentialManager.storeCredentials(self.credentials) {
             self.navigation.popViewController(animated: true)
+        } else {
+            CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.", style: .alert)
         }
-        CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.", style: .alert)
     }
 }

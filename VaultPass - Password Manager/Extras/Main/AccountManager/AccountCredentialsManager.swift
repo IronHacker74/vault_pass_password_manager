@@ -205,7 +205,7 @@ class AccountCredentialsManager {
     
     func storeCredentials(_ credentials: [AccountCredential]) -> Bool {
         self.deleteStore()
-        let sortedCredentials = credentials.sorted(by: { $0.title < $1.title })
+        let sortedCredentials = self.sortCredentials(credentials)
         
         var accountArray: [String] = []
         for credential in sortedCredentials {
@@ -241,6 +241,10 @@ class AccountCredentialsManager {
         for object in data {
             context.delete(object)
         }
+    }
+    
+    private func sortCredentials(_ credentials: [AccountCredential]) -> [AccountCredential] {
+        return credentials.sorted(by: { $0.title.lowercased() < $1.title.lowercased() })
     }
 }
 

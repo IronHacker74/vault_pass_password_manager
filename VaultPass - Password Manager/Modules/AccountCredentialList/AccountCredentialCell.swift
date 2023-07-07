@@ -10,7 +10,7 @@ import UIKit
 protocol AccountCredentialCellDelegate {
     func cellUsernameButtonTapped(credential: AccountCredential)
     func cellPasswordButtonTapped(credential: AccountCredential)
-    func cellEditButtonTapped(index: Int?)
+    func cellEditButtonTapped(credential: AccountCredential, index: Int?)
 }
 
 class AccountCredentialCell: UITableViewCell, UIViewLoading {
@@ -18,19 +18,18 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     @IBOutlet private(set) var title: UILabel!
     @IBOutlet private(set) var username: UIButton!
     @IBOutlet private(set) var password: UIButton!
+    @IBOutlet private(set) var editBtn: UIButton!
     @IBOutlet private(set) var revealLabel: UILabel!
     
     private var delegate: AccountCredentialCellDelegate?
     private var credential: AccountCredential?
-    var index: Int?
+    private var index: Int?
     
-    func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?, index: Int?) {
+    func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?, index: Int? = nil) {
         self.delegate = delegate
         self.credential = credential
         self.title.text = credential?.title
-        if let index {
-            self.index = index
-        }
+        self.index = index
         self.hideCredentials()
     }
     
@@ -68,6 +67,6 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
         guard let credential else {
             return
         }
-        self.delegate?.cellEditButtonTapped(index: index)
+        self.delegate?.cellEditButtonTapped(credential: credential, index: self.index)
     }
 }
