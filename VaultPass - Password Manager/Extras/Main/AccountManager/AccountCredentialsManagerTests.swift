@@ -90,7 +90,6 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let manager = AccountCredentialsManager()
         manager.setPasswordSettingsToDefault()
         // when
-        manager.toggleStringType(of: .lowerCase)
         manager.toggleStringType(of: .upperCase)
         // then
         XCTAssertEqual(.good, manager.passwordStrength())

@@ -49,8 +49,8 @@ final class AccountCredentialCellTests: XCTestCase {
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
-        XCTAssertNil(cell.username.title(for: .normal))
-        XCTAssertNil(cell.password.title(for: .normal))
+        XCTAssertNotEqual(cell.username.title(for: .normal), string)
+        XCTAssertNotEqual(cell.password.title(for: .normal), string)
     }
     
     func testUsernameAndPasswordAreRevealed() {

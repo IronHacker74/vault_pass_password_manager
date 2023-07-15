@@ -119,6 +119,7 @@
 		8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		835828592A4BC492004CAD4B /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
+		83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VaultPass - Password Manager.entitlements"; sourceTree = "<group>"; };
 		835E097E2A51385E00A319F7 /* TermsAndConditions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = TermsAndConditions.txt; path = ../../../../TermsAndConditions.txt; sourceTree = "<group>"; };
 		837312762A415DF000886D86 /* UIViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLoading.swift; sourceTree = "<group>"; };
 		839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredentialProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -324,6 +325,7 @@
 		9520B51529DA107900FFD65B /* VaultPass - Password Manager */ = {
 			isa = PBXGroup;
 			children = (
+				83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */,
 				83381E542A44015C0070C427 /* Main */,
 				9520B54B29DBC5E800FFD65B /* Modules */,
 				9520B51C29DA107900FFD65B /* Main.storyboard */,
@@ -845,6 +847,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VaultPass - Password Manager/VaultPass - Password Manager.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BW3C2GGWGE;
@@ -880,6 +883,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "VaultPass - Password Manager/VaultPass - Password Manager.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BW3C2GGWGE;

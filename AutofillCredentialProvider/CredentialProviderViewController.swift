@@ -15,8 +15,7 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
      prioritize the most relevant credentials in the list.
     */
     override func prepareCredentialList(for serviceIdentifiers: [ASCredentialServiceIdentifier]) {
-//        let credentials = accountManager.fetchCredentials()
-//        self.extensionContext
+        
     }
 
     /*

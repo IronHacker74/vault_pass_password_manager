@@ -23,7 +23,7 @@ enum PasswordStrength {
     case best
 }
 
-class AccountCredentialsManager {
+struct AccountCredentialsManager {
     private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     private let converter: Converter = Converter()
     
@@ -248,9 +248,3 @@ class AccountCredentialsManager {
     }
 }
 
-extension AccountCredential {
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<EncryptedCredentials> {
-        return NSFetchRequest<EncryptedCredentials>(entityName: "EncryptedCredentials")
-    }
-    @NSManaged public var credentials: Data?
-}

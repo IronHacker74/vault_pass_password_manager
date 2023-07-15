@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class AccountCredential: Equatable {
     
@@ -33,3 +34,10 @@ class AccountCredential: Equatable {
     }
 }
 
+
+extension AccountCredential {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<EncryptedCredentials> {
+        return NSFetchRequest<EncryptedCredentials>(entityName: "EncryptedCredentials")
+    }
+    @NSManaged public var credentials: Data?
+}

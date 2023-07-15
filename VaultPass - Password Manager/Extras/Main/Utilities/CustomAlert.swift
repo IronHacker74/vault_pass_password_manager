@@ -7,8 +7,7 @@
 
 import UIKit
 
-struct CustomAlert {
-        
+struct CustomAlert {  
     static func destructive(_ controller: UIViewController, title: String, message: String, style: UIAlertController.Style, deleteBtn: String, deleteAction: @escaping ((UIAlertAction) -> Void)) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel){ _ in
