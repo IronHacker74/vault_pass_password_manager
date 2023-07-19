@@ -78,7 +78,7 @@ class CredentialConfigureMediatingController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        guard let title = self.titleField.text, !title.isEmpty else {
+        guard let title = self.titleField.text, !title.replacingOccurrences(of: " ", with: "").isEmpty else {
             self.showError("Title required")
             return
         }
@@ -86,7 +86,7 @@ class CredentialConfigureMediatingController: UIViewController {
             self.showError("Username or password is required")
             return
         }
-        var identifier: String = "\(title).com"
+        var identifier: String = "\(title.replacingOccurrences(of: " ", with: "").lowercased())"
         if let identifierText = identifierField.text, !identifierText.isEmpty {
             identifier = identifierText
         }

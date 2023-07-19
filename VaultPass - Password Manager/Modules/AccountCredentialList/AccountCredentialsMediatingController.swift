@@ -136,7 +136,11 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell else {
             return
         }
-        cell.reveal()
+        if cell.credentialIsShowing() {
+            cell.hideCredentials()
+        } else {
+            cell.reveal()
+        }
     }
 }
 

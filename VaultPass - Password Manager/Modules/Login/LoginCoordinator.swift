@@ -26,23 +26,11 @@ class LoginCoordinator: LoginDelegate {
     }
     
     func loginWithAppleAuth() {
-        let context = LAContext()
-        var error: NSError?
-        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
-            print(error?.localizedDescription ?? "Can't evaluate policy")
-            return
-        }
-        Task {
-            do {
-                try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Log in to manager your passwords")
-                print("Succcessful authentication")
-                DispatchQueue.main.async {
-                    self.pushAccountCredentialsController()
-                }
-            } catch let error {
-                print(error.localizedDescription)
+        BiometricLogin.loginWithAppleAuth(completion: { result, error in
+            if result && error == nil {
+                self.pushAccountCredentialsController()
             }
-        }
+        })
     }
     
     private func pushAccountCredentialsController() {
