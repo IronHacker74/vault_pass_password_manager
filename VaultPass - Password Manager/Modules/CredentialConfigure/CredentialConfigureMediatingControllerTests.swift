@@ -86,6 +86,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         controller.loadViewIfNeeded()
         controller.titleField.text = "Title"
         controller.usernameField.text = "username"
+        controller.passwordField.text = "password"
         controller.saveButton.sendActions(for: .touchUpInside)
         let newCredNum = manager.fetchCredentials().count
         // then
