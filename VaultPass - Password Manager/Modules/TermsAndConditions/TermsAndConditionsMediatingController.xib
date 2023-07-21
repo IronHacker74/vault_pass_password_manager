@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TermsAndConditionsMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="exitButton" destination="XZ4-Re-xiE" id="iNn-Mn-vJb"/>
                 <outlet property="termsAndConditionsTextField" destination="b67-be-bTD" id="Fxq-nq-11h"/>
                 <outlet property="titleLabel" destination="YKx-pO-04j" id="aYg-Ww-8JB"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Ffs-cA-L2G"/>

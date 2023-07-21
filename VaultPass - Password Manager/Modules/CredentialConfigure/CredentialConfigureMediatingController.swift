@@ -32,6 +32,7 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var generatePasswordBtn: UIButton!
     @IBOutlet private(set) var saveButton: UIButton!
     @IBOutlet private(set) var deleteBtn: UIButton!
+    @IBOutlet private(set) var showPasswordBtn: UIButton!
     
     let delegate: CredentialConfigureDelegate?
     
@@ -97,6 +98,16 @@ class CredentialConfigureMediatingController: UIViewController {
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         self.delegate?.deleteButtonPressed()
+    }
+    
+    @IBAction func showPasswordPressed(_ sender: UIButton) {
+        if self.passwordField.isSecureTextEntry {
+            self.showPasswordBtn.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            self.passwordField.isSecureTextEntry = false
+        } else {
+            self.showPasswordBtn.setImage(UIImage(systemName: "eye"), for: .normal)
+            self.passwordField.isSecureTextEntry = true
+        }
     }
     
     private func showError(_ error: String){

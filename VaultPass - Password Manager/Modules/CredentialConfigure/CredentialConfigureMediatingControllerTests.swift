@@ -28,6 +28,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.errorLabel)
         XCTAssertNotNil(controller.saveButton)
         XCTAssertNotNil(controller.deleteBtn)
+        XCTAssertNotNil(controller.showPasswordBtn)
     }
     
     func testCredentialConfigureIsInCreateMode() {
@@ -104,4 +105,26 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertFalse(controller.passwordField.text!.isEmpty)
     }
     
+    func testPasswordIsHidden() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: nil)
+        let string = "password"
+        // when
+        controller.loadViewIfNeeded()
+        controller.passwordField.text = string
+        // then
+        XCTAssertTrue(controller.passwordField.isSecureTextEntry)
+    }
+    
+    func testPasswordIsShowing() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: nil)
+        let string = "password"
+        // when
+        controller.loadViewIfNeeded()
+        controller.passwordField.text = string
+        controller.showPasswordBtn.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertFalse(controller.passwordField.isSecureTextEntry)
+    }
 }
