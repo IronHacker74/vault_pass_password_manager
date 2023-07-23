@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="deleteAllDataBtn" destination="1vv-O9-VzX" id="fml-GS-iLy"/>
                 <outlet property="lowerCaseSwitch" destination="Pmt-pz-2Ss" id="i5b-na-QP9"/>
                 <outlet property="numbersSwitch" destination="Jkt-XH-eoi" id="N2z-pB-ezi"/>
                 <outlet property="passwordLengthLabel" destination="tV2-V5-ZhZ" id="AID-XL-8rP"/>

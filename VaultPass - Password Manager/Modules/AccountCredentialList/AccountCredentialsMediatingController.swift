@@ -27,12 +27,12 @@ class AccountCredentialsMediatingController: UIViewController {
     @IBOutlet private(set) var searchBar: UISearchBar!
     
     var delegate: AccountCredentialsDelegate?
-    
+    var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
+
     private var credentials: [AccountCredential] = []
     private var filtered: [AccountCredential] = []
     
     private let cellIdentifier = "AccountCredentialCell"
-    private var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
     private let clipboard = UIPasteboard.general
     
     override func viewDidLoad() {
