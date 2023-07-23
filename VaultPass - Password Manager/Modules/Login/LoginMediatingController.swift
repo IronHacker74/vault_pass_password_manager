@@ -16,6 +16,7 @@ class LoginMediatingController: UIViewController, UIViewLoading {
     
     @IBOutlet private(set) var loginButton: UIButton!
     @IBOutlet private(set) var loginDetailLabel: UILabel!
+    @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     
     var delegate: LoginDelegate?
     

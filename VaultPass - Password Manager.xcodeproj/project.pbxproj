@@ -24,6 +24,7 @@
 		832AF35F2A67381300E6DE35 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */; };
 		832AF3652A67467A00E6DE35 /* BiometricLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832AF3642A67467A00E6DE35 /* BiometricLogin.swift */; };
 		832AF3692A67937000E6DE35 /* BiometricLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832AF3642A67467A00E6DE35 /* BiometricLogin.swift */; };
+		8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337E0C02A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift */; };
 		83381E572A4402F60070C427 /* LoginMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E552A4402BD0070C427 /* LoginMediatingControllerTests.swift */; };
 		83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */; };
 		83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */; };
@@ -116,6 +117,7 @@
 		8328759E2A319EAC006694FE /* AccountCredentialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCredentialCell.xib; sourceTree = "<group>"; };
 		832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManager.swift; sourceTree = "<group>"; };
 		832AF3642A67467A00E6DE35 /* BiometricLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricLogin.swift; sourceTree = "<group>"; };
+		8337E0C02A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		83381E552A4402BD0070C427 /* LoginMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMediatingControllerTests.swift; sourceTree = "<group>"; };
 		83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsAndConditionsMediatingController.xib; sourceTree = "<group>"; };
 		83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsMediatingController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			children = (
 				83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */,
 				83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */,
+				8337E0C02A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift */,
 				83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */,
 			);
 			path = TermsAndConditions;
@@ -615,6 +618,7 @@
 				8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */,
 				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
 				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
+				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,
 				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
 				83381E572A4402F60070C427 /* LoginMediatingControllerTests.swift in Sources */,
 				83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */,

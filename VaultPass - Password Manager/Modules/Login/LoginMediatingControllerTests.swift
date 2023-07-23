@@ -28,16 +28,4 @@ final class LoginMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.loginButton)
         XCTAssertNotNil(controller.loginDetailLabel)
     }
-    
-    func testLoginAuthenticationNotOnAppearForNewUser() {
-//        // given
-//        let loginData = LoginData()
-//        let controller = LoginMediatingController.loadFromNibMain()
-//        controller.delegate = LoginCoordinator(factory: LoginFactory(), navigation: UINavigationController())
-//        loginData.deleteData()
-//        // when
-//        controller.loadViewIfNeeded()
-//        // then
-        // TODO: try to test authentication is showing when expected
-    }
 }
