@@ -11,6 +11,7 @@ class TermsAndConditionsMediatingController: UIViewController {
     
     @IBOutlet private(set) var titleLabel: UILabel!
     @IBOutlet private(set) var termsAndConditionsTextField: UITextView!
+    @IBOutlet private(set) var exitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

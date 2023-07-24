@@ -97,6 +97,7 @@
                     <connections>
                         <outlet property="loginButton" destination="v2K-ey-Nnq" id="A8b-OY-YDZ"/>
                         <outlet property="loginDetailLabel" destination="WuI-8k-hx9" id="kzf-01-YPb"/>
+                        <outlet property="termsAndConditionsBtn" destination="eSw-so-MdZ" id="NmO-h2-MVW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

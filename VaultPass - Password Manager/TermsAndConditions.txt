@@ -1,0 +1,30 @@
+Welcome to our VaultPass. By using VaultPass, you agree to be bound by the following Terms and Conditions. Please read them carefully before using VaultPass.
+	
+1. Use of VaultPass
+VaultPass is intended to provide you with a secure and convenient way to manage your usernames and passwords. You agree to use VaultPass only for its intended purposes and in accordance with all applicable laws and regulations.
+
+2. Data Handling
+VaultPass does not, and will never, sell your data to any third-party user or any other party outside the application. VaultPass only stores data in the app and will never ask you to share said data.
+    
+3. User Accounts
+To use VaultPass, your login credentials is required to be Apple’s Local Authentication. You are solely responsible for maintaining the confidentiality of said authentication on your device.
+    
+4. Passwords
+VaultPass is designed to store and manage your passwords securely. We use industry-standard encryption and security measures to protect your data. However, we cannot guarantee that our security measures will prevent unauthorized access to your data. You are solely responsible for the security of your passwords, including the strength and complexity of your passwords and the frequency with which you change them.
+        
+5. Prohibited Activities
+You agree not to use VaultPass for any unlawful or unauthorized purpose, including but not limited to hacking, phishing, or spamming. You also agree not to use VaultPass to upload, store, or transmit any content that is illegal, harmful, threatening, abusive, harassing, defamatory, or otherwise objectionable.
+    
+6. Termination
+We reserve the right to terminate your use of VaultPass at any time, with or without cause, and without notice to you. Upon termination, your account will be deleted, and your data will be permanently deleted.
+    
+7. Changes to the Terms and Conditions
+We may modify these Terms and Conditions at any time, with or without notice to you. Your continued use of VaultPass after any such modification constitutes your acceptance of the modified Terms and Conditions.
+    
+8. Disclaimer of Warranties
+VaultPass is provided "as is" without warranty of any kind, express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that VaultPass will be uninterrupted or error-free, that defects will be corrected, or that VaultPass or the servers that make it available are free of viruses or other harmful components.
+    
+9. Limitation of Liability - Excluding Apple
+To the extent permitted by law, we hereby exclude Apple from any responsibility for any liability, loss, damage, or expense whatsoever arising out of or in connection with your use of VaultPass. We shall not be liable for any indirect, incidental, special, or consequential damages arising out of or in connection with your use of VaultPass, including but not limited to loss of data, lost profits, or any other damages resulting from unauthorized access to your data.
+        
+By using VaultPass, you acknowledge that you have read and agree to these Terms and Conditions. If you do not agree to these Terms and Conditions, please do not use VaultPass.

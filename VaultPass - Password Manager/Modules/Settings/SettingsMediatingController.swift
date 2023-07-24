@@ -36,6 +36,8 @@ class SettingsMediatingController: UIViewController {
     @IBOutlet private(set) var passwordLengthSlider: UISlider!
     @IBOutlet private(set) var passwordStrengthColor: UIView!
     
+    @IBOutlet private(set) var deleteAllDataBtn: UIButton!
+    
     var delegate: SettingsDelegate?
     
     init(delegate: SettingsDelegate?) {
