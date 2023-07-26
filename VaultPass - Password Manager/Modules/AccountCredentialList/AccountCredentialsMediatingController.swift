@@ -33,7 +33,6 @@ class AccountCredentialsMediatingController: UIViewController {
     private var filtered: [AccountCredential] = []
     
     private let cellIdentifier = "AccountCredentialCell"
-    private let clipboard = UIPasteboard.general
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -174,12 +173,12 @@ extension AccountCredentialsMediatingController: AccountCredentialsDisplayable {
 
 extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
     func cellUsernameButtonTapped(credential: AccountCredential) {
-        self.clipboard.string = credential.decryptedUsername
+        UIPasteboard.copyToClipboard(credential.decryptedUsername)
         self.showCopyToClipboardView()
     }
     
     func cellPasswordButtonTapped(credential: AccountCredential) {
-        self.clipboard.string = credential.decryptedPassword
+        UIPasteboard.copyToClipboard(credential.decryptedPassword)
         self.showCopyToClipboardView()
     }
     
