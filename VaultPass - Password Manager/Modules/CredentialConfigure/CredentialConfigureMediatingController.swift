@@ -33,8 +33,10 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var saveButton: UIButton!
     @IBOutlet private(set) var deleteBtn: UIButton!
     @IBOutlet private(set) var showPasswordBtn: UIButton!
+    @IBOutlet private(set) var copyPasswordBtn: UIButton!
     
     let delegate: CredentialConfigureDelegate?
+    var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
     
     init(delegate: CredentialConfigureDelegate?) {
         self.delegate = delegate
@@ -110,6 +112,14 @@ class CredentialConfigureMediatingController: UIViewController {
         }
     }
     
+    @IBAction func copyPasswordPressed(_ sender: UIButton) {
+        guard let password = self.passwordField.text, !password.isEmpty else {
+            return
+        }
+        UIPasteboard.copyToClipboard(password)
+        self.showCopyToClipboardView()
+    }
+    
     private func showError(_ error: String){
         self.errorLabel.text = error
         if self.errorLabel.isHidden {
@@ -144,5 +154,21 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return false
+    }
+}
+
+extension CredentialConfigureMediatingController: CopyToClipboardViewDelegate, CopyToClipboardDelegate {
+    func showCopyToClipboardView() {
+        if let _ = self.copyToClipboardConfirmationView {
+            self.replaceCopyToClipboardView(self.view, clipboardView: self.copyToClipboardConfirmationView, delegate: self, completion: { newClipboardView in
+                self.copyToClipboardConfirmationView = newClipboardView
+            })
+        } else {
+            self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self)
+        }
+    }
+    
+    func dismissClipboardView() {
+        self.dismissCopyToClipboardView(self.view, self.copyToClipboardConfirmationView)
     }
 }

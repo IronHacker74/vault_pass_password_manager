@@ -49,6 +49,9 @@
 		83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
 		83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */; };
 		83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */; };
+		83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB20C2A7310A000E06493 /* OpenAppLink.swift */; };
+		83BAB20F2A731A7000E06493 /* AppLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB20E2A731A7000E06493 /* AppLinkTests.swift */; };
+		83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */; };
 		83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */; };
 		83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */; };
 		9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51629DA107900FFD65B /* AppDelegate.swift */; };
@@ -145,6 +148,9 @@
 		83AD0FD22A3309A9008B3C09 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManagerTests.swift; sourceTree = "<group>"; };
 		83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		83BAB20C2A7310A000E06493 /* OpenAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppLink.swift; sourceTree = "<group>"; };
+		83BAB20E2A731A7000E06493 /* AppLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLinkTests.swift; sourceTree = "<group>"; };
+		83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPasteBoard+.swift"; sourceTree = "<group>"; };
 		83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyToClipboardConfirmationView.xib; sourceTree = "<group>"; };
 		83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,6 +296,7 @@
 				837312762A415DF000886D86 /* UIViewLoading.swift */,
 				835828592A4BC492004CAD4B /* UIButton+.swift */,
 				832AF3642A67467A00E6DE35 /* BiometricLogin.swift */,
+				83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */,
 			);
 			name = Extras;
 			path = ..;
@@ -299,6 +306,8 @@
 			isa = PBXGroup;
 			children = (
 				83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */,
+				83BAB20C2A7310A000E06493 /* OpenAppLink.swift */,
+				83BAB20E2A731A7000E06493 /* AppLinkTests.swift */,
 				83AD0FCE2A330834008B3C09 /* Encryptor.swift */,
 				83AD0FD22A3309A9008B3C09 /* Converter.swift */,
 				8348D7AC2A3EBAFC00D16B0B /* LoginData.swift */,
@@ -596,8 +605,10 @@
 				9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */,
 				9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */,
 				83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */,
+				83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */,
 				8348D7AD2A3EBAFC00D16B0B /* LoginData.swift in Sources */,
 				839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */,
+				83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */,
 				832875882A302839006694FE /* AccountCredentialsCoordinator.swift in Sources */,
 				832875A22A31A4E8006694FE /* AccountCredentialsManager.swift in Sources */,
 				831288F02A384014009549F0 /* CredentialConfigureMediatingController.swift in Sources */,
@@ -620,6 +631,7 @@
 				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
 				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,
 				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
+				83BAB20F2A731A7000E06493 /* AppLinkTests.swift in Sources */,
 				83381E572A4402F60070C427 /* LoginMediatingControllerTests.swift in Sources */,
 				83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */,
 			);

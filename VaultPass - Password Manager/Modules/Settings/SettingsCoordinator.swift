@@ -11,6 +11,7 @@ class SettingsCoordinator: SettingsDelegate {
     
     let credentialsManager: AccountCredentialsManager
     let navigation: UINavigationController
+    let loginData: LoginData = LoginData()
     
     init(credentialsManager: AccountCredentialsManager, navigation: UINavigationController) {
         self.credentialsManager = credentialsManager
@@ -66,6 +67,7 @@ class SettingsCoordinator: SettingsDelegate {
     
     func logoutButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Logout?", message: "Are you sure you want to logout?", style: .actionSheet, deleteBtn: "Logout", deleteAction: { _ in
+            self.loginData.setAutoLogin(false)
             let factory = LoginFactory()
             let controller = LoginMediatingController.loadFromNibMain()
             controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
@@ -77,6 +79,7 @@ class SettingsCoordinator: SettingsDelegate {
     func deleteAllData() {
         CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
+            self.loginData.deleteData()
             self.navigation.popViewController(animated: true)
         })
     }

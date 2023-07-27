@@ -27,5 +27,7 @@ final class LoginMediatingControllerTests: XCTestCase {
         // then
         XCTAssertNotNil(controller.loginButton)
         XCTAssertNotNil(controller.loginDetailLabel)
+        XCTAssertNotNil(controller.termsAndConditionsBtn)
+        XCTAssertNotNil(controller.privacyPolicyBtn)
     }
 }

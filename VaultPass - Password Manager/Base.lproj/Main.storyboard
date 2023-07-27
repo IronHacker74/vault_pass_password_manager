@@ -51,45 +51,61 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-8k-hx9">
-                                <rect key="frame" x="32" y="692" width="329" height="0.0"/>
+                                <rect key="frame" x="32" y="678" width="329" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSw-so-MdZ">
-                                <rect key="frame" x="24" y="771" width="345" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Terms and conditions">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="termsAndConditionsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="93h-fZ-i4L"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ghK-fn-oAv">
+                                <rect key="frame" x="32" y="748" width="329" height="46"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVh-IJ-ruT">
+                                        <rect key="frame" x="0.0" y="7.6666666666666288" width="130.66666666666666" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Privacy Policy">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="privacyPolicyButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hg8-Me-d4X"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSw-so-MdZ">
+                                        <rect key="frame" x="140.66666666666663" y="7.6666666666666288" width="188.33333333333337" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Terms and conditions">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="termsAndConditionsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="93h-fZ-i4L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstItem="v2K-ey-Nnq" firstAttribute="top" relation="lessThanOrEqual" secondItem="LFw-ju-QdC" secondAttribute="bottom" constant="189.33000000000001" id="0fy-VD-ofW"/>
-                            <constraint firstItem="eSw-so-MdZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="3GB-DU-wPH"/>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4tk-sB-Aaw"/>
                             <constraint firstItem="WuI-8k-hx9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="A0f-vg-anJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="40" id="Ahg-Hm-cjj"/>
                             <constraint firstItem="Jsq-pL-dJf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="EJf-BL-seO"/>
-                            <constraint firstItem="eSw-so-MdZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-16" id="KFY-w8-DRa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ghK-fn-oAv" secondAttribute="trailing" constant="32" id="EnI-8W-wYx"/>
+                            <constraint firstItem="ghK-fn-oAv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Fpi-Yi-cap"/>
                             <constraint firstItem="Jsq-pL-dJf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KaK-DQ-Zv6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LFw-ju-QdC" secondAttribute="trailing" constant="24" id="KeV-BF-aGa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eSw-so-MdZ" secondAttribute="trailing" constant="24" id="MrN-Bd-SDC"/>
+                            <constraint firstItem="ghK-fn-oAv" firstAttribute="top" secondItem="WuI-8k-hx9" secondAttribute="bottom" constant="70" id="Mdc-MZ-hYw"/>
                             <constraint firstItem="v2K-ey-Nnq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="P6r-g2-TI3"/>
                             <constraint firstItem="LFw-ju-QdC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="VhS-hr-Uq0"/>
                             <constraint firstItem="LFw-ju-QdC" firstAttribute="top" secondItem="EK9-dU-3N8" secondAttribute="bottom" constant="10" id="YHC-y8-Rxq"/>
-                            <constraint firstItem="WuI-8k-hx9" firstAttribute="top" secondItem="v2K-ey-Nnq" secondAttribute="bottom" constant="30" id="fxu-dj-ZjY"/>
+                            <constraint firstItem="WuI-8k-hx9" firstAttribute="top" secondItem="v2K-ey-Nnq" secondAttribute="bottom" constant="16" id="fxu-dj-ZjY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ghK-fn-oAv" secondAttribute="bottom" constant="24" id="gtl-ZS-YLQ"/>
                             <constraint firstItem="v2K-ey-Nnq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="LFw-ju-QdC" secondAttribute="bottom" constant="20" id="mFz-sj-v8W"/>
                             <constraint firstItem="Jsq-pL-dJf" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="rW6-Xh-3PV"/>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="Jsq-pL-dJf" secondAttribute="bottom" constant="20" id="tUy-1f-ghS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EK9-dU-3N8" secondAttribute="trailing" constant="16" id="vAz-4t-ADa"/>
-                            <constraint firstItem="eSw-so-MdZ" firstAttribute="top" secondItem="WuI-8k-hx9" secondAttribute="bottom" constant="79" id="ys6-XJ-CXY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WuI-8k-hx9" secondAttribute="trailing" constant="32" id="zK6-1o-7FP"/>
                         </constraints>
                     </view>
@@ -97,6 +113,7 @@
                     <connections>
                         <outlet property="loginButton" destination="v2K-ey-Nnq" id="A8b-OY-YDZ"/>
                         <outlet property="loginDetailLabel" destination="WuI-8k-hx9" id="kzf-01-YPb"/>
+                        <outlet property="privacyPolicyBtn" destination="TVh-IJ-ruT" id="rMk-id-RMJ"/>
                         <outlet property="termsAndConditionsBtn" destination="eSw-so-MdZ" id="NmO-h2-MVW"/>
                     </connections>
                 </viewController>
