@@ -52,7 +52,7 @@ class CredentialConfigureMediatingController: UIViewController {
         super.viewDidLoad()
         self.delegate?.credentialConfigureViewDidLoad(displayable: self)
         self.setupTextFields()
-        self.navigationItem.title = "Credential Configuration"
+        self.makeNavigationBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +65,44 @@ class CredentialConfigureMediatingController: UIViewController {
         self.identifierField.delegate = self
         self.usernameField.delegate = self
         self.passwordField.delegate = self
+    }
+    
+    private func makeNavigationBar() {
+        self.navigationItem.title = "Credential Configuration"
+        let rightBarButtonItems = [self.makeRedoButton(), self.makeUndoButton()]
+        self.navigationItem.setRightBarButtonItems(rightBarButtonItems, animated: true)
+    }
+    
+    private func makeUndoButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(image: UIImage(systemName: "arrow.uturn.backward"), style: .plain, target: self, action: #selector(undoAction))
+        button.tintColor = .systemBlue
+        return button
+    }
+    
+    private func makeRedoButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(image: UIImage(systemName: "arrow.uturn.forward"), style: .plain, target: self, action: #selector(redoAction))
+        button.tintColor = .systemBlue
+        return button
+    }
+    
+    @objc func undoAction() {
+        guard let undoManager = self.undoManager else {
+            CustomAlert.ok(self, title: "Oops...", message: "Failed to undo action.", style: .alert)
+            return
+        }
+        if undoManager.canUndo {
+            undoManager.undo()
+        }
+    }
+    
+    @objc func redoAction() {
+        guard let undoManager = self.undoManager else {
+            CustomAlert.ok(self, title: "Oops...", message: "Failed to redo action.", style: .alert)
+            return
+        }
+        if undoManager.canRedo {
+            undoManager.redo()
+        }
     }
     
     @IBAction func passwordSettingsBtnPressed(_ sender: UIButton) {
