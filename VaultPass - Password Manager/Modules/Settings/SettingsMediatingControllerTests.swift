@@ -30,6 +30,8 @@ final class SettingsMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.passwordLengthLabel)
         XCTAssertNotNil(controller.passwordLengthSlider)
         XCTAssertNotNil(controller.passwordStrengthColor)
+        XCTAssertNotNil(controller.termsAndConditionsBtn)
+        XCTAssertNotNil(controller.privacyPolicyBtn)
     }
     
     func testPasswordSettingsSetFromManager() {
