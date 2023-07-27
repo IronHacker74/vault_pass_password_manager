@@ -20,7 +20,7 @@ class LoginCoordinator: LoginDelegate {
     }
     
     func loginViewDidAppear() {
-        if self.loginData.getNotFirstLogin() {
+        if self.loginData.getAutoLogin() {
             self.loginWithAppleAuth()
         }
     }
@@ -34,12 +34,14 @@ class LoginCoordinator: LoginDelegate {
     }
     
     private func pushAccountCredentialsController() {
-        let notFirstLogin = self.loginData.getNotFirstLogin()
         let factory = AccountCredentialsFactory()
         let manager = AccountCredentialsManager()
-        if notFirstLogin == false {
+        if self.loginData.getNotFirstLogin() == false {
             manager.setPasswordSettingsToDefault()
             self.loginData.setNotFirstLogin(true)
+        }
+        if self.loginData.getAutoLogin() == false {
+            self.loginData.setAutoLogin(true)
         }
         let controller = factory.makeMediatingController(accountManager: manager)
         UIApplication.shared.windows.first?.rootViewController = controller
