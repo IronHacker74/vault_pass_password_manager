@@ -17,6 +17,7 @@ class LoginMediatingController: UIViewController, UIViewLoading {
     @IBOutlet private(set) var loginButton: UIButton!
     @IBOutlet private(set) var loginDetailLabel: UILabel!
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
+    @IBOutlet private(set) var privacyPolicyBtn: UIButton!
     
     var delegate: LoginDelegate?
     
@@ -36,6 +37,10 @@ class LoginMediatingController: UIViewController, UIViewLoading {
     }
     
     @IBAction func termsAndConditionsButtonPressed(_ sender: UIButton) {
-        self.delegate?.termsAndConditionsButtonAction()
+        OpenAppLink.using(.termsAndConditions, vc: self)
+    }
+    
+    @IBAction func privacyPolicyButtonPressed(_ sender: UIButton) {
+        OpenAppLink.using(.privacyPolicy, vc: self)
     }
 }

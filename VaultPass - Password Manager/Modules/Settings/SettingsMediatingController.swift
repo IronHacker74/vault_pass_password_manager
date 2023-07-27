@@ -36,6 +36,8 @@ class SettingsMediatingController: UIViewController {
     @IBOutlet private(set) var passwordLengthSlider: UISlider!
     @IBOutlet private(set) var passwordStrengthColor: UIView!
     
+    @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
+    @IBOutlet private(set) var privacyPolicyBtn: UIButton!
     @IBOutlet private(set) var deleteAllDataBtn: UIButton!
     
     var delegate: SettingsDelegate?
@@ -90,7 +92,11 @@ class SettingsMediatingController: UIViewController {
     }
     
     @IBAction func termsAndConditionsPressed(_ sender: UIButton) {
-        self.delegate?.termsAndConditionsTapped()
+        OpenAppLink.using(.termsAndConditions, vc: self)
+    }
+    
+    @IBAction func privacyPolicyPressed(_ sender: UIButton) {
+        OpenAppLink.using(.privacyPolicy, vc: self)
     }
     
     @IBAction func logoutBtnPressed(_ sender: UIButton) {
