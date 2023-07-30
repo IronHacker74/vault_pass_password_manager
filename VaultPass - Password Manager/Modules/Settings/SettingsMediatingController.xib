@@ -17,7 +17,9 @@
                 <outlet property="passwordLengthLabel" destination="tV2-V5-ZhZ" id="AID-XL-8rP"/>
                 <outlet property="passwordLengthSlider" destination="n2E-dT-fXz" id="msT-2W-WQD"/>
                 <outlet property="passwordStrengthColor" destination="74S-xa-bw8" id="HrL-Ea-qM6"/>
+                <outlet property="privacyPolicyBtn" destination="m5G-34-JOx" id="UPy-z0-cMR"/>
                 <outlet property="specialCharsSwitch" destination="arT-6Y-wVv" id="8mY-Zh-Adf"/>
+                <outlet property="termsAndConditionsBtn" destination="SxC-X6-gbq" id="8n8-1g-0ic"/>
                 <outlet property="upperCaseSwitch" destination="B0P-c9-QhS" id="uZ8-DJ-6Od"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Yml-Yh-OZ4"/>
             </connections>
@@ -161,18 +163,10 @@
                                     </constraints>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Nhv-1j-4Az">
-                                    <rect key="frame" x="32" y="583" width="329" height="156"/>
+                                    <rect key="frame" x="32" y="572" width="329" height="116"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxC-X6-gbq">
-                                            <rect key="frame" x="0.0" y="0.0" width="329" height="24"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Terms and Conditions"/>
-                                            <connections>
-                                                <action selector="termsAndConditionsPressed:" destination="-1" eventType="touchUpInside" id="dcP-a0-d35"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWD-XS-dxR">
-                                            <rect key="frame" x="0.0" y="40" width="329" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="329" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="JcD-Gr-XMH"/>
                                             </constraints>
@@ -185,7 +179,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vv-O9-VzX">
-                                            <rect key="frame" x="0.0" y="106" width="329" height="50"/>
+                                            <rect key="frame" x="0.0" y="66" width="329" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="ngP-BQ-eWf"/>
                                             </constraints>
@@ -199,17 +193,45 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="156" id="N8U-cQ-9UM"/>
+                                        <constraint firstAttribute="height" constant="116" id="N8U-cQ-9UM"/>
                                     </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="tDR-Fo-zD9">
+                                    <rect key="frame" x="24" y="720" width="345" height="31"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m5G-34-JOx">
+                                            <rect key="frame" x="0.0" y="0.0" width="113.66666666666667" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Privacy Policy">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="privacyPolicyPressed:" destination="-1" eventType="touchUpInside" id="uGU-Co-kzA"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxC-X6-gbq">
+                                            <rect key="frame" x="180" y="0.0" width="165" height="31"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Terms and Conditions">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="14"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="termsAndConditionsPressed:" destination="-1" eventType="touchUpInside" id="dcP-a0-d35"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
                                 </stackView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="UbT-P1-HtA" secondAttribute="trailing" constant="16" id="4XG-ol-uOJ"/>
+                                <constraint firstAttribute="bottom" secondItem="tDR-Fo-zD9" secondAttribute="bottom" constant="8" id="7Nh-Uw-P9b"/>
                                 <constraint firstItem="UbT-P1-HtA" firstAttribute="top" secondItem="cDJ-ZH-K9a" secondAttribute="top" constant="20" symbolic="YES" id="A9A-zI-6mg"/>
-                                <constraint firstAttribute="bottom" secondItem="Nhv-1j-4Az" secondAttribute="bottom" constant="20" id="AcY-mn-gAA"/>
                                 <constraint firstItem="UbT-P1-HtA" firstAttribute="leading" secondItem="cDJ-ZH-K9a" secondAttribute="leading" constant="16" id="O4T-CM-dKa"/>
+                                <constraint firstItem="tDR-Fo-zD9" firstAttribute="top" secondItem="Nhv-1j-4Az" secondAttribute="bottom" constant="32" id="OVr-WU-nrB"/>
                                 <constraint firstItem="Nhv-1j-4Az" firstAttribute="leading" secondItem="cDJ-ZH-K9a" secondAttribute="leading" constant="32" id="W4U-ur-PaU"/>
+                                <constraint firstItem="tDR-Fo-zD9" firstAttribute="leading" secondItem="cDJ-ZH-K9a" secondAttribute="leading" constant="24" id="g59-Ix-cLd"/>
+                                <constraint firstAttribute="trailing" secondItem="tDR-Fo-zD9" secondAttribute="trailing" constant="24" id="pmk-oT-6QE"/>
                                 <constraint firstAttribute="trailing" secondItem="Nhv-1j-4Az" secondAttribute="trailing" constant="32" id="u6f-P5-RlQ"/>
                             </constraints>
                         </view>

@@ -29,6 +29,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.saveButton)
         XCTAssertNotNil(controller.deleteBtn)
         XCTAssertNotNil(controller.showPasswordBtn)
+        XCTAssertNotNil(controller.copyPasswordBtn)
     }
     
     func testCredentialConfigureIsInCreateMode() {
@@ -126,5 +127,18 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         controller.showPasswordBtn.sendActions(for: .touchUpInside)
         // then
         XCTAssertFalse(controller.passwordField.isSecureTextEntry)
+    }
+    
+    func testCopyPasswordToClipboard() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: nil)
+        let string = "password"
+        // when
+        controller.loadViewIfNeeded()
+        controller.passwordField.text = string
+        controller.copyPasswordBtn.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertEqual(UIPasteboard.general.string, string)
+        XCTAssertNotNil(controller.copyToClipboardConfirmationView)
     }
 }
