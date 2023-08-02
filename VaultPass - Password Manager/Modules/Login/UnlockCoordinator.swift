@@ -1,5 +1,5 @@
 //
-//  LoginCoordinator.swift
+//  UnlockCoordinator.swift
 //  VaultPass - Password Manager
 //
 //  Created by Andrew Masters on 6/6/23.
@@ -8,25 +8,25 @@
 import LocalAuthentication
 import UIKit
 
-class LoginCoordinator: LoginDelegate {
+class UnlockCoordinator: UnlockDelegate {
     
-    var factory: LoginFactory
+    var factory: UnlockFactory
     var navigation: UINavigationController?
-    let loginData = LoginData()
+    let unlockData = UnlockData()
         
-    init(factory: LoginFactory, navigation: UINavigationController?) {
+    init(factory: UnlockFactory, navigation: UINavigationController?) {
         self.factory = factory
         self.navigation = navigation
     }
     
-    func loginViewDidAppear() {
-        if self.loginData.getAutoLogin() {
-            self.loginWithAppleAuth()
+    func unlockViewDidAppear() {
+        if self.unlockData.getAutoUnlock() {
+            self.unlockWithAppleAuth()
         }
     }
     
-    func loginWithAppleAuth() {
-        BiometricLogin.loginWithAppleAuth(completion: { result, error in
+    func unlockWithAppleAuth() {
+        BiometricUnlock.unlockWithAppleAuth(completion: { result, error in
             if result && error == nil {
                 self.pushAccountCredentialsController()
             }
@@ -36,12 +36,12 @@ class LoginCoordinator: LoginDelegate {
     private func pushAccountCredentialsController() {
         let factory = AccountCredentialsFactory()
         let manager = AccountCredentialsManager()
-        if self.loginData.getNotFirstLogin() == false {
+        if self.unlockData.getNotFirstUnlock() == false {
             manager.setPasswordSettingsToDefault()
-            self.loginData.setNotFirstLogin(true)
+            self.unlockData.setNotFirstUnlock(true)
         }
-        if self.loginData.getAutoLogin() == false {
-            self.loginData.setAutoLogin(true)
+        if self.unlockData.getAutoUnlock() == false {
+            self.unlockData.setAutoUnlock(true)
         }
         let controller = factory.makeMediatingController(accountManager: manager)
         UIApplication.shared.windows.first?.rootViewController = controller
