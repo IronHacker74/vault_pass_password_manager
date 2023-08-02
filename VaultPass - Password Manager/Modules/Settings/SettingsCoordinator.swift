@@ -66,7 +66,7 @@ class SettingsCoordinator: SettingsDelegate {
     }
     
     func unlockButtonPressed() {
-        CustomAlert.destructive(self.navigation, title: "Lock?", message: "Are you sure you want to relock your data?", style: .actionSheet, deleteBtn: "Lock", deleteAction: { _ in
+        CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", style: .actionSheet, deleteBtn: "Lock", deleteAction: { _ in
             self.unlockData.setAutoUnlock(false)
             let factory = UnlockFactory()
             let controller = UnlockMediatingController.loadFromNibMain()
