@@ -68,19 +68,23 @@ class SettingsCoordinator: SettingsDelegate {
     func logoutButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Logout?", message: "Are you sure you want to logout?", style: .actionSheet, deleteBtn: "Logout", deleteAction: { _ in
             self.loginData.setAutoLogin(false)
-            let factory = LoginFactory()
-            let controller = LoginMediatingController.loadFromNibMain()
-            controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
-            UIApplication.shared.windows.first?.rootViewController = controller
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            self.sendBackToLogin()
         })
     }
     
     func deleteAllData() {
-        CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
+        CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible, will be permanent and you will be sent back to the login screen.", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
             self.loginData.deleteData()
-            self.navigation.popViewController(animated: true)
+            self.sendBackToLogin()
         })
+    }
+    
+    private func sendBackToLogin() {
+        let factory = LoginFactory()
+        let controller = LoginMediatingController.loadFromNibMain()
+        controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
+        UIApplication.shared.windows.first?.rootViewController = controller
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }
