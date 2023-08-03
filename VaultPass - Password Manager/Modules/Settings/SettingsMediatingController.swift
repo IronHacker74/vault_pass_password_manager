@@ -16,7 +16,7 @@ protocol SettingsDelegate {
     func specialCharSwitchChanged(displayable: SettingsDisplayable)
     func passwordLengthChanged(length: Int, displayable: SettingsDisplayable)
     func termsAndConditionsTapped()
-    func logoutButtonPressed()
+    func unlockButtonPressed()
     func deleteAllData()
 }
 
@@ -99,8 +99,8 @@ class SettingsMediatingController: UIViewController {
         OpenAppLink.using(.privacyPolicy, vc: self)
     }
     
-    @IBAction func logoutBtnPressed(_ sender: UIButton) {
-        self.delegate?.logoutButtonPressed()
+    @IBAction func unlockBtnPressed(_ sender: UIButton) {
+        self.delegate?.unlockButtonPressed()
     }
     
     @IBAction func deleteAllDataBtnPressed(_ sender: UIButton) {

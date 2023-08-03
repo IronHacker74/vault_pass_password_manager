@@ -11,7 +11,7 @@ class SettingsCoordinator: SettingsDelegate {
     
     let credentialsManager: AccountCredentialsManager
     let navigation: UINavigationController
-    let loginData: LoginData = LoginData()
+    let unlockData: UnlockData = UnlockData()
     
     init(credentialsManager: AccountCredentialsManager, navigation: UINavigationController) {
         self.credentialsManager = credentialsManager
@@ -65,11 +65,11 @@ class SettingsCoordinator: SettingsDelegate {
         self.navigation.present(controller, animated: true)
     }
     
-    func logoutButtonPressed() {
-        CustomAlert.destructive(self.navigation, title: "Logout?", message: "Are you sure you want to logout?", style: .actionSheet, deleteBtn: "Logout", deleteAction: { _ in
-            self.loginData.setAutoLogin(false)
-            let factory = LoginFactory()
-            let controller = LoginMediatingController.loadFromNibMain()
+    func unlockButtonPressed() {
+        CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", style: .actionSheet, deleteBtn: "Lock", deleteAction: { _ in
+            self.unlockData.setAutoUnlock(false)
+            let factory = UnlockFactory()
+            let controller = UnlockMediatingController.loadFromNibMain()
             controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
             UIApplication.shared.windows.first?.rootViewController = controller
             UIApplication.shared.windows.first?.makeKeyAndVisible()
@@ -79,7 +79,7 @@ class SettingsCoordinator: SettingsDelegate {
     func deleteAllData() {
         CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
-            self.loginData.deleteData()
+            self.unlockData.deleteData()
             self.navigation.popViewController(animated: true)
         })
     }

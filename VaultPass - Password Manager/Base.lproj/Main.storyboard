@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login Mediating Controller-->
+        <!--Unlock Mediating Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginMediatingController" id="BYZ-38-t0r" customClass="LoginMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UnlockMediatingController" id="BYZ-38-t0r" customClass="UnlockMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -42,12 +42,12 @@
                                     <constraint firstAttribute="height" constant="50" id="1Gs-YN-Kih"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Login">
+                                <buttonConfiguration key="configuration" style="filled" title="Unlock">
                                     <color key="baseForegroundColor" name="AccentColor"/>
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iH5-gz-2bV"/>
+                                    <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iH5-gz-2bV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-8k-hx9">
@@ -112,10 +112,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="p5T-aX-fM5"/>
                     <connections>
-                        <outlet property="loginButton" destination="v2K-ey-Nnq" id="A8b-OY-YDZ"/>
-                        <outlet property="loginDetailLabel" destination="WuI-8k-hx9" id="kzf-01-YPb"/>
                         <outlet property="privacyPolicyBtn" destination="TVh-IJ-ruT" id="rMk-id-RMJ"/>
                         <outlet property="termsAndConditionsBtn" destination="eSw-so-MdZ" id="NmO-h2-MVW"/>
+                        <outlet property="unlockButton" destination="v2K-ey-Nnq" id="A8b-OY-YDZ"/>
+                        <outlet property="unlockDetailLabel" destination="WuI-8k-hx9" id="kzf-01-YPb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
