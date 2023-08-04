@@ -24,7 +24,7 @@ class SettingsCoordinator: SettingsDelegate {
         let numbersSwtich = credentialsManager.useNumbers
         let specialCharsSwitch = credentialsManager.useSpecialChars
         let passwordLength = credentialsManager.passwordLength
-        let passwordStrength =  credentialsManager.passwordStrengthColor()
+        let passwordStrength =  credentialsManager.passwordStrengthColor(credentialsManager.passwordStrength())
         displayable.setOutlets(lowerCaseSwitch: lowerCaseSwitch, upperCaseSwitch: upperCaseSwitch, numbersSwitch: numbersSwtich, specialCharsSwitch: specialCharsSwitch, passwordLength: passwordLength)
         displayable.changePasswordStrengthColor(passwordStrength)
     }
@@ -55,7 +55,7 @@ class SettingsCoordinator: SettingsDelegate {
     }
     
     func passwordSettingsChanged(displayable: SettingsDisplayable) {
-        let passwordStrengthColor = self.credentialsManager.passwordStrengthColor()
+        let passwordStrengthColor = self.credentialsManager.passwordStrengthColor(self.credentialsManager.passwordStrength())
         displayable.changePasswordStrengthColor(passwordStrengthColor)
     }
     

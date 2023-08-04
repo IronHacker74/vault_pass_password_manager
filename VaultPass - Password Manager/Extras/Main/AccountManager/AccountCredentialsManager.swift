@@ -119,9 +119,9 @@ struct AccountCredentialsManager {
         return stringTypesEnabled
     }
     
-    func passwordStrength() -> PasswordStrength {
-        let stringTypesEnabled = self.numberOfPasswordStringTypesEnabled()
-        let passwordLength = self.passwordLength
+    func passwordStrength(stringTypes: Int = 0, passwordLength: Int = 0) -> PasswordStrength {
+        let stringTypesEnabled = stringTypes == 0 ? self.numberOfPasswordStringTypesEnabled() : stringTypes
+        let passwordLength = passwordLength == 0 ? self.passwordLength : passwordLength
         var type: PasswordStrength = .none
         if passwordLength <= 10 {
             if stringTypesEnabled == 0 {
@@ -155,8 +155,7 @@ struct AccountCredentialsManager {
         return type
     }
     
-    func passwordStrengthColor() -> UIColor {
-        let passwordStrength = self.passwordStrength()
+    func passwordStrengthColor(_ passwordStrength: PasswordStrength? = nil) -> UIColor {
         switch passwordStrength {
         case .none:
             return .black
@@ -169,6 +168,38 @@ struct AccountCredentialsManager {
         case .best:
             return .green
         }
+    }
+    
+    func getPasswordStrengthColor(for text: String) -> UIColor {
+        var stringTypes = 0
+        var noLowerCaseChars: Bool = true
+        var noUpperCaseChars: Bool = true
+        var noSpecialChars: Bool = true
+        var noNumbers: Bool = true
+        for character in text {
+            if noLowerCaseChars && self.lowerCase().contains(character) {
+                noLowerCaseChars = false
+                stringTypes += 1
+                continue
+            }
+            if noUpperCaseChars && self.upperCase().contains(character) {
+                noUpperCaseChars = false
+                stringTypes += 1
+                continue
+            }
+            if noSpecialChars && self.specialChars().contains(character) {
+                noSpecialChars = false
+                stringTypes += 1
+                continue
+            }
+            if noNumbers && self.numbers().contains(character) {
+                noNumbers = false
+                stringTypes += 1
+                continue
+            }
+        }
+        let passwordStrength = self.passwordStrength(stringTypes: stringTypes, passwordLength: text.count)
+        return self.passwordStrengthColor(passwordStrength)
     }
     
     /**

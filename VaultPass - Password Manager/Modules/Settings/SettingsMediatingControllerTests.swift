@@ -142,7 +142,7 @@ final class SettingsMediatingControllerTests: XCTestCase {
         // given
         let manager = AccountCredentialsManager()
         manager.setPasswordSettingsToDefault()
-        let currentColor = manager.passwordStrengthColor()
+        let currentColor = manager.passwordStrengthColor(manager.passwordStrength())
         let factory = SettingsFactory()
         let navigation = UINavigationController(rootViewController: UIViewController())
         let controller = factory.makeMediatingController(manager: manager, navigation: navigation) as! SettingsMediatingController
@@ -154,7 +154,7 @@ final class SettingsMediatingControllerTests: XCTestCase {
         controller.passwordLengthSlider.setValue(8, animated: false)
         controller.passwordLengthSlider.sendActions(for: .valueChanged)
         // then
-        XCTAssertNotEqual(currentColor, manager.passwordStrengthColor())
-        XCTAssertEqual(controller.passwordStrengthColor.backgroundColor!, manager.passwordStrengthColor())
+        XCTAssertNotEqual(currentColor, manager.passwordStrengthColor(manager.passwordStrength()))
+        XCTAssertEqual(controller.passwordStrengthColor.backgroundColor!, manager.passwordStrengthColor(manager.passwordStrength()))
     }
 }

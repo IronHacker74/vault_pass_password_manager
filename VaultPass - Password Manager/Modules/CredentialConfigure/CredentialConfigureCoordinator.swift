@@ -47,6 +47,14 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
         self.navigation.pushViewController(controller, animated: true)
     }
     
+    func passwordTextFieldDidChange(_ displayable: CredentialConfigureDisplayable, text: String) {
+        var passwordStrengthColor: UIColor = .red
+        if !text.isEmpty {
+            passwordStrengthColor = self.credentialManager.getPasswordStrengthColor(for: text)
+        }
+        displayable.changePasswordViewBackground(with: passwordStrengthColor)
+    }
+    
     func deleteButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Are you sure?", message: "Deleting this credential will be permanent!", style: .alert, deleteBtn: "Delete", deleteAction: {_ in 
             if let index = self.index {
