@@ -11,7 +11,7 @@ class SettingsCoordinator: SettingsDelegate {
     
     let credentialsManager: AccountCredentialsManager
     let navigation: UINavigationController
-    let loginData: LoginData = LoginData()
+    let unlockData: UnlockData = UnlockData()
     
     init(credentialsManager: AccountCredentialsManager, navigation: UINavigationController) {
         self.credentialsManager = credentialsManager
@@ -64,10 +64,10 @@ class SettingsCoordinator: SettingsDelegate {
         let controller = factory.makeMediatingController()
         self.navigation.present(controller, animated: true)
     }
-    
-    func logoutButtonPressed() {
-        CustomAlert.destructive(self.navigation, title: "Logout?", message: "Are you sure you want to logout?", style: .actionSheet, deleteBtn: "Logout", deleteAction: { _ in
-            self.loginData.setAutoLogin(false)
+
+    func unlockButtonPressed() {
+        CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", style: .actionSheet, deleteBtn: "Lock", deleteAction: { _ in
+            self.unlockData.setAutoUnlock(false)
             self.sendBackToLogin()
         })
     }
@@ -75,14 +75,14 @@ class SettingsCoordinator: SettingsDelegate {
     func deleteAllData() {
         CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible, will be permanent and you will be sent back to the login screen.", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
-            self.loginData.deleteData()
+            self.unlockData.deleteData()
             self.sendBackToLogin()
         })
     }
     
     private func sendBackToLogin() {
-        let factory = LoginFactory()
-        let controller = LoginMediatingController.loadFromNibMain()
+        let factory = UnlockFactory()
+        let controller = UnlockMediatingController.loadFromNibMain()
         controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
         UIApplication.shared.windows.first?.rootViewController = controller
         UIApplication.shared.windows.first?.makeKeyAndVisible()

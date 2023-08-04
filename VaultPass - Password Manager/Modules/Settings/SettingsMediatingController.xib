@@ -171,11 +171,11 @@
                                                 <constraint firstAttribute="height" constant="50" id="JcD-Gr-XMH"/>
                                             </constraints>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="filled" title="Logout">
+                                            <buttonConfiguration key="configuration" style="filled" title="Lock my credentials">
                                                 <color key="baseBackgroundColor" name="AccentColor"/>
                                             </buttonConfiguration>
                                             <connections>
-                                                <action selector="logoutBtnPressed:" destination="-1" eventType="touchUpInside" id="h8Z-Qf-INs"/>
+                                                <action selector="unlockBtnPressed:" destination="-1" eventType="touchUpInside" id="h8Z-Qf-INs"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vv-O9-VzX">
