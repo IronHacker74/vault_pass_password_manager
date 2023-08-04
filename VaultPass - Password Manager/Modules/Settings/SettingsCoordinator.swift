@@ -68,7 +68,7 @@ class SettingsCoordinator: SettingsDelegate {
     func lockButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", style: .actionSheet, deleteBtn: "Lock", deleteAction: { _ in
             self.unlockData.setAutoUnlock(false)
-            self.sendBackToLogin()
+            self.sendBackToUnlockScreen()
         })
     }
     
@@ -76,11 +76,11 @@ class SettingsCoordinator: SettingsDelegate {
         CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete everything?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
             self.unlockData.deleteData()
-            self.sendBackToLogin()
+            self.sendBackToUnlockScreen()
         })
     }
     
-    private func sendBackToLogin() {
+    private func sendBackToUnlockScreen() {
         let factory = UnlockFactory()
         let controller = UnlockMediatingController.loadFromNibMain()
         controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
