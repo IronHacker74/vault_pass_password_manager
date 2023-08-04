@@ -64,23 +64,27 @@ class SettingsCoordinator: SettingsDelegate {
         let controller = factory.makeMediatingController()
         self.navigation.present(controller, animated: true)
     }
-    
-    func unlockButtonPressed() {
+
+    func lockButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", style: .actionSheet, deleteBtn: "Lock", deleteAction: { _ in
             self.unlockData.setAutoUnlock(false)
-            let factory = UnlockFactory()
-            let controller = UnlockMediatingController.loadFromNibMain()
-            controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
-            UIApplication.shared.windows.first?.rootViewController = controller
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            self.sendBackToUnlockScreen()
         })
     }
     
     func deleteAllData() {
-        CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete all credentials?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
+        CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete everything?", message: "This action is irreversible and will be permanent", style: .alert, deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
             self.unlockData.deleteData()
-            self.navigation.popViewController(animated: true)
+            self.sendBackToUnlockScreen()
         })
+    }
+    
+    private func sendBackToUnlockScreen() {
+        let factory = UnlockFactory()
+        let controller = UnlockMediatingController.loadFromNibMain()
+        controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
+        UIApplication.shared.windows.first?.rootViewController = controller
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }
