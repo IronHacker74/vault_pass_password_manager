@@ -19,7 +19,6 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     @IBOutlet private(set) var username: UIButton!
     @IBOutlet private(set) var password: UIButton!
     @IBOutlet private(set) var editBtn: UIButton!
-    @IBOutlet private(set) var revealLabel: UILabel!
     
     private var delegate: AccountCredentialCellDelegate?
     private var credential: AccountCredential?
@@ -34,19 +33,17 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     }
     
     func credentialIsShowing() -> Bool {
-        return self.revealLabel.isHidden
+        return self.username.isUserInteractionEnabled && self.password.isUserInteractionEnabled
     }
     
     func reveal() {
         self.username.showCredential(title: credential?.decryptedUsername)
         self.password.showCredential(title: credential?.decryptedPassword)
-        self.revealLabel.isHidden = true
     }
     
     func hideCredentials() {
         self.username.hideCredential(placeHolder: "username")
         self.password.hideCredential(placeHolder: "password")
-        self.revealLabel.isHidden = false
     }
     
     @IBAction func usernameButtonTapped(_ sender: UIButton) {
