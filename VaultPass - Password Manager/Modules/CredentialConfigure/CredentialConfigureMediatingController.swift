@@ -14,11 +14,13 @@ protocol CredentialConfigureDelegate {
     func generatePassword() -> String
     func passwordSettingsPressed()
     func deleteButtonPressed()
+    func passwordTextFieldDidChange(_ displayable: CredentialConfigureDisplayable, text: String)
 }
 
 protocol CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential)
     func hideDeleteButton()
+    func changePasswordTextFieldBackground(with color: UIColor)
 }
 
 class CredentialConfigureMediatingController: UIViewController {
@@ -77,7 +79,7 @@ class CredentialConfigureMediatingController: UIViewController {
             return
         }
         self.hideErrorIfNeeded()
-        self.passwordField.text = newPassword
+        self.setPasswordTextField(with: newPassword)
     }
     
     @IBAction func saveButtonPressed(_ sender: UIButton) {
@@ -132,6 +134,11 @@ class CredentialConfigureMediatingController: UIViewController {
             self.errorLabel.isHidden = true
         }
     }
+    
+    func setPasswordTextField(with text: String) {
+        self.passwordField.text = text
+        self.delegate?.passwordTextFieldDidChange(self, text: text)
+    }
 }
 
 extension CredentialConfigureMediatingController: CredentialConfigureDisplayable {
@@ -139,11 +146,15 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         self.titleField.text = credential.title
         self.identifierField.text = credential.identifier
         self.usernameField.text = credential.decryptedUsername
-        self.passwordField.text = credential.decryptedPassword
+        self.setPasswordTextField(with: credential.decryptedPassword)
     }
     
     func hideDeleteButton() {
         self.deleteBtn.isHidden = true
+    }
+    
+    func changePasswordTextFieldBackground(with color: UIColor) {
+        self.passwordField.backgroundColor = color
     }
 }
 
@@ -154,6 +165,17 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return false
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == self.passwordField {
+            var text = (textField.text ?? "") + string
+            if string.isEmpty && (range.length == textField.text?.count) {
+                text = ""
+            }
+            self.delegate?.passwordTextFieldDidChange(self, text: text)
+        }
+        return true
     }
 }
 

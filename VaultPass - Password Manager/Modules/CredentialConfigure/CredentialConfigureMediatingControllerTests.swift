@@ -141,4 +141,49 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertEqual(UIPasteboard.general.string, string)
         XCTAssertNotNil(controller.copyToClipboardConfirmationView)
     }
+    
+    func testPasswordChangeAlsoChangesPasswordFieldBackgroundColorIsRed() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController()))
+        let password = "password"
+        // when
+        controller.loadViewIfNeeded()
+        controller.setPasswordTextField(with: password)
+        // then
+        XCTAssertEqual(controller.passwordField.backgroundColor, .red)
+    }
+    
+    func testPasswordChangeAlsoChangesPasswordFieldBackgroundColorIsYellow() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController()))
+        let string = "1dpCl!dlsk432"
+        // when
+        controller.loadViewIfNeeded()
+        controller.setPasswordTextField(with: string)
+        // then
+        XCTAssertEqual(controller.passwordField.backgroundColor, .yellow)
+    }
+    
+    func testPasswordChangeAlsoChangesPasswordFieldBackgroundColorIsOrange() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController()))
+        let string = "1dpCl!dlsk"
+        // when
+        controller.loadViewIfNeeded()
+        controller.setPasswordTextField(with: string)
+        // then
+        XCTAssertEqual(controller.passwordField.backgroundColor, .orange)
+    }
+    
+    func testPasswordChangeAlsoChangesPasswordFieldBackgroundColorIsGreen() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController()))
+        let string = "1dpCl!dlsk432abcd"
+
+        // when
+        controller.loadViewIfNeeded()
+        controller.setPasswordTextField(with: string)
+        // then
+        XCTAssertEqual(controller.passwordField.backgroundColor, .green)
+    }
 }

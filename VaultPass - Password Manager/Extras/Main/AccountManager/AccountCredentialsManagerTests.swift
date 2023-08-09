@@ -54,9 +54,10 @@ final class AccountCredentialsManagerTests: XCTestCase {
         manager.toggleStringType(of: .upperCase)
         manager.toggleStringType(of: .numbers)
         manager.toggleStringType(of: .specialChar)
+        let passwordStrength = manager.passwordStrength()
         // then
-        XCTAssertEqual(.none, manager.passwordStrength())
-        XCTAssertEqual(.black, manager.passwordStrengthColor())
+        XCTAssertEqual(.none, passwordStrength)
+        XCTAssertEqual(.black, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsBad() {
@@ -68,9 +69,10 @@ final class AccountCredentialsManagerTests: XCTestCase {
         manager.toggleStringType(of: .upperCase)
         manager.toggleStringType(of: .specialChar)
         manager.changePasswordLength(8)
+        let passwordStrength = manager.passwordStrength()
         // then
-        XCTAssertEqual(.bad, manager.passwordStrength())
-        XCTAssertEqual(.red, manager.passwordStrengthColor())
+        XCTAssertEqual(.bad, passwordStrength)
+        XCTAssertEqual(.red, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsOkay() {
@@ -80,9 +82,10 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // when
         manager.toggleStringType(of: .lowerCase)
         manager.changePasswordLength(10)
+        let passwordStrength = manager.passwordStrength()
         // then
-        XCTAssertEqual(.okay, manager.passwordStrength())
-        XCTAssertEqual(.orange, manager.passwordStrengthColor())
+        XCTAssertEqual(.okay, passwordStrength)
+        XCTAssertEqual(.orange, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsGood() {
@@ -91,9 +94,10 @@ final class AccountCredentialsManagerTests: XCTestCase {
         manager.setPasswordSettingsToDefault()
         // when
         manager.toggleStringType(of: .upperCase)
+        let passwordStrength = manager.passwordStrength()
         // then
-        XCTAssertEqual(.good, manager.passwordStrength())
-        XCTAssertEqual(.yellow, manager.passwordStrengthColor())
+        XCTAssertEqual(.good, passwordStrength)
+        XCTAssertEqual(.yellow, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsBest() {
@@ -103,9 +107,10 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // when
         manager.toggleStringType(of: .specialChar)
         manager.changePasswordLength(18)
+        let passwordStrength = manager.passwordStrength()
         // then
-        XCTAssertEqual(.best, manager.passwordStrength())
-        XCTAssertEqual(.green, manager.passwordStrengthColor())
+        XCTAssertEqual(.best, passwordStrength)
+        XCTAssertEqual(.green, manager.passwordStrengthColor(for: passwordStrength))
     }
 
     
