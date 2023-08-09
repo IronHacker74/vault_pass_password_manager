@@ -169,8 +169,8 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == self.passwordField {
-            var text = textField.text ?? "" + string
-            if string.isEmpty && range.length == textField.text?.count {
+            var text = (textField.text ?? "") + string
+            if string.isEmpty && (range.length == textField.text?.count) {
                 text = ""
             }
             self.delegate?.passwordTextFieldDidChange(self, text: text)

@@ -34,6 +34,11 @@ struct AccountCredentialsManager {
     private let passwordLengthKey = "password_length_key"
     private let userDefaults = UserDefaults.standard
     
+    private let lowerCaseLetters: String = "abcdefghijklmnopqrstuvwxyz"
+    private let upperCaseLetters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    private let allNumbers: String = "1234567890"
+    private let allSpecialChars: String = ".!@#$*"
+    
     var useLowerCaseLetters: Bool {
         return self.userDefaults.bool(forKey: self.lowerCaseKey)
     }
@@ -51,19 +56,19 @@ struct AccountCredentialsManager {
     }
     
     private func lowerCase() -> String {
-        return self.useLowerCaseLetters ? "abcdefghijklmnopqrstuvwxyz" : ""
+        return self.useLowerCaseLetters ? self.lowerCaseLetters : ""
     }
     
     private func upperCase() -> String {
-        return self.useUpperCaseLetters ? "ABCDEFGHIJKLMNOPQRSTUVWXYZ" : ""
+        return self.useUpperCaseLetters ? self.upperCaseLetters : ""
     }
 
     private func numbers() -> String {
-        return self.useNumbers ? "1234567890" : ""
+        return self.useNumbers ? self.allNumbers : ""
     }
     
     private func specialChars() -> String {
-        return self.useSpecialChars ? "!@#$*" : ""
+        return self.useSpecialChars ? self.allSpecialChars : ""
     }
     
     func setPasswordSettingsToDefault() {
@@ -156,7 +161,7 @@ struct AccountCredentialsManager {
         return type
     }
     
-    func passwordStrengthColor(_ passwordStrength: PasswordStrength? = nil) -> UIColor {
+    func passwordStrengthColor(_ passwordStrength: PasswordStrength) -> UIColor {
         switch passwordStrength {
         case .none:
             return .black
@@ -178,22 +183,22 @@ struct AccountCredentialsManager {
         var noSpecialChars: Bool = true
         var noNumbers: Bool = true
         for character in text {
-            if noLowerCaseChars && self.lowerCase().contains(character) {
+            if noLowerCaseChars && self.lowerCaseLetters.contains(character) {
                 noLowerCaseChars = false
                 stringTypes += 1
                 continue
             }
-            if noUpperCaseChars && self.upperCase().contains(character) {
+            if noUpperCaseChars && self.upperCaseLetters.contains(character) {
                 noUpperCaseChars = false
                 stringTypes += 1
                 continue
             }
-            if noSpecialChars && self.specialChars().contains(character) {
+            if noSpecialChars && self.allSpecialChars.contains(character) {
                 noSpecialChars = false
                 stringTypes += 1
                 continue
             }
-            if noNumbers && self.numbers().contains(character) {
+            if noNumbers && self.allNumbers.contains(character) {
                 noNumbers = false
                 stringTypes += 1
                 continue
