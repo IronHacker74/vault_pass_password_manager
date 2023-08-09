@@ -20,7 +20,7 @@ protocol CredentialConfigureDelegate {
 protocol CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential)
     func hideDeleteButton()
-    func changePasswordViewBackground(with color: UIColor)
+    func changePasswordTextFieldBackground(with color: UIColor)
 }
 
 class CredentialConfigureMediatingController: UIViewController {
@@ -153,7 +153,7 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         self.deleteBtn.isHidden = true
     }
     
-    func changePasswordViewBackground(with color: UIColor) {
+    func changePasswordTextFieldBackground(with color: UIColor) {
         self.passwordField.backgroundColor = color
     }
 }

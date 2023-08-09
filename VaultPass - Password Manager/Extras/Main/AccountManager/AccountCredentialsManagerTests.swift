@@ -57,7 +57,7 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let passwordStrength = manager.passwordStrength()
         // then
         XCTAssertEqual(.none, passwordStrength)
-        XCTAssertEqual(.black, manager.passwordStrengthColor(passwordStrength))
+        XCTAssertEqual(.black, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsBad() {
@@ -72,7 +72,7 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let passwordStrength = manager.passwordStrength()
         // then
         XCTAssertEqual(.bad, passwordStrength)
-        XCTAssertEqual(.red, manager.passwordStrengthColor(passwordStrength))
+        XCTAssertEqual(.red, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsOkay() {
@@ -85,7 +85,7 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let passwordStrength = manager.passwordStrength()
         // then
         XCTAssertEqual(.okay, passwordStrength)
-        XCTAssertEqual(.orange, manager.passwordStrengthColor(passwordStrength))
+        XCTAssertEqual(.orange, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsGood() {
@@ -97,7 +97,7 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let passwordStrength = manager.passwordStrength()
         // then
         XCTAssertEqual(.good, passwordStrength)
-        XCTAssertEqual(.yellow, manager.passwordStrengthColor(passwordStrength))
+        XCTAssertEqual(.yellow, manager.passwordStrengthColor(for: passwordStrength))
     }
     
     func testPasswordStrengthIsBest() {
@@ -110,7 +110,7 @@ final class AccountCredentialsManagerTests: XCTestCase {
         let passwordStrength = manager.passwordStrength()
         // then
         XCTAssertEqual(.best, passwordStrength)
-        XCTAssertEqual(.green, manager.passwordStrengthColor(passwordStrength))
+        XCTAssertEqual(.green, manager.passwordStrengthColor(for: passwordStrength))
     }
 
     

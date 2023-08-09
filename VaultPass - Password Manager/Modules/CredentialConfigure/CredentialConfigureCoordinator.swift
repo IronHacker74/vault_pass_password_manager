@@ -52,7 +52,7 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
         if !text.isEmpty {
             passwordStrengthColor = self.credentialManager.getPasswordStrengthColor(for: text)
         }
-        displayable.changePasswordViewBackground(with: passwordStrengthColor)
+        displayable.changePasswordTextFieldBackground(with: passwordStrengthColor)
     }
     
     func deleteButtonPressed() {

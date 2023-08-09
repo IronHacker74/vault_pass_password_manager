@@ -161,7 +161,23 @@ struct AccountCredentialsManager {
         return type
     }
     
-    func passwordStrengthColor(_ passwordStrength: PasswordStrength) -> UIColor {
+    func passwordStrengthColor(for passwordStrength: PasswordStrength) -> UIColor {
+        switch passwordStrength {
+        case .none:
+            return .black
+        case .bad:
+            return .red
+        case .okay:
+            return .orange
+        case .good:
+            return .yellow
+        case .best:
+            return .green
+        }
+    }
+    
+    func passwordStrengthColor() -> UIColor {
+        let passwordStrength = self.passwordStrength()
         switch passwordStrength {
         case .none:
             return .black
@@ -205,7 +221,7 @@ struct AccountCredentialsManager {
             }
         }
         let passwordStrength = self.passwordStrength(stringTypes: stringTypes, passwordLength: text.count)
-        return self.passwordStrengthColor(passwordStrength)
+        return self.passwordStrengthColor(for: passwordStrength)
     }
     
     /**
