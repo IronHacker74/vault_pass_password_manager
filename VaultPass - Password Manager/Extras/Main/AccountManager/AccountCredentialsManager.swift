@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import AuthenticationServices
 
 enum PasswordStringType {
     case lowerCase
@@ -24,8 +25,9 @@ enum PasswordStrength {
 }
 
 struct AccountCredentialsManager {
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context: NSManagedObjectContext
     private let converter: Converter = Converter()
+    private let modelName = "Model"
     
     private let lowerCaseKey = "lower_case_key"
     private let upperCaseKey = "upper_case_key"
@@ -64,6 +66,14 @@ struct AccountCredentialsManager {
     
     private func specialChars() -> String {
         return self.useSpecialChars ? "!@#$*" : ""
+    }
+    
+    init() {
+        guard let url = Bundle.main.url(forResource: modelName, withExtension: "momd"), let model = NSManagedObjectModel(contentsOf: url) else {
+            self.context = DefaultContainer().persistentContainer.viewContext
+            return
+        }
+        self.context = PersistentContainer(name: modelName, managedObjectModel: model).viewContext
     }
     
     func setPasswordSettingsToDefault() {

@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreData
+import AuthenticationServices
 
 class AccountCredential: Equatable {
     
@@ -31,6 +32,10 @@ class AccountCredential: Equatable {
     
     static func == (lhs: AccountCredential, rhs: AccountCredential) -> Bool {
         return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.decryptedUsername == rhs.decryptedUsername && lhs.decryptedPassword == rhs.decryptedPassword
+    }
+    
+    func passwordCredential() -> ASPasswordCredential {
+        return ASPasswordCredential(user: self.decryptedUsername, password: self.decryptedPassword)
     }
 }
 
