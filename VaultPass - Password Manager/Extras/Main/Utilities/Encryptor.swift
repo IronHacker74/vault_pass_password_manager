@@ -15,7 +15,7 @@ struct Encryptor {
     private let stored_key_access = "stored_key"
     private let userDefaults = UserDefaults(suiteName: "group.vaultpass.masters")
     
-    func fetchKey() -> SymmetricKey {
+    private func fetchKey() -> SymmetricKey {
         guard let storedKeyData = userDefaults?.string(forKey: self.stored_key_access),
                 let keyData = Data(base64Encoded: storedKeyData) else {
             let key = SymmetricKey(size: .bits256)
