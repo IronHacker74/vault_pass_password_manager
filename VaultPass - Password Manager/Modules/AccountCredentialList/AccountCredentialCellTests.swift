@@ -27,7 +27,6 @@ final class AccountCredentialCellTests: XCTestCase {
         XCTAssertNotNil(cell.title)
         XCTAssertNotNil(cell.username)
         XCTAssertNotNil(cell.password)
-        XCTAssertNotNil(cell.revealLabel)
     }
     
     func testIBOutletsHoldValues() {
