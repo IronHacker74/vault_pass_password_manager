@@ -7,25 +7,26 @@
 
 import UIKit
 
-class CredentialConfigureCoordinator: CredentialConfigureDelegate {
+class CredentialConfigureCoordinator: PasswordSettingsCoordinator, CredentialConfigureDelegate {
     
     let factory: CredentialConfigureFactory
+    let credentialProviderDelegate: CredentialProviderDelegate?
+
+    private var currentCredential: AccountCredential?
+    private var credentials: [AccountCredential] = []
+    private let index: Int?
+    private let navigation: UINavigationController
     
-    let credentialManager: AccountCredentialsManager
-    var currentCredential: AccountCredential?
-    var credentials: [AccountCredential] = []
-    let index: Int?
-    let navigation: UINavigationController
-    
-    init(factory: CredentialConfigureFactory, manager: AccountCredentialsManager, index: Int?, navigation: UINavigationController) {
+    init(factory: CredentialConfigureFactory, manager: AccountCredentialsManager, index: Int?, navigation: UINavigationController, credentialProviderDelegate: CredentialProviderDelegate? = nil) {
         self.factory = factory
-        self.credentialManager = manager
         self.index = index
         self.navigation = navigation
+        self.credentialProviderDelegate = credentialProviderDelegate
+        super.init(credentialsManager: manager)
     }
     
     func credentialConfigureViewDidLoad(displayable: CredentialConfigureDisplayable) {
-        self.credentials = self.credentialManager.fetchCredentials()
+        self.credentials = self.credentialsManager.fetchCredentials()
         if let index {
             let credential = self.credentials[index]
             displayable.fillFields(with: credential)
@@ -35,47 +36,46 @@ class CredentialConfigureCoordinator: CredentialConfigureDelegate {
     }
     
     func credentialConfigureViewWillDisappear() {
+        self.credentialProviderDelegate?.updateCredentials()
     }
     
     func generatePassword() -> String {
-        return self.credentialManager.generatePassword()
-    }
-    
-    func passwordSettingsPressed() {
-        let factory = SettingsFactory()
-        let controller = factory.makeMediatingController(manager: self.credentialManager, navigation: self.navigation)
-        self.navigation.pushViewController(controller, animated: true)
+        return self.credentialsManager.generatePassword()
     }
     
     func passwordTextFieldDidChange(_ displayable: CredentialConfigureDisplayable, text: String) {
         var passwordStrengthColor: UIColor = .red
         if !text.isEmpty {
-            passwordStrengthColor = self.credentialManager.getPasswordStrengthColor(for: text)
+            passwordStrengthColor = self.credentialsManager.getPasswordStrengthColor(for: text)
         }
         displayable.changePasswordTextFieldBackground(with: passwordStrengthColor)
     }
     
-    func deleteButtonPressed() {
+    func deleteButtonPressed(vc: CredentialConfigureMediatingController?) {
         CustomAlert.destructive(self.navigation, title: "Are you sure?", message: "Deleting this credential will be permanent!", style: .alert, deleteBtn: "Delete", deleteAction: {_ in 
             if let index = self.index {
                 self.credentials.remove(at: index)
-                self.storeCredentialsAndPop()
+                self.storeCredentialsAndPop(vc)
             }
         })
     }
     
-    func saveCredential(_ credential: AccountCredential) {
+    func saveCredential(_ credential: AccountCredential, vc: CredentialConfigureMediatingController?) {
         if let index = self.index {
             self.credentials[index] = credential
         } else {
             self.credentials.append(credential)
         }
-        self.storeCredentialsAndPop()
+        self.storeCredentialsAndPop(vc)
     }
     
-    private func storeCredentialsAndPop(){
-        if self.credentialManager.storeCredentials(self.credentials) {
-            self.navigation.popViewController(animated: true)
+    private func storeCredentialsAndPop(_ vc: CredentialConfigureMediatingController?){
+        if self.credentialsManager.storeCredentials(self.credentials) {
+            if !self.navigation.viewControllers.isEmpty {
+                self.navigation.popViewController(animated: true)
+            } else {
+                vc?.dismiss(animated: true)
+            }
         } else {
             CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.", style: .alert)
         }

@@ -13,8 +13,11 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     
-    var credentials: [AccountCredential] = []
-    var filtered: [AccountCredential] = []
+    private var credentials: [AccountCredential] = []
+    private var filtered: [AccountCredential] = []
+    private let manager = AccountCredentialsManager()
+    private var serviceIdentifier: ASCredentialServiceIdentifier? = nil
+    private let cellIdentifier: String = "default"
     
     /*
      Prepare your UI to list available credentials for the user to choose from. The items in
@@ -22,13 +25,29 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
      prioritize the most relevant credentials in the list.
     */
     override func prepareCredentialList(for serviceIdentifiers: [ASCredentialServiceIdentifier]) {
-        var accountCredentials = AccountCredentialsManager().fetchCredentials()
-        if let mainIdentifier = serviceIdentifiers.first?.identifier {
+        self.serviceIdentifier = serviceIdentifiers.first
+        self.loadCredentialsList()
+    }
+    
+    @IBAction func cancel(_ sender: AnyObject?) {
+        self.extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code: ASExtensionError.userCanceled.rawValue))
+    }
+    
+    @IBAction func add(_ sender: AnyObject?) {
+        let factory = CredentialConfigureFactory()
+        let coordinator = factory.makeCoordinator(manager: manager, index: nil, navigation: UINavigationController(), credentialProviderDelegate: self)
+        let controller = factory.makeMediatingController(coordinator: coordinator)
+        self.present(controller, animated: true)
+    }
+
+    private func loadCredentialsList() {
+        var accountCredentials = self.manager.fetchCredentials()
+        if let serviceIdentifier = self.serviceIdentifier?.identifier {
             accountCredentials.sort(by: {
-                if mainIdentifier.contains($0.identifier) {
+                if serviceIdentifier.contains($0.identifier) {
                     return true
                 }
-                if mainIdentifier.contains($1.identifier) {
+                if serviceIdentifier.contains($1.identifier) {
                     return false
                 }
                 return true
@@ -37,40 +56,12 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
         self.credentials = accountCredentials
         self.tableView.reloadData()
     }
+}
 
-    /*
-     Implement this method if your extension supports showing credentials in the QuickType bar.
-     When the user selects a credential from your app, this method will be called with the
-     ASPasswordCredentialIdentity your app has previously saved to the ASCredentialIdentityStore.
-     Provide the password by completing the extension request with the associated ASPasswordCredential.
-     If using the credential would require showing custom UI for authenticating the user, cancel
-     the request with error code ASExtensionError.userInteractionRequired.
-
-    override func provideCredentialWithoutUserInteraction(for credentialIdentity: ASPasswordCredentialIdentity) {
-        let databaseIsUnlocked = true
-        if (databaseIsUnlocked) {
-            let passwordCredential = ASPasswordCredential(user: "j_appleseed", password: "apple1234")
-            self.extensionContext.completeRequest(withSelectedCredential: passwordCredential, completionHandler: nil)
-        } else {
-            self.extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code:ASExtensionError.userInteractionRequired.rawValue))
-        }
+extension CredentialProviderViewController: CredentialProviderDelegate {
+    func updateCredentials() {
+        self.loadCredentialsList()
     }
-    */
-
-    /*
-     Implement this method if provideCredentialWithoutUserInteraction(for:) can fail with
-     ASExtensionError.userInteractionRequired. In this case, the system may present your extension's
-     UI and call this method. Show appropriate UI for authenticating the user then provide the password
-     by completing the extension request with the associated ASPasswordCredential.
-
-    override func prepareInterfaceToProvideCredential(for credentialIdentity: ASPasswordCredentialIdentity) {
-    }
-    */
-
-    @IBAction func cancel(_ sender: AnyObject?) {
-        self.extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code: ASExtensionError.userCanceled.rawValue))
-    }
-
 }
 
 extension CredentialProviderViewController: UITableViewDelegate, UITableViewDataSource {
@@ -82,7 +73,7 @@ extension CredentialProviderViewController: UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath)
         var credential: AccountCredential
         if self.searchIsActive() {
             credential = self.filtered[indexPath.row]

@@ -9,9 +9,12 @@ import UIKit
 
 class CredentialConfigureFactory {
     
-    func makeMediatingController(manager: AccountCredentialsManager, index: Int?, navigation: UINavigationController) -> UIViewController {
-        let coordinator = CredentialConfigureCoordinator(factory: self, manager: manager, index: index, navigation: navigation)
+    func makeMediatingController(coordinator: CredentialConfigureCoordinator) -> UIViewController {
         let controller = CredentialConfigureMediatingController(delegate: coordinator)
         return controller
+    }
+    
+    func makeCoordinator(manager: AccountCredentialsManager, index: Int?, navigation: UINavigationController, credentialProviderDelegate: CredentialProviderDelegate? = nil) -> CredentialConfigureCoordinator {
+        return CredentialConfigureCoordinator(factory: self, manager: manager, index: index, navigation: navigation, credentialProviderDelegate: credentialProviderDelegate)
     }
 }

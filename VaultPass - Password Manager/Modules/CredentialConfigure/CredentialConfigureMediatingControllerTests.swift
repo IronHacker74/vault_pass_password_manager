@@ -35,7 +35,8 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testCredentialConfigureIsInCreateMode() {
         // given
         let factory = CredentialConfigureFactory()
-        let controller = factory.makeMediatingController(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController())) as! CredentialConfigureMediatingController
+        let coordinator = factory.makeCoordinator(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController()))
+        let controller = factory.makeMediatingController(coordinator: coordinator) as! CredentialConfigureMediatingController
         // when
         controller.loadViewIfNeeded()
         // then
@@ -45,7 +46,8 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testCredentialConfigureIsInEditMode() {
         // given
         let factory = CredentialConfigureFactory()
-        let controller = factory.makeMediatingController(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController())) as! CredentialConfigureMediatingController
+        let coordinator = factory.makeCoordinator(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController()))
+        let controller = factory.makeMediatingController(coordinator: coordinator) as! CredentialConfigureMediatingController
         // when
         controller.loadViewIfNeeded()
         // then
@@ -58,7 +60,8 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testEmptyCredentialCannotBeAdded() {
         // given
         let factory = CredentialConfigureFactory()
-        let controller = factory.makeMediatingController(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController())) as! CredentialConfigureMediatingController
+        let coordinator = factory.makeCoordinator(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController()))
+        let controller = factory.makeMediatingController(coordinator: coordinator) as! CredentialConfigureMediatingController
         // when
         controller.loadViewIfNeeded()
         controller.saveButton.sendActions(for: .touchUpInside)
@@ -69,7 +72,8 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testOnlyTitleCredentialCannotBeAdded() {
         // given
         let factory = CredentialConfigureFactory()
-        let controller = factory.makeMediatingController(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController())) as! CredentialConfigureMediatingController
+        let coordinator = factory.makeCoordinator(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController()))
+        let controller = factory.makeMediatingController(coordinator: coordinator) as! CredentialConfigureMediatingController
         // when
         controller.loadViewIfNeeded()
         controller.titleField.text = "Title"
@@ -83,7 +87,8 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         let manager = AccountCredentialsManager()
         let currCredNum = manager.fetchCredentials().count
         let factory = CredentialConfigureFactory()
-        let controller = factory.makeMediatingController(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController())) as! CredentialConfigureMediatingController
+        let coordinator = factory.makeCoordinator(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController()))
+        let controller = factory.makeMediatingController(coordinator: coordinator) as! CredentialConfigureMediatingController
         // when
         controller.loadViewIfNeeded()
         controller.titleField.text = "Title"
@@ -98,7 +103,8 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testPasswordGeneratorWorks() {
         // given
         let factory = CredentialConfigureFactory()
-        let controller = factory.makeMediatingController(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController())) as! CredentialConfigureMediatingController
+        let coordinator = factory.makeCoordinator(manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController(rootViewController: UIViewController()))
+        let controller = factory.makeMediatingController(coordinator: coordinator) as! CredentialConfigureMediatingController
         // when
         controller.loadViewIfNeeded()
         controller.generatePasswordBtn.sendActions(for: .touchUpInside)
