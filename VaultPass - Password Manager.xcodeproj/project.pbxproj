@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		830D2E2F2A89A68E006D0710 /* PasswordSettingsViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830D2E2E2A89A68E006D0710 /* PasswordSettingsViewTests.swift */; };
 		831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */; };
 		831288EE2A383FF7009549F0 /* CredentialConfigureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */; };
 		831288F02A384014009549F0 /* CredentialConfigureMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */; };
@@ -34,6 +35,13 @@
 		8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */; };
 		8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835828592A4BC492004CAD4B /* UIButton+.swift */; };
 		835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 835E097E2A51385E00A319F7 /* TermsAndConditions.txt */; };
+		8360526A2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */; };
+		8360526B2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */; };
+		8360526D2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */; };
+		8360526E2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */; };
+		836052702A882C7B003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */; };
+		836052722A8833DB003D5BD2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99972A3C3A1100C59AC6 /* UIView+.swift */; };
+		836052732A883BBE003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */; };
 		837312772A415DF000886D86 /* UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UIViewLoading.swift */; };
 		839C8E4A2A48C3AA00EE1A94 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */; };
 		839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */; };
@@ -62,6 +70,14 @@
 		83EDAB1A2A84BA2000973D8C /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
 		83EDAB1B2A84BA2900973D8C /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */; };
 		83EDAB1C2A84BA3300973D8C /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EDAB152A84B8A400973D8C /* URL+.swift */; };
+		83F38ECA2A870D39000F0B98 /* CredentialConfigureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */; };
+		83F38ECB2A870D3B000F0B98 /* CredentialConfigureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */; };
+		83F38ECC2A870D43000F0B98 /* CredentialConfigureMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */; };
+		83F38ECD2A870D5C000F0B98 /* CredentialConfigureMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831288F12A3843D7009549F0 /* CredentialConfigureMediatingController.xib */; };
+		83F38ECE2A870DBE000F0B98 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */; };
+		83F38ED42A870DE0000F0B98 /* CopyToClipboardConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99922A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift */; };
+		83F38ED52A870DE7000F0B98 /* UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UIViewLoading.swift */; };
+		83F38ED72A870E3B000F0B98 /* UIPasteBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */; };
 		9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51629DA107900FFD65B /* AppDelegate.swift */; };
 		9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51829DA107900FFD65B /* SceneDelegate.swift */; };
 		9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */; };
@@ -106,6 +122,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		830D2E2E2A89A68E006D0710 /* PasswordSettingsViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsViewTests.swift; sourceTree = "<group>"; };
 		831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialConfigureFactory.swift; sourceTree = "<group>"; };
 		831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialConfigureCoordinator.swift; sourceTree = "<group>"; };
 		831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialConfigureMediatingController.swift; sourceTree = "<group>"; };
@@ -132,6 +149,9 @@
 		835828592A4BC492004CAD4B /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VaultPass - Password Manager.entitlements"; sourceTree = "<group>"; };
 		835E097E2A51385E00A319F7 /* TermsAndConditions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TermsAndConditions.txt; sourceTree = "<group>"; };
+		836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsView.swift; sourceTree = "<group>"; };
+		8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordSettingsView.xib; sourceTree = "<group>"; };
+		8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsCoordinator.swift; sourceTree = "<group>"; };
 		837312762A415DF000886D86 /* UIViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLoading.swift; sourceTree = "<group>"; };
 		839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredentialProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
@@ -288,6 +308,10 @@
 				839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */,
 				8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */,
 				839D99902A3AC6E200C59AC6 /* SettingsMediatingController.xib */,
+				8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */,
+				836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */,
+				830D2E2E2A89A68E006D0710 /* PasswordSettingsViewTests.swift */,
+				8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -539,6 +563,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8360526E2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */,
+				83F38ECD2A870D5C000F0B98 /* CredentialConfigureMediatingController.xib in Resources */,
 				839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8360526D2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */,
 				831288F22A3843D7009549F0 /* CredentialConfigureMediatingController.xib in Resources */,
 				83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */,
 				835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */,
@@ -582,11 +609,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83F38ECA2A870D39000F0B98 /* CredentialConfigureFactory.swift in Sources */,
 				832DD4872A7F84BF007331BC /* CredentialProviderViewController.swift in Sources */,
+				83F38ECC2A870D43000F0B98 /* CredentialConfigureMediatingController.swift in Sources */,
+				8360526B2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */,
+				83F38ECE2A870DBE000F0B98 /* CustomAlert.swift in Sources */,
+				836052722A8833DB003D5BD2 /* UIView+.swift in Sources */,
+				83F38ED52A870DE7000F0B98 /* UIViewLoading.swift in Sources */,
+				83F38ED72A870E3B000F0B98 /* UIPasteBoard+.swift in Sources */,
 				83EDAB142A84B83900973D8C /* Model.xcdatamodeld in Sources */,
 				83EDAB192A84BA1900973D8C /* Encryptor.swift in Sources */,
+				83F38ECB2A870D3B000F0B98 /* CredentialConfigureCoordinator.swift in Sources */,
 				83EDAB1C2A84BA3300973D8C /* URL+.swift in Sources */,
+				83F38ED42A870DE0000F0B98 /* CopyToClipboardConfirmationView.swift in Sources */,
 				83EDAB182A84BA1200973D8C /* AccountCredential.swift in Sources */,
+				836052732A883BBE003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */,
 				83EDAB1B2A84BA2900973D8C /* PersistentContainer.swift in Sources */,
 				83EDAB1A2A84BA2000973D8C /* Converter.swift in Sources */,
 				83EDAB172A84BA0A00973D8C /* AccountCredentialsManager.swift in Sources */,
@@ -612,6 +649,7 @@
 				839D998B2A3AC6C500C59AC6 /* SettingsFactory.swift in Sources */,
 				831E393C2A7E2AFE004EB694 /* PersistentContainer.swift in Sources */,
 				8328758F2A302900006694FE /* UnlockFactory.swift in Sources */,
+				836052702A882C7B003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */,
 				832875972A315595006694FE /* AccountCredentialCell.swift in Sources */,
 				9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */,
 				9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */,
@@ -629,6 +667,7 @@
 				8328758A2A30285C006694FE /* AccountCredentialsFactory.swift in Sources */,
 				8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */,
 				9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */,
+				8360526A2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */,
 				83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,6 +682,7 @@
 				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
 				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,
 				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
+				830D2E2F2A89A68E006D0710 /* PasswordSettingsViewTests.swift in Sources */,
 				83BAB20F2A731A7000E06493 /* AppLinkTests.swift in Sources */,
 				83381E572A4402F60070C427 /* UnlockMediatingControllerTests.swift in Sources */,
 				83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */,

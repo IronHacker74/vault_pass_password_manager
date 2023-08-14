@@ -9,8 +9,8 @@ import UIKit
 
 class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     
-    var accountManager: AccountCredentialsManager
-    var navigation: UINavigationController
+    private var accountManager: AccountCredentialsManager
+    private var navigation: UINavigationController
     
     init(accountManager: AccountCredentialsManager, navigation: UINavigationController) {
         self.accountManager = accountManager
@@ -19,7 +19,8 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     
     private func pushConfigureCredential(with index: Int?) {
         let factory = CredentialConfigureFactory()
-        let configureController = factory.makeMediatingController(manager: self.accountManager, index: index, navigation: self.navigation)
+        let coordinator = factory.makeCoordinator(manager: accountManager, index: index, navigation: self.navigation)
+        let configureController = factory.makeMediatingController(coordinator: coordinator)
         self.navigation.pushViewController(configureController, animated: true)
     }
     

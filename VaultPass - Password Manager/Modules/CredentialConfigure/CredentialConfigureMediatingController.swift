@@ -7,13 +7,12 @@
 
 import UIKit
 
-protocol CredentialConfigureDelegate {
+protocol CredentialConfigureDelegate: PasswordSettingsDelegate {
     func credentialConfigureViewDidLoad(displayable: CredentialConfigureDisplayable)
     func credentialConfigureViewWillDisappear()
-    func saveCredential(_ credential: AccountCredential)
+    func saveCredential(_ credential: AccountCredential, vc: CredentialConfigureMediatingController?)
     func generatePassword() -> String
-    func passwordSettingsPressed()
-    func deleteButtonPressed()
+    func deleteButtonPressed(vc: CredentialConfigureMediatingController?)
     func passwordTextFieldDidChange(_ displayable: CredentialConfigureDisplayable, text: String)
 }
 
@@ -21,6 +20,11 @@ protocol CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential)
     func hideDeleteButton()
     func changePasswordTextFieldBackground(with color: UIColor)
+    func showPasswordSettings()
+}
+
+protocol CredentialProviderDelegate {
+    func updateCredentials()
 }
 
 class CredentialConfigureMediatingController: UIViewController {
@@ -39,6 +43,8 @@ class CredentialConfigureMediatingController: UIViewController {
     
     let delegate: CredentialConfigureDelegate?
     var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
+    var passwordSettingsView: PasswordSettingsView?
+    var shadowView: UIView?
     
     init(delegate: CredentialConfigureDelegate?) {
         self.delegate = delegate
@@ -70,7 +76,7 @@ class CredentialConfigureMediatingController: UIViewController {
     }
     
     @IBAction func passwordSettingsBtnPressed(_ sender: UIButton) {
-        self.delegate?.passwordSettingsPressed()
+        self.showPasswordSettings()
     }
     
     @IBAction func generatePasswordBtnPressed(_ sender: UIButton) {
@@ -91,17 +97,21 @@ class CredentialConfigureMediatingController: UIViewController {
             self.showError("Username or password is required")
             return
         }
-        var identifier: String = "\(title.replacingOccurrences(of: " ", with: "").lowercased())"
-        if let identifierText = identifierField.text, !identifierText.isEmpty {
-            identifier = identifierText
+        var identifier: String = ""
+        if let identifierText = identifierField.text {
+            if identifierText.isEmpty {
+                identifier = "\(title.replacingOccurrences(of: " ", with: "").lowercased())" + ".com"
+            } else {
+                identifier = identifierText
+            }
         }
         
         let credential = AccountCredential(title: title, identifier: identifier, username: username, password: password)
-        self.delegate?.saveCredential(credential)
+        self.delegate?.saveCredential(credential, vc: self)
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        self.delegate?.deleteButtonPressed()
+        self.delegate?.deleteButtonPressed(vc: self)
     }
     
     @IBAction func showPasswordPressed(_ sender: UIButton) {
@@ -155,6 +165,35 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
     
     func changePasswordTextFieldBackground(with color: UIColor) {
         self.passwordField.backgroundColor = color
+    }
+    
+    func showPasswordSettings() {
+        let newShadowView: UIView = UIView(frame: self.view.frame)
+        newShadowView.backgroundColor = .label
+        newShadowView.alpha = 0.4
+        let settingsView: PasswordSettingsView = PasswordSettingsView.initFromNib()
+        settingsView.setup(delegate: self.delegate, withCloseButton: true)
+        settingsView.closeButton.addTarget(self, action: #selector(hidePasswordSettings), for: .touchUpInside)
+        settingsView.layer.cornerRadius = 8
+        self.view.addSubview(newShadowView)
+        self.view.addSubview(settingsView)
+        
+        newShadowView.center = self.view.center
+        settingsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            settingsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
+            settingsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            settingsView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            settingsView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+        ])
+        
+        self.passwordSettingsView = settingsView
+        self.shadowView = newShadowView
+    }
+    
+    @objc func hidePasswordSettings() {
+        self.passwordSettingsView?.removeFromSuperview()
+        self.shadowView?.removeFromSuperview()
     }
 }
 

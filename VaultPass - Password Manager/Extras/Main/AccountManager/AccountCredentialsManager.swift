@@ -34,7 +34,7 @@ struct AccountCredentialsManager {
     private let numbersKey = "numbers_key"
     private let specialCharKey = "special_char_key"
     private let passwordLengthKey = "password_length_key"
-    private let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults(suiteName: "group.vaultpass.masters")
     
     private let lowerCaseLetters: String = "abcdefghijklmnopqrstuvwxyz"
     private let upperCaseLetters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -42,19 +42,19 @@ struct AccountCredentialsManager {
     private let allSpecialChars: String = ".!@#$*"
     
     var useLowerCaseLetters: Bool {
-        return self.userDefaults.bool(forKey: self.lowerCaseKey)
+        return (self.userDefaults?.bool(forKey: self.lowerCaseKey) ?? true)
     }
     var useUpperCaseLetters: Bool {
-        return self.userDefaults.bool(forKey: self.upperCaseKey)
+        return (self.userDefaults?.bool(forKey: self.upperCaseKey) ?? true)
     }
     var useNumbers: Bool {
-        return self.userDefaults.bool(forKey: self.numbersKey)
+        return (self.userDefaults?.bool(forKey: self.numbersKey) ?? true)
     }
     var useSpecialChars: Bool {
-        return self.userDefaults.bool(forKey: self.specialCharKey)
+        return (self.userDefaults?.bool(forKey: self.specialCharKey) ?? true)
     }
     var passwordLength: Int {
-        return self.userDefaults.integer(forKey: self.passwordLengthKey)
+        return (self.userDefaults?.integer(forKey: self.passwordLengthKey) ?? 12)
     }
     
     private func lowerCase() -> String {
@@ -82,11 +82,11 @@ struct AccountCredentialsManager {
     }
     
     func setPasswordSettingsToDefault() {
-        self.userDefaults.set(true, forKey: self.specialCharKey)
-        self.userDefaults.set(true, forKey: self.numbersKey)
-        self.userDefaults.set(true, forKey: self.upperCaseKey)
-        self.userDefaults.set(true, forKey: self.lowerCaseKey)
-        self.userDefaults.set(12, forKey: self.passwordLengthKey)
+        self.userDefaults?.set(true, forKey: self.specialCharKey)
+        self.userDefaults?.set(true, forKey: self.numbersKey)
+        self.userDefaults?.set(true, forKey: self.upperCaseKey)
+        self.userDefaults?.set(true, forKey: self.lowerCaseKey)
+        self.userDefaults?.set(12, forKey: self.passwordLengthKey)
     }
     
     func toggleStringType(of type: PasswordStringType) {
@@ -103,12 +103,12 @@ struct AccountCredentialsManager {
     }
     
     func changePasswordLength(_ length: Int){
-        self.userDefaults.set(length, forKey: self.passwordLengthKey)
+        self.userDefaults?.set(length, forKey: self.passwordLengthKey)
     }
     
     private func changePasswordStringType(for currentValue: Bool, withKey key: String) {
         let newValue = currentValue ? false : true
-        self.userDefaults.set(newValue, forKey: key)
+        self.userDefaults?.set(newValue, forKey: key)
     }
     
     func generatePassword() -> String {
@@ -299,11 +299,11 @@ struct AccountCredentialsManager {
     }
     
     private func deletePasswordData() {
-        self.userDefaults.removeObject(forKey: self.specialCharKey)
-        self.userDefaults.removeObject(forKey: self.numbersKey)
-        self.userDefaults.removeObject(forKey: self.upperCaseKey)
-        self.userDefaults.removeObject(forKey: self.lowerCaseKey)
-        self.userDefaults.removeObject(forKey: self.passwordLengthKey)
+        self.userDefaults?.removeObject(forKey: self.specialCharKey)
+        self.userDefaults?.removeObject(forKey: self.numbersKey)
+        self.userDefaults?.removeObject(forKey: self.upperCaseKey)
+        self.userDefaults?.removeObject(forKey: self.lowerCaseKey)
+        self.userDefaults?.removeObject(forKey: self.passwordLengthKey)
     }
     
     private func deleteStore() {
