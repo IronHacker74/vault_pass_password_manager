@@ -73,12 +73,8 @@ struct AccountCredentialsManager {
         return self.useSpecialChars ? self.allSpecialChars : ""
     }
     
-    init() {
-        guard let url = Bundle.main.url(forResource: modelName, withExtension: "momd"), let model = NSManagedObjectModel(contentsOf: url) else {
-            self.context = DefaultContainer().persistentContainer.viewContext
-            return
-        }
-        self.context = PersistentContainer(name: modelName, managedObjectModel: model).viewContext
+    init(iCloudEnabled: Bool = false) {
+        self.context = PersistentContainer(iCloud: iCloudEnabled).viewContext
     }
     
     func setPasswordSettingsToDefault() {
@@ -253,8 +249,7 @@ struct AccountCredentialsManager {
         guard let encryptedData = fetchedData.last?.credentials else {
             return []
         }
-        let decryptedData = Encryptor.standard.decrypt(data: encryptedData)
-        guard let decryptedData else {
+        guard let decryptedData = Encryptor.standard.decrypt(data: encryptedData) else {
             return []
         }
         guard let accountData = self.converter.dataToStringArray(decryptedData) else {

@@ -11,16 +11,11 @@ import Foundation
 struct Encryptor {
     
     static let standard = Encryptor()
-    
-    private let stored_key_access = "stored_key"
-    private let userDefaults = UserDefaults(suiteName: "group.vaultpass.masters")
-    
+        
     private func fetchKey() -> SymmetricKey {
-        guard let storedKeyData = userDefaults?.string(forKey: self.stored_key_access),
-                let keyData = Data(base64Encoded: storedKeyData) else {
+        guard let keyData = KeychainService.standard.fetchKey() else {
             let key = SymmetricKey(size: .bits256)
-            let keyToStore = key.withUnsafeBytes{Data(Array($0)).base64EncodedString()}
-            userDefaults?.set(keyToStore, forKey: self.stored_key_access)
+            KeychainService.standard.saveKey(key)
             return key
         }
         return SymmetricKey(data: keyData)
@@ -43,11 +38,7 @@ struct Encryptor {
         print("Failed to decrypt")
         return nil
     }
-    
-    func resetEncryptorKey() {
-        self.userDefaults?.removeObject(forKey: self.stored_key_access)
-    }
-    
+
     func encryptStringData(_ string: String) -> Data {
         guard let encryptedData = string.data(using: .utf8) else {
             return Data()
