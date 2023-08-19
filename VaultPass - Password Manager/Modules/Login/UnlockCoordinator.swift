@@ -35,7 +35,7 @@ class UnlockCoordinator: UnlockDelegate {
     
     private func pushAccountCredentialsController() {
         let factory = AccountCredentialsFactory()
-        let manager = AccountCredentialsManager(iCloudEnabled: true)
+        let manager = (UIApplication.shared.delegate as! AppDelegate).credentialManager
         if self.unlockData.getNotFirstUnlock() == false {
             manager.setPasswordSettingsToDefault()
             self.unlockData.setNotFirstUnlock(true)

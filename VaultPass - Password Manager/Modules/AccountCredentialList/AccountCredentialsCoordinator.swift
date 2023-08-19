@@ -28,8 +28,7 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     }
     
     func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable) {
-        let credentials = accountManager.fetchCredentials()
-        displayable.updateAccountCredentials(credentials)
+        self.accountCredentialsGetCredentials(displayable)
     }
     
     func accountCredentialsAddButtonPressed() {
@@ -40,6 +39,11 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
         let factory = SettingsFactory()
         let settingsController = factory.makeMediatingController(manager: self.accountManager, navigation: self.navigation)
         self.navigation.pushViewController(settingsController, animated: true)
+    }
+    
+    func accountCredentialsGetCredentials(_ displayable: AccountCredentialsDisplayable) {
+        let credentials = accountManager.fetchCredentials()
+        displayable.updateAccountCredentials(credentials)
     }
     
     func accountCredentialsSaveCredentials(_ credentials: [AccountCredential]) {

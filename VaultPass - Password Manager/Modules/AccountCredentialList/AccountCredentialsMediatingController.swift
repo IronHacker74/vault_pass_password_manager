@@ -12,6 +12,7 @@ protocol AccountCredentialsDelegate {
     func accountCredentialsViewDidAppear(_ displayable: AccountCredentialsDisplayable)
     func accountCredentialsAddButtonPressed()
     func accountCredentialsSettingsButtonPressed()
+    func accountCredentialsGetCredentials(_ displayable: AccountCredentialsDisplayable)
     func accountCredentialsSaveCredentials(_ credentials: [AccountCredential])
     func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int)
 }
@@ -32,6 +33,7 @@ class AccountCredentialsMediatingController: UIViewController {
     private var credentials: [AccountCredential] = []
     private var filtered: [AccountCredential] = []
     
+    private let refreshControl = UIRefreshControl()
     private let cellIdentifier = "AccountCredentialCell"
     
     override func viewDidLoad() {
@@ -61,6 +63,8 @@ class AccountCredentialsMediatingController: UIViewController {
         self.tableview.delegate = self
         self.tableview.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
         self.tableview.keyboardDismissMode = .onDrag
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.tableview.addSubview(refreshControl)
     }
 
     private func configureNavigationBar() {
@@ -79,6 +83,10 @@ class AccountCredentialsMediatingController: UIViewController {
         let button = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonPressed))
         button.tintColor = .systemBlue
         return button
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.delegate?.accountCredentialsGetCredentials(self)
     }
     
     @objc func addButtonPressed() {
@@ -164,6 +172,7 @@ extension AccountCredentialsMediatingController: AccountCredentialsDisplayable {
     func updateAccountCredentials(_ credentials: [AccountCredential]) {
         self.credentials = credentials
         self.tableview.reloadData()
+        self.refreshControl.endRefreshing()
     }
     
     func displayError() {
