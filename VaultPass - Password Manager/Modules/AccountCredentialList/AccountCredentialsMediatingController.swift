@@ -140,14 +140,24 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell else {
+        guard let cell = tableView.cellForRow(at: indexPath) as? AccountCredentialCell, let credential = cell.credential else {
             return
         }
-        if cell.credentialIsShowing() {
-            cell.hideCredentials()
-        } else {
-            cell.reveal()
+        self.cellEditButtonTapped(credential: credential, index: cell.index)
+    }
+    
+    func cellEditButtonTapped(credential: AccountCredential, index: Int?) {
+        guard let index else {
+            for index in 0..<self.credentials.count {
+                if self.credentials[index] == credential {
+                    self.delegate?.accountCredentialsEditCredential(self, index: index)
+                    return
+                }
+            }
+            CustomAlert.ok(self, title: "Oops!", message: "Sorry we could not find that credential to edit.", style: .alert)
+            return
         }
+        self.delegate?.accountCredentialsEditCredential(self, index: index)
     }
 }
 
@@ -189,20 +199,6 @@ extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
     func cellPasswordButtonTapped(credential: AccountCredential) {
         UIPasteboard.copyToClipboard(credential.decryptedPassword)
         self.showCopyToClipboardView()
-    }
-    
-    func cellEditButtonTapped(credential: AccountCredential, index: Int?) {
-        guard let index else {
-            for index in 0..<self.credentials.count {
-                if self.credentials[index] == credential {
-                    self.delegate?.accountCredentialsEditCredential(self, index: index)
-                    return
-                }
-            }
-            CustomAlert.ok(self, title: "Oops!", message: "Sorry we could not find that credential to edit.", style: .alert)
-            return
-        }
-        self.delegate?.accountCredentialsEditCredential(self, index: index)
     }
 }
 

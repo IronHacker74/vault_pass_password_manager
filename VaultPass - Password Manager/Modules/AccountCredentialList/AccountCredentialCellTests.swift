@@ -50,6 +50,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // then
         XCTAssertNotEqual(cell.username.title(for: .normal), string)
         XCTAssertNotEqual(cell.password.title(for: .normal), string)
+        XCTAssertEqual(cell.credentialDisplayBtn.imageView!.image!.pngData(), UIImage(systemName: "eye")!.pngData())
     }
     
     func testUsernameAndPasswordAreRevealed() {

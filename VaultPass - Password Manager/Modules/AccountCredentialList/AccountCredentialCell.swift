@@ -10,7 +10,6 @@ import UIKit
 protocol AccountCredentialCellDelegate {
     func cellUsernameButtonTapped(credential: AccountCredential)
     func cellPasswordButtonTapped(credential: AccountCredential)
-    func cellEditButtonTapped(credential: AccountCredential, index: Int?)
 }
 
 class AccountCredentialCell: UITableViewCell, UIViewLoading {
@@ -18,11 +17,14 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     @IBOutlet private(set) var title: UILabel!
     @IBOutlet private(set) var username: UIButton!
     @IBOutlet private(set) var password: UIButton!
-    @IBOutlet private(set) var editBtn: UIButton!
+    @IBOutlet private(set) var credentialDisplayBtn: UIButton!
     
     private var delegate: AccountCredentialCellDelegate?
-    private var credential: AccountCredential?
-    private var index: Int?
+    var credential: AccountCredential?
+    var index: Int?
+    
+    private let showImageString: String = "eye"
+    private let hideImageString: String = "eye.slash"
     
     func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?, index: Int? = nil) {
         self.delegate = delegate
@@ -39,11 +41,13 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     func reveal() {
         self.username.showCredential(title: credential?.decryptedUsername)
         self.password.showCredential(title: credential?.decryptedPassword)
+        self.credentialDisplayBtn.setImage(UIImage(systemName: self.hideImageString), for: .normal)
     }
     
     func hideCredentials() {
         self.username.hideCredential(placeHolder: "username")
         self.password.hideCredential(placeHolder: "password")
+        self.credentialDisplayBtn.setImage(UIImage(systemName: self.showImageString), for: .normal)
     }
     
     @IBAction func usernameButtonTapped(_ sender: UIButton) {
@@ -60,10 +64,11 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
         self.delegate?.cellPasswordButtonTapped(credential: credential)
     }
     
-    @IBAction func editButtonTapped(_ sender: UIButton) {
-        guard let credential else {
-            return
+    @IBAction func credentialDisplayTapped(_ sender: UIButton) {
+        if credentialIsShowing() {
+            self.hideCredentials()
+        } else {
+            self.reveal()
         }
-        self.delegate?.cellEditButtonTapped(credential: credential, index: self.index)
     }
 }
