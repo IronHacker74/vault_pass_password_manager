@@ -192,4 +192,22 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         // then
         XCTAssertEqual(controller.passwordField.backgroundColor, .green)
     }
+    
+    func testPasswordSettingsShowingAndCloses() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController()))
+
+        // when
+        controller.loadViewIfNeeded()
+        controller.passwordSettingsBtn.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertNotNil(controller.passwordSettingsView)
+        XCTAssertNotNil(controller.shadowView)
+        
+        // when
+        controller.passwordSettingsView?.closeButton.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertNil(controller.passwordSettingsView)
+        XCTAssertNil(controller.shadowView)
+    }
 }

@@ -27,4 +27,15 @@ final class SettingsMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.termsAndConditionsBtn)
         XCTAssertNotNil(controller.privacyPolicyBtn)
     }
+    
+    func testCloseButtonIsNotShowing() {
+        // given
+        let controller = SettingsMediatingController(delegate: nil)
+        // when
+        controller.loadViewIfNeeded()
+        let passwordSettingsView = controller.passwordSettingsParentView.subviews.first as! PasswordSettingsView
+        // then
+        XCTAssertTrue(passwordSettingsView.closeButton.isHidden)
+        XCTAssertFalse(passwordSettingsView.closeButton.isUserInteractionEnabled)
+    }
 }

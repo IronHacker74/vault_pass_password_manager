@@ -194,6 +194,9 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
     @objc func hidePasswordSettings() {
         self.passwordSettingsView?.removeFromSuperview()
         self.shadowView?.removeFromSuperview()
+        
+        self.passwordSettingsView = nil
+        self.shadowView = nil
     }
 }
 
