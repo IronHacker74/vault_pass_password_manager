@@ -35,6 +35,7 @@
 		8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */; };
 		8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835828592A4BC492004CAD4B /* UIButton+.swift */; };
 		835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 835E097E2A51385E00A319F7 /* TermsAndConditions.txt */; };
+		835F6EF82A914E1800BC44E7 /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F6EF72A914E1800BC44E7 /* Bool+.swift */; };
 		8360526A2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */; };
 		8360526B2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */; };
 		8360526D2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */; };
@@ -151,6 +152,7 @@
 		835828592A4BC492004CAD4B /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VaultPass - Password Manager.entitlements"; sourceTree = "<group>"; };
 		835E097E2A51385E00A319F7 /* TermsAndConditions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TermsAndConditions.txt; sourceTree = "<group>"; };
+		835F6EF72A914E1800BC44E7 /* Bool+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+.swift"; sourceTree = "<group>"; };
 		836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsView.swift; sourceTree = "<group>"; };
 		8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordSettingsView.xib; sourceTree = "<group>"; };
 		8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				832AF3642A67467A00E6DE35 /* BiometricUnlock.swift */,
 				83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */,
 				83EDAB152A84B8A400973D8C /* URL+.swift */,
+				835F6EF72A914E1800BC44E7 /* Bool+.swift */,
 			);
 			name = Extras;
 			path = ..;
@@ -659,6 +662,7 @@
 				8328758F2A302900006694FE /* UnlockFactory.swift in Sources */,
 				836052702A882C7B003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */,
 				832875972A315595006694FE /* AccountCredentialCell.swift in Sources */,
+				835F6EF82A914E1800BC44E7 /* Bool+.swift in Sources */,
 				9520B51729DA107900FFD65B /* AppDelegate.swift in Sources */,
 				9520B51929DA107900FFD65B /* SceneDelegate.swift in Sources */,
 				83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */,

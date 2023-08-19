@@ -39,8 +39,6 @@ class UnlockCoordinator: UnlockDelegate {
         if self.unlockData.getNotFirstUnlock() == false {
             manager.setPasswordSettingsToDefault()
             self.unlockData.setNotFirstUnlock(true)
-        }
-        if self.unlockData.getAutoUnlock() == false {
             self.unlockData.setAutoUnlock(true)
         }
         let controller = factory.makeMediatingController(accountManager: manager)

@@ -8,15 +8,15 @@
 import UIKit
 
 protocol PasswordSettingsDelegate {
-    func setupPasswordSettings(displayable: SettingsDisplayable)
-    func lowerCaseLettersSwitchChanged(displayable: SettingsDisplayable)
-    func upperCaseLettersSwitchChanged(displayable: SettingsDisplayable)
-    func numbersSwitchChanged(displayable: SettingsDisplayable)
-    func specialCharSwitchChanged(displayable: SettingsDisplayable)
-    func passwordLengthChanged(length: Int, displayable: SettingsDisplayable)
+    func setupPasswordSettings(displayable: PasswordSettingsDisplayable)
+    func lowerCaseLettersSwitchChanged(displayable: PasswordSettingsDisplayable)
+    func upperCaseLettersSwitchChanged(displayable: PasswordSettingsDisplayable)
+    func numbersSwitchChanged(displayable: PasswordSettingsDisplayable)
+    func specialCharSwitchChanged(displayable: PasswordSettingsDisplayable)
+    func passwordLengthChanged(length: Int, displayable: PasswordSettingsDisplayable)
 }
 
-protocol SettingsDisplayable {
+protocol PasswordSettingsDisplayable {
     func setOutlets(lowerCaseSwitch: Bool, upperCaseSwitch: Bool, numbersSwitch: Bool, specialCharsSwitch: Bool, passwordLength: Int)
     func changePasswordStrengthColor(_ color: UIColor)
 }
@@ -77,7 +77,7 @@ class PasswordSettingsView: UIView, UIViewLoading {
 
 }
 
-extension PasswordSettingsView: SettingsDisplayable {
+extension PasswordSettingsView: PasswordSettingsDisplayable {
     func changePasswordStrengthColor(_ color: UIColor) {
         self.passwordStrengthColor.backgroundColor = color
     }

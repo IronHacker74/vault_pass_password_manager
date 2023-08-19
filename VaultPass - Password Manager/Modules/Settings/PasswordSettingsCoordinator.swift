@@ -14,7 +14,7 @@ class PasswordSettingsCoordinator: PasswordSettingsDelegate {
         self.credentialsManager = credentialsManager
     }
     
-    func setupPasswordSettings(displayable: SettingsDisplayable) {
+    func setupPasswordSettings(displayable: PasswordSettingsDisplayable) {
         let lowerCaseSwitch = credentialsManager.useLowerCaseLetters
         let upperCaseSwitch = credentialsManager.useUpperCaseLetters
         let numbersSwtich = credentialsManager.useNumbers
@@ -25,32 +25,32 @@ class PasswordSettingsCoordinator: PasswordSettingsDelegate {
         displayable.changePasswordStrengthColor(passwordStrength)
     }
     
-    func lowerCaseLettersSwitchChanged(displayable: SettingsDisplayable) {
+    func lowerCaseLettersSwitchChanged(displayable: PasswordSettingsDisplayable) {
         self.credentialsManager.toggleStringType(of: .lowerCase)
         self.passwordSettingsChanged(displayable: displayable)
     }
     
-    func upperCaseLettersSwitchChanged(displayable: SettingsDisplayable) {
+    func upperCaseLettersSwitchChanged(displayable: PasswordSettingsDisplayable) {
         self.credentialsManager.toggleStringType(of: .upperCase)
         self.passwordSettingsChanged(displayable: displayable)
     }
     
-    func numbersSwitchChanged(displayable: SettingsDisplayable) {
+    func numbersSwitchChanged(displayable: PasswordSettingsDisplayable) {
         self.credentialsManager.toggleStringType(of: .numbers)
         self.passwordSettingsChanged(displayable: displayable)
     }
     
-    func specialCharSwitchChanged(displayable: SettingsDisplayable) {
+    func specialCharSwitchChanged(displayable: PasswordSettingsDisplayable) {
         self.credentialsManager.toggleStringType(of: .specialChar)
         self.passwordSettingsChanged(displayable: displayable)
     }
     
-    func passwordLengthChanged(length: Int, displayable: SettingsDisplayable) {
+    func passwordLengthChanged(length: Int, displayable: PasswordSettingsDisplayable) {
         self.credentialsManager.changePasswordLength(length)
         self.passwordSettingsChanged(displayable: displayable)
     }
     
-    func passwordSettingsChanged(displayable: SettingsDisplayable) {
+    func passwordSettingsChanged(displayable: PasswordSettingsDisplayable) {
         let passwordStrengthColor = self.credentialsManager.passwordStrengthColor()
         displayable.changePasswordStrengthColor(passwordStrengthColor)
     }

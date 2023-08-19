@@ -23,6 +23,8 @@ final class SettingsMediatingControllerTests: XCTestCase {
         // when
         controller.loadViewIfNeeded()
         // then
+        XCTAssertNotNil(controller.autoUnlockLabel)
+        XCTAssertNotNil(controller.autoUnlockSwitch)
         XCTAssertNotNil(controller.passwordSettingsParentView)
         XCTAssertNotNil(controller.termsAndConditionsBtn)
         XCTAssertNotNil(controller.privacyPolicyBtn)
@@ -37,5 +39,18 @@ final class SettingsMediatingControllerTests: XCTestCase {
         // then
         XCTAssertTrue(passwordSettingsView.closeButton.isHidden)
         XCTAssertFalse(passwordSettingsView.closeButton.isUserInteractionEnabled)
+    }
+    
+    func testAutoUnlockSwitchToggles() {
+        // given
+        let unlockData = UnlockData()
+        let currAutoUnlockValue = unlockData.getAutoUnlock()
+        let delegate = SettingsCoordinator(credentialsManager: AccountCredentialsManager(), navigation: UINavigationController())
+        let controller = SettingsMediatingController(delegate: delegate)
+        // when
+        controller.loadViewIfNeeded()
+        controller.autoUnlockSwitch.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertNotEqual(currAutoUnlockValue, unlockData.getAutoUnlock())
     }
 }

@@ -9,14 +9,22 @@ import Foundation
 import UIKit
 
 protocol SettingsDelegate: PasswordSettingsDelegate {
+    func settingsControllerViewDidLoad(_ displayable: SettingsDisplayable)
+    func toggleAutoUnlock()
     func termsAndConditionsTapped()
     func lockButtonPressed()
     func deleteAllData()
 }
 
+protocol SettingsDisplayable {
+    func setAutoUnlockSwitch(_ value: Bool)
+}
+
 class SettingsMediatingController: UIViewController {
     
     @IBOutlet private(set) var passwordSettingsParentView: UIView!
+    @IBOutlet private(set) var autoUnlockLabel: UILabel!
+    @IBOutlet private(set) var autoUnlockSwitch: UISwitch!
     
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     @IBOutlet private(set) var privacyPolicyBtn: UIButton!
@@ -36,6 +44,7 @@ class SettingsMediatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate?.settingsControllerViewDidLoad(self)
         self.setupPasswordSettingsView()
     }
     
@@ -51,12 +60,16 @@ class SettingsMediatingController: UIViewController {
         passwordSettingsView.translatesAutoresizingMaskIntoConstraints = false
         passwordSettingsView.center = passwordSettingsParentView.center
         NSLayoutConstraint.activate([
-            passwordSettingsView.trailingAnchor.constraint(equalTo: self.passwordSettingsParentView.trailingAnchor),
-            passwordSettingsView.leadingAnchor.constraint(equalTo: self.passwordSettingsParentView.leadingAnchor),
+            passwordSettingsView.trailingAnchor.constraint(equalTo: self.passwordSettingsParentView.trailingAnchor, constant: 8),
+            passwordSettingsView.leadingAnchor.constraint(equalTo: self.passwordSettingsParentView.leadingAnchor, constant: -8),
             passwordSettingsView.topAnchor.constraint(equalTo: self.passwordSettingsParentView.topAnchor),
             passwordSettingsView.bottomAnchor.constraint(equalTo: self.passwordSettingsParentView.bottomAnchor),
         ])
         passwordSettingsView.setup(delegate: self.delegate, withCloseButton: false)
+    }
+    
+    @IBAction func autoUnlockSwitched(_ sender: UISwitch) {
+        self.delegate?.toggleAutoUnlock()
     }
     
     @IBAction func termsAndConditionsPressed(_ sender: UIButton) {
@@ -73,5 +86,12 @@ class SettingsMediatingController: UIViewController {
     
     @IBAction func deleteAllDataBtnPressed(_ sender: UIButton) {
         self.delegate?.deleteAllData()
+    }
+}
+
+
+extension SettingsMediatingController: SettingsDisplayable {
+    func setAutoUnlockSwitch(_ value: Bool) {
+        self.autoUnlockSwitch.setOn(value, animated: false)
     }
 }

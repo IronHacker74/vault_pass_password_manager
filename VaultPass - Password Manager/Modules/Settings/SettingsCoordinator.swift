@@ -17,6 +17,15 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
         super.init(credentialsManager: credentialsManager)
     }
     
+    func settingsControllerViewDidLoad(_ displayable: SettingsDisplayable) {
+        displayable.setAutoUnlockSwitch(self.unlockData.getAutoUnlock())
+    }
+    
+    func toggleAutoUnlock() {
+        let value = self.unlockData.getAutoUnlock()
+        self.unlockData.setAutoUnlock(value.toggle())
+    }
+    
     func termsAndConditionsTapped() {
         let factory = TermsAndConditionsFactory()
         let controller = factory.makeMediatingController()
