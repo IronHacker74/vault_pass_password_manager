@@ -17,7 +17,7 @@ public final class BiometricUnlock {
         }
         Task {
             do {
-                try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock to manager your passwords")
+                try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock to access credentials")
                 print("Succcessful authentication")
                 DispatchQueue.main.async {
                     completion(true, nil)

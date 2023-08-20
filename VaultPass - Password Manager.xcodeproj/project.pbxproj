@@ -60,6 +60,8 @@
 		83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
 		83B4148B2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
 		83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */; };
+		83B9AAA72A929AB200D2A46D /* BiometricUnlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832AF3642A67467A00E6DE35 /* BiometricUnlock.swift */; };
+		83B9AAA82A92A28500D2A46D /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F6EF72A914E1800BC44E7 /* Bool+.swift */; };
 		83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB20C2A7310A000E06493 /* OpenAppLink.swift */; };
 		83BAB20F2A731A7000E06493 /* AppLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB20E2A731A7000E06493 /* AppLinkTests.swift */; };
 		83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */; };
@@ -628,9 +630,11 @@
 				83F38ED72A870E3B000F0B98 /* UIPasteBoard+.swift in Sources */,
 				83EDAB142A84B83900973D8C /* Model.xcdatamodeld in Sources */,
 				83EDAB192A84BA1900973D8C /* Encryptor.swift in Sources */,
+				83B9AAA72A929AB200D2A46D /* BiometricUnlock.swift in Sources */,
 				83F38ECB2A870D3B000F0B98 /* CredentialConfigureCoordinator.swift in Sources */,
 				83EDAB1C2A84BA3300973D8C /* URL+.swift in Sources */,
 				83F38ED42A870DE0000F0B98 /* CopyToClipboardConfirmationView.swift in Sources */,
+				83B9AAA82A92A28500D2A46D /* Bool+.swift in Sources */,
 				83EDAB182A84BA1200973D8C /* AccountCredential.swift in Sources */,
 				83B4148B2A8DE628005CFAEB /* KeychainService.swift in Sources */,
 				836052732A883BBE003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */,

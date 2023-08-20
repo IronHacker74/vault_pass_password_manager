@@ -19,6 +19,17 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
     private var serviceIdentifier: ASCredentialServiceIdentifier? = nil
     private let cellIdentifier: String = "default"
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.isHidden = true
+        BiometricUnlock.unlockWithAppleAuth(completion: { result,error in
+            if error != nil || result == false {
+                self.extensionContext.cancelRequest(withError: NSError(domain: ASExtensionErrorDomain, code: ASExtensionError.failed.rawValue))
+            }
+            self.tableView.isHidden = false
+        })
+    }
+    
     /*
      Prepare your UI to list available credentials for the user to choose from. The items in
      'serviceIdentifiers' describe the service the user is logging in to, so your extension can
