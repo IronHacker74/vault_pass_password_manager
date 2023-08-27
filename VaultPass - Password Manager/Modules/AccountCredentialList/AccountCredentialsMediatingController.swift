@@ -26,7 +26,12 @@ class AccountCredentialsMediatingController: UIViewController {
     
     @IBOutlet private(set) var tableview: UITableView!
     @IBOutlet private(set) var searchBar: UISearchBar!
-    
+    @IBOutlet var padConstraints: [NSLayoutConstraint]! {
+        didSet {
+            PadConstraints.setLeadingTrailingConstraints(self.padConstraints)
+        }
+    }
+
     var delegate: AccountCredentialsDelegate?
     var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
 
@@ -46,10 +51,6 @@ class AccountCredentialsMediatingController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.delegate?.accountCredentialsViewDidAppear(self)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -154,7 +155,7 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
                     return
                 }
             }
-            CustomAlert.ok(self, title: "Oops!", message: "Sorry we could not find that credential to edit.", style: .alert)
+            CustomAlert.ok(self, title: "Oops!", message: "Sorry we could not find that credential to edit.")
             return
         }
         self.delegate?.accountCredentialsEditCredential(self, index: index)
@@ -186,7 +187,7 @@ extension AccountCredentialsMediatingController: AccountCredentialsDisplayable {
     }
     
     func displayError() {
-        CustomAlert.ok(self, title: "Oops!", message: "We can't perform that action at this time.", style: .alert)
+        CustomAlert.ok(self, title: "Oops!", message: "We can't perform that action at this time.")
     }
 }
 

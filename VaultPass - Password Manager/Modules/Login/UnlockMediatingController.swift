@@ -18,6 +18,11 @@ class UnlockMediatingController: UIViewController, UIViewLoading {
     @IBOutlet private(set) var unlockDetailLabel: UILabel!
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     @IBOutlet private(set) var privacyPolicyBtn: UIButton!
+    @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
+        didSet {
+            PadConstraints.setLeadingTrailingConstraints(self.padConstraints)
+        }
+    }
     
     var delegate: UnlockDelegate?
     

@@ -34,7 +34,7 @@ class TermsAndConditionsMediatingController: UIViewController {
     private var termsAndConditions: String {
         let path = Bundle.main.path(forResource: "TermsAndConditions", ofType: ".txt")
         guard let path, let text = try? String(contentsOfFile: path, encoding: .utf8) else {
-            CustomAlert.ok(self, title: "Oops!", message: "Failed to load terms and conditions!", style: .alert)
+            CustomAlert.ok(self, title: "Oops!", message: "Failed to load terms and conditions!")
             return ""
         }
         return text

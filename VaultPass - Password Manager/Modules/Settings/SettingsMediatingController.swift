@@ -29,6 +29,11 @@ class SettingsMediatingController: UIViewController {
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     @IBOutlet private(set) var privacyPolicyBtn: UIButton!
     @IBOutlet private(set) var deleteAllDataBtn: UIButton!
+    @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
+        didSet {
+            PadConstraints.setLeadingTrailingConstraints(self.padConstraints)
+        }
+    }
     
     var delegate: SettingsDelegate?
     

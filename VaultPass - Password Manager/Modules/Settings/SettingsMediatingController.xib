@@ -19,6 +19,12 @@
                 <outlet property="privacyPolicyBtn" destination="m5G-34-JOx" id="UPy-z0-cMR"/>
                 <outlet property="termsAndConditionsBtn" destination="SxC-X6-gbq" id="8n8-1g-0ic"/>
                 <outlet property="view" destination="iN0-l3-epB" id="Yml-Yh-OZ4"/>
+                <outletCollection property="padConstraints" destination="cT5-0a-S9j" collectionClass="NSMutableArray" id="f9X-eo-bO3"/>
+                <outletCollection property="padConstraints" destination="xqc-cd-kmN" collectionClass="NSMutableArray" id="rWc-Zm-0hW"/>
+                <outletCollection property="padConstraints" destination="W4U-ur-PaU" collectionClass="NSMutableArray" id="wQT-ko-OBF"/>
+                <outletCollection property="padConstraints" destination="u6f-P5-RlQ" collectionClass="NSMutableArray" id="reF-XS-4Nf"/>
+                <outletCollection property="padConstraints" destination="g59-Ix-cLd" collectionClass="NSMutableArray" id="Hl8-9j-4Ir"/>
+                <outletCollection property="padConstraints" destination="pmk-oT-6QE" collectionClass="NSMutableArray" id="EFb-jt-nsc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

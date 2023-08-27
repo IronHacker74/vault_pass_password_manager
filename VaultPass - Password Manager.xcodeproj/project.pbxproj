@@ -32,6 +32,8 @@
 		83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */; };
 		83381E5E2A4415810070C427 /* TermsAndConditionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */; };
 		8348D7AD2A3EBAFC00D16B0B /* UnlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */; };
+		8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349B6892A996D0B003886AE /* PadConstraints.swift */; };
+		8349B68B2A9AEF08003886AE /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349B6892A996D0B003886AE /* PadConstraints.swift */; };
 		8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */; };
 		8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835828592A4BC492004CAD4B /* UIButton+.swift */; };
 		835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 835E097E2A51385E00A319F7 /* TermsAndConditions.txt */; };
@@ -150,6 +152,7 @@
 		83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsMediatingController.swift; sourceTree = "<group>"; };
 		83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsFactory.swift; sourceTree = "<group>"; };
 		8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockData.swift; sourceTree = "<group>"; };
+		8349B6892A996D0B003886AE /* PadConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConstraints.swift; sourceTree = "<group>"; };
 		8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		835828592A4BC492004CAD4B /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VaultPass - Password Manager.entitlements"; sourceTree = "<group>"; };
@@ -351,6 +354,7 @@
 				83AD0FD22A3309A9008B3C09 /* Converter.swift */,
 				8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */,
 				831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */,
+				8349B6892A996D0B003886AE /* PadConstraints.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -620,6 +624,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8349B68B2A9AEF08003886AE /* PadConstraints.swift in Sources */,
 				83F38ECA2A870D39000F0B98 /* CredentialConfigureFactory.swift in Sources */,
 				832DD4872A7F84BF007331BC /* CredentialProviderViewController.swift in Sources */,
 				83F38ECC2A870D43000F0B98 /* CredentialConfigureMediatingController.swift in Sources */,
@@ -673,6 +678,7 @@
 				83EDAB162A84B8A400973D8C /* URL+.swift in Sources */,
 				83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */,
 				8348D7AD2A3EBAFC00D16B0B /* UnlockData.swift in Sources */,
+				8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */,
 				839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */,
 				83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */,
 				832875882A302839006694FE /* AccountCredentialsCoordinator.swift in Sources */,
@@ -774,13 +780,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager.AutofillCredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -802,13 +808,13 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager.AutofillCredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -947,7 +953,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -960,7 +965,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -983,7 +988,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -996,7 +1000,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

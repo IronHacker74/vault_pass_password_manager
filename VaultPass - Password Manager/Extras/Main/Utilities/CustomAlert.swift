@@ -8,8 +8,8 @@
 import UIKit
 
 struct CustomAlert {  
-    static func destructive(_ controller: UIViewController, title: String, message: String, style: UIAlertController.Style, deleteBtn: String, deleteAction: @escaping ((UIAlertAction) -> Void)) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+    static func destructive(_ controller: UIViewController, title: String, message: String, deleteBtn: String, deleteAction: @escaping ((UIAlertAction) -> Void)) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel){ _ in
             alertController.dismiss(animated: true)
         })
@@ -17,8 +17,8 @@ struct CustomAlert {
         controller.present(alertController, animated: true)
     }
     
-    static func ok(_ controller: UIViewController, title: String, message: String, style: UIAlertController.Style) {
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+    static func ok(_ controller: UIViewController, title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .cancel){ _ in
             alertController.dismiss(animated: true)
         })

@@ -52,7 +52,7 @@ class CredentialConfigureCoordinator: PasswordSettingsCoordinator, CredentialCon
     }
     
     func deleteButtonPressed(vc: CredentialConfigureMediatingController?) {
-        CustomAlert.destructive(self.navigation, title: "Are you sure?", message: "Deleting this credential will be permanent!", style: .alert, deleteBtn: "Delete", deleteAction: {_ in 
+        CustomAlert.destructive(self.navigation, title: "Are you sure?", message: "Deleting this credential will be permanent!", deleteBtn: "Delete", deleteAction: {_ in 
             if let index = self.index {
                 self.credentials.remove(at: index)
                 self.storeCredentialsAndPop(vc)
@@ -77,7 +77,7 @@ class CredentialConfigureCoordinator: PasswordSettingsCoordinator, CredentialCon
                 vc?.dismiss(animated: true)
             }
         } else {
-            CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.", style: .alert)
+            CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.")
         }
     }
 }
