@@ -35,7 +35,7 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
     func lockButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", deleteBtn: "Lock", deleteAction: { _ in
             self.unlockData.setAutoUnlock(false)
-            self.sendBackToUnlockScreen()
+            self.replaceViewWithUnlockScreen()
         })
     }
     
@@ -44,15 +44,14 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
             self.credentialsManager.deleteAllData()
             self.unlockData.deleteData()
             KeychainService.standard.deleteKey()
-            self.sendBackToUnlockScreen()
+            self.replaceViewWithUnlockScreen()
         })
     }
     
-    private func sendBackToUnlockScreen() {
-        let factory = UnlockFactory()
-        let controller = UnlockMediatingController.loadFromNibMain()
-        controller.delegate = factory.makeCoordinator(navigation: UINavigationController())
-        UIApplication.shared.windows.first?.rootViewController = controller
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+    private func replaceViewWithUnlockScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let unlockViewController = storyboard.instantiateViewController(identifier: "UnlockNavigation")
+        self.navigation.view.window?.rootViewController = unlockViewController
+        self.navigation.view.window?.makeKeyAndVisible()
     }
 }

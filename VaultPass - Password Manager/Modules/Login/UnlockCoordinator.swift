@@ -41,9 +41,9 @@ class UnlockCoordinator: UnlockDelegate {
             self.unlockData.setNotFirstUnlock(true)
             self.unlockData.setAutoUnlock(true)
         }
-        let controller = factory.makeMediatingController(accountManager: manager)
-        UIApplication.shared.windows.first?.rootViewController = controller
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        let accountCredentialsViewController = factory.makeMediatingController(accountManager: manager)
+        self.navigation?.view.window?.rootViewController = accountCredentialsViewController
+        self.navigation?.view.window?.makeKeyAndVisible()
     }
     
     func termsAndConditionsButtonAction() {
