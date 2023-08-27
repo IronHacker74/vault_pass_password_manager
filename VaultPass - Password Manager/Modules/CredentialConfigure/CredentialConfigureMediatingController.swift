@@ -40,6 +40,11 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var deleteBtn: UIButton!
     @IBOutlet private(set) var showPasswordBtn: UIButton!
     @IBOutlet private(set) var copyPasswordBtn: UIButton!
+    @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
+        didSet {
+            PadConstraints.setLeadingTrailingConstraints(self.padConstraints)
+        }
+    }
     
     let delegate: CredentialConfigureDelegate?
     var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
@@ -180,9 +185,14 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         
         newShadowView.center = self.view.center
         settingsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let leadingConstraint = settingsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16)
+        let trailingConstraint = settingsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
+        self.padConstraints = self.padConstraints + [leadingConstraint, trailingConstraint]
+        
         NSLayoutConstraint.activate([
-            settingsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16),
-            settingsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16),
+            leadingConstraint,
+            trailingConstraint,
             settingsView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             settingsView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
         ])

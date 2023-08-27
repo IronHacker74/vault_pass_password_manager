@@ -103,6 +103,16 @@
                         <outlet property="termsAndConditionsBtn" destination="eSw-so-MdZ" id="NmO-h2-MVW"/>
                         <outlet property="unlockButton" destination="v2K-ey-Nnq" id="A8b-OY-YDZ"/>
                         <outlet property="unlockDetailLabel" destination="WuI-8k-hx9" id="kzf-01-YPb"/>
+                        <outletCollection property="padConstraints" destination="Ahg-Hm-cjj" collectionClass="NSMutableArray" id="JeO-Z3-PsD"/>
+                        <outletCollection property="padConstraints" destination="EnI-8W-wYx" collectionClass="NSMutableArray" id="WTc-iK-eci"/>
+                        <outletCollection property="padConstraints" destination="KeV-BF-aGa" collectionClass="NSMutableArray" id="hzd-zf-Wji"/>
+                        <outletCollection property="padConstraints" destination="vAz-4t-ADa" collectionClass="NSMutableArray" id="aWV-dj-LIb"/>
+                        <outletCollection property="padConstraints" destination="zK6-1o-7FP" collectionClass="NSMutableArray" id="6NN-SP-caC"/>
+                        <outletCollection property="padConstraints" destination="4tk-sB-Aaw" collectionClass="NSMutableArray" id="dxB-Uz-F7A"/>
+                        <outletCollection property="padConstraints" destination="P6r-g2-TI3" collectionClass="NSMutableArray" id="PM9-AN-cng"/>
+                        <outletCollection property="padConstraints" destination="Fpi-Yi-cap" collectionClass="NSMutableArray" id="ZGv-Fi-NR0"/>
+                        <outletCollection property="padConstraints" destination="VhS-hr-Uq0" collectionClass="NSMutableArray" id="Cvk-Cf-2XM"/>
+                        <outletCollection property="padConstraints" destination="A0f-vg-anJ" collectionClass="NSMutableArray" id="32M-7V-0nR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

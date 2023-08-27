@@ -18,6 +18,11 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     @IBOutlet private(set) var username: UIButton!
     @IBOutlet private(set) var password: UIButton!
     @IBOutlet private(set) var credentialDisplayBtn: UIButton!
+    @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
+        didSet {
+            PadConstraints.setLeadingTrailingConstraints(self.padConstraints)
+        }
+    }
     
     private var delegate: AccountCredentialCellDelegate?
     var credential: AccountCredential?

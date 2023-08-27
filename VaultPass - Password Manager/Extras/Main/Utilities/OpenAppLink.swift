@@ -21,7 +21,7 @@ class OpenAppLink {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url)
         } else {
-            CustomAlert.ok(vc, title: "Failed to open", message: "We cannot open that link right now.", style: .alert)
+            CustomAlert.ok(vc, title: "Failed to open", message: "We cannot open that link right now.")
         }
     }
 }
