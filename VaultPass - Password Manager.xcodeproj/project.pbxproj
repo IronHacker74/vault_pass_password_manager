@@ -48,7 +48,7 @@
 		837312772A415DF000886D86 /* UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UIViewLoading.swift */; };
 		839C8E4A2A48C3AA00EE1A94 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */; };
 		839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */; };
-		839C8E552A48C3AA00EE1A94 /* AutofillCredentialProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		839C8E552A48C3AA00EE1A94 /* AutofillCredentialProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		839D998B2A3AC6C500C59AC6 /* SettingsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998A2A3AC6C500C59AC6 /* SettingsFactory.swift */; };
 		839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998C2A3AC6CB00C59AC6 /* SettingsCoordinator.swift */; };
 		839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D998E2A3AC6D600C59AC6 /* SettingsMediatingController.swift */; };
@@ -961,7 +961,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -996,7 +996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

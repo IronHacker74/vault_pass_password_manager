@@ -24,7 +24,6 @@ class PersistentContainer: NSPersistentCloudKitContainer {
             persistentStoreDescription.cloudKitContainerOptions = NSPersistentCloudKitContainerOptions(containerIdentifier: self.cloudContainer)
             self.viewContext.automaticallyMergesChangesFromParent = true
             self.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyStoreTrump
-            try? self.viewContext.setQueryGenerationFrom(.current)
         } else {
             persistentStoreDescription.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
         }
