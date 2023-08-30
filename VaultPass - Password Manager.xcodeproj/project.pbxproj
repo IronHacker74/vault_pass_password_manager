@@ -69,6 +69,7 @@
 		83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */; };
 		83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */; };
 		83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */; };
+		83EB7B7E2A9D9C38002848DE /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB7B7C2A9D9C34002848DE /* PreviewData.swift */; };
 		83EDAB142A84B83900973D8C /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9520B54629DA3A2300FFD65B /* Model.xcdatamodeld */; };
 		83EDAB162A84B8A400973D8C /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EDAB152A84B8A400973D8C /* URL+.swift */; };
 		83EDAB172A84BA0A00973D8C /* AccountCredentialsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832875A12A31A4E8006694FE /* AccountCredentialsManager.swift */; };
@@ -185,6 +186,7 @@
 		83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPasteBoard+.swift"; sourceTree = "<group>"; };
 		83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyToClipboardConfirmationView.xib; sourceTree = "<group>"; };
 		83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingControllerTests.swift; sourceTree = "<group>"; };
+		83EB7B7C2A9D9C34002848DE /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		83EDAB152A84B8A400973D8C /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		83F145FA2A8B05EF00A5FA61 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -355,6 +357,7 @@
 				8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */,
 				831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */,
 				8349B6892A996D0B003886AE /* PadConstraints.swift */,
+				83EB7B7C2A9D9C34002848DE /* PreviewData.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				8316D6FC2A49E6F100113E5B /* CredentialConfigureMediatingControllerTests.swift in Sources */,
 				8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */,
 				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
+				83EB7B7E2A9D9C38002848DE /* PreviewData.swift in Sources */,
 				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
 				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,
 				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
