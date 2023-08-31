@@ -34,7 +34,6 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
 
     func lockButtonPressed() {
         CustomAlert.destructive(self.navigation, title: "Lock your credentials?", message: "Are you sure you want to relock your data?", deleteBtn: "Lock", deleteAction: { _ in
-            self.unlockData.setAutoUnlock(false)
             self.replaceViewWithUnlockScreen()
         })
     }
