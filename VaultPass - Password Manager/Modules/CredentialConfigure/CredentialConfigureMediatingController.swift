@@ -14,6 +14,7 @@ protocol CredentialConfigureDelegate: PasswordSettingsDelegate {
     func generatePassword() -> String
     func deleteButtonPressed(vc: CredentialConfigureMediatingController?)
     func passwordTextFieldDidChange(_ displayable: CredentialConfigureDisplayable, text: String)
+    func isFromAutofill() -> Bool
 }
 
 protocol CredentialConfigureDisplayable {
@@ -188,7 +189,10 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         
         let leadingConstraint = settingsView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 16)
         let trailingConstraint = settingsView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -16)
-        self.padConstraints = self.padConstraints + [leadingConstraint, trailingConstraint]
+        
+        if self.delegate?.isFromAutofill() == false {
+            self.padConstraints = self.padConstraints + [leadingConstraint, trailingConstraint]
+        }
         
         NSLayoutConstraint.activate([
             leadingConstraint,

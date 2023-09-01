@@ -80,4 +80,8 @@ class CredentialConfigureCoordinator: PasswordSettingsCoordinator, CredentialCon
             CustomAlert.ok(self.navigation, title: "Oops!", message: "We can't save your credential at this time.")
         }
     }
+    
+    func isFromAutofill() -> Bool {
+        return self.credentialProviderDelegate != nil
+    }
 }

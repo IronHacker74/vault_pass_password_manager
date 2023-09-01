@@ -25,6 +25,7 @@ class SettingsMediatingController: UIViewController {
     @IBOutlet private(set) var passwordSettingsParentView: UIView!
     @IBOutlet private(set) var autoUnlockLabel: UILabel!
     @IBOutlet private(set) var autoUnlockSwitch: UISwitch!
+    @IBOutlet private(set) var enableAutofillBtn: UIButton!
     
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     @IBOutlet private(set) var privacyPolicyBtn: UIButton!
@@ -75,6 +76,10 @@ class SettingsMediatingController: UIViewController {
     
     @IBAction func autoUnlockSwitched(_ sender: UISwitch) {
         self.delegate?.toggleAutoUnlock()
+    }
+    
+    @IBAction func enableAutofillBtnTapped(_ sender: UIButton) {
+        OpenAppLink.using(.autofill, vc: self)
     }
     
     @IBAction func termsAndConditionsPressed(_ sender: UIButton) {

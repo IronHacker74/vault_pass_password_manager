@@ -87,7 +87,7 @@ class AccountCredentialsMediatingController: UIViewController {
     }
     
     private func makeRefreshButton() -> UIBarButtonItem {
-        let button = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.icloud"), style: .plain, target: self, action: #selector(refresh(_:)))
+        let button = UIBarButtonItem(image: UIImage(systemName: "icloud.and.arrow.down"), style: .plain, target: self, action: #selector(refresh(_:)))
         button.tintColor = .systemBlue
         return button
     }

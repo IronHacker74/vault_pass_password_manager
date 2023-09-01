@@ -8,6 +8,7 @@
 import UIKit
 
 enum AppLinks: String {
+    case autofill = "https://sites.google.com/view/vaultpassapp/setup-autofill"
     case termsAndConditions = "https://sites.google.com/view/vaultpassapp/terms-and-conditions"
     case privacyPolicy = "https://sites.google.com/view/vaultpassapp/privacy-policy"
 }

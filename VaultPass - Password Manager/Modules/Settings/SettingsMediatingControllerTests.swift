@@ -25,6 +25,7 @@ final class SettingsMediatingControllerTests: XCTestCase {
         // then
         XCTAssertNotNil(controller.autoUnlockLabel)
         XCTAssertNotNil(controller.autoUnlockSwitch)
+        XCTAssertNotNil(controller.enableAutofillBtn)
         XCTAssertNotNil(controller.passwordSettingsParentView)
         XCTAssertNotNil(controller.termsAndConditionsBtn)
         XCTAssertNotNil(controller.privacyPolicyBtn)
