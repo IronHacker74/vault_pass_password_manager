@@ -178,7 +178,7 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         newShadowView.alpha = 0.4
         let settingsView: PasswordSettingsView = PasswordSettingsView.initFromNib()
         settingsView.setup(delegate: self.delegate, withCloseButton: true)
-        settingsView.closeButton.addTarget(self, action: #selector(hidePasswordSettings), for: .touchUpInside)
+        settingsView.closeButton.addTarget(self, action: #selector(hidePasswordSettings(_:)), for: .touchUpInside)
         settingsView.layer.cornerRadius = 8
         self.view.addSubview(newShadowView)
         self.view.addSubview(settingsView)
@@ -201,7 +201,7 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
         self.shadowView = newShadowView
     }
     
-    @objc func hidePasswordSettings() {
+    @objc func hidePasswordSettings(_ sender: AnyObject) {
         self.passwordSettingsView?.removeFromSuperview()
         self.shadowView?.removeFromSuperview()
         

@@ -71,7 +71,7 @@ class AccountCredentialsMediatingController: UIViewController {
     private func configureNavigationBar() {
         self.navigationItem.title = "My Credentials"
         self.navigationItem.setLeftBarButton(makeSettingsButton(), animated: false)
-        self.navigationItem.setRightBarButton(makeAddButton(), animated: false)
+        self.navigationItem.setRightBarButtonItems([makeAddButton(), makeRefreshButton()], animated: false)
     }
     
     private func makeAddButton() -> UIBarButtonItem {
@@ -82,6 +82,12 @@ class AccountCredentialsMediatingController: UIViewController {
     
     private func makeSettingsButton() -> UIBarButtonItem {
         let button = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonPressed))
+        button.tintColor = .systemBlue
+        return button
+    }
+    
+    private func makeRefreshButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(image: UIImage(systemName: "arrow.clockwise.icloud"), style: .plain, target: self, action: #selector(refresh(_:)))
         button.tintColor = .systemBlue
         return button
     }
@@ -216,5 +222,12 @@ extension AccountCredentialsMediatingController: CopyToClipboardViewDelegate, Co
     
     func dismissClipboardView() {
         self.dismissCopyToClipboardView(self.view, self.copyToClipboardConfirmationView)
+    }
+}
+
+extension AccountCredentialsMediatingController {
+    override var keyCommands: [UIKeyCommand]? {
+        let refreshCommand = UIKeyCommand(title: "Refresh credentials", action: #selector(self.refresh(_:)), input: "r", modifierFlags: .command)
+        return (super.keyCommands ?? []) + [refreshCommand]
     }
 }
