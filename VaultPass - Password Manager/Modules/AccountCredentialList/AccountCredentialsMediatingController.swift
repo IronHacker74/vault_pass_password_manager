@@ -43,6 +43,7 @@ class AccountCredentialsMediatingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.searchBarMacSupport()
         self.registerTableView()
         self.configureNavigationBar()
         self.delegate?.accountCredentialsViewDidLoad(self)
@@ -57,6 +58,12 @@ class AccountCredentialsMediatingController: UIViewController {
         super.viewWillDisappear(animated)
         self.hideCells()
         self.dismissClipboardView()
+    }
+    
+    private func searchBarMacSupport() {
+        #if targetEnvironment(macCatalyst)
+        searchBar.searchTextField.backgroundColor = .secondarySystemBackground
+        #endif
     }
     
     private func registerTableView() {
