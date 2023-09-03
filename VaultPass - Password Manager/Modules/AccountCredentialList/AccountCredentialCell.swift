@@ -31,12 +31,16 @@ class AccountCredentialCell: UITableViewCell, UIViewLoading {
     private let showImageString: String = "eye"
     private let hideImageString: String = "eye.slash"
     
-    func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?, index: Int? = nil) {
+    func configureCell(delegate: AccountCredentialCellDelegate?, credential: AccountCredential?, index: Int? = nil, showCredential: Bool? = false) {
         self.delegate = delegate
         self.credential = credential
         self.title.text = credential?.title
         self.index = index
-        self.hideCredentials()
+        if showCredential == false {
+            self.hideCredentials()
+        } else {
+            self.reveal()
+        }
     }
     
     func credentialIsShowing() -> Bool {

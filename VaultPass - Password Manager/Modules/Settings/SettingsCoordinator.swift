@@ -18,12 +18,19 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
     }
     
     func settingsControllerViewDidLoad(_ displayable: SettingsDisplayable) {
-        displayable.setAutoUnlockSwitch(self.unlockData.getAutoUnlock())
+        let autoUnlock = self.unlockData.getAutoUnlock()
+        let alwaysShowCredentials = self.unlockData.getAlwaysShowCredentials()
+        displayable.setSettingSwitches(autoFill: self.unlockData.getAutoUnlock(), alwaysShowCredentials: alwaysShowCredentials)
     }
     
     func toggleAutoUnlock() {
         let value = self.unlockData.getAutoUnlock()
         self.unlockData.setAutoUnlock(value.toggle())
+    }
+    
+    func toggleAlwaysShowCredentials() {
+        let value = self.unlockData.getAlwaysShowCredentials()
+        self.unlockData.setAlwaysShowCredentials(value.toggle())
     }
     
     func termsAndConditionsTapped() {

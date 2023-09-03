@@ -26,6 +26,7 @@ final class SettingsMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.autoUnlockLabel)
         XCTAssertNotNil(controller.autoUnlockSwitch)
         XCTAssertNotNil(controller.enableAutofillBtn)
+        XCTAssertNotNil(controller.alwaysShowCredentials)
         XCTAssertNotNil(controller.passwordSettingsParentView)
         XCTAssertNotNil(controller.termsAndConditionsBtn)
         XCTAssertNotNil(controller.privacyPolicyBtn)
@@ -53,5 +54,18 @@ final class SettingsMediatingControllerTests: XCTestCase {
         controller.autoUnlockSwitch.sendActions(for: .touchUpInside)
         // then
         XCTAssertNotEqual(currAutoUnlockValue, unlockData.getAutoUnlock())
+    }
+    
+    func testAlwaysShowCredentialsToggles() {
+        // given
+        let unlockData = UnlockData()
+        let currShowCredentials = unlockData.getAlwaysShowCredentials()
+        let delegate = SettingsCoordinator(credentialsManager: AccountCredentialsManager(), navigation: UINavigationController())
+        let controller = SettingsMediatingController(delegate: delegate)
+        // when
+        controller.loadViewIfNeeded()
+        controller.alwaysShowCredentials.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertNotEqual(currShowCredentials, unlockData.getAlwaysShowCredentials())
     }
 }

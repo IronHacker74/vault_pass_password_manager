@@ -13,6 +13,7 @@ class UnlockData {
     
     private let firstTimeUserKey = "first_time_user_key"
     private let autoUnlock = "auto_unlock"
+    private let alwaysShowCredentials = "always_show_credentials"
     
     func getNotFirstUnlock() -> Bool {
         return self.data.bool(forKey: self.firstTimeUserKey)
@@ -28,6 +29,14 @@ class UnlockData {
     
     func setAutoUnlock(_ value: Bool) {
         self.data.set(value, forKey: self.autoUnlock)
+    }
+    
+    func getAlwaysShowCredentials() -> Bool {
+        return self.data.bool(forKey: self.alwaysShowCredentials)
+    }
+    
+    func setAlwaysShowCredentials(_ value: Bool) {
+        self.data.set(value, forKey: self.alwaysShowCredentials)
     }
     
     func deleteData() {

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target">
             <connections>
+                <outlet property="alwaysShowCredentials" destination="aWw-ws-jkJ" id="hep-HY-k4H"/>
                 <outlet property="autoUnlockLabel" destination="9hW-V1-RUK" id="E9D-QL-rl0"/>
                 <outlet property="autoUnlockSwitch" destination="sAC-dJ-zFb" id="Ssh-uT-VG5"/>
                 <outlet property="deleteAllDataBtn" destination="1vv-O9-VzX" id="fml-GS-iLy"/>
@@ -40,7 +41,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-h3-wjl">
-                                    <rect key="frame" x="16" y="16" width="361" height="71.333333333333329"/>
+                                    <rect key="frame" x="16" y="15.999999999999993" width="361" height="109.33333333333331"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fci-Ac-Akx">
                                             <rect key="frame" x="0.0" y="0.0" width="361" height="31"/>
@@ -60,17 +61,38 @@
                                                 </switch>
                                             </subviews>
                                         </stackView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" id="CVh-I3-4d3">
+                                            <rect key="frame" x="0.0" y="47" width="361" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Always show credentials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F21-PF-ZKz">
+                                                    <rect key="frame" x="0.0" y="3" width="312" height="20.333333333333332"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aWw-ws-jkJ">
+                                                    <rect key="frame" x="312" y="0.0" width="51" height="26"/>
+                                                    <color key="onTintColor" name="AccentColor"/>
+                                                    <connections>
+                                                        <action selector="alwaysShowCredentials:" destination="-1" eventType="touchUpInside" id="9ko-vt-dRZ"/>
+                                                        <action selector="autoUnlockSwitched:" destination="-1" eventType="touchUpInside" id="xi5-r6-IDK"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <viewLayoutGuide key="safeArea" id="fFb-iO-Saj"/>
+                                        </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RCE-8r-fVT">
-                                            <rect key="frame" x="0.0" y="47" width="361" height="24.333333333333329"/>
+                                            <rect key="frame" x="0.0" y="89" width="361" height="20.333333333333329"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable autofill" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKN-8O-6GW">
-                                                    <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="24.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qe-9r-Vwg">
-                                                    <rect key="frame" x="311" y="0.0" width="50" height="24.333333333333332"/>
+                                                    <rect key="frame" x="311" y="0.0" width="50" height="20.333333333333332"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                     </accessibility>
@@ -88,7 +110,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mD-rq-dXl">
-                                    <rect key="frame" x="16" y="119.33333333333337" width="361" height="300"/>
+                                    <rect key="frame" x="16" y="157.33333333333337" width="361" height="300"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="fl5-ka-80D"/>
                                     </constraints>
@@ -97,13 +119,13 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Df3-h3-wjl" secondAttribute="trailing" constant="16" id="6x4-t8-8ej"/>
+                                <constraint firstAttribute="bottom" secondItem="6mD-rq-dXl" secondAttribute="bottom" constant="142.66999999999999" id="Lyk-mX-LY4"/>
                                 <constraint firstItem="Df3-h3-wjl" firstAttribute="top" secondItem="cDJ-ZH-K9a" secondAttribute="top" constant="16" id="Q9o-hk-eCH"/>
                                 <constraint firstItem="Df3-h3-wjl" firstAttribute="leading" secondItem="cDJ-ZH-K9a" secondAttribute="leading" constant="16" id="QIZ-Zb-NHT"/>
-                                <constraint firstItem="6mD-rq-dXl" firstAttribute="top" secondItem="Df3-h3-wjl" secondAttribute="bottom" constant="32" id="WW3-nu-lf1"/>
                                 <constraint firstAttribute="height" constant="600" id="by8-bX-I23"/>
-                                <constraint firstAttribute="bottom" secondItem="6mD-rq-dXl" secondAttribute="bottom" constant="180.66999999999999" id="ese-u3-Mmw"/>
                                 <constraint firstItem="6mD-rq-dXl" firstAttribute="leading" secondItem="cDJ-ZH-K9a" secondAttribute="leading" constant="16" id="kpD-m3-HVl"/>
                                 <constraint firstAttribute="trailing" secondItem="6mD-rq-dXl" secondAttribute="trailing" constant="16" id="wCE-cj-oTH"/>
+                                <constraint firstItem="6mD-rq-dXl" firstAttribute="top" secondItem="Df3-h3-wjl" secondAttribute="bottom" constant="32" id="wh9-Bb-OQy"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -15,6 +15,7 @@ protocol AccountCredentialsDelegate {
     func accountCredentialsGetCredentials(_ displayable: AccountCredentialsDisplayable)
     func accountCredentialsSaveCredentials(_ credentials: [AccountCredential])
     func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int)
+    func accountCredentialsShouldShowCredential() -> Bool
 }
 
 protocol AccountCredentialsDisplayable {
@@ -56,7 +57,9 @@ class AccountCredentialsMediatingController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.hideCells()
+        if self.delegate?.accountCredentialsShouldShowCredential() == false {
+            self.hideCells()
+        }
         self.dismissClipboardView()
     }
     
@@ -148,10 +151,10 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
         }
         if self.searchIsActive() {
             let credential = self.filtered[indexPath.row]
-            cell.configureCell(delegate: self, credential: credential)
+            cell.configureCell(delegate: self, credential: credential, showCredential: self.delegate?.accountCredentialsShouldShowCredential())
         } else {
             let credential = self.credentials[indexPath.row]
-            cell.configureCell(delegate: self, credential: credential, index: indexPath.row)
+            cell.configureCell(delegate: self, credential: credential, index: indexPath.row, showCredential: self.delegate?.accountCredentialsShouldShowCredential())
         }
         return cell
     }

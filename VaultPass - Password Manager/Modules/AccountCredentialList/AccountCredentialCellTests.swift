@@ -65,4 +65,25 @@ final class AccountCredentialCellTests: XCTestCase {
         XCTAssertFalse(cell.username.isHidden)
         XCTAssertFalse(cell.password.isHidden)
     }
+    
+    func testUsernamePasswordsShowWhenSettingChanges() {
+        // given
+        let unlockData = UnlockData()
+        unlockData.setAlwaysShowCredentials(false)
+        let cell = AccountCredentialCell.loadFromNib()
+        let string = "s"
+        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        // when
+        cell.configureCell(delegate: nil, credential: cred, showCredential: unlockData.getAlwaysShowCredentials())
+        // then
+        XCTAssertFalse(cell.credentialIsShowing())
+        // given
+        unlockData.setAlwaysShowCredentials(true)
+        // when
+        cell.configureCell(delegate: nil, credential: cred, showCredential: unlockData.getAlwaysShowCredentials())
+        // then
+        XCTAssertFalse(cell.username.isHidden)
+        XCTAssertFalse(cell.password.isHidden)
+        XCTAssertTrue(cell.credentialIsShowing())
+    }
 }

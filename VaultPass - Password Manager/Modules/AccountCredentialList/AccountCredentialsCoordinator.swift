@@ -11,6 +11,7 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     
     private var accountManager: AccountCredentialsManager
     private var navigation: UINavigationController
+    private let unlockData: UnlockData = UnlockData()
     
     init(accountManager: AccountCredentialsManager, navigation: UINavigationController) {
         self.accountManager = accountManager
@@ -52,5 +53,9 @@ class AccountCredentialsCoordinator: AccountCredentialsDelegate {
     
     func accountCredentialsEditCredential(_ displayable: AccountCredentialsDisplayable, index: Int) {
         self.pushConfigureCredential(with: index)
+    }
+    
+    func accountCredentialsShouldShowCredential() -> Bool {
+        return self.unlockData.getAlwaysShowCredentials()
     }
 }

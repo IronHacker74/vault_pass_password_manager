@@ -11,13 +11,14 @@ import UIKit
 protocol SettingsDelegate: PasswordSettingsDelegate {
     func settingsControllerViewDidLoad(_ displayable: SettingsDisplayable)
     func toggleAutoUnlock()
+    func toggleAlwaysShowCredentials()
     func termsAndConditionsTapped()
     func lockButtonPressed()
     func deleteAllData()
 }
 
 protocol SettingsDisplayable {
-    func setAutoUnlockSwitch(_ value: Bool)
+    func setSettingSwitches(autoFill: Bool, alwaysShowCredentials: Bool)
 }
 
 class SettingsMediatingController: UIViewController {
@@ -26,7 +27,7 @@ class SettingsMediatingController: UIViewController {
     @IBOutlet private(set) var autoUnlockLabel: UILabel!
     @IBOutlet private(set) var autoUnlockSwitch: UISwitch!
     @IBOutlet private(set) var enableAutofillBtn: UIButton!
-    
+    @IBOutlet private(set) var alwaysShowCredentials: UISwitch!
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     @IBOutlet private(set) var privacyPolicyBtn: UIButton!
     @IBOutlet private(set) var deleteAllDataBtn: UIButton!
@@ -82,6 +83,10 @@ class SettingsMediatingController: UIViewController {
         OpenAppLink.using(.autofill, vc: self)
     }
     
+    @IBAction func alwaysShowCredentials(_ sender: UISwitch){
+        self.delegate?.toggleAlwaysShowCredentials()
+    }
+    
     @IBAction func termsAndConditionsPressed(_ sender: UIButton) {
         OpenAppLink.using(.termsAndConditions, vc: self)
     }
@@ -101,7 +106,8 @@ class SettingsMediatingController: UIViewController {
 
 
 extension SettingsMediatingController: SettingsDisplayable {
-    func setAutoUnlockSwitch(_ value: Bool) {
-        self.autoUnlockSwitch.setOn(value, animated: false)
+    func setSettingSwitches(autoFill: Bool, alwaysShowCredentials: Bool) {
+        self.autoUnlockSwitch.setOn(autoFill, animated: false)
+        self.alwaysShowCredentials.setOn(alwaysShowCredentials, animated: false)
     }
 }
