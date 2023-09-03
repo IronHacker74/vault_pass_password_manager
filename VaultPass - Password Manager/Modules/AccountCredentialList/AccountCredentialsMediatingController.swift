@@ -100,7 +100,10 @@ class AccountCredentialsMediatingController: UIViewController {
     }
     
     @objc func refresh(_ sender: AnyObject) {
+        self.refreshControl.beginRefreshing()
         self.delegate?.accountCredentialsGetCredentials(self)
+        self.refreshControl.endRefreshing()
+        self.showCopyToClipboardView(message: "Credentials up to date")
     }
     
     @objc func addButtonPressed() {
@@ -196,7 +199,6 @@ extension AccountCredentialsMediatingController: AccountCredentialsDisplayable {
     func updateAccountCredentials(_ credentials: [AccountCredential]) {
         self.credentials = credentials
         self.tableview.reloadData()
-        self.refreshControl.endRefreshing()
     }
     
     func displayError() {
@@ -207,23 +209,23 @@ extension AccountCredentialsMediatingController: AccountCredentialsDisplayable {
 extension AccountCredentialsMediatingController: AccountCredentialCellDelegate {
     func cellUsernameButtonTapped(credential: AccountCredential) {
         UIPasteboard.copyToClipboard(credential.decryptedUsername)
-        self.showCopyToClipboardView()
+        self.showCopyToClipboardView(message: "Username copied to clipboard")
     }
     
     func cellPasswordButtonTapped(credential: AccountCredential) {
         UIPasteboard.copyToClipboard(credential.decryptedPassword)
-        self.showCopyToClipboardView()
+        self.showCopyToClipboardView(message: "Password copied to clipboard")
     }
 }
 
 extension AccountCredentialsMediatingController: CopyToClipboardViewDelegate, CopyToClipboardDelegate {
-    func showCopyToClipboardView() {
+    func showCopyToClipboardView(message: String?) {
         if let _ = self.copyToClipboardConfirmationView {
-            self.replaceCopyToClipboardView(self.view, clipboardView: self.copyToClipboardConfirmationView, delegate: self, completion: { newClipboardView in
+            self.replaceCopyToClipboardView(self.view, clipboardView: self.copyToClipboardConfirmationView, message: message, delegate: self, completion: { newClipboardView in
                 self.copyToClipboardConfirmationView = newClipboardView
             })
         } else {
-            self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self)
+            self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self, message: message)
         }
     }
     

@@ -135,7 +135,7 @@ class CredentialConfigureMediatingController: UIViewController {
             return
         }
         UIPasteboard.copyToClipboard(password)
-        self.showCopyToClipboardView()
+        self.showCopyToClipboardView(message: "Password copied to clipboard")
     }
     
     private func showError(_ error: String){
@@ -236,13 +236,13 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
 }
 
 extension CredentialConfigureMediatingController: CopyToClipboardViewDelegate, CopyToClipboardDelegate {
-    func showCopyToClipboardView() {
+    func showCopyToClipboardView(message: String?) {
         if let _ = self.copyToClipboardConfirmationView {
-            self.replaceCopyToClipboardView(self.view, clipboardView: self.copyToClipboardConfirmationView, delegate: self, completion: { newClipboardView in
+            self.replaceCopyToClipboardView(self.view, clipboardView: self.copyToClipboardConfirmationView, message: message, delegate: self, completion: { newClipboardView in
                 self.copyToClipboardConfirmationView = newClipboardView
             })
         } else {
-            self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self)
+            self.copyToClipboardConfirmationView = self.showCopyToClipboardView(view: self.view, delegate: self, message: message)
         }
     }
     
