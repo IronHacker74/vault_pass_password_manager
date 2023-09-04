@@ -67,6 +67,8 @@
 		83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB20C2A7310A000E06493 /* OpenAppLink.swift */; };
 		83BAB20F2A731A7000E06493 /* AppLinkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BAB20E2A731A7000E06493 /* AppLinkTests.swift */; };
 		83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */; };
+		83C6FFC62AA4FA3D00D402A8 /* KeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C6FFC52AA4FA3D00D402A8 /* KeyboardToolBar.swift */; };
+		83C6FFC72AA501D500D402A8 /* KeyboardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C6FFC52AA4FA3D00D402A8 /* KeyboardToolBar.swift */; };
 		83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */; };
 		83D4E8452A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */; };
 		83EB7B7E2A9D9C38002848DE /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EB7B7C2A9D9C34002848DE /* PreviewData.swift */; };
@@ -184,6 +186,7 @@
 		83BAB20C2A7310A000E06493 /* OpenAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppLink.swift; sourceTree = "<group>"; };
 		83BAB20E2A731A7000E06493 /* AppLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLinkTests.swift; sourceTree = "<group>"; };
 		83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIPasteBoard+.swift"; sourceTree = "<group>"; };
+		83C6FFC52AA4FA3D00D402A8 /* KeyboardToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolBar.swift; sourceTree = "<group>"; };
 		83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CopyToClipboardConfirmationView.xib; sourceTree = "<group>"; };
 		83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		83EB7B7C2A9D9C34002848DE /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
@@ -358,6 +361,7 @@
 				831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */,
 				8349B6892A996D0B003886AE /* PadConstraints.swift */,
 				83EB7B7C2A9D9C34002848DE /* PreviewData.swift */,
+				83C6FFC52AA4FA3D00D402A8 /* KeyboardToolBar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -635,6 +639,7 @@
 				83F38ECE2A870DBE000F0B98 /* CustomAlert.swift in Sources */,
 				836052722A8833DB003D5BD2 /* UIView+.swift in Sources */,
 				83F38ED52A870DE7000F0B98 /* UIViewLoading.swift in Sources */,
+				83C6FFC72AA501D500D402A8 /* KeyboardToolBar.swift in Sources */,
 				83F38ED72A870E3B000F0B98 /* UIPasteBoard+.swift in Sources */,
 				83EDAB142A84B83900973D8C /* Model.xcdatamodeld in Sources */,
 				83EDAB192A84BA1900973D8C /* Encryptor.swift in Sources */,
@@ -692,6 +697,7 @@
 				8328758A2A30285C006694FE /* AccountCredentialsFactory.swift in Sources */,
 				8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */,
 				9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */,
+				83C6FFC62AA4FA3D00D402A8 /* KeyboardToolBar.swift in Sources */,
 				8360526A2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */,
 				83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */,
 			);

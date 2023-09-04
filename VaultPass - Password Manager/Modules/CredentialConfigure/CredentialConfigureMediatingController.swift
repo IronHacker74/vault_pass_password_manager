@@ -30,6 +30,7 @@ protocol CredentialProviderDelegate {
 
 class CredentialConfigureMediatingController: UIViewController {
     
+    @IBOutlet private(set) var scrollView: UIScrollView!
     @IBOutlet private(set) var titleField: UITextField!
     @IBOutlet private(set) var identifierField: UITextField!
     @IBOutlet private(set) var usernameField: UITextField!
@@ -216,11 +217,26 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
 
 extension CredentialConfigureMediatingController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        #if !targetEnvironment(macCatalyst)
+        let textFieldBar = KeyboardToolBar(view: self.view, textFieldTag: textField.tag)
+        textField.inputAccessoryView = textFieldBar
+        if textField.tag == self.usernameField.tag || textField.tag == self.passwordField.tag {
+            let origin = CGPoint(x: textField.frame.origin.x, y: textField.frame.origin.y + 100)
+            self.scrollView.contentOffset = origin
+        }
+        #endif
         self.hideErrorIfNeeded()
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        #if !targetEnvironment(macCatalyst)
+        self.scrollView.setContentOffset(.zero, animated: true)
+        #endif
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

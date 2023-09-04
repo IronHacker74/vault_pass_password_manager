@@ -22,6 +22,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         // when
         controller.loadViewIfNeeded()
         // then
+        XCTAssertNotNil(controller.scrollView)
         XCTAssertNotNil(controller.titleField)
         XCTAssertNotNil(controller.usernameField)
         XCTAssertNotNil(controller.passwordField)
