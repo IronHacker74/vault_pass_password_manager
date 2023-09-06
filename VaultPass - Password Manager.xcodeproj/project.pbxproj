@@ -94,7 +94,6 @@
 		9520B51E29DA107900FFD65B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9520B51C29DA107900FFD65B /* Main.storyboard */; };
 		9520B52029DA107D00FFD65B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9520B51F29DA107D00FFD65B /* Assets.xcassets */; };
 		9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9520B52129DA107D00FFD65B /* LaunchScreen.storyboard */; };
-		9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B52D29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift */; };
 		9520B53829DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B53729DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift */; };
 		9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9520B54629DA3A2300FFD65B /* Model.xcdatamodeld */; };
 		9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520B54929DBC04900FFD65B /* AccountCredential.swift */; };
@@ -201,7 +200,6 @@
 		9520B52229DA107D00FFD65B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9520B52429DA107D00FFD65B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9520B52929DA107D00FFD65B /* VaultPass - Password ManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VaultPass - Password ManagerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9520B52D29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaultPass___Password_ManagerTests.swift"; sourceTree = "<group>"; };
 		9520B53329DA107D00FFD65B /* VaultPass - Password ManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VaultPass - Password ManagerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B53729DA107D00FFD65B /* VaultPass___Password_ManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VaultPass___Password_ManagerUITests.swift"; sourceTree = "<group>"; };
 		9520B54729DA3A2300FFD65B /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 			children = (
 				9520B54629DA3A2300FFD65B /* Model.xcdatamodeld */,
 				9520B51529DA107900FFD65B /* VaultPass - Password Manager */,
-				9520B52C29DA107D00FFD65B /* VaultPass - Password ManagerTests */,
 				9520B53629DA107D00FFD65B /* VaultPass - Password ManagerUITests */,
 				839C8E4B2A48C3AA00EE1A94 /* AutofillCredentialProvider */,
 				839C8E482A48C3AA00EE1A94 /* Frameworks */,
@@ -403,14 +400,6 @@
 				835E097E2A51385E00A319F7 /* TermsAndConditions.txt */,
 			);
 			path = "VaultPass - Password Manager";
-			sourceTree = "<group>";
-		};
-		9520B52C29DA107D00FFD65B /* VaultPass - Password ManagerTests */ = {
-			isa = PBXGroup;
-			children = (
-				9520B52D29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift */,
-			);
-			path = "VaultPass - Password ManagerTests";
 			sourceTree = "<group>";
 		};
 		9520B53629DA107D00FFD65B /* VaultPass - Password ManagerUITests */ = {
@@ -711,7 +700,6 @@
 				8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */,
 				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
 				83EB7B7E2A9D9C38002848DE /* PreviewData.swift in Sources */,
-				9520B52E29DA107D00FFD65B /* VaultPass___Password_ManagerTests.swift in Sources */,
 				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,
 				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
 				830D2E2F2A89A68E006D0710 /* PasswordSettingsViewTests.swift in Sources */,

@@ -104,8 +104,23 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         // when
         sut.loadViewIfNeeded()
         sut.updateAccountCredentials(credentials)
+        // then
         measure {
             sut.cellEditButtonTapped(credential: credentials.last!, index: nil)
         }
+    }
+    
+    func testCloudPullRefreshesAndShowsSuccessMessage() {
+        // given
+        let factory = AccountCredentialsFactory()
+        let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
+        let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
+        // when
+        sut.loadViewIfNeeded()
+        let button = sut.navigationItem.rightBarButtonItems!.last
+        UIApplication.shared.sendAction(button!.action!, to: button?.target, from: self, for: nil)
+        // then
+        XCTAssertNotNil(sut.copyToClipboardConfirmationView)
+        XCTAssertEqual(sut.copyToClipboardConfirmationView?.messageLabel.text, "Credentials up to date")
     }
 }
