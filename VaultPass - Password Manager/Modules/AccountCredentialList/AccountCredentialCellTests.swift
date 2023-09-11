@@ -20,7 +20,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
@@ -33,7 +33,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
@@ -44,7 +44,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
@@ -57,7 +57,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         cell.reveal()
@@ -72,7 +72,7 @@ final class AccountCredentialCellTests: XCTestCase {
         unlockData.setAlwaysShowCredentials(false)
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred, showCredential: unlockData.getAlwaysShowCredentials())
         // then

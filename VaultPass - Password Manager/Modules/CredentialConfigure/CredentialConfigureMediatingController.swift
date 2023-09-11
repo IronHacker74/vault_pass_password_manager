@@ -19,7 +19,7 @@ protocol CredentialConfigureDelegate: PasswordSettingsDelegate {
 
 protocol CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential)
-    func hideDeleteButton()
+    func createCredential()
     func changePasswordTextFieldBackground(with color: UIColor)
     func showPasswordSettings()
 }
@@ -32,7 +32,6 @@ class CredentialConfigureMediatingController: UIViewController {
     
     @IBOutlet private(set) var scrollView: UIScrollView!
     @IBOutlet private(set) var titleField: UITextField!
-    @IBOutlet private(set) var identifierField: UITextField!
     @IBOutlet private(set) var usernameField: UITextField!
     @IBOutlet private(set) var passwordField: UITextField!
     @IBOutlet private(set) var errorLabel: UILabel!
@@ -42,6 +41,8 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var deleteBtn: UIButton!
     @IBOutlet private(set) var showPasswordBtn: UIButton!
     @IBOutlet private(set) var copyPasswordBtn: UIButton!
+    @IBOutlet private(set) var identifierTableView: UITableView!
+    @IBOutlet private(set) var addIdentifierButton: UIButton!
     @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
         didSet {
             PadConstraints.setLeadingTrailingConstraints(self.padConstraints)
@@ -52,6 +53,8 @@ class CredentialConfigureMediatingController: UIViewController {
     var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
     var passwordSettingsView: PasswordSettingsView?
     var shadowView: UIView?
+    var identifiers: [String] = []
+    var cellIdentifier: String = "IdentifierTextFieldCell"
     
     init(delegate: CredentialConfigureDelegate?) {
         self.delegate = delegate
@@ -67,6 +70,7 @@ class CredentialConfigureMediatingController: UIViewController {
         super.viewDidLoad()
         self.delegate?.credentialConfigureViewDidLoad(displayable: self)
         self.setupTextFields()
+        self.setupIdentifierTableView()
         self.navigationItem.title = "Credential Configuration"
     }
     
@@ -77,9 +81,12 @@ class CredentialConfigureMediatingController: UIViewController {
     
     private func setupTextFields() {
         self.titleField.delegate = self
-        self.identifierField.delegate = self
         self.usernameField.delegate = self
         self.passwordField.delegate = self
+    }
+    
+    private func setupIdentifierTableView() {
+        self.identifierTableView.register(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: self.cellIdentifier)
     }
     
     @IBAction func passwordSettingsBtnPressed(_ sender: UIButton) {
@@ -104,16 +111,8 @@ class CredentialConfigureMediatingController: UIViewController {
             self.showError("Username or password is required")
             return
         }
-        var identifier: String = ""
-        if let identifierText = identifierField.text {
-            if identifierText.isEmpty {
-                identifier = "\(title.replacingOccurrences(of: " ", with: "").lowercased())" + ".com"
-            } else {
-                identifier = identifierText
-            }
-        }
         
-        let credential = AccountCredential(title: title, identifier: identifier, username: username, password: password)
+        let credential = AccountCredential(title: title, username: username, password: password, identifiers: self.identifiers)
         self.delegate?.saveCredential(credential, vc: self)
     }
     
@@ -139,6 +138,18 @@ class CredentialConfigureMediatingController: UIViewController {
         self.showCopyToClipboardView(message: "Password copied to clipboard")
     }
     
+    @IBAction func addIdentifierButtonTapped(_ sender: UIButton) {
+        self.identifiers.append("")
+        self.identifierTableView.reloadData()
+        #if !targetEnvironment(macCatalyst)
+        guard let cell = self.identifierTableView.cellForRow(at: IndexPath(row: self.identifiers.count-1, section: 0)) as? IdentifierTextFieldCell else {
+            return
+        }
+        cell.identifierTextField.becomeFirstResponder()
+        self.scrollView.contentOffset = CGPoint(x: cell.frame.origin.x, y: cell.frame.origin.y + 100)
+        #endif
+    }
+    
     private func showError(_ error: String){
         self.errorLabel.text = error
         if self.errorLabel.isHidden {
@@ -161,13 +172,17 @@ class CredentialConfigureMediatingController: UIViewController {
 extension CredentialConfigureMediatingController: CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential) {
         self.titleField.text = credential.title
-        self.identifierField.text = credential.identifier
         self.usernameField.text = credential.decryptedUsername
         self.setPasswordTextField(with: credential.decryptedPassword)
+        self.identifiers = credential.identifiers
+        self.identifierTableView.reloadData()
     }
     
-    func hideDeleteButton() {
+    func createCredential() {
         self.deleteBtn.isHidden = true
+        if let textField = self.view.viewWithTag(1) {
+            textField.becomeFirstResponder()
+        }
     }
     
     func changePasswordTextFieldBackground(with color: UIColor) {
@@ -220,7 +235,7 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
         #if !targetEnvironment(macCatalyst)
         let textFieldBar = KeyboardToolBar(view: self.view, textFieldTag: textField.tag)
         textField.inputAccessoryView = textFieldBar
-        if textField.tag == self.usernameField.tag || textField.tag == self.passwordField.tag {
+        if textField.tag == self.passwordField.tag {
             let origin = CGPoint(x: textField.frame.origin.x, y: textField.frame.origin.y + 100)
             self.scrollView.contentOffset = origin
         }
@@ -266,3 +281,30 @@ extension CredentialConfigureMediatingController: CopyToClipboardViewDelegate, C
         self.dismissCopyToClipboardView(self.view, self.copyToClipboardConfirmationView)
     }
 }
+
+extension CredentialConfigureMediatingController: UITableViewDelegate, UITableViewDataSource, IdentifierTextFieldCellDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.identifiers.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier, for: indexPath) as? IdentifierTextFieldCell else {
+            return UITableViewCell()
+        }
+        cell.configureIdentifier(delegate: self, identifier: self.identifiers[indexPath.row], index: indexPath.row)
+        return cell
+    }
+    
+    func deleteIdentifier(_ index: Int) {
+        self.identifiers.remove(at: index)
+        self.identifierTableView.reloadData()
+    }
+    
+    func textFieldCellDidUpdate(text: String, index: Int) {
+        if index < self.identifiers.count {
+            self.identifiers[index] = text
+        }
+        self.scrollView.setContentOffset(.zero, animated: true)
+    }
+}
+

@@ -9,10 +9,10 @@ import Foundation
 import CoreData
 import AuthenticationServices
 
-class AccountCredential: Equatable {
+class AccountCredential: Equatable, Codable {
     
     let title: String
-    let identifier: String
+    var identifiers: [String]
     private let username: Data
     private let password: Data
     
@@ -23,19 +23,28 @@ class AccountCredential: Equatable {
         return Encryptor.standard.decryptStringData(self.password)
     }
 
-    init(title: String, identifier: String, username: String, password: String){
+    init(title: String, username: String, password: String, identifiers: [String]){
         self.title = title
-        self.identifier = identifier
         self.username = Encryptor.standard.encryptStringData(username)
         self.password = Encryptor.standard.encryptStringData(password)
+        self.identifiers = identifiers
     }
     
     static func == (lhs: AccountCredential, rhs: AccountCredential) -> Bool {
-        return lhs.title == rhs.title && lhs.identifier == rhs.identifier && lhs.decryptedUsername == rhs.decryptedUsername && lhs.decryptedPassword == rhs.decryptedPassword
+        return lhs.title == rhs.title && lhs.identifiers == rhs.identifiers && lhs.decryptedUsername == rhs.decryptedUsername && lhs.decryptedPassword == rhs.decryptedPassword
     }
     
     func passwordCredential() -> ASPasswordCredential {
         return ASPasswordCredential(user: self.decryptedUsername, password: self.decryptedPassword)
+    }
+    
+    func findMatchFor(_ identifier: String) -> Bool {
+        for myIdentifier in self.identifiers {
+            if identifier.contains(myIdentifier) {
+                return true
+            }
+        }
+        return false
     }
 }
 

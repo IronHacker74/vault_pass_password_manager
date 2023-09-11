@@ -19,7 +19,7 @@ final class PreviewData: XCTestCase {
         let username = ["email", "email", "username", "username", "mySchoolUsername", "username", "email"]
         var accounts: [AccountCredential] = []
         for index in 0..<titles.count {
-            accounts.append(AccountCredential(title: titles[index], identifier: identifiers[index], username: username[index], password: manager.generatePassword()))
+            accounts.append(AccountCredential(title: titles[index], username: username[index], password: manager.generatePassword(), identifiers: [identifiers[index]]))
         }
         // when
         let result = manager.storeCredentials(accounts)

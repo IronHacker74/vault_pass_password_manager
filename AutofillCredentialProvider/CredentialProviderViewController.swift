@@ -55,10 +55,10 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
         var accountCredentials = self.manager.fetchCredentials()
         if let serviceIdentifier = self.serviceIdentifier?.identifier {
             accountCredentials.sort(by: {
-                if serviceIdentifier.contains($0.identifier) {
+                if $0.findMatchFor(serviceIdentifier) {
                     return true
                 }
-                if serviceIdentifier.contains($1.identifier) {
+                if $1.findMatchFor(serviceIdentifier) {
                     return false
                 }
                 return true
@@ -92,18 +92,56 @@ extension CredentialProviderViewController: UITableViewDelegate, UITableViewData
             credential = self.credentials[indexPath.row]
         }
         cell.textLabel!.text = credential.title
-        cell.detailTextLabel!.text = credential.identifier
+        cell.detailTextLabel!.text = credential.identifiers.first
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var passwordCredential: ASPasswordCredential
+        var credential: AccountCredential
         if self.searchIsActive() {
-            passwordCredential = self.filtered[indexPath.row].passwordCredential()
+            credential = self.filtered[indexPath.row]
         } else {
-            passwordCredential = self.credentials[indexPath.row].passwordCredential()
+            credential = self.credentials[indexPath.row]
         }
-        self.extensionContext.completeRequest(withSelectedCredential: passwordCredential, completionHandler: nil)
+        let passwordCredential = credential.passwordCredential()
+        self.displayIdentifierMatchIfNecessary(credential, index: indexPath.row, completion: {
+            self.extensionContext.completeRequest(withSelectedCredential: passwordCredential)
+        })
+    }
+    
+    private func displayIdentifierMatchIfNecessary(_ credential: AccountCredential, index: Int, completion: @escaping () -> ()) {
+        guard let identifier = serviceIdentifier?.identifier else {
+            completion()
+            return
+        }
+        if credential.findMatchFor(identifier) == false {
+            let title = "Remember credential use?"
+            let message = "We can add this as an identifier for easier access next time."
+            CustomAlert.decision(self, title: title, message: message, yesAction: {_ in
+                self.locateAndAddIdentifier(to: credential, index: index, identifier: identifier)
+                completion()
+            }, cancelAction: {_ in completion() })
+        } else {
+            completion()
+        }
+    }
+    
+    private func locateAndAddIdentifier(to credential: AccountCredential, index: Int, identifier: String) {
+        guard searchIsActive() else {
+            for index in 0..<self.credentials.count {
+                if credential == self.credentials[index] {
+                    self.addIdentifier(with: index, and: identifier)
+                }
+            }
+            return
+        }
+        self.addIdentifier(with: index, and: identifier)
+    }
+    
+    private func addIdentifier(with index: Int, and identifier: String) {
+        let subStringIdentifier = identifier.components(separatedBy: ".com")
+        self.credentials[index].identifiers.append(subStringIdentifier.first ?? identifier)
+        let _ = self.manager.storeCredentials(self.credentials)
     }
 }
 

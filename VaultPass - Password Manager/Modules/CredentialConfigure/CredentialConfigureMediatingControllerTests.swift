@@ -29,8 +29,12 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.errorLabel)
         XCTAssertNotNil(controller.saveButton)
         XCTAssertNotNil(controller.deleteBtn)
+        XCTAssertNotNil(controller.passwordSettingsBtn)
+        XCTAssertNotNil(controller.generatePasswordBtn)
         XCTAssertNotNil(controller.showPasswordBtn)
         XCTAssertNotNil(controller.copyPasswordBtn)
+        XCTAssertNotNil(controller.identifierTableView)
+        XCTAssertNotNil(controller.addIdentifierButton)
     }
     
     func testCredentialConfigureIsInCreateMode() {
@@ -210,5 +214,84 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         // then
         XCTAssertNil(controller.passwordSettingsView)
         XCTAssertNil(controller.shadowView)
+    }
+    
+    func testTableViewRowsMatchesNumberOfIdentifiers() {
+        // given
+        let manager = AccountCredentialsManager()
+        var credentials = manager.fetchCredentials()
+        // when
+        credentials.append(AccountCredential(title: "title", username: "username", password: "password", identifiers: [
+            "identifier1.com",
+            "identifier2.com",
+            "identifier3.com"
+        ]))
+        // then
+        XCTAssertTrue(manager.storeCredentials(credentials))
+
+        // given
+        let lastCredentialIndex = credentials.endIndex-1
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: lastCredentialIndex, navigation: UINavigationController()))
+        // when
+        controller.loadViewIfNeeded()
+        // then
+        XCTAssertEqual(controller.identifierTableView.numberOfRows(inSection: 0), credentials[lastCredentialIndex].identifiers.count)
+    }
+    
+    func testDeletingIdentifierFromTableView() {
+        // given
+        let manager = AccountCredentialsManager()
+        var credentials = manager.fetchCredentials()
+        // when
+        credentials.append(AccountCredential(title: "title", username: "username", password: "password", identifiers: [
+            "identifier1.com",
+            "identifier2.com",
+            "identifier3.com"
+        ]))
+        // then
+        XCTAssertTrue(manager.storeCredentials(credentials))
+        
+        // given
+        let lastCredentialIndex = credentials.endIndex-1
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: lastCredentialIndex, navigation: UINavigationController()))
+        // when
+        controller.loadViewIfNeeded()
+        guard let cell = controller.identifierTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? IdentifierTextFieldCell else {
+            XCTFail("Cell is not IdentifierTextFieldCell")
+            return
+        }
+        cell.deleteButton.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertEqual(controller.identifierTableView.numberOfRows(inSection: 0), controller.identifiers.count)
+    }
+    
+    func testEndEditingIdentifierChangesItInController() {
+        // given
+        let manager = AccountCredentialsManager()
+        var credentials = manager.fetchCredentials()
+        // when
+        credentials.append(AccountCredential(title: "title", username: "username", password: "password", identifiers: [
+            "identifier1.com",
+            "identifier2.com",
+            "identifier3.com"
+        ]))
+        // then
+        XCTAssertTrue(manager.storeCredentials(credentials))
+        
+        // given
+        let newIdentifier = "identifier4.com"
+        let lastCredentialIndex = credentials.endIndex-1
+        let lastIdentifierIndex = credentials.last!.identifiers.endIndex-1
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: lastCredentialIndex, navigation: UINavigationController()))
+        // when
+        controller.loadViewIfNeeded()
+        guard let cell = controller.identifierTableView.cellForRow(at: IndexPath(row: lastIdentifierIndex, section: 0)) as? IdentifierTextFieldCell else {
+            XCTFail("Cell is not IdentifierTextFieldCell")
+            return
+        }
+        cell.identifierTextField.text = newIdentifier
+        cell.textFieldDidEndEditing(cell.identifierTextField)
+        // then
+        XCTAssertEqual(cell.identifierTextField.text, controller.identifiers.last)
     }
 }

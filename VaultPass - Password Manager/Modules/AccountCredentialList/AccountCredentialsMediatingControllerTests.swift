@@ -38,7 +38,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         // given
         var credentials: [AccountCredential] = []
         for _ in 0..<10 {
-            credentials.append(AccountCredential(title: self.string, identifier: self.string, username: self.string, password: self.string))
+            credentials.append(AccountCredential(title: self.string, username: self.string, password: self.string, identifiers: [self.string]))
         }
         let factory = AccountCredentialsFactory()
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
@@ -55,8 +55,8 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let factory = AccountCredentialsFactory()
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
-        let cred1 = AccountCredential(title: self.string, identifier: self.string, username: self.string, password: self.string)
-        let cred2 = AccountCredential(title: self.string, identifier: self.string, username: self.string, password: self.string)
+        let cred1 = AccountCredential(title: self.string, username: self.string, password: self.string, identifiers: [self.string])
+        let cred2 = AccountCredential(title: self.string, username: self.string, password: self.string, identifiers: [self.string])
         // when
         sut.loadViewIfNeeded()
         sut.updateAccountCredentials([cred1, cred2])
@@ -71,7 +71,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let factory = AccountCredentialsFactory()
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
-        let cred = AccountCredential(title: self.string, identifier: self.string, username: self.string, password: self.string)
+        let cred = AccountCredential(title: self.string, username: self.string, password: self.string, identifiers: [self.string])
         // when
         sut.cellUsernameButtonTapped(credential: cred)
         // then
@@ -84,7 +84,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let factory = AccountCredentialsFactory()
         let nav = factory.makeMediatingController(accountManager: AccountCredentialsManager()) as! UINavigationController
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
-        let cred = AccountCredential(title: self.string, identifier: self.string, username: self.string, password: self.string)
+        let cred = AccountCredential(title: self.string, username: self.string, password: self.string, identifiers: [self.string])
         // when
         sut.cellPasswordButtonTapped(credential: cred)
         // then
@@ -99,7 +99,7 @@ final class AccountCredentialsMediatingControllerTests: XCTestCase {
         let sut = nav.viewControllers.first as! AccountCredentialsMediatingController
         var credentials: [AccountCredential] = []
         for index in 0..<10000 {
-            credentials.append(AccountCredential(title: self.string, identifier: self.string + String(index), username: self.string, password: self.string))
+            credentials.append(AccountCredential(title: self.string, username: self.string, password: self.string, identifiers: [self.string + String(index)]))
         }
         // when
         sut.loadViewIfNeeded()

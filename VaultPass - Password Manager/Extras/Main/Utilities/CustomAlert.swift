@@ -24,4 +24,11 @@ struct CustomAlert {
         })
         controller.present(alertController, animated: true)
     }
+    
+    static func decision(_ controller: UIViewController, title: String, message: String, yesAction: @escaping ((UIAlertAction) -> Void), cancelAction: @escaping ((UIAlertAction) -> Void)) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: cancelAction))
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: yesAction))
+        controller.present(alertController, animated: true)
+    }
 }

@@ -242,35 +242,19 @@ struct AccountCredentialsManager {
      */
     
     func fetchCredentials() -> [AccountCredential] {
-        var credentials: [AccountCredential] = []
-        guard let fetchedData = try? context.fetch(AccountCredential.fetchRequest()) else {
+        guard let fetchedData = try? context.fetch(AccountCredential.fetchRequest()),
+              let encryptedData = fetchedData.last?.credentials,
+              let decryptedData = Encryptor.standard.decrypt(data: encryptedData) else {
             return []
         }
-        guard let encryptedData = fetchedData.last?.credentials else {
-            return []
-        }
-        guard let decryptedData = Encryptor.standard.decrypt(data: encryptedData) else {
-            return []
-        }
-        guard let accountData = self.converter.dataToStringArray(decryptedData) else {
-            return []
-        }
-        for accountDatum in accountData {
-            credentials.append(self.converter.stringToCredential(accountDatum))
-        }
-        return credentials
+        return self.converter.dataToCredential(data: decryptedData)
     }
     
     func storeCredentials(_ credentials: [AccountCredential]) -> Bool {
         self.deleteStore()
         let sortedCredentials = self.sortCredentials(credentials)
-        
-        var accountArray: [String] = []
-        for credential in sortedCredentials {
-            accountArray.append(self.converter.credentialToString(credential))
-        }
-        guard let accountData = self.converter.stringArrayToData(accountArray),
-              let encryptedData = Encryptor.standard.encrypt(data: accountData) else {
+        guard let data = self.converter.credentialsToData(credentials: sortedCredentials),
+              let encryptedData = Encryptor.standard.encrypt(data: data)  else {
             return false
         }
         guard let encryptedCredentials = NSEntityDescription.insertNewObject(forEntityName: "EncryptedCredentials", into: context) as? EncryptedCredentials else {
