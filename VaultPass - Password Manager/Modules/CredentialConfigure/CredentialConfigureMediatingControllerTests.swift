@@ -241,13 +241,13 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testDeletingIdentifierFromTableView() {
         // given
         let manager = AccountCredentialsManager()
-        var credentials = manager.fetchCredentials()
         // when
-        credentials.append(AccountCredential(title: "title", username: "username", password: "password", identifiers: [
+        let newCredential = AccountCredential(title: "title", username: "username", password: "password", identifiers: [
             "identifier1.com",
             "identifier2.com",
             "identifier3.com"
-        ]))
+        ])
+        let credentials = [newCredential]
         // then
         XCTAssertTrue(manager.storeCredentials(credentials))
         
@@ -268,21 +268,20 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
     func testEndEditingIdentifierChangesItInController() {
         // given
         let manager = AccountCredentialsManager()
-        var credentials = manager.fetchCredentials()
         // when
-        credentials.append(AccountCredential(title: "title", username: "username", password: "password", identifiers: [
+        let newCredential = AccountCredential(title: "title", username: "username", password: "password", identifiers: [
             "identifier1.com",
             "identifier2.com",
             "identifier3.com"
-        ]))
+        ])
+        let credentials = [newCredential]
         // then
         XCTAssertTrue(manager.storeCredentials(credentials))
         
         // given
         let newIdentifier = "identifier4.com"
-        let lastCredentialIndex = credentials.endIndex-1
         let lastIdentifierIndex = credentials.last!.identifiers.endIndex-1
-        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: lastCredentialIndex, navigation: UINavigationController()))
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: 0, navigation: UINavigationController()))
         // when
         controller.loadViewIfNeeded()
         guard let cell = controller.identifierTableView.cellForRow(at: IndexPath(row: lastIdentifierIndex, section: 0)) as? IdentifierTextFieldCell else {
@@ -290,7 +289,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
             return
         }
         cell.identifierTextField.text = newIdentifier
-        cell.textFieldDidEndEditing(cell.identifierTextField)
+        let _ = cell.textField(cell.identifierTextField, shouldChangeCharactersIn: NSRange(), replacementString: "")
         // then
         XCTAssertEqual(cell.identifierTextField.text, controller.identifiers.last)
     }
