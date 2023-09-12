@@ -13,9 +13,10 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
     
+    private let manager = AccountCredentialsManager()
+    private let autofillSettings = AutofillDataSettings()
     private var credentials: [AccountCredential] = []
     private var filtered: [AccountCredential] = []
-    private let manager = AccountCredentialsManager()
     private var serviceIdentifier: ASCredentialServiceIdentifier? = nil
     private let cellIdentifier: String = "default"
     
@@ -115,12 +116,18 @@ extension CredentialProviderViewController: UITableViewDelegate, UITableViewData
             return
         }
         if credential.findMatchFor(identifier) == false {
-            let title = "Remember credential use?"
-            let message = "We can add this as an identifier for easier access next time."
-            CustomAlert.decision(self, title: title, message: message, yesAction: {_ in
+            if self.autofillSettings.getAutoUpdateIdentifiers() == false {
+                let title = "Always remember credential use?"
+                let message = "We can add this as an identifier for easier access next time."
+                CustomAlert.decision(self, title: title, message: message, yesAction: {_ in
+                    self.locateAndAddIdentifier(to: credential, index: index, identifier: identifier)
+                    self.autofillSettings.setAutoUpdateIdentifiers(true)
+                    completion()
+                }, cancelAction: {_ in completion() })
+            } else {
                 self.locateAndAddIdentifier(to: credential, index: index, identifier: identifier)
                 completion()
-            }, cancelAction: {_ in completion() })
+            }
         } else {
             completion()
         }

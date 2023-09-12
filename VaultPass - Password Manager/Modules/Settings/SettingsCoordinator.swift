@@ -10,7 +10,7 @@ import UIKit
 class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
     
     private let navigation: UINavigationController
-    private let unlockData: UnlockData = UnlockData()
+    private let userData: UserData = UserData()
     
     init(credentialsManager: AccountCredentialsManager, navigation: UINavigationController) {
         self.navigation = navigation
@@ -18,19 +18,22 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
     }
     
     func settingsControllerViewDidLoad(_ displayable: SettingsDisplayable) {
-        let autoUnlock = self.unlockData.getAutoUnlock()
-        let alwaysShowCredentials = self.unlockData.getAlwaysShowCredentials()
-        displayable.setSettingSwitches(autoFill: self.unlockData.getAutoUnlock(), alwaysShowCredentials: alwaysShowCredentials)
+        displayable.setSettingSwitches(userData: self.userData)
     }
     
     func toggleAutoUnlock() {
-        let value = self.unlockData.getAutoUnlock()
-        self.unlockData.setAutoUnlock(value.toggle())
+        let value = self.userData.getAutoUnlock()
+        self.userData.setAutoUnlock(value.toggle())
     }
     
     func toggleAlwaysShowCredentials() {
-        let value = self.unlockData.getAlwaysShowCredentials()
-        self.unlockData.setAlwaysShowCredentials(value.toggle())
+        let value = self.userData.getAlwaysShowCredentials()
+        self.userData.setAlwaysShowCredentials(value.toggle())
+    }
+    
+    func toggleAutoUpdateIdentifiers() {
+        let value = self.userData.getAutoUpdateIdentifiers()
+        self.userData.setAutoUpdateIdnetifiers(value.toggle())
     }
     
     func termsAndConditionsTapped() {
@@ -48,7 +51,7 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
     func deleteAllData() {
         CustomAlert.destructive(self.navigation, title: "Are you sure you want to delete everything?", message: "This action is irreversible and will be permanent", deleteBtn: "Delete", deleteAction: { _ in
             self.credentialsManager.deleteAllData()
-            self.unlockData.deleteData()
+            self.userData.deleteData()
             KeychainService.standard.deleteKey()
             self.replaceViewWithUnlockScreen()
         })

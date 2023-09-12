@@ -1,5 +1,5 @@
 //
-//  UnlockData.swift
+//  UserData.swift
 //  VaultPass - Password Manager
 //
 //  Created by Andrew Masters on 6/17/23.
@@ -7,13 +7,14 @@
 
 import Foundation
 
-class UnlockData {
+final class UserData {
     
     private let data = UserDefaults.standard
     
     private let firstTimeUserKey = "first_time_user_key"
     private let autoUnlock = "auto_unlock"
     private let alwaysShowCredentials = "always_show_credentials"
+    private let autofillSettings = AutofillDataSettings()
     
     func getNotFirstUnlock() -> Bool {
         return self.data.bool(forKey: self.firstTimeUserKey)
@@ -39,8 +40,18 @@ class UnlockData {
         self.data.set(value, forKey: self.alwaysShowCredentials)
     }
     
+    func getAutoUpdateIdentifiers() -> Bool {
+        return self.autofillSettings.getAutoUpdateIdentifiers()
+    }
+    
+    func setAutoUpdateIdnetifiers(_ value: Bool) {
+        self.autofillSettings.setAutoUpdateIdentifiers(value)
+    }
+    
     func deleteData() {
         self.data.removeObject(forKey: self.firstTimeUserKey)
         self.data.removeObject(forKey: self.autoUnlock)
+        self.data.removeObject(forKey: self.alwaysShowCredentials)
+        self.autofillSettings.deleteData()
     }
 }

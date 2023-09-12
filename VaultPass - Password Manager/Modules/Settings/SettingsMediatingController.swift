@@ -12,13 +12,14 @@ protocol SettingsDelegate: PasswordSettingsDelegate {
     func settingsControllerViewDidLoad(_ displayable: SettingsDisplayable)
     func toggleAutoUnlock()
     func toggleAlwaysShowCredentials()
+    func toggleAutoUpdateIdentifiers()
     func termsAndConditionsTapped()
     func lockButtonPressed()
     func deleteAllData()
 }
 
 protocol SettingsDisplayable {
-    func setSettingSwitches(autoFill: Bool, alwaysShowCredentials: Bool)
+    func setSettingSwitches(userData: UserData)
 }
 
 class SettingsMediatingController: UIViewController {
@@ -26,6 +27,8 @@ class SettingsMediatingController: UIViewController {
     @IBOutlet private(set) var passwordSettingsParentView: UIView!
     @IBOutlet private(set) var autoUnlockLabel: UILabel!
     @IBOutlet private(set) var autoUnlockSwitch: UISwitch!
+    @IBOutlet private(set) var autoUpdateIdentifiersLabel: UILabel!
+    @IBOutlet private(set) var autoUpdateIdentifiersSwitch: UISwitch!
     @IBOutlet private(set) var enableAutofillBtn: UIButton!
     @IBOutlet private(set) var alwaysShowCredentials: UISwitch!
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
@@ -87,6 +90,10 @@ class SettingsMediatingController: UIViewController {
         self.delegate?.toggleAlwaysShowCredentials()
     }
     
+    @IBAction func autoUpdateIdentifiersSwitched(_ sender: UISwitch) {
+        self.delegate?.toggleAutoUpdateIdentifiers()
+    }
+    
     @IBAction func termsAndConditionsPressed(_ sender: UIButton) {
         OpenAppLink.using(.termsAndConditions, vc: self)
     }
@@ -106,8 +113,9 @@ class SettingsMediatingController: UIViewController {
 
 
 extension SettingsMediatingController: SettingsDisplayable {
-    func setSettingSwitches(autoFill: Bool, alwaysShowCredentials: Bool) {
-        self.autoUnlockSwitch.setOn(autoFill, animated: false)
-        self.alwaysShowCredentials.setOn(alwaysShowCredentials, animated: false)
+    func setSettingSwitches(userData: UserData) {
+        self.autoUnlockSwitch.setOn(userData.getAutoUnlock(), animated: false)
+        self.alwaysShowCredentials.setOn(userData.getAlwaysShowCredentials(), animated: false)
+        self.autoUpdateIdentifiersSwitch.setOn(userData.getAutoUpdateIdentifiers(), animated: false)
     }
 }

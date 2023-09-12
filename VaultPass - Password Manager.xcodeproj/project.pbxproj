@@ -31,7 +31,7 @@
 		83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */; };
 		83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */; };
 		83381E5E2A4415810070C427 /* TermsAndConditionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */; };
-		8348D7AD2A3EBAFC00D16B0B /* UnlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */; };
+		8348D7AD2A3EBAFC00D16B0B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* UserData.swift */; };
 		8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349B6892A996D0B003886AE /* PadConstraints.swift */; };
 		8349B68B2A9AEF08003886AE /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349B6892A996D0B003886AE /* PadConstraints.swift */; };
 		8351B6532AAED6A7003DCF43 /* IdentifierTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */; };
@@ -51,6 +51,8 @@
 		836052722A8833DB003D5BD2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99972A3C3A1100C59AC6 /* UIView+.swift */; };
 		836052732A883BBE003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */; };
 		837312772A415DF000886D86 /* UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UIViewLoading.swift */; };
+		83870EB52AB010CE007EF66A /* AutofillSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870EB42AB010CE007EF66A /* AutofillSettings.swift */; };
+		83870EB62AB010CE007EF66A /* AutofillSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870EB42AB010CE007EF66A /* AutofillSettings.swift */; };
 		839C8E4A2A48C3AA00EE1A94 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */; };
 		839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */; };
 		839C8E552A48C3AA00EE1A94 /* AutofillCredentialProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -158,7 +160,7 @@
 		83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsAndConditionsMediatingController.xib; sourceTree = "<group>"; };
 		83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsMediatingController.swift; sourceTree = "<group>"; };
 		83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsFactory.swift; sourceTree = "<group>"; };
-		8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockData.swift; sourceTree = "<group>"; };
+		8348D7AC2A3EBAFC00D16B0B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		8349B6892A996D0B003886AE /* PadConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConstraints.swift; sourceTree = "<group>"; };
 		8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTextFieldCell.swift; sourceTree = "<group>"; };
 		8351B6572AAED760003DCF43 /* IdentifierTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifierTextFieldCell.xib; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordSettingsView.xib; sourceTree = "<group>"; };
 		8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsCoordinator.swift; sourceTree = "<group>"; };
 		837312762A415DF000886D86 /* UIViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLoading.swift; sourceTree = "<group>"; };
+		83870EB42AB010CE007EF66A /* AutofillSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillSettings.swift; sourceTree = "<group>"; };
 		839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredentialProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		839C8E4C2A48C3AA00EE1A94 /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 		839C8E4B2A48C3AA00EE1A94 /* AutofillCredentialProvider */ = {
 			isa = PBXGroup;
 			children = (
+				83870EB42AB010CE007EF66A /* AutofillSettings.swift */,
 				839C8E4C2A48C3AA00EE1A94 /* CredentialProviderViewController.swift */,
 				839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */,
 				839C8E512A48C3AA00EE1A94 /* Info.plist */,
@@ -366,7 +370,7 @@
 				83B414892A8DE628005CFAEB /* KeychainService.swift */,
 				83AD0FCE2A330834008B3C09 /* Encryptor.swift */,
 				83AD0FD22A3309A9008B3C09 /* Converter.swift */,
-				8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */,
+				8348D7AC2A3EBAFC00D16B0B /* UserData.swift */,
 				831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */,
 				8349B6892A996D0B003886AE /* PadConstraints.swift */,
 				83EB7B7C2A9D9C34002848DE /* PreviewData.swift */,
@@ -642,6 +646,7 @@
 				836052722A8833DB003D5BD2 /* UIView+.swift in Sources */,
 				83F38ED52A870DE7000F0B98 /* UIViewLoading.swift in Sources */,
 				83C6FFC72AA501D500D402A8 /* KeyboardToolBar.swift in Sources */,
+				83870EB62AB010CE007EF66A /* AutofillSettings.swift in Sources */,
 				83F38ED72A870E3B000F0B98 /* UIPasteBoard+.swift in Sources */,
 				83EDAB142A84B83900973D8C /* Model.xcdatamodeld in Sources */,
 				83EDAB192A84BA1900973D8C /* Encryptor.swift in Sources */,
@@ -668,6 +673,7 @@
 				839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */,
 				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
+				83870EB52AB010CE007EF66A /* AutofillSettings.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
 				83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */,
 				832AF3652A67467A00E6DE35 /* BiometricUnlock.swift in Sources */,
@@ -689,7 +695,7 @@
 				83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */,
 				83EDAB162A84B8A400973D8C /* URL+.swift in Sources */,
 				83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */,
-				8348D7AD2A3EBAFC00D16B0B /* UnlockData.swift in Sources */,
+				8348D7AD2A3EBAFC00D16B0B /* UserData.swift in Sources */,
 				8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */,
 				839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */,
 				83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */,
