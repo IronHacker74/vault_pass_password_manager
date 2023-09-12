@@ -8,7 +8,9 @@
 import UIKit
 
 protocol IdentifierTextFieldCellDelegate {
+    func identifierTextFieldDidBeginEditing(origin: CGPoint)
     func textFieldCellDidUpdate(text: String, index: Int)
+    func identifierTextFieldDidEndEditing()
     func deleteIdentifier(_ index: Int)
 }
 
@@ -25,15 +27,25 @@ final class IdentifierTextFieldCell: UITableViewCell, UITextFieldDelegate, UIVie
         self.index = index
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        self.delegate?.identifierTextFieldDidBeginEditing(origin: self.frame.origin)
+    }
+    
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
         guard let index = self.index else { return }
         self.delegate?.deleteIdentifier(index)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let index = self.index else { return }
-        guard let text = textField.text else { return }
-        self.delegate?.textFieldCellDidUpdate(text: text, index: index)
+        self.delegate?.identifierTextFieldDidEndEditing()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let index = self.index else { return true }
+        guard let text = textField.text else { return true }
+        let fullText = text + string
+        self.delegate?.textFieldCellDidUpdate(text: fullText, index: index)
+        return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,10 +17,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UJK-dm-ly3">
-                        <rect key="frame" x="8" y="8" width="377" height="28"/>
+                        <rect key="frame" x="0.0" y="8" width="377" height="28"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter identifier" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="L6C-DZ-HxI">
-                                <rect key="frame" x="0.0" y="0.0" width="339" height="28"/>
+                                <rect key="frame" x="0.0" y="0.0" width="349" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
@@ -27,9 +28,9 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phr-Yi-l4u">
-                                <rect key="frame" x="347" y="0.0" width="30" height="28"/>
+                                <rect key="frame" x="357" y="0.0" width="20" height="28"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="rEa-VX-yeo"/>
+                                    <constraint firstAttribute="width" constant="20" id="rEa-VX-yeo"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="xmark.circle" catalog="system">
@@ -43,8 +44,8 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="UJK-dm-ly3" secondAttribute="trailing" constant="8" id="M2a-PO-qmU"/>
-                    <constraint firstItem="UJK-dm-ly3" firstAttribute="leading" secondItem="CtC-7U-MHm" secondAttribute="leading" constant="8" id="bLV-1I-1oS"/>
+                    <constraint firstAttribute="trailing" secondItem="UJK-dm-ly3" secondAttribute="trailing" constant="16" id="M2a-PO-qmU"/>
+                    <constraint firstItem="UJK-dm-ly3" firstAttribute="leading" secondItem="CtC-7U-MHm" secondAttribute="leading" id="bLV-1I-1oS"/>
                     <constraint firstAttribute="bottom" secondItem="UJK-dm-ly3" secondAttribute="bottom" constant="8" id="fwp-Gq-bEH"/>
                     <constraint firstItem="UJK-dm-ly3" firstAttribute="top" secondItem="CtC-7U-MHm" secondAttribute="top" constant="8" id="wcv-E8-pWF"/>
                 </constraints>

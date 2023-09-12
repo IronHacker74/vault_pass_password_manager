@@ -296,15 +296,28 @@ extension CredentialConfigureMediatingController: UITableViewDelegate, UITableVi
     }
     
     func deleteIdentifier(_ index: Int) {
-        self.identifiers.remove(at: index)
-        self.identifierTableView.reloadData()
+        let title = "Do you wish to remove the following identifier?"
+        let message = "\(self.identifiers[index])"
+        CustomAlert.destructive(self, title: title, message: message, deleteBtn: "Remove", deleteAction: {_ in
+            self.identifiers.remove(at: index)
+            self.identifierTableView.reloadData()
+        })
     }
     
     func textFieldCellDidUpdate(text: String, index: Int) {
         if index < self.identifiers.count {
             self.identifiers[index] = text
         }
+    }
+    
+    func identifierTextFieldDidEndEditing() {
         self.scrollView.setContentOffset(.zero, animated: true)
+    }
+    
+    func identifierTextFieldDidBeginEditing(origin: CGPoint) {
+        #if !targetEnvironment(macCatalyst)
+        self.scrollView.contentOffset = CGPoint(x: origin.x, y: origin.y + 100)
+        #endif
     }
 }
 
