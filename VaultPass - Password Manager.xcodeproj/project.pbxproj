@@ -202,7 +202,7 @@
 		83EB7B7C2A9D9C34002848DE /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		83EDAB152A84B8A400973D8C /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		83F145FA2A8B05EF00A5FA61 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9520B51329DA107900FFD65B /* VaultPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaultPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B51629DA107900FFD65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9520B51829DA107900FFD65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingController.swift; sourceTree = "<group>"; };
@@ -394,7 +394,7 @@
 		9520B51429DA107900FFD65B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */,
+				9520B51329DA107900FFD65B /* VaultPass.app */,
 				9520B52929DA107D00FFD65B /* VaultPass - Password ManagerTests.xctest */,
 				9520B53329DA107D00FFD65B /* VaultPass - Password ManagerUITests.xctest */,
 				839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */,
@@ -483,9 +483,9 @@
 			productReference = 839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		9520B51229DA107900FFD65B /* VaultPass - Password Manager */ = {
+		9520B51229DA107900FFD65B /* VaultPass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass - Password Manager" */;
+			buildConfigurationList = 9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass" */;
 			buildPhases = (
 				9520B50F29DA107900FFD65B /* Sources */,
 				9520B51029DA107900FFD65B /* Frameworks */,
@@ -496,9 +496,9 @@
 			);
 			dependencies = (
 			);
-			name = "VaultPass - Password Manager";
+			name = VaultPass;
 			productName = "VaultPass - Password Manager";
-			productReference = 9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */;
+			productReference = 9520B51329DA107900FFD65B /* VaultPass.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9520B52829DA107D00FFD65B /* VaultPass - Password ManagerTests */ = {
@@ -576,7 +576,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9520B51229DA107900FFD65B /* VaultPass - Password Manager */,
+				9520B51229DA107900FFD65B /* VaultPass */,
 				9520B52829DA107D00FFD65B /* VaultPass - Password ManagerTests */,
 				9520B53229DA107D00FFD65B /* VaultPass - Password ManagerUITests */,
 				839C8E462A48C3AA00EE1A94 /* AutofillCredentialProvider */,
@@ -744,12 +744,12 @@
 /* Begin PBXTargetDependency section */
 		9520B52B29DA107D00FFD65B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9520B51229DA107900FFD65B /* VaultPass - Password Manager */;
+			target = 9520B51229DA107900FFD65B /* VaultPass */;
 			targetProxy = 9520B52A29DA107D00FFD65B /* PBXContainerItemProxy */;
 		};
 		9520B53529DA107D00FFD65B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9520B51229DA107900FFD65B /* VaultPass - Password Manager */;
+			target = 9520B51229DA107900FFD65B /* VaultPass */;
 			targetProxy = 9520B53429DA107D00FFD65B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1048,7 +1048,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass - Password Manager.app/VaultPass - Password Manager";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VaultPass";
 			};
 			name = Debug;
 		};
@@ -1068,7 +1068,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass - Password Manager.app/VaultPass - Password Manager";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VaultPass";
 			};
 			name = Release;
 		};
@@ -1129,7 +1129,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass - Password Manager" */ = {
+		9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9520B53E29DA107D00FFD65B /* Debug */,

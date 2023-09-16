@@ -141,11 +141,11 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBAction func addIdentifierButtonTapped(_ sender: UIButton) {
         self.identifiers.append("")
         self.identifierTableView.reloadData()
-        #if !targetEnvironment(macCatalyst)
         guard let cell = self.identifierTableView.cellForRow(at: IndexPath(row: self.identifiers.count-1, section: 0)) as? IdentifierTextFieldCell else {
             return
         }
         cell.identifierTextField.becomeFirstResponder()
+        #if !targetEnvironment(macCatalyst)
         self.scrollView.contentOffset = CGPoint(x: cell.frame.origin.x, y: cell.frame.origin.y + 100)
         #endif
     }

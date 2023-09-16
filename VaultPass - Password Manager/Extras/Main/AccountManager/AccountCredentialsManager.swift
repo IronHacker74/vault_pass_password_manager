@@ -103,7 +103,7 @@ struct AccountCredentialsManager {
     }
     
     private func changePasswordStringType(for currentValue: Bool, withKey key: String) {
-        var newValue = currentValue
+        let newValue = currentValue
         self.userDefaults?.set(newValue.toggle(), forKey: key)
     }
     
