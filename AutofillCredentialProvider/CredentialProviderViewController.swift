@@ -134,7 +134,7 @@ extension CredentialProviderViewController: UITableViewDelegate, UITableViewData
     }
     
     private func locateAndAddIdentifier(to credential: AccountCredential, index: Int, identifier: String) {
-        guard searchIsActive() else {
+        guard searchIsActive() == false else {
             for index in 0..<self.credentials.count {
                 if credential == self.credentials[index] {
                     self.addIdentifier(with: index, and: identifier)

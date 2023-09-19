@@ -108,7 +108,7 @@ class CredentialConfigureMediatingController: UIViewController {
             return
         }
         guard let username = self.usernameField.text, let password = self.passwordField.text, (!username.isEmpty && !password.isEmpty) else {
-            self.showError("Username or password is required")
+            self.showError("Username and password is required")
             return
         }
         
