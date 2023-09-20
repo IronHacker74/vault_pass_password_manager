@@ -31,9 +31,14 @@
 		83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */; };
 		83381E5C2A4414530070C427 /* TermsAndConditionsMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */; };
 		83381E5E2A4415810070C427 /* TermsAndConditionsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */; };
-		8348D7AD2A3EBAFC00D16B0B /* UnlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */; };
+		8348D7AD2A3EBAFC00D16B0B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8348D7AC2A3EBAFC00D16B0B /* UserData.swift */; };
 		8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349B6892A996D0B003886AE /* PadConstraints.swift */; };
 		8349B68B2A9AEF08003886AE /* PadConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349B6892A996D0B003886AE /* PadConstraints.swift */; };
+		8351B6532AAED6A7003DCF43 /* IdentifierTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */; };
+		8351B6592AAED760003DCF43 /* IdentifierTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8351B6572AAED760003DCF43 /* IdentifierTextFieldCell.xib */; };
+		8351B65A2AAED8DE003DCF43 /* IdentifierTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */; };
+		8351B65C2AAED8F8003DCF43 /* IdentifierTextFieldCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351B65B2AAED8F8003DCF43 /* IdentifierTextFieldCellTests.swift */; };
+		8351B65D2AAEDA5F003DCF43 /* IdentifierTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8351B6572AAED760003DCF43 /* IdentifierTextFieldCell.xib */; };
 		8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */; };
 		8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835828592A4BC492004CAD4B /* UIButton+.swift */; };
 		835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 835E097E2A51385E00A319F7 /* TermsAndConditions.txt */; };
@@ -46,6 +51,8 @@
 		836052722A8833DB003D5BD2 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839D99972A3C3A1100C59AC6 /* UIView+.swift */; };
 		836052732A883BBE003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */; };
 		837312772A415DF000886D86 /* UIViewLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837312762A415DF000886D86 /* UIViewLoading.swift */; };
+		83870EB52AB010CE007EF66A /* AutofillSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870EB42AB010CE007EF66A /* AutofillSettings.swift */; };
+		83870EB62AB010CE007EF66A /* AutofillSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83870EB42AB010CE007EF66A /* AutofillSettings.swift */; };
 		839C8E4A2A48C3AA00EE1A94 /* AuthenticationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */; };
 		839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */; };
 		839C8E552A48C3AA00EE1A94 /* AutofillCredentialProvider.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -153,8 +160,11 @@
 		83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TermsAndConditionsMediatingController.xib; sourceTree = "<group>"; };
 		83381E5B2A4414530070C427 /* TermsAndConditionsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsMediatingController.swift; sourceTree = "<group>"; };
 		83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsFactory.swift; sourceTree = "<group>"; };
-		8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockData.swift; sourceTree = "<group>"; };
+		8348D7AC2A3EBAFC00D16B0B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		8349B6892A996D0B003886AE /* PadConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConstraints.swift; sourceTree = "<group>"; };
+		8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTextFieldCell.swift; sourceTree = "<group>"; };
+		8351B6572AAED760003DCF43 /* IdentifierTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifierTextFieldCell.xib; sourceTree = "<group>"; };
+		8351B65B2AAED8F8003DCF43 /* IdentifierTextFieldCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTextFieldCellTests.swift; sourceTree = "<group>"; };
 		8351C87C2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		835828592A4BC492004CAD4B /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VaultPass - Password Manager.entitlements"; sourceTree = "<group>"; };
@@ -164,6 +174,7 @@
 		8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordSettingsView.xib; sourceTree = "<group>"; };
 		8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsCoordinator.swift; sourceTree = "<group>"; };
 		837312762A415DF000886D86 /* UIViewLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewLoading.swift; sourceTree = "<group>"; };
+		83870EB42AB010CE007EF66A /* AutofillSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutofillSettings.swift; sourceTree = "<group>"; };
 		839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AutofillCredentialProvider.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		839C8E492A48C3AA00EE1A94 /* AuthenticationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AuthenticationServices.framework; path = System/Library/Frameworks/AuthenticationServices.framework; sourceTree = SDKROOT; };
 		839C8E4C2A48C3AA00EE1A94 /* CredentialProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialProviderViewController.swift; sourceTree = "<group>"; };
@@ -191,7 +202,7 @@
 		83EB7B7C2A9D9C34002848DE /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		83EDAB152A84B8A400973D8C /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
 		83F145FA2A8B05EF00A5FA61 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VaultPass - Password Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9520B51329DA107900FFD65B /* VaultPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaultPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B51629DA107900FFD65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9520B51829DA107900FFD65B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9520B51A29DA107900FFD65B /* AccountCredentialsMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingController.swift; sourceTree = "<group>"; };
@@ -247,6 +258,9 @@
 				831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */,
 				8316D6FB2A49E6F100113E5B /* CredentialConfigureMediatingControllerTests.swift */,
 				831288F12A3843D7009549F0 /* CredentialConfigureMediatingController.xib */,
+				8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */,
+				8351B65B2AAED8F8003DCF43 /* IdentifierTextFieldCellTests.swift */,
+				8351B6572AAED760003DCF43 /* IdentifierTextFieldCell.xib */,
 			);
 			path = CredentialConfigure;
 			sourceTree = "<group>";
@@ -307,6 +321,7 @@
 		839C8E4B2A48C3AA00EE1A94 /* AutofillCredentialProvider */ = {
 			isa = PBXGroup;
 			children = (
+				83870EB42AB010CE007EF66A /* AutofillSettings.swift */,
 				839C8E4C2A48C3AA00EE1A94 /* CredentialProviderViewController.swift */,
 				839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */,
 				839C8E512A48C3AA00EE1A94 /* Info.plist */,
@@ -355,7 +370,7 @@
 				83B414892A8DE628005CFAEB /* KeychainService.swift */,
 				83AD0FCE2A330834008B3C09 /* Encryptor.swift */,
 				83AD0FD22A3309A9008B3C09 /* Converter.swift */,
-				8348D7AC2A3EBAFC00D16B0B /* UnlockData.swift */,
+				8348D7AC2A3EBAFC00D16B0B /* UserData.swift */,
 				831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */,
 				8349B6892A996D0B003886AE /* PadConstraints.swift */,
 				83EB7B7C2A9D9C34002848DE /* PreviewData.swift */,
@@ -379,7 +394,7 @@
 		9520B51429DA107900FFD65B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */,
+				9520B51329DA107900FFD65B /* VaultPass.app */,
 				9520B52929DA107D00FFD65B /* VaultPass - Password ManagerTests.xctest */,
 				9520B53329DA107D00FFD65B /* VaultPass - Password ManagerUITests.xctest */,
 				839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */,
@@ -468,9 +483,9 @@
 			productReference = 839C8E472A48C3AA00EE1A94 /* AutofillCredentialProvider.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		9520B51229DA107900FFD65B /* VaultPass - Password Manager */ = {
+		9520B51229DA107900FFD65B /* VaultPass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass - Password Manager" */;
+			buildConfigurationList = 9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass" */;
 			buildPhases = (
 				9520B50F29DA107900FFD65B /* Sources */,
 				9520B51029DA107900FFD65B /* Frameworks */,
@@ -481,9 +496,9 @@
 			);
 			dependencies = (
 			);
-			name = "VaultPass - Password Manager";
+			name = VaultPass;
 			productName = "VaultPass - Password Manager";
-			productReference = 9520B51329DA107900FFD65B /* VaultPass - Password Manager.app */;
+			productReference = 9520B51329DA107900FFD65B /* VaultPass.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9520B52829DA107D00FFD65B /* VaultPass - Password ManagerTests */ = {
@@ -561,7 +576,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9520B51229DA107900FFD65B /* VaultPass - Password Manager */,
+				9520B51229DA107900FFD65B /* VaultPass */,
 				9520B52829DA107D00FFD65B /* VaultPass - Password ManagerTests */,
 				9520B53229DA107D00FFD65B /* VaultPass - Password ManagerUITests */,
 				839C8E462A48C3AA00EE1A94 /* AutofillCredentialProvider */,
@@ -574,6 +589,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8351B6592AAED760003DCF43 /* IdentifierTextFieldCell.xib in Resources */,
 				8360526E2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */,
 				83F38ECD2A870D5C000F0B98 /* CredentialConfigureMediatingController.xib in Resources */,
 				839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */,
@@ -591,6 +607,7 @@
 				8328759F2A319EAC006694FE /* AccountCredentialCell.xib in Resources */,
 				839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */,
 				832AF35F2A67381300E6DE35 /* MainInterface.storyboard in Resources */,
+				8351B65D2AAEDA5F003DCF43 /* IdentifierTextFieldCell.xib in Resources */,
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,
 				9520B52029DA107D00FFD65B /* Assets.xcassets in Resources */,
 				9520B51E29DA107900FFD65B /* Main.storyboard in Resources */,
@@ -629,9 +646,11 @@
 				836052722A8833DB003D5BD2 /* UIView+.swift in Sources */,
 				83F38ED52A870DE7000F0B98 /* UIViewLoading.swift in Sources */,
 				83C6FFC72AA501D500D402A8 /* KeyboardToolBar.swift in Sources */,
+				83870EB62AB010CE007EF66A /* AutofillSettings.swift in Sources */,
 				83F38ED72A870E3B000F0B98 /* UIPasteBoard+.swift in Sources */,
 				83EDAB142A84B83900973D8C /* Model.xcdatamodeld in Sources */,
 				83EDAB192A84BA1900973D8C /* Encryptor.swift in Sources */,
+				8351B65A2AAED8DE003DCF43 /* IdentifierTextFieldCell.swift in Sources */,
 				83B9AAA72A929AB200D2A46D /* BiometricUnlock.swift in Sources */,
 				83F38ECB2A870D3B000F0B98 /* CredentialConfigureCoordinator.swift in Sources */,
 				83EDAB1C2A84BA3300973D8C /* URL+.swift in Sources */,
@@ -654,10 +673,12 @@
 				839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */,
 				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
+				83870EB52AB010CE007EF66A /* AutofillSettings.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
 				83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */,
 				832AF3652A67467A00E6DE35 /* BiometricUnlock.swift in Sources */,
 				837312772A415DF000886D86 /* UIViewLoading.swift in Sources */,
+				8351B6532AAED6A7003DCF43 /* IdentifierTextFieldCell.swift in Sources */,
 				832875862A30276B006694FE /* UnlockCoordinator.swift in Sources */,
 				83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */,
 				83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */,
@@ -674,7 +695,7 @@
 				83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */,
 				83EDAB162A84B8A400973D8C /* URL+.swift in Sources */,
 				83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */,
-				8348D7AD2A3EBAFC00D16B0B /* UnlockData.swift in Sources */,
+				8348D7AD2A3EBAFC00D16B0B /* UserData.swift in Sources */,
 				8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */,
 				839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */,
 				83BB69A52A70FAAA00C61C6D /* UIPasteBoard+.swift in Sources */,
@@ -701,6 +722,7 @@
 				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
 				83EB7B7E2A9D9C38002848DE /* PreviewData.swift in Sources */,
 				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,
+				8351B65C2AAED8F8003DCF43 /* IdentifierTextFieldCellTests.swift in Sources */,
 				83A25DB12A468A9500564588 /* AccountCredentialCellTests.swift in Sources */,
 				830D2E2F2A89A68E006D0710 /* PasswordSettingsViewTests.swift in Sources */,
 				83BAB20F2A731A7000E06493 /* AppLinkTests.swift in Sources */,
@@ -722,12 +744,12 @@
 /* Begin PBXTargetDependency section */
 		9520B52B29DA107D00FFD65B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9520B51229DA107900FFD65B /* VaultPass - Password Manager */;
+			target = 9520B51229DA107900FFD65B /* VaultPass */;
 			targetProxy = 9520B52A29DA107D00FFD65B /* PBXContainerItemProxy */;
 		};
 		9520B53529DA107D00FFD65B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9520B51229DA107900FFD65B /* VaultPass - Password Manager */;
+			target = 9520B51229DA107900FFD65B /* VaultPass */;
 			targetProxy = 9520B53429DA107D00FFD65B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -779,7 +801,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager.AutofillCredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -809,7 +831,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager.AutofillCredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -961,7 +983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -998,7 +1020,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1026,7 +1048,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass - Password Manager.app/VaultPass - Password Manager";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VaultPass";
 			};
 			name = Debug;
 		};
@@ -1046,7 +1068,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass - Password Manager.app/VaultPass - Password Manager";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VaultPass.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VaultPass";
 			};
 			name = Release;
 		};
@@ -1107,7 +1129,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass - Password Manager" */ = {
+		9520B53D29DA107D00FFD65B /* Build configuration list for PBXNativeTarget "VaultPass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9520B53E29DA107D00FFD65B /* Debug */,

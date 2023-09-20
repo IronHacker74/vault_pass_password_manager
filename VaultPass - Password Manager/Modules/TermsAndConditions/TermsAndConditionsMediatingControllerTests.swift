@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VaultPass___Password_Manager
+@testable import VaultPass
 
 final class TermsAndConditionsMediatingControllerTests: XCTestCase {
 

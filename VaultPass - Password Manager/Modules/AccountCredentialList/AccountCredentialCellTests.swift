@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VaultPass___Password_Manager
+@testable import VaultPass
 
 final class AccountCredentialCellTests: XCTestCase {
 
@@ -20,7 +20,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
@@ -33,7 +33,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
@@ -44,7 +44,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         // then
@@ -57,7 +57,7 @@ final class AccountCredentialCellTests: XCTestCase {
         // given
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
         cell.configureCell(delegate: nil, credential: cred)
         cell.reveal()
@@ -68,19 +68,19 @@ final class AccountCredentialCellTests: XCTestCase {
     
     func testUsernamePasswordsShowWhenSettingChanges() {
         // given
-        let unlockData = UnlockData()
-        unlockData.setAlwaysShowCredentials(false)
+        let userData = UserData()
+        userData.setAlwaysShowCredentials(false)
         let cell = AccountCredentialCell.loadFromNib()
         let string = "s"
-        let cred = AccountCredential(title: string, identifier: string, username: string, password: string)
+        let cred = AccountCredential(title: string, username: string, password: string, identifiers: [string])
         // when
-        cell.configureCell(delegate: nil, credential: cred, showCredential: unlockData.getAlwaysShowCredentials())
+        cell.configureCell(delegate: nil, credential: cred, showCredential: userData.getAlwaysShowCredentials())
         // then
         XCTAssertFalse(cell.credentialIsShowing())
         // given
-        unlockData.setAlwaysShowCredentials(true)
+        userData.setAlwaysShowCredentials(true)
         // when
-        cell.configureCell(delegate: nil, credential: cred, showCredential: unlockData.getAlwaysShowCredentials())
+        cell.configureCell(delegate: nil, credential: cred, showCredential: userData.getAlwaysShowCredentials())
         // then
         XCTAssertFalse(cell.username.isHidden)
         XCTAssertFalse(cell.password.isHidden)

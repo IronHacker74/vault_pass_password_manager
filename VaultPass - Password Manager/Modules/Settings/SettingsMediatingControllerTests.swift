@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VaultPass___Password_Manager
+@testable import VaultPass
 
 final class SettingsMediatingControllerTests: XCTestCase {
 
@@ -26,6 +26,8 @@ final class SettingsMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.autoUnlockLabel)
         XCTAssertNotNil(controller.autoUnlockSwitch)
         XCTAssertNotNil(controller.enableAutofillBtn)
+        XCTAssertNotNil(controller.autoUpdateIdentifiersLabel)
+        XCTAssertNotNil(controller.autoUpdateIdentifiersSwitch)
         XCTAssertNotNil(controller.alwaysShowCredentials)
         XCTAssertNotNil(controller.passwordSettingsParentView)
         XCTAssertNotNil(controller.termsAndConditionsBtn)
@@ -45,27 +47,40 @@ final class SettingsMediatingControllerTests: XCTestCase {
     
     func testAutoUnlockSwitchToggles() {
         // given
-        let unlockData = UnlockData()
-        let currAutoUnlockValue = unlockData.getAutoUnlock()
+        let userData = UserData()
+        let currAutoUnlockValue = userData.getAutoUnlock()
         let delegate = SettingsCoordinator(credentialsManager: AccountCredentialsManager(), navigation: UINavigationController())
         let controller = SettingsMediatingController(delegate: delegate)
         // when
         controller.loadViewIfNeeded()
         controller.autoUnlockSwitch.sendActions(for: .touchUpInside)
         // then
-        XCTAssertNotEqual(currAutoUnlockValue, unlockData.getAutoUnlock())
+        XCTAssertNotEqual(currAutoUnlockValue, userData.getAutoUnlock())
     }
     
     func testAlwaysShowCredentialsToggles() {
         // given
-        let unlockData = UnlockData()
-        let currShowCredentials = unlockData.getAlwaysShowCredentials()
+        let userData = UserData()
+        let currShowCredentials = userData.getAlwaysShowCredentials()
         let delegate = SettingsCoordinator(credentialsManager: AccountCredentialsManager(), navigation: UINavigationController())
         let controller = SettingsMediatingController(delegate: delegate)
         // when
         controller.loadViewIfNeeded()
         controller.alwaysShowCredentials.sendActions(for: .touchUpInside)
         // then
-        XCTAssertNotEqual(currShowCredentials, unlockData.getAlwaysShowCredentials())
+        XCTAssertNotEqual(currShowCredentials, userData.getAlwaysShowCredentials())
+    }
+    
+    func testAutoUpdateIdentifiersSwitchToggles() {
+        // given
+        let userData = UserData()
+        let currAutoUpdateIdentifiers = userData.getAutoUpdateIdentifiers()
+        let delegate = SettingsCoordinator(credentialsManager: AccountCredentialsManager(), navigation: UINavigationController())
+        let controller = SettingsMediatingController(delegate: delegate)
+        // when
+        controller.loadViewIfNeeded()
+        controller.autoUpdateIdentifiersSwitch.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertNotEqual(currAutoUpdateIdentifiers, userData.getAutoUpdateIdentifiers())
     }
 }

@@ -31,7 +31,7 @@ class CredentialConfigureCoordinator: PasswordSettingsCoordinator, CredentialCon
             let credential = self.credentials[index]
             displayable.fillFields(with: credential)
         } else {
-            displayable.hideDeleteButton()
+            displayable.createCredential()
         }
     }
     

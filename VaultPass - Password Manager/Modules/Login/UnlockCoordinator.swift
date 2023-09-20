@@ -12,7 +12,7 @@ class UnlockCoordinator: UnlockDelegate {
     
     var factory: UnlockFactory
     var navigation: UINavigationController?
-    let unlockData = UnlockData()
+    let userData = UserData()
         
     init(factory: UnlockFactory, navigation: UINavigationController?) {
         self.factory = factory
@@ -20,7 +20,7 @@ class UnlockCoordinator: UnlockDelegate {
     }
     
     func unlockViewDidAppear() {
-        if self.unlockData.getAutoUnlock() {
+        if self.userData.getAutoUnlock() {
             self.unlockWithAppleAuth()
         }
     }
@@ -36,10 +36,10 @@ class UnlockCoordinator: UnlockDelegate {
     private func pushAccountCredentialsController() {
         let factory = AccountCredentialsFactory()
         let manager = (UIApplication.shared.delegate as! AppDelegate).credentialManager
-        if self.unlockData.getNotFirstUnlock() == false {
+        if self.userData.getNotFirstUnlock() == false {
             manager.setPasswordSettingsToDefault()
-            self.unlockData.setNotFirstUnlock(true)
-            self.unlockData.setAutoUnlock(true)
+            self.userData.setNotFirstUnlock(true)
+            self.userData.setAutoUnlock(true)
         }
         let accountCredentialsViewController = factory.makeMediatingController(accountManager: manager)
         self.navigation?.view.window?.rootViewController = accountCredentialsViewController

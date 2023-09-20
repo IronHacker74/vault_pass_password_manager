@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import VaultPass___Password_Manager
+@testable import VaultPass
 
 final class AccountCredentialsManagerTests: XCTestCase {
 
@@ -20,9 +20,9 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // given
         let manager = AccountCredentialsManager()
         let testAccounts = [
-            AccountCredential(title: "amazon", identifier: "id1", username: "username", password: "password"),
-            AccountCredential(title: "amazon1", identifier: "id2", username: "username1", password: "password1"),
-            AccountCredential(title: "amazon2", identifier: "id3", username: "username2", password: "username2")
+            AccountCredential(title: "amazon", username: "username", password: "password", identifiers: ["id1"]),
+            AccountCredential(title: "amazon1", username: "username1", password: "password1", identifiers: ["id2"]),
+            AccountCredential(title: "amazon2", username: "username2", password: "username2", identifiers: ["id3"])
         ]
         // when
         let result = manager.storeCredentials(testAccounts)
@@ -34,9 +34,9 @@ final class AccountCredentialsManagerTests: XCTestCase {
         // given
         let manager = AccountCredentialsManager()
         let testAccounts = [
-            AccountCredential(title: "amazon", identifier: "id1", username: "username", password: "password"),
-            AccountCredential(title: "amazon1", identifier: "id2", username: "username1", password: "password1"),
-            AccountCredential(title: "amazon2", identifier: "id3", username: "username2", password: "username2")
+            AccountCredential(title: "amazon", username: "username", password: "password", identifiers: ["id1"]),
+            AccountCredential(title: "amazon1", username: "username1", password: "password1", identifiers: ["id2"]),
+            AccountCredential(title: "amazon2", username: "username2", password: "username2", identifiers: ["id3"])
         ]
         // when
         let _ = manager.storeCredentials(testAccounts)
