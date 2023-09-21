@@ -90,10 +90,12 @@ class CredentialConfigureMediatingController: UIViewController {
     }
     
     @IBAction func passwordSettingsBtnPressed(_ sender: UIButton) {
+        self.view.endEditing(true)
         self.showPasswordSettings()
     }
     
     @IBAction func generatePasswordBtnPressed(_ sender: UIButton) {
+        self.view.endEditing(true)
         guard let newPassword = self.delegate?.generatePassword(), !newPassword.isEmpty else {
             self.showError("Password failed to generate")
             return
