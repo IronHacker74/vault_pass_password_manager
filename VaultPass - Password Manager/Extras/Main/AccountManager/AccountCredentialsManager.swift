@@ -25,7 +25,7 @@ enum PasswordStrength {
 }
 
 struct AccountCredentialsManager {
-    let context: NSManagedObjectContext
+    private let context: NSManagedObjectContext
     private let converter: Converter = Converter()
     private let modelName = "Model"
     
@@ -39,7 +39,7 @@ struct AccountCredentialsManager {
     private let lowerCaseLetters: String = "abcdefghijklmnopqrstuvwxyz"
     private let upperCaseLetters: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     private let allNumbers: String = "1234567890"
-    private let allSpecialChars: String = ".!@#$*"
+    private let allSpecialChars: String = "!@#$*"
     
     var useLowerCaseLetters: Bool {
         return (self.userDefaults?.bool(forKey: self.lowerCaseKey) ?? true)

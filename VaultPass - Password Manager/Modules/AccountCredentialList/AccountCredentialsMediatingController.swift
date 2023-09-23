@@ -110,11 +110,19 @@ class AccountCredentialsMediatingController: UIViewController {
     }
     
     @objc func addButtonPressed() {
+        self.emptySearchIfNecessary()
         self.delegate?.accountCredentialsAddButtonPressed()
     }
     
     @objc func settingsButtonPressed() {
         self.delegate?.accountCredentialsSettingsButtonPressed()
+    }
+    
+    private func emptySearchIfNecessary() {
+        if self.searchIsActive() {
+            self.searchBar.searchTextField.text = ""
+            self.searchBar.endEditing(true)
+        }
     }
     
     private func searchIsActive() -> Bool {
@@ -182,6 +190,11 @@ extension AccountCredentialsMediatingController: UITableViewDataSource, UITableV
 }
 
 extension AccountCredentialsMediatingController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let keyboardToolBar = KeyboardToolBar(view: self.view, textFieldTag: 1, showDirectionalArrows: false)
+        self.searchBar.inputAccessoryView = keyboardToolBar
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty == false {
             self.filtered = self.credentials.filter({

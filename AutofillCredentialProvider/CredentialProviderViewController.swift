@@ -46,10 +46,18 @@ class CredentialProviderViewController: ASCredentialProviderViewController {
     }
     
     @IBAction func add(_ sender: AnyObject?) {
+        self.emptySearchIfNecessary()
         let factory = CredentialConfigureFactory()
         let coordinator = factory.makeCoordinator(manager: manager, index: nil, navigation: UINavigationController(), credentialProviderDelegate: self)
         let controller = factory.makeMediatingController(coordinator: coordinator)
         self.present(controller, animated: true)
+    }
+    
+    private func emptySearchIfNecessary() {
+        if self.searchIsActive() {
+            self.searchBar.searchTextField.text = ""
+            self.searchBar.endEditing(true)
+        }
     }
 
     private func loadCredentialsList() {
@@ -118,7 +126,7 @@ extension CredentialProviderViewController: UITableViewDelegate, UITableViewData
         if credential.findMatchFor(identifier) == false {
             if self.autofillSettings.getAutoUpdateIdentifiers() == false {
                 let title = "Always remember credential use?"
-                let message = "We can add this as an identifier for easier access next time."
+                let message = "We will automatically update identifiers for easier access in the future."
                 CustomAlert.decision(self, title: title, message: message, yesAction: {_ in
                     self.locateAndAddIdentifier(to: credential, index: index, identifier: identifier)
                     self.autofillSettings.setAutoUpdateIdentifiers(true)
@@ -154,6 +162,11 @@ extension CredentialProviderViewController: UITableViewDelegate, UITableViewData
 
 
 extension CredentialProviderViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        let keyboardToolBar = KeyboardToolBar(view: self.view, textFieldTag: 1, showDirectionalArrows: false)
+        self.searchBar.inputAccessoryView = keyboardToolBar
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty == false {
             self.filtered = self.credentials.filter({
