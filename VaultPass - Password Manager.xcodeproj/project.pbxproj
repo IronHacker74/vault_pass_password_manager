@@ -66,6 +66,8 @@
 		83AD0FCF2A330834008B3C09 /* Encryptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FCE2A330834008B3C09 /* Encryptor.swift */; };
 		83AD0FD32A3309A9008B3C09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
 		83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */; };
+		83AF24232AC005F00012DE54 /* SecurityScreenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83AF24222AC005F00012DE54 /* SecurityScreenController.xib */; };
+		83AF24252AC005F70012DE54 /* SecurityScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF24242AC005F70012DE54 /* SecurityScreenController.swift */; };
 		83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
 		83B4148B2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
 		83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */; };
@@ -191,6 +193,8 @@
 		83AD0FCE2A330834008B3C09 /* Encryptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryptor.swift; sourceTree = "<group>"; };
 		83AD0FD22A3309A9008B3C09 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		83AD0FD42A340E92008B3C09 /* AccountCredentialsManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCredentialsManagerTests.swift; sourceTree = "<group>"; };
+		83AF24222AC005F00012DE54 /* SecurityScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityScreenController.xib; sourceTree = "<group>"; };
+		83AF24242AC005F70012DE54 /* SecurityScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScreenController.swift; sourceTree = "<group>"; };
 		83B414892A8DE628005CFAEB /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		83BAB20C2A7310A000E06493 /* OpenAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppLink.swift; sourceTree = "<group>"; };
@@ -379,6 +383,15 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		83AF241F2AC005B70012DE54 /* SecurityScreen */ = {
+			isa = PBXGroup;
+			children = (
+				83AF24242AC005F70012DE54 /* SecurityScreenController.swift */,
+				83AF24222AC005F00012DE54 /* SecurityScreenController.xib */,
+			);
+			path = SecurityScreen;
+			sourceTree = "<group>";
+		};
 		9520B50A29DA107900FFD65B = {
 			isa = PBXGroup;
 			children = (
@@ -432,6 +445,7 @@
 				9520B54D29DBC62100FFD65B /* AccountCredentialList */,
 				831288EA2A383F32009549F0 /* CredentialConfigure */,
 				839D99892A3AC6AB00C59AC6 /* Settings */,
+				83AF241F2AC005B70012DE54 /* SecurityScreen */,
 				83381E582A4408560070C427 /* TermsAndConditions */,
 			);
 			path = Modules;
@@ -611,6 +625,7 @@
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,
 				9520B52029DA107D00FFD65B /* Assets.xcassets in Resources */,
 				9520B51E29DA107900FFD65B /* Main.storyboard in Resources */,
+				83AF24232AC005F00012DE54 /* SecurityScreenController.xib in Resources */,
 				83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */,
 				8328759B2A3194F6006694FE /* AccountCredentialsMediatingController.xib in Resources */,
 			);
@@ -670,6 +685,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831288EE2A383FF7009549F0 /* CredentialConfigureCoordinator.swift in Sources */,
+				83AF24252AC005F70012DE54 /* SecurityScreenController.swift in Sources */,
 				839D998F2A3AC6D600C59AC6 /* SettingsMediatingController.swift in Sources */,
 				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
