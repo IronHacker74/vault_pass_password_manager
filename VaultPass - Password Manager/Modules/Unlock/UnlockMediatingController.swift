@@ -29,7 +29,6 @@ class UnlockMediatingController: UIViewController, UIViewLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = UnlockCoordinator(factory: UnlockFactory(), navigation: self.navigationController)
-        self.unlockDetailLabel.text = "Use your device's authentication to unlock and manage your passwords."
     }
     
     override func viewDidAppear(_ animated: Bool) {

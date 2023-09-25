@@ -164,6 +164,7 @@
 		83381E5D2A4415810070C427 /* TermsAndConditionsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsFactory.swift; sourceTree = "<group>"; };
 		8348D7AC2A3EBAFC00D16B0B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		8349B6892A996D0B003886AE /* PadConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PadConstraints.swift; sourceTree = "<group>"; };
+		834E97242AC15376002A18C0 /* Manual Tests.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = "Manual Tests.md"; sourceTree = "<group>"; };
 		8351B6522AAED6A7003DCF43 /* IdentifierTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTextFieldCell.swift; sourceTree = "<group>"; };
 		8351B6572AAED760003DCF43 /* IdentifierTextFieldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IdentifierTextFieldCell.xib; sourceTree = "<group>"; };
 		8351B65B2AAED8F8003DCF43 /* IdentifierTextFieldCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTextFieldCellTests.swift; sourceTree = "<group>"; };
@@ -269,7 +270,7 @@
 			path = CredentialConfigure;
 			sourceTree = "<group>";
 		};
-		832875802A30244C006694FE /* Login */ = {
+		832875802A30244C006694FE /* Unlock */ = {
 			isa = PBXGroup;
 			children = (
 				8328758E2A302900006694FE /* UnlockFactory.swift */,
@@ -277,7 +278,7 @@
 				832875812A302467006694FE /* UnlockMediatingController.swift */,
 				83381E552A4402BD0070C427 /* UnlockMediatingControllerTests.swift */,
 			);
-			path = Login;
+			path = Unlock;
 			sourceTree = "<group>";
 		};
 		832875A02A31A4B5006694FE /* AccountManager */ = {
@@ -395,6 +396,7 @@
 		9520B50A29DA107900FFD65B = {
 			isa = PBXGroup;
 			children = (
+				834E97242AC15376002A18C0 /* Manual Tests.md */,
 				9520B54629DA3A2300FFD65B /* Model.xcdatamodeld */,
 				9520B51529DA107900FFD65B /* VaultPass - Password Manager */,
 				9520B53629DA107D00FFD65B /* VaultPass - Password ManagerUITests */,
@@ -441,7 +443,7 @@
 		9520B54B29DBC5E800FFD65B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				832875802A30244C006694FE /* Login */,
+				832875802A30244C006694FE /* Unlock */,
 				9520B54D29DBC62100FFD65B /* AccountCredentialList */,
 				831288EA2A383F32009549F0 /* CredentialConfigure */,
 				839D99892A3AC6AB00C59AC6 /* Settings */,

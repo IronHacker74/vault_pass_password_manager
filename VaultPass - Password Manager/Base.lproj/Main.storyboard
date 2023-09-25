@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POC-Xh-87M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POC-Xh-87M">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,15 +11,15 @@
         <!--Unlock Mediating Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="UnlockMediatingController" id="BYZ-38-t0r" customClass="UnlockMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UnlockMediatingController" id="BYZ-38-t0r" customClass="UnlockMediatingController" customModule="VaultPass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-ey-Nnq">
-                                <rect key="frame" x="40" y="627.66666666666663" width="313" height="50"/>
+                                <rect key="frame" x="32" y="648" width="329" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1Gs-YN-Kih"/>
+                                    <constraint firstAttribute="height" constant="60" id="1Gs-YN-Kih"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Unlock">
@@ -31,12 +30,25 @@
                                     <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iH5-gz-2bV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-8k-hx9">
-                                <rect key="frame" x="32" y="693.66666666666663" width="329" height="0.0"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use your device's authentication to unlock and manage your passwords." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WuI-8k-hx9">
+                                <rect key="frame" x="32" y="724" width="329" height="33.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VaultPass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK9-dU-3N8">
+                                <rect key="frame" x="16" y="119" width="361" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vault" translatesAutoresizingMaskIntoConstraints="NO" id="hv9-as-hge">
+                                <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2FF-24-ot9"/>
+                                    <constraint firstAttribute="height" constant="240" id="SzM-jK-rzG"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ghK-fn-oAv">
                                 <rect key="frame" x="32" y="773.66666666666663" width="329" height="28.333333333333371"/>
                                 <subviews>
@@ -64,36 +76,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VaultPass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK9-dU-3N8">
-                                <rect key="frame" x="16" y="167" width="361" height="33"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A simple and secure way to manage and store your passwords and credentials." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFw-ju-QdC">
-                                <rect key="frame" x="24" y="210" width="345" height="46.666666666666686"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="AccentColor"/>
+                        <color key="backgroundColor" red="0.18453145030000001" green="0.56072342399999997" blue="0.89413219690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EK9-dU-3N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4tk-sB-Aaw"/>
+                            <constraint firstItem="hv9-as-hge" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="92u-Jz-T5J"/>
                             <constraint firstItem="WuI-8k-hx9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="A0f-vg-anJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="40" id="Ahg-Hm-cjj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="32" id="Ahg-Hm-cjj"/>
+                            <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="EHE-HL-hq5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ghK-fn-oAv" secondAttribute="trailing" constant="32" id="EnI-8W-wYx"/>
                             <constraint firstItem="ghK-fn-oAv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Fpi-Yi-cap"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LFw-ju-QdC" secondAttribute="trailing" constant="24" id="KeV-BF-aGa"/>
-                            <constraint firstItem="ghK-fn-oAv" firstAttribute="top" secondItem="WuI-8k-hx9" secondAttribute="bottom" constant="80" id="Mdc-MZ-hYw"/>
-                            <constraint firstItem="v2K-ey-Nnq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="P6r-g2-TI3"/>
-                            <constraint firstItem="LFw-ju-QdC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="VhS-hr-Uq0"/>
-                            <constraint firstItem="LFw-ju-QdC" firstAttribute="top" secondItem="EK9-dU-3N8" secondAttribute="bottom" constant="10" id="YHC-y8-Rxq"/>
-                            <constraint firstItem="WuI-8k-hx9" firstAttribute="top" secondItem="v2K-ey-Nnq" secondAttribute="bottom" constant="16" id="fxu-dj-ZjY"/>
+                            <constraint firstItem="ghK-fn-oAv" firstAttribute="top" secondItem="WuI-8k-hx9" secondAttribute="bottom" constant="16" id="Mdc-MZ-hYw"/>
+                            <constraint firstItem="WuI-8k-hx9" firstAttribute="top" secondItem="v2K-ey-Nnq" secondAttribute="bottom" constant="16" id="NdT-sk-7x9"/>
+                            <constraint firstItem="hv9-as-hge" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nwx-ow-67i"/>
+                            <constraint firstItem="v2K-ey-Nnq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="P6r-g2-TI3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EK9-dU-3N8" secondAttribute="trailing" constant="16" id="b5T-WK-11s"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ghK-fn-oAv" secondAttribute="bottom" constant="16" id="gtl-ZS-YLQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EK9-dU-3N8" secondAttribute="trailing" constant="16" id="vAz-4t-ADa"/>
-                            <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="xLj-36-lch"/>
+                            <constraint firstItem="EK9-dU-3N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="hCj-dT-Kqr"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WuI-8k-hx9" secondAttribute="trailing" constant="32" id="zK6-1o-7FP"/>
                         </constraints>
                     </view>
@@ -105,13 +104,9 @@
                         <outlet property="unlockDetailLabel" destination="WuI-8k-hx9" id="kzf-01-YPb"/>
                         <outletCollection property="padConstraints" destination="Ahg-Hm-cjj" collectionClass="NSMutableArray" id="JeO-Z3-PsD"/>
                         <outletCollection property="padConstraints" destination="EnI-8W-wYx" collectionClass="NSMutableArray" id="WTc-iK-eci"/>
-                        <outletCollection property="padConstraints" destination="KeV-BF-aGa" collectionClass="NSMutableArray" id="hzd-zf-Wji"/>
-                        <outletCollection property="padConstraints" destination="vAz-4t-ADa" collectionClass="NSMutableArray" id="aWV-dj-LIb"/>
                         <outletCollection property="padConstraints" destination="zK6-1o-7FP" collectionClass="NSMutableArray" id="6NN-SP-caC"/>
-                        <outletCollection property="padConstraints" destination="4tk-sB-Aaw" collectionClass="NSMutableArray" id="dxB-Uz-F7A"/>
                         <outletCollection property="padConstraints" destination="P6r-g2-TI3" collectionClass="NSMutableArray" id="PM9-AN-cng"/>
                         <outletCollection property="padConstraints" destination="Fpi-Yi-cap" collectionClass="NSMutableArray" id="ZGv-Fi-NR0"/>
-                        <outletCollection property="padConstraints" destination="VhS-hr-Uq0" collectionClass="NSMutableArray" id="Cvk-Cf-2XM"/>
                         <outletCollection property="padConstraints" destination="A0f-vg-anJ" collectionClass="NSMutableArray" id="32M-7V-0nR"/>
                     </connections>
                 </viewController>
@@ -139,6 +134,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Vault" width="1039" height="1087"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
