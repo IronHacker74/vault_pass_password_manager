@@ -312,8 +312,12 @@ extension CredentialConfigureMediatingController: UITableViewDelegate, UITableVi
         }
     }
     
-    func identifierTextFieldDidEndEditing() {
+    func identifierTextFieldDidEndEditing(index: Int?, textFieldIsEmpty: Bool?) {
         self.scrollView.setContentOffset(.zero, animated: true)
+        if let index, textFieldIsEmpty == true {
+            self.identifiers.remove(at: index)
+            self.identifierTableView.reloadData()
+        }
     }
     
     func identifierTextFieldDidBeginEditing(origin: CGPoint) {

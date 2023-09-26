@@ -10,7 +10,7 @@ import UIKit
 protocol IdentifierTextFieldCellDelegate {
     func identifierTextFieldDidBeginEditing(origin: CGPoint)
     func textFieldCellDidUpdate(text: String, index: Int)
-    func identifierTextFieldDidEndEditing()
+    func identifierTextFieldDidEndEditing(index: Int?, textFieldIsEmpty: Bool?)
     func deleteIdentifier(_ index: Int)
 }
 
@@ -37,7 +37,7 @@ final class IdentifierTextFieldCell: UITableViewCell, UITextFieldDelegate, UIVie
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.delegate?.identifierTextFieldDidEndEditing()
+        self.delegate?.identifierTextFieldDidEndEditing(index: self.index, textFieldIsEmpty: textField.text?.isEmpty)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
