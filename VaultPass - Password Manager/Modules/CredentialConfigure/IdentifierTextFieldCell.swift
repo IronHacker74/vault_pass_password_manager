@@ -32,7 +32,13 @@ final class IdentifierTextFieldCell: UITableViewCell, UITextFieldDelegate, UIVie
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        guard let index = self.index else { return }
+        guard let index = self.index else {
+            return
+        }
+        guard self.identifierTextField.text?.isEmpty == false else {
+            self.identifierTextField.endEditing(true)
+            return
+        }
         self.delegate?.deleteIdentifier(index)
     }
     
