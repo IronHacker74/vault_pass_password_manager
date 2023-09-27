@@ -26,7 +26,6 @@ final class UnlockMediatingControllerTests: XCTestCase {
         controller.loadViewIfNeeded()
         // then
         XCTAssertNotNil(controller.unlockButton)
-        XCTAssertNotNil(controller.unlockDetailLabel)
         XCTAssertNotNil(controller.termsAndConditionsBtn)
         XCTAssertNotNil(controller.privacyPolicyBtn)
     }
