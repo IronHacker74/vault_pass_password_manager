@@ -15,7 +15,6 @@ protocol UnlockDelegate {
 class UnlockMediatingController: UIViewController, UIViewLoading {
     
     @IBOutlet private(set) var unlockButton: UIButton!
-    @IBOutlet private(set) var unlockDetailLabel: UILabel!
     @IBOutlet private(set) var termsAndConditionsBtn: UIButton!
     @IBOutlet private(set) var privacyPolicyBtn: UIButton!
     @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
@@ -29,7 +28,6 @@ class UnlockMediatingController: UIViewController, UIViewLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = UnlockCoordinator(factory: UnlockFactory(), navigation: self.navigationController)
-        self.unlockDetailLabel.text = "Use your device's authentication to unlock and manage your passwords."
     }
     
     override func viewDidAppear(_ animated: Bool) {

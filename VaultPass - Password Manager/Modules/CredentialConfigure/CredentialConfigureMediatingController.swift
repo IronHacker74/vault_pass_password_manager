@@ -41,6 +41,7 @@ class CredentialConfigureMediatingController: UIViewController {
     @IBOutlet private(set) var deleteBtn: UIButton!
     @IBOutlet private(set) var showPasswordBtn: UIButton!
     @IBOutlet private(set) var copyPasswordBtn: UIButton!
+    @IBOutlet private(set) var undoPasswordBtn: UIButton!
     @IBOutlet private(set) var identifierTableView: UITableView!
     @IBOutlet private(set) var addIdentifierButton: UIButton!
     @IBOutlet private(set) var padConstraints: [NSLayoutConstraint]! {
@@ -50,6 +51,7 @@ class CredentialConfigureMediatingController: UIViewController {
     }
     
     let delegate: CredentialConfigureDelegate?
+    var passwordUndoManager = UndoManager()
     var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
     var passwordSettingsView: PasswordSettingsView?
     var shadowView: UIView?
@@ -72,6 +74,7 @@ class CredentialConfigureMediatingController: UIViewController {
         self.setupTextFields()
         self.setupIdentifierTableView()
         self.navigationItem.title = "Credential Configuration"
+        self.enableUndoButton(with: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -100,6 +103,7 @@ class CredentialConfigureMediatingController: UIViewController {
             self.showError("Password failed to generate")
             return
         }
+        self.registerPasswordUndo()
         self.hideErrorIfNeeded()
         self.setPasswordTextField(with: newPassword)
     }
@@ -152,6 +156,10 @@ class CredentialConfigureMediatingController: UIViewController {
         #endif
     }
     
+    @IBAction func undoPasswordButtonPressed(_ sender: UIButton) {
+        self.navigationUndoButton()
+    }
+    
     private func showError(_ error: String){
         self.errorLabel.text = error
         if self.errorLabel.isHidden {
@@ -168,6 +176,27 @@ class CredentialConfigureMediatingController: UIViewController {
     func setPasswordTextField(with text: String) {
         self.passwordField.text = text
         self.delegate?.passwordTextFieldDidChange(self, text: text)
+    }
+    
+    @objc func navigationUndoButton() {
+        if self.passwordUndoManager.canUndo {
+            self.passwordUndoManager.undo()
+        }
+        self.enableUndoButton(with: self.passwordUndoManager.canUndo)
+    }
+    
+    @objc func undoPassword(password: String) {
+        self.setPasswordTextField(with: password)
+    }
+    
+    func enableUndoButton(with value: Bool) {
+        self.undoPasswordBtn.isEnabled = value
+        self.undoPasswordBtn.isUserInteractionEnabled = value
+    }
+    
+    func registerPasswordUndo() {
+        self.passwordUndoManager.registerUndo(withTarget: self, selector: #selector(undoPassword), object: self.passwordField.text)
+        self.enableUndoButton(with: self.passwordUndoManager.canUndo)
     }
 }
 
@@ -258,6 +287,7 @@ extension CredentialConfigureMediatingController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == self.passwordField {
+            self.registerPasswordUndo()
             var text = (textField.text ?? "") + string
             if string.isEmpty && (range.length == textField.text?.count) {
                 text = ""
@@ -312,8 +342,12 @@ extension CredentialConfigureMediatingController: UITableViewDelegate, UITableVi
         }
     }
     
-    func identifierTextFieldDidEndEditing() {
+    func identifierTextFieldDidEndEditing(index: Int?, textFieldIsEmpty: Bool?) {
         self.scrollView.setContentOffset(.zero, animated: true)
+        if let index, textFieldIsEmpty == true {
+            self.identifiers.remove(at: index)
+            self.identifierTableView.reloadData()
+        }
     }
     
     func identifierTextFieldDidBeginEditing(origin: CGPoint) {
@@ -323,3 +357,9 @@ extension CredentialConfigureMediatingController: UITableViewDelegate, UITableVi
     }
 }
 
+extension CredentialConfigureMediatingController {
+    override var keyCommands: [UIKeyCommand]? {
+        let undoCommand = UIKeyCommand(title: "Undo password edit", action: #selector(self.navigationUndoButton), input: "z", modifierFlags: .command)
+        return (super.keyCommands ?? []) + [undoCommand]
+    }
+}

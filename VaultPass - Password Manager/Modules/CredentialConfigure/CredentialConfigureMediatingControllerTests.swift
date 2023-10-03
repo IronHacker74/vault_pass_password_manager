@@ -10,12 +10,6 @@ import XCTest
 
 final class CredentialConfigureMediatingControllerTests: XCTestCase {
 
-    override func setUpWithError() throws {
-    }
-
-    override func tearDownWithError() throws {
-    }
-
     func testIBOutletsNotNil() {
         // given
         let controller = CredentialConfigureMediatingController(delegate: nil)
@@ -35,6 +29,21 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.copyPasswordBtn)
         XCTAssertNotNil(controller.identifierTableView)
         XCTAssertNotNil(controller.addIdentifierButton)
+    }
+    
+    func testIBActionsNotNil() {
+        // given
+        let controller = CredentialConfigureMediatingController(delegate: nil)
+        // when
+        controller.loadViewIfNeeded()
+        // then
+        XCTAssertNotNil(controller.saveButton.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.deleteBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.passwordSettingsBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.generatePasswordBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.showPasswordBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.copyPasswordBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.addIdentifierButton.actions(forTarget: controller, forControlEvent: .touchUpInside))
     }
     
     func testCredentialConfigureIsInCreateMode() {
@@ -265,7 +274,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertEqual(controller.identifierTableView.numberOfRows(inSection: 0), controller.identifiers.count)
     }
     
-    func testEndEditingIdentifierChangesItInController() {
+    func testIdentifierChangesInControllerData() {
         // given
         let manager = AccountCredentialsManager()
         // when
@@ -292,5 +301,49 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         let _ = cell.textField(cell.identifierTextField, shouldChangeCharactersIn: NSRange(), replacementString: "")
         // then
         XCTAssertEqual(cell.identifierTextField.text, controller.identifiers.last)
+    }
+    
+    func testIdentifierIsDeletedWhenLeftEmpty() {
+        // given
+        let manager = AccountCredentialsManager()
+        // when
+        let newCredential = AccountCredential(title: "title", username: "username", password: "password", identifiers: [
+            "identifier1.com",
+            "identifier2.com",
+            "identifier3.com"
+        ])
+        let credentials = [newCredential]
+        // then
+        XCTAssertTrue(manager.storeCredentials(credentials))
+        
+        // given
+        let newIdentifier = ""
+        let lastIdentifierIndex = credentials.last!.identifiers.endIndex-1
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: 0, navigation: UINavigationController()))
+        // when
+        controller.loadViewIfNeeded()
+        guard let cell = controller.identifierTableView.cellForRow(at: IndexPath(row: lastIdentifierIndex, section: 0)) as? IdentifierTextFieldCell else {
+            XCTFail("Cell is not IdentifierTextFieldCell")
+            return
+        }
+        cell.identifierTextField.text = newIdentifier
+        cell.textFieldDidEndEditing(cell.identifierTextField)
+        
+        // then
+        XCTAssertEqual(controller.identifiers.count, 2)
+        XCTAssertEqual(controller.identifierTableView.numberOfRows(inSection: 0), 2)
+    }
+    
+    func testUndoManagerRevertsTheSetPassword() {
+        // given
+        let password = "password"
+        let controller = CredentialConfigureMediatingController(delegate: CredentialConfigureCoordinator(factory: CredentialConfigureFactory(), manager: AccountCredentialsManager(), index: nil, navigation: UINavigationController()))
+        // when
+        controller.loadViewIfNeeded()
+        controller.setPasswordTextField(with: password)
+        controller.generatePasswordBtn.sendActions(for: .touchUpInside)
+        controller.undoPasswordBtn.sendActions(for: .touchUpInside)
+        // then
+        XCTAssertEqual(controller.passwordField.text, password)
     }
 }

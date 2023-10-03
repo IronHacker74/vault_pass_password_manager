@@ -10,7 +10,7 @@ import UIKit
 protocol IdentifierTextFieldCellDelegate {
     func identifierTextFieldDidBeginEditing(origin: CGPoint)
     func textFieldCellDidUpdate(text: String, index: Int)
-    func identifierTextFieldDidEndEditing()
+    func identifierTextFieldDidEndEditing(index: Int?, textFieldIsEmpty: Bool?)
     func deleteIdentifier(_ index: Int)
 }
 
@@ -32,12 +32,18 @@ final class IdentifierTextFieldCell: UITableViewCell, UITextFieldDelegate, UIVie
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
-        guard let index = self.index else { return }
+        guard let index = self.index else {
+            return
+        }
+        guard self.identifierTextField.text?.isEmpty == false else {
+            self.identifierTextField.endEditing(true)
+            return
+        }
         self.delegate?.deleteIdentifier(index)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.delegate?.identifierTextFieldDidEndEditing()
+        self.delegate?.identifierTextFieldDidEndEditing(index: self.index, textFieldIsEmpty: textField.text?.isEmpty)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

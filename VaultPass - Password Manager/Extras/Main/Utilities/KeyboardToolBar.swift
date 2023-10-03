@@ -11,19 +11,27 @@ final class KeyboardToolBar: UIToolbar {
     private let textFieldTag: Int
     private let view: UIView
     
-    init(view: UIView, textFieldTag: Int) {
+    init(view: UIView, textFieldTag: Int, showDirectionalArrows: Bool = true) {
         self.view = view
         self.textFieldTag = textFieldTag
         super.init(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
         let fixedSpaceItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         fixedSpaceItem.width = 10
-        self.items = [
-            UIBarButtonItem(image: UIImage(systemName: "chevron.up"), style: .plain, target: self, action: #selector(upButtonTapped)),
-            fixedSpaceItem,
-            UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(downButtonTapped)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
-        ]
+
+        if showDirectionalArrows {
+            self.items = [
+                UIBarButtonItem(image: UIImage(systemName: "chevron.up"), style: .plain, target: self, action: #selector(upButtonTapped)),
+                fixedSpaceItem,
+                UIBarButtonItem(image: UIImage(systemName: "chevron.down"), style: .plain, target: self, action: #selector(downButtonTapped)),
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+            ]
+        } else {
+            self.items = [
+                UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil),
+                UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonTapped))
+            ]
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -60,6 +68,7 @@ final class KeyboardToolBar: UIToolbar {
     
     @objc func doneButtonTapped() {
         guard let currentTextField = self.view.viewWithTag(self.textFieldTag) else {
+            self.view.resignFirstResponder()
             return
         }
         currentTextField.resignFirstResponder()
