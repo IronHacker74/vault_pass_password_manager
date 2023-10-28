@@ -50,13 +50,13 @@ class CredentialConfigureMediatingController: UIViewController {
         }
     }
     
-    let delegate: CredentialConfigureDelegate?
-    var passwordUndoManager = UndoManager()
-    var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
-    var passwordSettingsView: PasswordSettingsView?
-    var shadowView: UIView?
+    private let delegate: CredentialConfigureDelegate?
+    private let passwordUndoManager = UndoManager()
     var identifiers: [String] = []
-    var cellIdentifier: String = "IdentifierTextFieldCell"
+    private let cellIdentifier: String = "IdentifierTextFieldCell"
+    var passwordSettingsView: PasswordSettingsView?
+    var copyToClipboardConfirmationView: CopyToClipboardConfirmationView?
+    var shadowView: UIView?
     
     init(delegate: CredentialConfigureDelegate?) {
         self.delegate = delegate

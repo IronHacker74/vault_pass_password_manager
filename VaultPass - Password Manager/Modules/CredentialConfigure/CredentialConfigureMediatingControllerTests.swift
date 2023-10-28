@@ -29,6 +29,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.copyPasswordBtn)
         XCTAssertNotNil(controller.identifierTableView)
         XCTAssertNotNil(controller.addIdentifierButton)
+        XCTAssertNotNil(controller.undoPasswordBtn)
     }
     
     func testIBActionsNotNil() {
@@ -44,6 +45,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         XCTAssertNotNil(controller.showPasswordBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
         XCTAssertNotNil(controller.copyPasswordBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
         XCTAssertNotNil(controller.addIdentifierButton.actions(forTarget: controller, forControlEvent: .touchUpInside))
+        XCTAssertNotNil(controller.undoPasswordBtn.actions(forTarget: controller, forControlEvent: .touchUpInside))
     }
     
     func testCredentialConfigureIsInCreateMode() {
@@ -159,7 +161,7 @@ final class CredentialConfigureMediatingControllerTests: XCTestCase {
         controller.copyPasswordBtn.sendActions(for: .touchUpInside)
         // then
         XCTAssertEqual(UIPasteboard.general.string, string)
-        XCTAssertNotNil(controller.copyToClipboardConfirmationView)
+        XCTAssertNotNil(controller.view.subviews.first! is CopyToClipboardConfirmationView)
     }
     
     func testPasswordChangeAlsoChangesPasswordFieldBackgroundColorIsRed() {
