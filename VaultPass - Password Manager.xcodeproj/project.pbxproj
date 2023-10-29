@@ -26,6 +26,7 @@
 		832AF35F2A67381300E6DE35 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 839C8E4E2A48C3AA00EE1A94 /* MainInterface.storyboard */; };
 		832AF3652A67467A00E6DE35 /* BiometricUnlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832AF3642A67467A00E6DE35 /* BiometricUnlock.swift */; };
 		832DD4872A7F84BF007331BC /* CredentialProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839C8E4C2A48C3AA00EE1A94 /* CredentialProviderViewController.swift */; };
+		832F6ECF2AEE31C10086A79C /* CopyToClipboardConfirmationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83CAFDD52A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib */; };
 		8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8337E0C02A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift */; };
 		83381E572A4402F60070C427 /* UnlockMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83381E552A4402BD0070C427 /* UnlockMediatingControllerTests.swift */; };
 		83381E5A2A4408C40070C427 /* TermsAndConditionsMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83381E592A4408C40070C427 /* TermsAndConditionsMediatingController.xib */; };
@@ -607,6 +608,7 @@
 			files = (
 				8351B6592AAED760003DCF43 /* IdentifierTextFieldCell.xib in Resources */,
 				8360526E2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */,
+				832F6ECF2AEE31C10086A79C /* CopyToClipboardConfirmationView.xib in Resources */,
 				83F38ECD2A870D5C000F0B98 /* CredentialConfigureMediatingController.xib in Resources */,
 				839C8E502A48C3AA00EE1A94 /* MainInterface.storyboard in Resources */,
 			);
@@ -819,7 +821,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager.AutofillCredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -851,7 +853,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager.AutofillCredentialProvider";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1005,7 +1007,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1042,7 +1044,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
