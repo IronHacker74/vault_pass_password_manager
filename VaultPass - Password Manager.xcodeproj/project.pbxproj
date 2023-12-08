@@ -44,6 +44,7 @@
 		8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835828592A4BC492004CAD4B /* UIButton+.swift */; };
 		835E097F2A51385E00A319F7 /* TermsAndConditions.txt in Resources */ = {isa = PBXBuildFile; fileRef = 835E097E2A51385E00A319F7 /* TermsAndConditions.txt */; };
 		835F6EF82A914E1800BC44E7 /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F6EF72A914E1800BC44E7 /* Bool+.swift */; };
+		835FEDFE2B23A26600C3D6B9 /* PaymentConfirmationMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835FEDFD2B23A26600C3D6B9 /* PaymentConfirmationMediatingControllerTests.swift */; };
 		8360526A2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */; };
 		8360526B2A8822CA003D5BD2 /* PasswordSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */; };
 		8360526D2A88231E003D5BD2 /* PasswordSettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */; };
@@ -181,6 +182,7 @@
 		83590C702A6256BC0059D354 /* VaultPass - Password Manager.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VaultPass - Password Manager.entitlements"; sourceTree = "<group>"; };
 		835E097E2A51385E00A319F7 /* TermsAndConditions.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TermsAndConditions.txt; sourceTree = "<group>"; };
 		835F6EF72A914E1800BC44E7 /* Bool+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+.swift"; sourceTree = "<group>"; };
+		835FEDFD2B23A26600C3D6B9 /* PaymentConfirmationMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationMediatingControllerTests.swift; sourceTree = "<group>"; };
 		836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsView.swift; sourceTree = "<group>"; };
 		8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PasswordSettingsView.xib; sourceTree = "<group>"; };
 		8360526F2A882C7A003D5BD2 /* PasswordSettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordSettingsCoordinator.swift; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 				83F0740C2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift */,
 				83F0740E2B20205B004A510A /* ManagePaymentMediatingController.xib */,
 				83B4E0632B22C56500BA89CF /* PaymentConfirmationMediatingController.swift */,
+				835FEDFD2B23A26600C3D6B9 /* PaymentConfirmationMediatingControllerTests.swift */,
 				83B4E0652B22C56D00BA89CF /* PaymentConfirmationMediatingController.xib */,
 			);
 			path = ManagePayment;
@@ -772,6 +775,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835FEDFE2B23A26600C3D6B9 /* PaymentConfirmationMediatingControllerTests.swift in Sources */,
 				8316D6FC2A49E6F100113E5B /* CredentialConfigureMediatingControllerTests.swift in Sources */,
 				8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */,
 				83F0740D2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift in Sources */,

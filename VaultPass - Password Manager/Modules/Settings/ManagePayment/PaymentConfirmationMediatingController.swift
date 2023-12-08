@@ -8,7 +8,7 @@
 import UIKit
 
 final class PaymentConfirmationMediatingController: UIViewController {
-    @IBOutlet private var doneButton: UIButton!
+    @IBOutlet private (set) var doneButton: UIButton!
     
     private let delegate: ManagePaymentDelegate?
     
