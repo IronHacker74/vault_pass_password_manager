@@ -71,6 +71,8 @@
 		83AF24252AC005F70012DE54 /* SecurityScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF24242AC005F70012DE54 /* SecurityScreenController.swift */; };
 		83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
 		83B4148B2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
+		83B4E0642B22C56500BA89CF /* PaymentConfirmationMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B4E0632B22C56500BA89CF /* PaymentConfirmationMediatingController.swift */; };
+		83B4E0662B22C56D00BA89CF /* PaymentConfirmationMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83B4E0652B22C56D00BA89CF /* PaymentConfirmationMediatingController.xib */; };
 		83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */; };
 		83B9AAA72A929AB200D2A46D /* BiometricUnlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832AF3642A67467A00E6DE35 /* BiometricUnlock.swift */; };
 		83B9AAA82A92A28500D2A46D /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F6EF72A914E1800BC44E7 /* Bool+.swift */; };
@@ -90,6 +92,11 @@
 		83EDAB1A2A84BA2000973D8C /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD0FD22A3309A9008B3C09 /* Converter.swift */; };
 		83EDAB1B2A84BA2900973D8C /* PersistentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831E393B2A7E2AFE004EB694 /* PersistentContainer.swift */; };
 		83EDAB1C2A84BA3300973D8C /* URL+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EDAB152A84B8A400973D8C /* URL+.swift */; };
+		83F074072B20202D004A510A /* ManagePaymentFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F074062B20202D004A510A /* ManagePaymentFactory.swift */; };
+		83F074092B202033004A510A /* ManagePaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F074082B202033004A510A /* ManagePaymentCoordinator.swift */; };
+		83F0740B2B20203C004A510A /* ManagePaymentMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F0740A2B20203C004A510A /* ManagePaymentMediatingController.swift */; };
+		83F0740D2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F0740C2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift */; };
+		83F0740F2B20205B004A510A /* ManagePaymentMediatingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 83F0740E2B20205B004A510A /* ManagePaymentMediatingController.xib */; };
 		83F38ECA2A870D39000F0B98 /* CredentialConfigureFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EB2A383FD5009549F0 /* CredentialConfigureFactory.swift */; };
 		83F38ECB2A870D3B000F0B98 /* CredentialConfigureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288ED2A383FF7009549F0 /* CredentialConfigureCoordinator.swift */; };
 		83F38ECC2A870D43000F0B98 /* CredentialConfigureMediatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831288EF2A384014009549F0 /* CredentialConfigureMediatingController.swift */; };
@@ -198,6 +205,8 @@
 		83AF24222AC005F00012DE54 /* SecurityScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityScreenController.xib; sourceTree = "<group>"; };
 		83AF24242AC005F70012DE54 /* SecurityScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScreenController.swift; sourceTree = "<group>"; };
 		83B414892A8DE628005CFAEB /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		83B4E0632B22C56500BA89CF /* PaymentConfirmationMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentConfirmationMediatingController.swift; sourceTree = "<group>"; };
+		83B4E0652B22C56D00BA89CF /* PaymentConfirmationMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentConfirmationMediatingController.xib; sourceTree = "<group>"; };
 		83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		83BAB20C2A7310A000E06493 /* OpenAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppLink.swift; sourceTree = "<group>"; };
 		83BAB20E2A731A7000E06493 /* AppLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLinkTests.swift; sourceTree = "<group>"; };
@@ -207,6 +216,11 @@
 		83D4E8442A468C7A00991258 /* AccountCredentialsMediatingControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountCredentialsMediatingControllerTests.swift; sourceTree = "<group>"; };
 		83EB7B7C2A9D9C34002848DE /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		83EDAB152A84B8A400973D8C /* URL+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+.swift"; sourceTree = "<group>"; };
+		83F074062B20202D004A510A /* ManagePaymentFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePaymentFactory.swift; sourceTree = "<group>"; };
+		83F074082B202033004A510A /* ManagePaymentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePaymentCoordinator.swift; sourceTree = "<group>"; };
+		83F0740A2B20203C004A510A /* ManagePaymentMediatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePaymentMediatingController.swift; sourceTree = "<group>"; };
+		83F0740C2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePaymentMediatingControllerTests.swift; sourceTree = "<group>"; };
+		83F0740E2B20205B004A510A /* ManagePaymentMediatingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManagePaymentMediatingController.xib; sourceTree = "<group>"; };
 		83F145FA2A8B05EF00A5FA61 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		9520B51329DA107900FFD65B /* VaultPass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VaultPass.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9520B51629DA107900FFD65B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +362,7 @@
 				836052692A8822CA003D5BD2 /* PasswordSettingsView.swift */,
 				830D2E2E2A89A68E006D0710 /* PasswordSettingsViewTests.swift */,
 				8360526C2A88231E003D5BD2 /* PasswordSettingsView.xib */,
+				83F074052B201F8F004A510A /* ManagePayment */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -392,6 +407,20 @@
 				83AF24222AC005F00012DE54 /* SecurityScreenController.xib */,
 			);
 			path = SecurityScreen;
+			sourceTree = "<group>";
+		};
+		83F074052B201F8F004A510A /* ManagePayment */ = {
+			isa = PBXGroup;
+			children = (
+				83F074062B20202D004A510A /* ManagePaymentFactory.swift */,
+				83F074082B202033004A510A /* ManagePaymentCoordinator.swift */,
+				83F0740A2B20203C004A510A /* ManagePaymentMediatingController.swift */,
+				83F0740C2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift */,
+				83F0740E2B20205B004A510A /* ManagePaymentMediatingController.xib */,
+				83B4E0632B22C56500BA89CF /* PaymentConfirmationMediatingController.swift */,
+				83B4E0652B22C56D00BA89CF /* PaymentConfirmationMediatingController.xib */,
+			);
+			path = ManagePayment;
 			sourceTree = "<group>";
 		};
 		9520B50A29DA107900FFD65B = {
@@ -626,9 +655,11 @@
 				839D99912A3AC6E200C59AC6 /* SettingsMediatingController.xib in Resources */,
 				832AF35F2A67381300E6DE35 /* MainInterface.storyboard in Resources */,
 				8351B65D2AAEDA5F003DCF43 /* IdentifierTextFieldCell.xib in Resources */,
+				83B4E0662B22C56D00BA89CF /* PaymentConfirmationMediatingController.xib in Resources */,
 				9520B52329DA107D00FFD65B /* LaunchScreen.storyboard in Resources */,
 				9520B52029DA107D00FFD65B /* Assets.xcassets in Resources */,
 				9520B51E29DA107900FFD65B /* Main.storyboard in Resources */,
+				83F0740F2B20205B004A510A /* ManagePaymentMediatingController.xib in Resources */,
 				83AF24232AC005F00012DE54 /* SecurityScreenController.xib in Resources */,
 				83CAFDD62A3D6BBA00FD87F8 /* CopyToClipboardConfirmationView.xib in Resources */,
 				8328759B2A3194F6006694FE /* AccountCredentialsMediatingController.xib in Resources */,
@@ -694,8 +725,10 @@
 				831288EC2A383FD5009549F0 /* CredentialConfigureFactory.swift in Sources */,
 				9520B54A29DBC04900FFD65B /* AccountCredential.swift in Sources */,
 				83870EB52AB010CE007EF66A /* AutofillSettings.swift in Sources */,
+				83B4E0642B22C56500BA89CF /* PaymentConfirmationMediatingController.swift in Sources */,
 				9520B51B29DA107900FFD65B /* AccountCredentialsMediatingController.swift in Sources */,
 				83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */,
+				83F074072B20202D004A510A /* ManagePaymentFactory.swift in Sources */,
 				832AF3652A67467A00E6DE35 /* BiometricUnlock.swift in Sources */,
 				837312772A415DF000886D86 /* UIViewLoading.swift in Sources */,
 				8351B6532AAED6A7003DCF43 /* IdentifierTextFieldCell.swift in Sources */,
@@ -715,6 +748,8 @@
 				83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */,
 				83EDAB162A84B8A400973D8C /* URL+.swift in Sources */,
 				83BAB20D2A7310A000E06493 /* OpenAppLink.swift in Sources */,
+				83F074092B202033004A510A /* ManagePaymentCoordinator.swift in Sources */,
+				83F0740B2B20203C004A510A /* ManagePaymentMediatingController.swift in Sources */,
 				8348D7AD2A3EBAFC00D16B0B /* UserData.swift in Sources */,
 				8349B68A2A996D0B003886AE /* PadConstraints.swift in Sources */,
 				839D998D2A3AC6CB00C59AC6 /* SettingsCoordinator.swift in Sources */,
@@ -739,6 +774,7 @@
 			files = (
 				8316D6FC2A49E6F100113E5B /* CredentialConfigureMediatingControllerTests.swift in Sources */,
 				8351C87D2A49FFC900E9BFA5 /* SettingsMediatingControllerTests.swift in Sources */,
+				83F0740D2B20204F004A510A /* ManagePaymentMediatingControllerTests.swift in Sources */,
 				83AD0FD52A340E92008B3C09 /* AccountCredentialsManagerTests.swift in Sources */,
 				83EB7B7E2A9D9C38002848DE /* PreviewData.swift in Sources */,
 				8337E0C12A6B4F6700E9C99A /* TermsAndConditionsMediatingControllerTests.swift in Sources */,

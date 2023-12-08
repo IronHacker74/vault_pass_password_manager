@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMediatingController" customModule="VaultPass___Password_Manager" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SettingsMediatingController" customModule="VaultPass" customModuleProvider="target">
             <connections>
                 <outlet property="alwaysShowCredentials" destination="aWw-ws-jkJ" id="hep-HY-k4H"/>
                 <outlet property="autoUnlockLabel" destination="9hW-V1-RUK" id="E9D-QL-rl0"/>
@@ -43,19 +43,33 @@
                             <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-h3-wjl">
-                                    <rect key="frame" x="16" y="16" width="361" height="175.33333333333334"/>
+                                    <rect key="frame" x="16" y="16.000000000000014" width="361" height="229.33333333333337"/>
                                     <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qqv-Sf-K8i">
+                                            <rect key="frame" x="0.0" y="0.0" width="361" height="48"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="fc6-fU-YYC"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.16078431369999999" green="0.5568627451" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="filled" title="Get Unlimited Storage">
+                                                <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                                            </buttonConfiguration>
+                                            <connections>
+                                                <action selector="didTapUnlimitedStorage:" destination="-1" eventType="touchUpInside" id="aKL-fY-9uh"/>
+                                            </connections>
+                                        </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fci-Ac-Akx">
-                                            <rect key="frame" x="0.0" y="0.0" width="361" height="31"/>
+                                            <rect key="frame" x="0.0" y="64" width="361" height="21"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto-unlock on app launch" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hW-V1-RUK">
-                                                    <rect key="frame" x="0.0" y="5.3333333333333286" width="312" height="20.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.33333333333334281" width="312" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sAC-dJ-zFb">
-                                                    <rect key="frame" x="312" y="0.0" width="51" height="31"/>
+                                                    <rect key="frame" x="312" y="0.0" width="51" height="21"/>
                                                     <color key="onTintColor" name="AccentColor"/>
                                                     <connections>
                                                         <action selector="autoUnlockSwitched:" destination="-1" eventType="touchUpInside" id="gjW-gZ-FcF"/>
@@ -64,11 +78,11 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" id="CVh-I3-4d3">
-                                            <rect key="frame" x="0.0" y="47" width="361" height="31"/>
+                                            <rect key="frame" x="0.0" y="101" width="361" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Always show credentials" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F21-PF-ZKz">
-                                                    <rect key="frame" x="0.0" y="5.3333333333333286" width="312" height="20.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="5.3333333333333428" width="312" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -84,7 +98,7 @@
                                             <viewLayoutGuide key="safeArea" id="fFb-iO-Saj"/>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5TL-hL-Dz7">
-                                            <rect key="frame" x="0.0" y="94" width="361" height="31"/>
+                                            <rect key="frame" x="0.0" y="148" width="361" height="31"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto-update identifiers in autofill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="LuC-Gi-4rk">
                                                     <rect key="frame" x="0.0" y="0.0" width="312" height="31"/>
@@ -102,7 +116,7 @@
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RCE-8r-fVT">
-                                            <rect key="frame" x="0.0" y="141" width="361" height="34.333333333333343"/>
+                                            <rect key="frame" x="0.0" y="195" width="361" height="34.333333333333343"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable autofill" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PKN-8O-6GW">
                                                     <rect key="frame" x="0.0" y="0.0" width="106.66666666666667" height="34.333333333333336"/>
@@ -129,7 +143,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mD-rq-dXl">
-                                    <rect key="frame" x="16" y="223.33333333333331" width="361" height="299.99999999999994"/>
+                                    <rect key="frame" x="16" y="277.33333333333331" width="361" height="299.99999999999994"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="300" id="fl5-ka-80D"/>
                                     </constraints>

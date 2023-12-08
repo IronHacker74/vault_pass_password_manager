@@ -16,6 +16,7 @@ protocol SettingsDelegate: PasswordSettingsDelegate {
     func termsAndConditionsTapped()
     func lockButtonPressed()
     func deleteAllData()
+    func didTapUnlimitedStorage()
 }
 
 protocol SettingsDisplayable {
@@ -76,6 +77,10 @@ class SettingsMediatingController: UIViewController {
             passwordSettingsView.bottomAnchor.constraint(equalTo: self.passwordSettingsParentView.bottomAnchor),
         ])
         passwordSettingsView.setup(delegate: self.delegate, withCloseButton: false)
+    }
+    
+    @IBAction func didTapUnlimitedStorage(_ sender: UIButton) {
+        self.delegate?.didTapUnlimitedStorage()
     }
     
     @IBAction func autoUnlockSwitched(_ sender: UISwitch) {

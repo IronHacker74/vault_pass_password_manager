@@ -21,6 +21,13 @@ class SettingsCoordinator: PasswordSettingsCoordinator, SettingsDelegate {
         displayable.setSettingSwitches(userData: self.userData)
     }
     
+    func didTapUnlimitedStorage() {
+        let factory = ManagePaymentFactory()
+        let coordinator = factory.makeCoordinator(navigation: self.navigation)
+        let controller = factory.makeMediatingController(delegate: coordinator)
+        self.navigation.pushViewController(controller, animated: true)
+    }
+    
     func toggleAutoUnlock() {
         let value = self.userData.getAutoUnlock()
         self.userData.setAutoUnlock(value.toggle())
