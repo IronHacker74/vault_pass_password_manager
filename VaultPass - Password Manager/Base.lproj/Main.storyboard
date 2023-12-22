@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POC-Xh-87M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POC-Xh-87M">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,12 +17,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2K-ey-Nnq">
-                                <rect key="frame" x="32" y="665.66666666666663" width="329" height="60"/>
+                                <rect key="frame" x="48" y="665.66666666666663" width="297" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="1Gs-YN-Kih"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Unlock the vault">
+                                <buttonConfiguration key="configuration" style="filled" title="Unlock the Vault">
+                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="baseForegroundColor" red="0.29803922770000002" green="0.55294120309999995" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
@@ -30,13 +31,6 @@
                                     <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iH5-gz-2bV"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Vault" translatesAutoresizingMaskIntoConstraints="NO" id="hv9-as-hge">
-                                <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="2FF-24-ot9"/>
-                                    <constraint firstAttribute="height" constant="240" id="SzM-jK-rzG"/>
-                                </constraints>
-                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="ghK-fn-oAv">
                                 <rect key="frame" x="32" y="773.66666666666663" width="329" height="28.333333333333371"/>
                                 <subviews>
@@ -65,8 +59,8 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VaultPass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK9-dU-3N8">
-                                <rect key="frame" x="32" y="111" width="329" height="33"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                <rect key="frame" x="32" y="167" width="329" height="33"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -74,14 +68,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.18453145030000001" green="0.56072342399999997" blue="0.89413219690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="2yj-iS-EW8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="32" id="Ahg-Hm-cjj"/>
+                            <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="2yj-iS-EW8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="48" id="Ahg-Hm-cjj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ghK-fn-oAv" secondAttribute="trailing" constant="32" id="EnI-8W-wYx"/>
                             <constraint firstItem="ghK-fn-oAv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Fpi-Yi-cap"/>
-                            <constraint firstItem="hv9-as-hge" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GdZ-II-cfE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EK9-dU-3N8" secondAttribute="trailing" constant="32" id="Hos-Oq-gXR"/>
-                            <constraint firstItem="v2K-ey-Nnq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="P6r-g2-TI3"/>
-                            <constraint firstItem="hv9-as-hge" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TpT-DA-VxU"/>
+                            <constraint firstItem="v2K-ey-Nnq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="P6r-g2-TI3"/>
                             <constraint firstItem="ghK-fn-oAv" firstAttribute="top" secondItem="v2K-ey-Nnq" secondAttribute="bottom" constant="48" id="gJ8-RF-KuO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ghK-fn-oAv" secondAttribute="bottom" constant="16" id="gtl-ZS-YLQ"/>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="zsx-Sx-kjr"/>
@@ -121,7 +113,4 @@
             <point key="canvasLocation" x="35.877862595419849" y="3.5211267605633805"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Vault" width="1039" height="1087"/>
-    </resources>
 </document>
