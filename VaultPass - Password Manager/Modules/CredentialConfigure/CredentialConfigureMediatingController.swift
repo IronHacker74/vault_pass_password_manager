@@ -73,7 +73,6 @@ class CredentialConfigureMediatingController: UIViewController {
         self.delegate?.credentialConfigureViewDidLoad(displayable: self)
         self.setupTextFields()
         self.setupIdentifierTableView()
-        self.navigationItem.title = "Credential Configuration"
         self.enableUndoButton(with: false)
     }
     
@@ -202,6 +201,7 @@ class CredentialConfigureMediatingController: UIViewController {
 
 extension CredentialConfigureMediatingController: CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential) {
+        self.navigationItem.title = "Edit Credential"
         self.titleField.text = credential.title
         self.usernameField.text = credential.decryptedUsername
         self.setPasswordTextField(with: credential.decryptedPassword)
@@ -211,6 +211,7 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
     
     func createCredential() {
         self.deleteBtn.isHidden = true
+        self.navigationItem.title = "Create Credential"
         if let textField = self.view.viewWithTag(1) {
             textField.becomeFirstResponder()
         }
