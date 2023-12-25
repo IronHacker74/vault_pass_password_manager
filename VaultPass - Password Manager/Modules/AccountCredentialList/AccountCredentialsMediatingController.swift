@@ -79,6 +79,7 @@ class AccountCredentialsMediatingController: UIViewController {
     }
 
     private func configureNavigationBar() {
+        self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
         self.navigationItem.title = "My Credentials"
         self.navigationItem.setLeftBarButton(makeSettingsButton(), animated: false)
         self.navigationItem.setRightBarButtonItems([makeAddButton(), makeRefreshButton()], animated: false)
