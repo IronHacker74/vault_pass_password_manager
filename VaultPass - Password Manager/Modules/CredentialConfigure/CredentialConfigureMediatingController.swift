@@ -201,7 +201,7 @@ class CredentialConfigureMediatingController: UIViewController {
 
 extension CredentialConfigureMediatingController: CredentialConfigureDisplayable {
     func fillFields(with credential: AccountCredential) {
-        self.navigationItem.title = "Edit Credential"
+        self.navigationItem.title = "Edit"
         self.titleField.text = credential.title
         self.usernameField.text = credential.decryptedUsername
         self.setPasswordTextField(with: credential.decryptedPassword)
@@ -211,7 +211,7 @@ extension CredentialConfigureMediatingController: CredentialConfigureDisplayable
     
     func createCredential() {
         self.deleteBtn.isHidden = true
-        self.navigationItem.title = "Create Credential"
+        self.navigationItem.title = "Create"
         if let textField = self.view.viewWithTag(1) {
             textField.becomeFirstResponder()
         }

@@ -71,6 +71,8 @@
 		83AF24252AC005F70012DE54 /* SecurityScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AF24242AC005F70012DE54 /* SecurityScreenController.swift */; };
 		83B4148A2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
 		83B4148B2A8DE628005CFAEB /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B414892A8DE628005CFAEB /* KeychainService.swift */; };
+		83B53D032B5C69250071AF52 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B53D022B5C69250071AF52 /* UIColor+.swift */; };
+		83B53D042B5C69250071AF52 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B53D022B5C69250071AF52 /* UIColor+.swift */; };
 		83B7877D2A4F9AF0005E4546 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */; };
 		83B9AAA72A929AB200D2A46D /* BiometricUnlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 832AF3642A67467A00E6DE35 /* BiometricUnlock.swift */; };
 		83B9AAA82A92A28500D2A46D /* Bool+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835F6EF72A914E1800BC44E7 /* Bool+.swift */; };
@@ -198,6 +200,7 @@
 		83AF24222AC005F00012DE54 /* SecurityScreenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecurityScreenController.xib; sourceTree = "<group>"; };
 		83AF24242AC005F70012DE54 /* SecurityScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityScreenController.swift; sourceTree = "<group>"; };
 		83B414892A8DE628005CFAEB /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		83B53D022B5C69250071AF52 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		83B7877C2A4F9AF0005E4546 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		83BAB20C2A7310A000E06493 /* OpenAppLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAppLink.swift; sourceTree = "<group>"; };
 		83BAB20E2A731A7000E06493 /* AppLinkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLinkTests.swift; sourceTree = "<group>"; };
@@ -362,6 +365,7 @@
 				83BB69A42A70FAAA00C61C6D /* UIPasteBoard+.swift */,
 				83EDAB152A84B8A400973D8C /* URL+.swift */,
 				835F6EF72A914E1800BC44E7 /* Bool+.swift */,
+				83B53D022B5C69250071AF52 /* UIColor+.swift */,
 			);
 			name = Extras;
 			path = ..;
@@ -679,6 +683,7 @@
 				83B4148B2A8DE628005CFAEB /* KeychainService.swift in Sources */,
 				836052732A883BBE003D5BD2 /* PasswordSettingsCoordinator.swift in Sources */,
 				83EDAB1B2A84BA2900973D8C /* PersistentContainer.swift in Sources */,
+				83B53D042B5C69250071AF52 /* UIColor+.swift in Sources */,
 				83EDAB1A2A84BA2000973D8C /* Converter.swift in Sources */,
 				83EDAB172A84BA0A00973D8C /* AccountCredentialsManager.swift in Sources */,
 			);
@@ -725,6 +730,7 @@
 				839D99932A3BFC3700C59AC6 /* CopyToClipboardConfirmationView.swift in Sources */,
 				832875822A302467006694FE /* UnlockMediatingController.swift in Sources */,
 				8328758A2A30285C006694FE /* AccountCredentialsFactory.swift in Sources */,
+				83B53D032B5C69250071AF52 /* UIColor+.swift in Sources */,
 				8358285A2A4BC492004CAD4B /* UIButton+.swift in Sources */,
 				9520B54829DA3A2300FFD65B /* Model.xcdatamodeld in Sources */,
 				83C6FFC62AA4FA3D00D402A8 /* KeyboardToolBar.swift in Sources */,
@@ -1007,7 +1013,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1044,7 +1050,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6;
+				MARKETING_VERSION = 1.7;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

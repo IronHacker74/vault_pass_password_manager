@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Vault.png",
+      "filename" : "SecurityIcon@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Vault@2x.png",
+      "filename" : "SecurityIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Vault@3x.png",
+      "filename" : "SecurityIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

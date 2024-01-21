@@ -44,8 +44,8 @@ class PasswordSettingsView: UIView, UIViewLoading {
     
     private func setupPasswordStrengthColor() {
         self.passwordStrengthColor.layer.cornerRadius = 6
-        self.passwordStrengthColor.layer.borderWidth = 3
-        self.passwordStrengthColor.layer.borderColor = UIColor.secondarySystemBackground.cgColor
+        self.passwordStrengthColor.layer.borderWidth = 2
+        self.passwordStrengthColor.layer.borderColor = UIColor.label.cgColor
     }
     
     private func hideCloseButton(_ value: Bool) {
