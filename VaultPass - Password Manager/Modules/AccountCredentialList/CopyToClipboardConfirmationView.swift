@@ -60,7 +60,7 @@ class CopyToClipboardConfirmationView: UIView, UIViewLoading {
         self.messageLabel.text = message
         self.layer.cornerRadius = 15
         self.layer.borderWidth = 1.5
-        self.layer.borderColor = UIColor.systemBlue.cgColor
+        self.layer.borderColor = UIColor.vaultPassYellow()?.cgColor
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {

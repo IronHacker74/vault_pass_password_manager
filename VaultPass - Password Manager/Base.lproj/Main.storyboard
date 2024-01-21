@@ -24,8 +24,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Unlock the Vault">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
-                                    <color key="baseForegroundColor" red="0.29803922770000002" green="0.55294120309999995" blue="0.87058818339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseForegroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iH5-gz-2bV"/>
@@ -64,18 +64,27 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-S4-G66">
+                                <rect key="frame" x="96.666666666666686" y="326" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="anW-ba-igK"/>
+                                    <constraint firstAttribute="height" constant="200" id="dB5-ol-mhs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.18453145030000001" green="0.56072342399999997" blue="0.89413219690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="2yj-iS-EW8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="48" id="Ahg-Hm-cjj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ghK-fn-oAv" secondAttribute="trailing" constant="32" id="EnI-8W-wYx"/>
                             <constraint firstItem="ghK-fn-oAv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="Fpi-Yi-cap"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EK9-dU-3N8" secondAttribute="trailing" constant="32" id="Hos-Oq-gXR"/>
+                            <constraint firstItem="e6S-S4-G66" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jzx-ja-L9L"/>
                             <constraint firstItem="v2K-ey-Nnq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="P6r-g2-TI3"/>
                             <constraint firstItem="ghK-fn-oAv" firstAttribute="top" secondItem="v2K-ey-Nnq" secondAttribute="bottom" constant="48" id="gJ8-RF-KuO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ghK-fn-oAv" secondAttribute="bottom" constant="16" id="gtl-ZS-YLQ"/>
+                            <constraint firstItem="e6S-S4-G66" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="n3W-QI-3w1"/>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="32" id="zsx-Sx-kjr"/>
                         </constraints>
                     </view>
@@ -102,6 +111,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4mS-Ve-6eO">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -113,4 +123,8 @@
             <point key="canvasLocation" x="35.877862595419849" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+    <resources>
+        <image name="UnlockIcon" width="477" height="512"/>
+    </resources>
 </document>

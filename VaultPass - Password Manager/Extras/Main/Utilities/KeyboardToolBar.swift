@@ -15,6 +15,7 @@ final class KeyboardToolBar: UIToolbar {
         self.view = view
         self.textFieldTag = textFieldTag
         super.init(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+        self.tintColor = .vaultPassYellow()
         let fixedSpaceItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         fixedSpaceItem.width = 10
 
