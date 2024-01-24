@@ -3,7 +3,7 @@ Written strictly in Swift, VaultPass is designed to be an offline, account crede
 For questions, concerns, or complains please email me: codehacker.andrew@gmail.com
 
 # Features
-Here are a list of the features that I built into VaultPass as well as some explaintions for their use and any issues I ran into.
+Here are a list of the features that I built into VaultPass as well as some explaintions for their use and any issues I ran into whil developing.
 ### Security
 Accessing your credentials is important to happen by you alone (obviously). The optimal way to keep users out while also not requiring another password to access is to use the respective Apple device's biometric capability. 
 The other point of concern is the credentials themselves; VaultPass keeps things encrypted until you actually want to see them. The main screen that is filled with all your credentials is not sitting unencrypted. Only when you should the username and password will these be unencrypted. From first creation to storage to iCloud, at no point in the process is sensitive data unencrypted. 
@@ -25,9 +25,9 @@ I attempted to cover as much code as possible with testing but some things (such
 
 # Branches
 To keep things clean between development, testing, and release three branches were constructed to separate these out.
-## dev
+### dev
 Development process of the application and trial sub-branches would be generated to assist in separating out specific features before pushing to dev.
-## test
+### test
 Strictly for testing purposes that gets pushed to Testflight to locally test and to run all the tests as well upon getting merged into from dev. Rarely gets it's own commits but if a test fails or a small mistake happens then a commit will be generated for the fix.
-## release
+### release
 The release of the application to the App Store; this has no other responsibility and only gets a commit for App Store breaking issues.
