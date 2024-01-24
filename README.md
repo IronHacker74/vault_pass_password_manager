@@ -1,4 +1,4 @@
-![Github Image](https://github.com/codehacker74/vault_pass_password_manager/assets/23727704/ec45b8c2-eae6-41b4-920e-be4ece935052)
+![Github Image](https://github.com/codehacker74/vault_pass_password_manager/assets/23727704/8f2b287c-f667-4cd7-89f8-d2ac52f54bbd)
 Written strictly in Swift, VaultPass is designed to be an offline, account credential vault that makes it simple and secure to store and use usernames and passwords.
 For questions, concerns, or complains please email me: codehacker.andrew@gmail.com
 
