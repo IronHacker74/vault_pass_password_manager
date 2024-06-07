@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POC-Xh-87M">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="POC-Xh-87M">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,10 +22,10 @@
                                     <constraint firstAttribute="height" constant="60" id="1Gs-YN-Kih"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Unlock the Vault">
+                                <buttonConfiguration key="configuration" style="filled" title="Unlock iKeys">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="baseForegroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="baseBackgroundColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="unlockButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iH5-gz-2bV"/>
@@ -73,7 +73,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15487661959999999" green="0.26984751219999997" blue="0.48824566600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="2yj-iS-EW8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="48" id="Ahg-Hm-cjj"/>
@@ -125,6 +125,6 @@
     </scenes>
     <color key="tintColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="UnlockIcon" width="477" height="512"/>
+        <image name="UnlockIcon" width="512" height="512"/>
     </resources>
 </document>

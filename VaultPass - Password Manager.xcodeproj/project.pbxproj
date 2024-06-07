@@ -1000,7 +1000,7 @@
 				DEVELOPMENT_TEAM = BW3C2GGWGE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VaultPass - Password Manager/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = VaultPass;
+				INFOPLIST_KEY_CFBundleDisplayName = iKeys;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to easily manager your passwords";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1013,7 +1013,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1037,7 +1037,7 @@
 				DEVELOPMENT_TEAM = BW3C2GGWGE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "VaultPass - Password Manager/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = VaultPass;
+				INFOPLIST_KEY_CFBundleDisplayName = iKeys;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to easily manager your passwords";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1050,7 +1050,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.7;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.IronHacker.VaultPass---Password-Manager";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

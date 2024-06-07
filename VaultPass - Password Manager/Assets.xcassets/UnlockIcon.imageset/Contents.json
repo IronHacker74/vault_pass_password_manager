@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "UnlockIcon@1x.png",
+      "filename" : "iKeys UnlockIcon@1x.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "UnlockIcon@2x.png",
+      "filename" : "iKeys UnlockIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "UnlockIcon@3x.png",
+      "filename" : "iKeys UnlockIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

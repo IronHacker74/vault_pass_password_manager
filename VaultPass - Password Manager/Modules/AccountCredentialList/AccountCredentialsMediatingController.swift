@@ -79,28 +79,28 @@ class AccountCredentialsMediatingController: UIViewController {
     }
 
     private func configureNavigationBar() {
-        self.navigationController?.navigationBar.tintColor = .vaultPassYellow()
+        self.navigationController?.navigationBar.tintColor = .vaultPassDarkBlue()
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        self.navigationItem.title = "VaultPass"
+        self.navigationItem.title = "iKeys"
         self.navigationItem.setLeftBarButton(makeSettingsButton(), animated: false)
         self.navigationItem.setRightBarButtonItems([makeAddButton(), makeRefreshButton()], animated: false)
     }
     
     private func makeAddButton() -> UIBarButtonItem {
         let button = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonPressed))
-        button.tintColor = .vaultPassYellow()
+        button.tintColor = .vaultPassDarkBlue()
         return button
     }
     
     private func makeSettingsButton() -> UIBarButtonItem {
         let button = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingsButtonPressed))
-        button.tintColor = .vaultPassYellow()
+        button.tintColor = .vaultPassDarkBlue()
         return button
     }
     
     private func makeRefreshButton() -> UIBarButtonItem {
         let button = UIBarButtonItem(image: UIImage(systemName: "icloud.and.arrow.down"), style: .plain, target: self, action: #selector(refresh(_:)))
-        button.tintColor = .vaultPassYellow()
+        button.tintColor = .vaultPassDarkBlue()
         return button
     }
     

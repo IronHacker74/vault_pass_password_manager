@@ -24,6 +24,10 @@ extension UIColor {
        )
     }
     
+    static func vaultPassDarkBlue() -> UIColor? {
+        return UIColor(rgb: 0x28457C)
+    }
+    
     static func vaultPassYellow() -> UIColor? {
         return UIColor(rgb: 0xF3C802)
     }
