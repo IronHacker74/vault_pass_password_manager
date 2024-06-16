@@ -22,7 +22,7 @@
                                     <constraint firstAttribute="height" constant="60" id="1Gs-YN-Kih"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Unlock iKeys">
+                                <buttonConfiguration key="configuration" style="filled" title="Unlock your keys">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                     <color key="baseForegroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -58,13 +58,13 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VaultPass" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK9-dU-3N8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iKeys" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EK9-dU-3N8">
                                 <rect key="frame" x="32" y="167" width="329" height="33"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-S4-G66">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iKeys Icon" translatesAutoresizingMaskIntoConstraints="NO" id="e6S-S4-G66">
                                 <rect key="frame" x="96.666666666666686" y="326" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="anW-ba-igK"/>
@@ -73,7 +73,8 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.15487661959999999" green="0.26984751219999997" blue="0.48824566600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.83921568629999999" green="0.69803921570000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="EK9-dU-3N8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="2yj-iS-EW8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v2K-ey-Nnq" secondAttribute="trailing" constant="48" id="Ahg-Hm-cjj"/>
@@ -125,6 +126,6 @@
     </scenes>
     <color key="tintColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
-        <image name="UnlockIcon" width="512" height="512"/>
+        <image name="iKeys Icon" width="285.33334350585938" height="410"/>
     </resources>
 </document>

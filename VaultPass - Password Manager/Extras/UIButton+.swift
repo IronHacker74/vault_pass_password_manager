@@ -11,8 +11,8 @@ extension UIButton {
     func showCredential(title: String? = "") {
         self.isUserInteractionEnabled = true
         self.setTitle(title, for: .normal)
-        self.setTitleColor(.vaultPassDarkBlue(), for: .normal)
-        self.layer.borderColor = UIColor.vaultPassDarkBlue()?.cgColor
+        self.setTitleColor(.vaultPassYellow(), for: .normal)
+        self.layer.borderColor = UIColor.vaultPassYellow()?.cgColor
     }
     
     func hideCredential(placeHolder: String) {

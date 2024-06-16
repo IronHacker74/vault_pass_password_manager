@@ -21,7 +21,6 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter identifier" textAlignment="natural" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="L6C-DZ-HxI">
                                 <rect key="frame" x="0.0" y="0.0" width="349" height="28"/>
-                                <color key="tintColor" red="0.15686274509803921" green="0.27058823529411763" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>

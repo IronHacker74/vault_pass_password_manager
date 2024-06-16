@@ -18,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UnlockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KeU-xO-ucF">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iKeys Icon" translatesAutoresizingMaskIntoConstraints="NO" id="KeU-xO-ucF">
                     <rect key="frame" x="76.666666666666686" y="306" width="240" height="240"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="240" id="4Xh-TG-hTv"/>
@@ -27,7 +27,7 @@
                 </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" red="0.15487661959999999" green="0.26984751219999997" blue="0.48824566600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.098039215690000001" green="0.1019607843" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="KeU-xO-ucF" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Dzs-wD-wAR"/>
                 <constraint firstItem="KeU-xO-ucF" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qAT-xb-Pw6"/>
@@ -36,6 +36,6 @@
         </view>
     </objects>
     <resources>
-        <image name="UnlockIcon" width="512" height="512"/>
+        <image name="iKeys Icon" width="285.33334350585938" height="410"/>
     </resources>
 </document>

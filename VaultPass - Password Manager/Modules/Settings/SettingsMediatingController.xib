@@ -55,7 +55,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sAC-dJ-zFb">
                                                     <rect key="frame" x="312" y="0.0" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.15686274509803921" green="0.27058823529411763" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
                                                     <connections>
                                                         <action selector="autoUnlockSwitched:" destination="-1" eventType="touchUpInside" id="gjW-gZ-FcF"/>
                                                     </connections>
@@ -74,7 +74,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aWw-ws-jkJ">
                                                     <rect key="frame" x="312" y="0.0" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.95294117649999999" green="0.7843137255" blue="0.0078431372550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
                                                     <connections>
                                                         <action selector="alwaysShowCredentials:" destination="-1" eventType="touchUpInside" id="9ko-vt-dRZ"/>
                                                     </connections>
@@ -93,7 +93,7 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Vt-uD-mP2">
                                                     <rect key="frame" x="312" y="0.0" width="51" height="31"/>
-                                                    <color key="onTintColor" red="0.15686274509803921" green="0.27058823529411763" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
                                                     <connections>
                                                         <action selector="autoUpdateIdentifiersSwitched:" destination="-1" eventType="touchUpInside" id="sdf-W4-7K0"/>
                                                     </connections>
@@ -117,7 +117,6 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="v5U-pY-Y7a"/>
                                                     </constraints>
-                                                    <color key="tintColor" red="0.15686274509803921" green="0.27058823529411763" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="arrow.up.forward.app" catalog="system"/>
                                                     <connections>
@@ -169,8 +168,8 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Lock my credentials">
                                         <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="baseBackgroundColor" red="0.15686274509803921" green="0.27058823529411763" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="baseBackgroundColor" systemColor="labelColor"/>
                                     </buttonConfiguration>
                                     <connections>
                                         <action selector="lockBtnPressed:" destination="-1" eventType="touchUpInside" id="h8Z-Qf-INs"/>
@@ -250,6 +249,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
