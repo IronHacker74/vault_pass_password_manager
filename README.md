@@ -1,6 +1,6 @@
 ![Github Image](https://github.com/codehacker74/VaultPass/assets/23727704/3979a9c0-e8ce-4ddc-80d3-bebd7ddb49bb)
 
-Disclaimer, VaultPass has been renamed to iKeys!
+(Disclaimer, VaultPass has been renamed to iKeys!)
 
 Written strictly in Swift, iKeys is designed to be an offline, account credential vault that makes it simple and secure to store and use usernames and passwords.<br>
 For questions, concerns, or complains please email me: <codehacker.andrew@gmail.com>
